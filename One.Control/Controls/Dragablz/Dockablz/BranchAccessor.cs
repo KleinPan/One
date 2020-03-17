@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-
+using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {

@@ -31,7 +31,7 @@ jobs:
       run: dotnet build 
     
     - name: Create the package
-      run: dotnet pack --configuration Release One
+      run: dotnet pack --configuration Debug One
     - name: Publish the package to GPR
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings

@@ -18,11 +18,20 @@ jobs:
       with:
         # SDK version to use. Example: 2.2.104
         dotnet-version:  3.1.101
+        
         # Optional package source for which to set up authentication. Will consult any existing NuGet.config in the root of the repo and provide a temporary NuGet.config using the NUGET_AUTH_TOKEN environment variable as a ClearTextPassword
-        #source-url: # optional
+        source-url: https://nuget.pkg.github.com/branpan/index.json
+        
         # Optional OWNER for using packages from GitHub Package Registry organizations/users other than the current repository's owner. Only used if a GPR URL is also provided in source-url
         #owner: # optional
         # Optional NuGet.config location, if your NuGet.config isn't located in the root of the repo.
         #config-file: # optional
+      env:  
+        NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build One.Core
+    
+    - name: Create the package
+      run: dotnet pack --configuration Release One.Core
+    - name: Publish the package to GPR
+      run: dotnet nuget push One.Core/bin/Release/*.nupkg

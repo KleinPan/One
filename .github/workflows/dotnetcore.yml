@@ -35,4 +35,4 @@ jobs:
     - name: Publish the package to GPR
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
-      run: dotnet nuget push -s https://www.nuget.org/api/v3/package -k $NUGET_AUTH_TOKEN One/One.Core/bin/Release/*.nupkg
+      run: dotnet nuget push One/One/One.Core/bin/Release/*.nupkg -s https://www.nuget.org/api/v3/package -k $NUGET_AUTH_TOKEN 

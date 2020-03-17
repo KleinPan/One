@@ -10,17 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <COMReference Include="NetFwTypeLib.dll">
-      <Guid>58fbcf7c-e7a9-467c-80b3-fc65e8fcca08</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-    </COMReference>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Core.System.Configuration.Install" Version="1.0.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.1.0" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.7.0" />

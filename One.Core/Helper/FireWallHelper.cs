@@ -1,10 +1,12 @@
-﻿using NetFwTypeLib;
+﻿
+//using NetFwTypeLib;
 using System;
 using System.Windows;
 
 
 namespace One.Core.Helper
 {
+    /*
     class FireWallHelper
     {
         /// <summary> 添加防火墙例外端口 </summary>
@@ -128,6 +130,7 @@ namespace One.Core.Helper
             netFwMgr.LocalPolicy.CurrentProfile.AuthorizedApplications.Remove(executablePath);
         }
     }
+    */
 }
 #region 备份
 /*
@@ -271,3 +274,5 @@ namespace One.Core.Helper
  * 
  * */
 #endregion
+
+ 

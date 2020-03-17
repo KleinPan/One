@@ -29,7 +29,7 @@ jobs:
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
     - name: Build with dotnet
-      run: dotnet build One
+      run: dotnet build 
     
     - name: Create the package
       run: dotnet pack --configuration Release One

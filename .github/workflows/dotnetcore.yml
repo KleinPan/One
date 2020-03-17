@@ -25,7 +25,7 @@ jobs:
         # Optional OWNER for using packages from GitHub Package Registry organizations/users other than the current repository's owner. Only used if a GPR URL is also provided in source-url
         #owner: # optional
         # Optional NuGet.config location, if your NuGet.config isn't located in the root of the repo.
-        #config-file: # optional
+        # config-file: # optional
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
     - name: Build with dotnet

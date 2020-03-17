@@ -30,9 +30,9 @@ jobs:
     - name: Build with dotnet
       run: dotnet build 
     
-    - name: Create the package
-      run: dotnet pack --configuration Debug One.Core
+    #- name: Create the package
+    #  run: dotnet pack --configuration release One.Core
     - name: Publish the package to GPR
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
-      run: dotnet nuget push -s https://www.nuget.org/api/v4/package -k $NUGET_AUTH_TOKEN ./packages/*.nupkg
+      run: dotnet nuget push -s https://www.nuget.org/api/v3/package -k $NUGET_AUTH_TOKEN One/One.Core/bin/Release/*.nupkg

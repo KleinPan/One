@@ -29,9 +29,9 @@ jobs:
       env:  
         NUGET_AUTH_TOKEN: ${{secrets.NuGetApiKey}} # Note, create a secret with this name in Settings
     - name: Build with dotnet
-      run: dotnet build One.Core
+      run: dotnet build One
     
     - name: Create the package
-      run: dotnet pack --configuration Release One.Core
+      run: dotnet pack --configuration Release One
     - name: Publish the package to GPR
       run: dotnet nuget push One.Core/bin/Release/*.nupkg

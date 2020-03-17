@@ -1,0 +1,1720 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>uoLib</name>
+    </assembly>
+    <members>
+        <member name="T:uoLib.Functions">
+            <summary>
+            提供大量常用静态方法
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsNumber(System.String)">
+            <summary>
+            验证是否为纯数字的字符串。不论字符串长度，只要每一位都是数字则返回 true 。
+            </summary>
+            <param name="str">待验证的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsNullOrEmptyStr(System.String)">
+            <summary>
+            验证是否为空字符串。若无需裁切两端空格，建议直接使用 String.IsNullOrEmpty(string)
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+            <remarks>
+            不同于String.IsNullOrEmpty(string)，此方法会增加一步Trim操作。如 IsNullOrEmptyStr(" ") 将返回 true。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.IsValidName(System.String)">
+            <summary>
+            验证是否包含特殊字符，常用于用户名字符串的过滤。
+            </summary>
+            <remarks><![CDATA[常用于用户名字符串的过滤。过滤的字符串有：“$!?#%@~`&*(){};.:+=\'/|"”以及空格、Tab、制表符、大于号、小于号]]></remarks>
+        </member>
+        <member name="M:uoLib.Functions.IsMobileNum(System.String)">
+            <summary>
+            验证手机号码格式是否正确
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsEmail(System.String)">
+            <summary>
+            验证邮箱地址的合法性
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsMatchRegex(System.String,System.Text.RegularExpressions.Regex)">
+            <summary>
+            验证是否匹配指定正则表达式
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsUrl(System.String)">
+            <summary>
+            验证是否为http|https|ftp协议的URL地址
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsIP(System.String)">
+            <summary>
+            验证字符串是否符合IPv4格式
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsFolderName(System.String)">
+            <summary>
+            根据文件夹命名规则验证字符串是否符合文件夹格式
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsFileName(System.String)">
+            <summary>
+            根据文件名命名规则验证字符串是否符合文件名格式
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.IsRGBColor(System.String)">
+            <summary>
+            验证是否为合法的RGB颜色字符串
+            </summary>
+            <param name="color">RGB颜色，如：#00ccff | #039 | ffffcc</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsContainBadWord(System.String,System.String[],System.StringComparison)">
+            <summary>
+            检查字符串中是否包含非法关键字
+            </summary>
+            <param name="str">待检查的字符串，为空或null时将返回false;</param>
+            <param name="badWords">非法关键字，为空或null时将返回false;</param>
+            <param name="comparisonType"></param>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:uoLib.Functions.FormatFileSize(System.Int64)">
+            <summary>
+            将以字节表示的文件大小格式化为对用户友好的字符串表示。
+            </summary>
+            <param name="sizeAsBytes">要格式化的数字（字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.FormatFileSize(System.Int64,System.Int32)">
+            <summary>
+            将以字节表示的文件大小格式化为对用户友好的字符串表示。
+            </summary>
+            <param name="sizeAsBytes">要格式化的数字（字节）</param>
+            <param name="decimals">小数点后保留的位数</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.ReplaceBadChar(System.String)">
+            <summary>
+            过滤特殊字符（“'"*?().”以及Tab、换行、回车、大于号、小于号）
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:uoLib.Functions.ReplaceWitheChar(System.String,System.String)">
+            <summary>
+            过滤空白字符
+            </summary>
+            <param name="str">目标字符串</param>
+            <param name="replaceTo">用于替换空白字符的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.GetRandomNum(System.Int32)">
+            <summary>
+            获取由数字构成的随机字符串。首位不为“0”。
+            </summary>
+            <param name="len">字符串长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.HtmlToJs(System.String)">
+            <summary>
+            将HTML字符串格式化为JavaScirpt字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.GetValidFolderName(System.String)">
+            <summary>
+            获取可用于文件夹名称的安全字符串，确保该字符串中不含文件夹名称不允许的字符。
+            注意：“con”也不能用于文件夹名，但此处未验证
+            </summary>
+            <param name="folderName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.GetValidFileName(System.String)">
+            <summary>
+            获取可用于文件名的安全字符串，确保该字符串中不含文件名不允许的字符。
+            注意：“con”也不能用于文件名，但此处未验证
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.HtmlEnCode(System.String)">
+            <summary>
+            将HTML代码替换为页面文本形式。
+            </summary>
+            <param name="str"></param>
+            <remarks>
+            <![CDATA[替换了：&、>、<、'、"、Tab、空格、换行符、回车符。]]>
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.HtmlDeCode(System.String)">
+            <summary>
+            将页面文本形式字符串还原成HTML代码。
+            </summary>
+            <param name="str"></param>
+            <remarks>
+            <![CDATA[替换了：&、>、<、'、"、Tab、空格、换行符、回车符。]]>
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.HtmlFilter(System.String)">
+            <summary>
+            过滤HTML标签
+            </summary>
+        </member>
+        <member name="M:uoLib.Functions.CutStr(System.String,System.Int32,System.Boolean)">
+            <summary>
+            裁切字符串（中文按照两个字符计算）
+            </summary>
+            <param name="str">旧字符串</param>
+            <param name="len">新字符串长度</param>
+            <param name="HtmlEnable">为 false 时过滤 Html 标签后再进行裁切，反之则保留 Html 标签。</param>
+            <remarks>
+            <para>注意：<ol>
+            <li>若字符串被截断则会在末尾追加“...”，反之则直接返回原始字符串。</li>
+            <li>参数 <paramref name="HtmlEnable"/> 为 false 时会先调用<see cref="M:uoLib.Functions.HtmlFilter(System.String)"/>过滤掉 Html 标签再进行裁切。</li>
+            <li>中文按照两个字符计算。若指定长度位置恰好只获取半个中文字符，则会将其补全，如下面的例子：<br/>
+            <code><![CDATA[
+            string str = "感谢使用uoLib。";
+            string A = CutStr(str,4);   // A = "感谢..."
+            string B = CutStr(str,5);   // B = "感谢使..."
+            ]]></code></li>
+            </ol>
+            </para>
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.CutStr(System.String,System.Int32)">
+            <summary>
+            裁切字符串（中文按照两个字符计算，裁切前会先过滤 Html 标签）
+            </summary>
+            <param name="str">旧字符串</param>
+            <param name="len">新字符串长度</param>
+            <remarks>
+            <para>注意：<ol>
+            <li>若字符串被截断则会在末尾追加“...”，反之则直接返回原始字符串。</li>
+            <li>中文按照两个字符计算。若指定长度位置恰好只获取半个中文字符，则会将其补全，如下面的例子：<br/>
+            <code><![CDATA[
+            string str = "感谢使用uoLib模块。";
+            string A = CutStr(str,4);   // A = "感谢..."
+            string B = CutStr(str,5);   // B = "感谢使..."
+            ]]></code></li>
+            </ol>
+            </para>
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.GetLength(System.String)">
+            <summary>
+            获取字符串长度。与string.Length不同的是，该方法将中文作 2 个字符计算。
+            </summary>
+            <param name="str">目标字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IPToNumber(System.String)">
+            <summary>
+            将IPv4格式的字符串转换为int型表示
+            </summary>
+            <param name="strIPAddress">IPv4格式的字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.NumberToIP(System.Int32)">
+            <summary>
+            将int型表示的IP还原成正常IPv4格式。
+            </summary>
+            <param name="intIPAddress">int型表示的IP</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.GetWebRequest(System.String,System.String,System.String,System.Text.Encoding)">
+            <summary>
+            使用HttpWebRequest发送HTTP请求，同时支持GET/POST方式提交。
+            </summary>
+            <param name="url">要访问的URL地址</param>
+            <param name="queryString"><![CDATA[QueryString形式的数据，如：action=1&id=2]]></param>
+            <param name="method">任何 HTTP 1.1 协议谓词：GET、HEAD、POST、PUT、DELETE、TRACE 或 OPTIONS。</param>
+            <param name="encoding">页面使用的编码</param>
+            <remarks>
+            <para>
+            请注意：
+            <ol>
+            <li><paramref name="queryString"/> 中如果有中文，则需要使用 Uri.EscapeDataString(string) 或 Uri.EscapeUriString(string) 进行对应转换。</li>
+            <li>理论上支持任何 HTTP 1.1 协议谓词，不过就实际使用情况来说，仅对GET/POST方式进行了测试，其他谓词并未测试。</li>
+            </ol>
+            </para>
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsMethodOk(System.String)">
+            <summary>
+            检查指定字符串是否是 HTTP 1.1 协议谓词
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.IsRemotePosting">
+            <summary>
+            验证是否来自于远程提交
+            </summary>
+            <remarks>通过 HTTP_REFERER 来验证，严格地讲此验证可以被伪装欺骗。</remarks>
+        </member>
+        <member name="M:uoLib.Functions.GetIP">
+            <summary>
+            返回浏览者的IP地址。若无法取得，则返回空字符串。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.SelectNodeByValue(System.Web.UI.WebControls.TreeView,System.String)">
+            <summary>
+            根据Value选定TreeView的默认节点
+            </summary>
+            <param name="tv">目标TreeView</param>
+            <param name="sNodeValue">要选定的值</param>
+        </member>
+        <member name="M:uoLib.Functions.FindNode(System.Web.UI.WebControls.TreeNode,System.String)">
+            <summary>
+            递归查找父节点
+            </summary>
+            <param name="tnParent">指定一个根节点，然后遍历它</param>
+            <param name="strValue">所要查找的节点的value</param>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsgStr(System.String)">
+            <summary>
+            返回能警告框的JavaScript代码
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。</remarks>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsgStr(System.String,System.String)">
+            <summary>
+            返回能警告框的JavaScript代码
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。</remarks>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsgStr(System.String,System.Int32)">
+            <summary>
+            返回能警告框的JavaScript代码
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。</remarks>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsg(System.String)">
+            <summary>
+            向页面输出JavaScript格式的警告框
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。</remarks>
+            <param name="msg">警告框消息</param>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsg(System.String,System.Boolean)">
+            <summary>
+            向页面输出JavaScript格式的警告框
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。
+            <br/>
+            <strong>注意：</strong><br/>
+            对 End、Redirect 和 Transfer 方法的调用在当前响应提前结束时会引发一个 ThreadAbortException 异常。
+            祥见：<a href="http://msdn.microsoft.com/zh-cn/library/system.web.httpresponse.end(VS.80).aspx" target="_blank">http://msdn.microsoft.com/zh-cn/library/system.web.httpresponse.end(VS.80).aspx</a>
+            </remarks>
+            <param name="msg">警告框消息</param>
+            <param name="isEndTheResponse">为 true 则调用Page.Response.End();终止页面输出。</param>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsg(System.String,System.String)">
+            <summary>
+            向页面输出JavaScript格式的警告框
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。
+            <br/>
+            此方法将在输出相关Javascript代码后自动调用Page.Response.End();终止页面输出。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.ReportMsg(System.String,System.Int32)">
+            <summary>
+            向页面输出JavaScript格式的警告框
+            </summary>
+            <remarks>此方法会自动将警告消息进行<see cref="M:uoLib.Functions.HtmlToJs(System.String)"/>处理。
+            <br/>
+            此方法将在输出相关Javascript代码后自动调用Page.Response.End();终止页面输出。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Functions.BuildUrlString(System.String,System.String)">
+            <summary>
+            附加或修改 QueryString 的参数
+            </summary>
+            <remarks>
+            若原来的 QueryString 中不存在所指定的的参数，则添加此参数。
+            若已经存在，则用新值替换。
+            </remarks>
+            <param name="urlParameterName">参数名</param>
+            <param name="urlParameterValue">参数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.BuildUrlString(System.Collections.Hashtable)">
+            <summary>
+            附加或修改 QueryString 的参数
+            </summary>
+            <param name="urlParameter">含有 Url 参数键/值对的哈希表</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.BuildUrlString(System.String,System.Collections.Hashtable)">
+            <summary>
+            附加或修改 QueryString 的参数
+            </summary>
+            <param name="queryString">要修改的 QueryString</param>
+            <param name="urlParameter">含有 Url 参数键/值对的哈希表</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.BuildUrlString(System.String,System.String,System.String)">
+            <summary>
+            附加或修改 QueryString 的参数
+            </summary>
+            <param name="queryString">要修改的 QueryString</param>
+            <param name="urlParameterName">参数名</param>
+            <param name="urlParameterValue">参数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Functions.GetMIME(System.String)">
+            <summary>
+            根据扩展名返回所对应的MIME类型字符串。
+            </summary>
+            <param name="fileExtension">文件扩展名。若没有以“.”开头，方法内部将自动补齐。</param>
+        </member>
+        <member name="M:uoLib.Functions.GetTotalPhysicalMemory">
+            <summary>
+            获取物理内存总数(K)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:uoLib.RegexPatterns">
+            <summary>
+            一些常用的正则表达式
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.FolderName">
+            <summary>
+            文件夹命名规则（一些特殊字符不能用于文件夹名；注意：“con”也不能用于文件夹名，但此处未验证）
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.FileName">
+            <summary>
+            文件命名规则（一些特殊字符不能用于文件名；注意：“con”也不能用于文件夹名，但此处未验证）
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.MobileNum">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.Email">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.URL">
+            <summary>
+            URL地址。包括 http/https/ftp 协议
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.IPv4">
+            <summary>
+            IPv4地址
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.HtmlColor">
+            <summary>
+            Html代码中使用的颜色字符串。如#FF0000,0000FF
+            </summary>
+        </member>
+        <member name="F:uoLib.RegexPatterns.HtmlTag">
+            <summary>
+            Html标签
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IDbProviderFactory.CreateOutPutParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            生成一个DbParameter参数实例
+            </summary>
+            <param name="name">参数名</param>
+            <param name="type">参数类型。e.g.DbType.Int32,DbType.String</param>
+            <param name="parameterSize">获取或设置列中数据的最大大小（以字节为单位）。祥见DbParameter.Size</param>
+            <returns></returns>
+        </member>
+        <member name="T:uoLib.Data.ConnectionType">
+            <summary>
+            连接方式
+            </summary>
+        </member>
+        <member name="F:uoLib.Data.ConnectionType.Unsupported">
+            <summary>
+            不支持的连接方式
+            </summary>
+        </member>
+        <member name="T:uoLib.Data.DatabaseType">
+            <summary>
+            数据源类型
+            </summary>
+        </member>
+        <member name="F:uoLib.Data.DatabaseType.SQL">
+            <summary>
+            包括MS SQL Server 2000/2005/2008
+            </summary>
+        </member>
+        <member name="T:uoLib.Web.HttpHandlers.ValidateImg">
+            <summary>
+            使用此HttpHandler可以为您生成一张验证码图片。
+            </summary>
+            <example>
+            <p>使用此HttpHandler可以为您生成一张验证码图片。图片正常显示后，您可以使用 Session["ValidateCode"] 来获取产生的验证码。
+            为避免难以辨认的情况，验证码中不会产生如下字符：0(数字)、1(数字)、l(字母)、I(字母)、o(字母)、O(字母)</p>
+            <p>要使用此模块，您只需要配置web.config中httpHandlers一节即可：</p>
+            <code><![CDATA[
+            <?xml version="1.0" encoding="utf-8"?>
+            <configuration>
+                <system.web>
+                    <httpHandlers>
+                        <add verb="*" path="/ValidateImg.aspx" type="uoLib.Web.HttpHandlers.ValidateImg,uoLib"/>
+                    </httpHandlers>
+                </system.web>
+            </configuration>]]></code>
+            <p>其中“/ValidateImg.aspx”可以是您希望的任意路径，不必存在这个.aspx文件。</p>
+            <p>如此配置后您便可以像普通图片用于，直接在您的网页上使用如下代码来显示验证码了：</p>
+            <code><![CDATA[<img src="/ValidateImg.aspx?n=4" border="0" onclick="var d=new Date();this.src='/ValidateImg.aspx?n=4&amp;t='+d.toString();" style="cursor:pointer;" alt="看不清？点击换一个！" />]]></code>
+            <p>其中图片路径就是您在web.config中配置的路径。其中参数“n”用于指定验证码的字符数，不指定则默认为。</p>
+            </example>
+        </member>
+        <member name="P:uoLib.Web.HttpHandlers.ValidateImg.IsReusable">
+            <summary>
+            是否可以被多线程同时使用
+            </summary>
+        </member>
+        <member name="T:uoLib.AvailableTypeAttribute">
+            <summary>
+            标识此模块的适用范围
+            </summary>
+            <remarks>
+            这些标识用于大致上区分类、方法、属性等模块适用的项目类型。
+            比如<see cref="M:uoLib.Functions.ReportMsg(System.String)"/>方法中使用了<see cref="F:uoLib.AvailableTypeAttribute.Type.WebForm"/>所特有的<see cref="M:System.Web.HttpResponse.Write(System.String)"/>方法，显然这个方法无法在 <see cref="F:uoLib.AvailableTypeAttribute.Type.WinForm"/> 中正常执行，
+            因此<see cref="M:uoLib.Functions.ReportMsg(System.String)"/>被标识为<see cref="F:uoLib.AvailableTypeAttribute.Type.WebForm"/>的特有方法。
+            </remarks>
+        </member>
+        <member name="F:uoLib.AvailableTypeAttribute.Type.Any">
+            <summary>
+            任意
+            </summary>
+        </member>
+        <member name="F:uoLib.AvailableTypeAttribute.Type.WinForm">
+            <summary>
+            应使用于C/S架构的WinForm项目中。
+            </summary>
+        </member>
+        <member name="F:uoLib.AvailableTypeAttribute.Type.WebForm">
+            <summary>
+            应使用于B/S架构的WebForm项目中。
+            </summary>
+        </member>
+        <!-- 对于成员“T:uoLib.Authentication.PowerItemExample”忽略有格式错误的 XML 注释 -->
+        <member name="T:uoLib.Authentication.PoweredMember`1">
+            <summary>
+            角色权限对象，拥有指定权限。（可支持64个独立的权限项）
+            </summary>
+            <typeparam name="T">泛型 T （权限列表）必须是一个枚举。请见示例：<see cref="T:uoLib.Authentication.PowerItemExample"/></typeparam>
+            <remarks>
+            <para>此模块基于二进制操作编写。</para>
+            <para>要使用此模块，只需要定义一个枚举即可，这个枚举即表示了各个独立的权限项。但是这个枚举必须满足以下条件：
+            </para>
+            <ol>
+            <li>以ulong为基类。</li>
+            <li>枚举值必须为2的正整数次方或1。</li>
+            <li>枚举项不超过 64 项。</li>
+            </ol>
+            </remarks>
+            <example>
+            <para>
+            例如下面这个枚举就是一个合法的权限枚举：
+            </para>
+            <code>
+            [Flags]
+            public enum PowerItemExample : ulong
+            {
+                查看用户 = 1,
+                增改用户 = 2,
+                删除用户 = 4,
+                
+                查看系统日志 = 8,
+                管理其他管理员 = 16,
+                关闭网站 = 32
+            }
+            </code>
+            <para>
+            <strong>* 需特别注意：必须显式地为枚举项提供值，否则若有任何枚举项值为 0，就不符合权限枚举的前提条件了。</strong></para>
+            <para>
+            如上所示，在这个权限枚举 <typeparamref name="T"/> 上声明上了 <see cref="T:System.FlagsAttribute"/> 属性，以便使权限项支持按位操作。<br/>
+            按位操作时请务必注意逻辑关系。例如，同时拥有“查看用户”和“增改用户”的权限：
+            <ul>
+            <li><![CDATA[正确的：PowerItemExample.查看用户 | PowerItemExample.增改用户。]]></li>
+            <li><![CDATA[错误的：PowerItemExample.查看用户 & PowerItemExample.增改用户。（此表达式将恒等于 0，即无权限。）]]></li>
+            </ul>
+            而要表示拥有“查看用户”或“增改用户”的权限时，只能分开表示这两个权限。在这一点上请尤为注意。
+            </para>
+            <para>
+            权限枚举 <typeparamref name="T"/> 在进行按位操作之后所得到的返回值，仍然是 <typeparamref name="T"/> 类型。
+            </para>
+            <para></para>
+            <para>有了上面的枚举项，我们就可以使用这个模块进行权限相关的操作。如：</para>
+            
+            <para><strong>建立一个无权限的角色对象：</strong></para>
+            <code><![CDATA[
+            PoweredMember<PowerItemExample> m = new PoweredMember<PowerItemExample>();
+            ]]></code>
+            
+            <para><strong>建立拥有“查看用户”和“增改用户”权限的角色对象：</strong></para>
+            <code><![CDATA[
+            PoweredMember<PowerItemExample> member = new PoweredMember<PowerItemExample>(PowerItemExample.查看用户 | PowerItemExample.增改用户);
+            ]]></code>
+            
+            <para><strong>为此角色对象赋予“查看用户”和“查看系统日志”的权限：</strong></para>
+            <code><![CDATA[
+            // 此操作将在原有的权限基础上赋予新的权限。member的旧权限为“查看用户、增改用户”，现在的新权限为“查看用户、增改用户、查看系统日志”。
+            // 即，在赋予权限时，将会把新的权限添加进去，而不会理会旧的权限。
+            member.Append(PowerItemExample.查看用户 | PowerItemExample.查看系统日志);
+            ]]></code>
+            
+            <para><strong>剥夺此角色对象“删除用户”和“增改用户”的权限：</strong></para>
+            <code><![CDATA[
+            // 此操作将从原有的权限中除去指定的权限。member的旧权限为“查看用户、增改用户、查看系统日志”，现在的新权限为“查看用户、查看系统日志”。
+            // 即，在剥夺权限时，将会把指定的权限从原有权限中除去，如果原来本没用某种权限，将不会理睬。
+            member.Remove(PowerItemExample.删除用户 | PowerItemExample.增改用户);
+            ]]></code>
+            
+            <para><strong>检查角色对象是否具有指定的权限：</strong></para>
+            <code><![CDATA[
+            member.Check(PowerItemExample.删除用户);        // false
+            member.Check(PowerItemExample.查看用户);        // true
+            member.Check(PowerItemExample.查看系统日志);    // true
+            member.Check(PowerItemExample.查看用户 | PowerItemExample.查看系统日志);    // true
+            ]]></code>
+            
+            <para>为方便调试输出，此模块重写了ToString方法用于输出权限细节。例如输出上文最后状态的 member.ToString()，则会有：</para>
+            <code>
+            角色权限
+            -------------------------------------
+            权限标识（ulong）：9
+            二进制字符串：1001
+            权限详情：（查看用户, 查看系统日志）
+                    允许：查看用户
+                    禁止：增改用户
+                    禁止：删除用户
+                    允许：查看系统日志
+                    禁止：管理其他管理员
+                    禁止：关闭网站
+            </code>
+            </example>
+            <exception cref="T:System.ArgumentException">泛型 T （权限列表）必须是一个枚举！</exception>
+            <exception cref="T:System.ArgumentException">泛型 T （权限列表）所指定的枚举其基础类型必须是 ulong ！</exception>
+            <exception cref="T:System.ArgumentException">泛型 T （权限列表）的值必须是2的正整数次方或1，且不能重复！</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数必须大于 -1 ！</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数必须是由0、1构成的二进制字符串！</exception>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.#ctor">
+            <summary>
+            构造一个角色权限对象，无任何权限。
+            </summary>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.#ctor(`0)">
+            <summary>
+            构造一个角色权限对象，权限由权限枚举指定。
+            </summary>
+            <param name="ownedPower">该角色拥有的权限。如：“<typeparamref name="T"/>.查看用户 | <typeparamref name="T"/>.增改用户”</param>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.#ctor(System.UInt64)">
+            <summary>
+            构造一个角色权限对象，权限由权限标识指定（标识将被转换为二进制形式）。
+            </summary>
+            <param name="ownedPower">该角色拥有的权限（标识，将被转换为二进制形式）</param>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.#ctor(System.String)">
+            <summary>
+            构造一个角色权限对象，权限由二进制字符串指定。
+            </summary>
+            <param name="ownedPower">该角色拥有的权限（二进制如：“10000100000”）</param>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.Check(`0)">
+            <summary>
+            检查当前对象是否满足指定权限要求
+            </summary>
+            <param name="powerNeeded">需要满足的权限</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.Append(`0)">
+            <summary>
+            给现有角色对象赋予一个权限
+            </summary>
+            <param name="power">要赋予的权限</param>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.Remove(`0)">
+            <summary>
+            从现有角色对象剥夺一个权限
+            </summary>
+            <param name="power"></param>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.ToString">
+            <summary>
+            查看当前对象的权限详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.UlongToStr(System.UInt64)">
+            <summary>
+            将64位无符号整数（ulong）转换为二进制字符串
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Authentication.PoweredMember`1.TtoULong(`0)">
+            <summary>
+            将权限对象转化为长整形形式
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:uoLib.Authentication.PoweredMember`1.Power">
+            <summary>
+            获取当前对象的权限
+            </summary>
+        </member>
+        <member name="P:uoLib.Authentication.PoweredMember`1.PowerString">
+            <summary>
+            获取当前对象权限的二进制字符串形式
+            </summary>
+        </member>
+        <member name="P:uoLib.Authentication.PoweredMember`1.PowerUInt64">
+            <summary>
+            获取当前对象权限的长整形形式
+            </summary>
+        </member>
+        <member name="T:uoLib.Logger">
+            <summary>
+            提供<see cref="F:uoLib.AvailableTypeAttribute.Type.WinForm"/>程序在运行时的日志、异常记录。
+            </summary>
+            <example>
+            此类常用于<see cref="F:uoLib.AvailableTypeAttribute.Type.WinForm"/>程序在运行过程中的日志记录。如：
+            <code><![CDATA[
+            static class Program
+            {
+                static void Main(string[] args)
+                {
+                    Loger.Write("主程序开始执行：");
+                    Loger.Write("wait for 5 seconds...");
+                    Thread.Sleep(5000);
+                    //do something...
+                    Loger.Write("doing something...");
+                    Loger.Write("wait for 5 seconds...");
+                    Thread.Sleep(5000);
+                    //do other things...
+                    Loger.Write("doing other things...");
+                    
+                    Loger.Write("主程序结束。");
+                }
+            }]]></code>
+            此段代码将输出一下 log 文件：
+            <code><![CDATA[
+            [2009-4-21 17:12:02] 主程序开始执行：
+            [2009-4-21 17:12:02] wait for 5 seconds...
+            [2009-4-21 17:12:07] doing something...
+            [2009-4-21 17:12:07] wait for 5 seconds...
+            [2009-4-21 17:12:12] doing other things...
+            [2009-4-21 17:12:12] 主程序结束。
+            ]]></code>
+            </example>
+        </member>
+        <member name="M:uoLib.Logger.Write(System.String)">
+            <summary>
+            将日志信息写入到Logs文件夹中。（以当前应用程序目录为根目录）
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:uoLib.Logger.Write(System.Exception)">
+            <summary>
+            将异常信息写入到Errors文件夹中。（以当前应用程序目录为根目录）
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:uoLib.Logger.Write(System.String,System.String)">
+            <summary>
+            将日志信息写入到指定文件夹中。
+            </summary>
+            <param name="msg">日志信息</param>
+            <param name="folderPath">目录全路径。格式如：E:\uonun\Logs</param>
+        </member>
+        <member name="M:uoLib.Logger.WriteEventLog(System.String,System.String,System.Diagnostics.EventLogEntryType,System.String)">
+            <summary>
+            写入系统事件日志
+            </summary>
+            <param name="source">事件来源</param>
+            <param name="message">日志正文</param>
+            <param name="type">日志类型</param>
+            <param name="log">日志文件名，如“网络视频监控”。</param>
+        </member>
+        <member name="M:uoLib.Logger.WriteEventLog(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            写入系统事件日志
+            </summary>
+            <param name="message">日志正文</param>
+            <param name="type">日志类型</param>
+        </member>
+        <member name="T:uoLib.Data.Singleton.OleDbAccess">
+             <summary>
+             使用 OleDb 链接字符串的 Access 数据库（97/2000/2007均可）。
+             链接字符串配置名称：uoLib.OleDbAccess
+             </summary>
+             <example>
+             <p>uoLib类库在使用上极其方便。它为三种常用数据库类型分别提供了一个数据库单体实例，它们是：</p>
+             <ul>
+             <li>oledb连接的Access：<see cref="T:uoLib.Data.Singleton.OleDbAccess"/></li>
+             <li>SqlClient连接的SQL Server：<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/></li>
+             <li>odbc连接的SQLite：<see cref="T:uoLib.Data.Singleton.OdbcSQLite"/></li>
+             </ul>
+             <p>您可以在程序中直接使用这三个单体实例来访问相应的数据库。下面是示例代码：</p><p><strong>web.Config</strong></p>
+             <code><![CDATA[
+             <?xml version="1.0"?>
+             <configuration>
+                 <connectionStrings>
+                     <remove name="*"/>
+                     <add name="uoLib.SqlClientSqlServer" connectionString="Data Source=127.0.0.1;Initial Catalog=NorthWind;User Id=sa;Password=;"/>
+                     <add name="uoLib.OleDbAccess" connectionString=""/>
+                     <add name="uoLib.OdbcSQLite" connectionString="DRIVER=SQLite3 ODBC Driver;Database=files/demo.db3;LongNames=0;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;"/>
+                 </connectionStrings>
+             </configuration>]]></code>
+             <p>web.config文件中可以将数据库的连接字符串留空。如上面的配置中，可以不配置uoLib.OleDbAccess的连接字符串，因为在 cs 代码中将另行写入。详见下：</p>
+             <code><![CDATA[
+             using System;
+             using System.Data;
+             using System.Data.Common;
+             using uoLib.Data.Singleton;
+             namespace DemoWeb  {
+                 public partial class Demo : System.Web.UI.Page      
+                 {
+                     protected void Page_Load(object sender, EventArgs e)          
+                     {               
+                         // 使用 SqlClient 链接字符串的 Sql Server 数据库
+                         // 2000/2005/2008均可。
+                         // 链接字符串配置名称：uoLib.SqlClientSqlServer
+                         SqlClientSqlServer SQL = SqlClientSqlServer.Instance;
+                         const string TABLENAME = "Products";
+                         DbCommand cmd = SQL.CreateCommand("SELECT TOP 1 ID FROM {0}", TABLENAME);
+                         DataSet ds = SQL.SelectData(cmd);
+                         if (ds == null){
+                             Response.Write("数据库为空！");
+                         }else{
+                             Response.Write(string.Format("共 {0} 行记录。", ds.Tables[0].Rows.Count));
+                         }
+                         
+                         // 使用 OleDb 链接字符串的 Access 数据库
+                         // 97/2000/2007均可。
+                         // 链接字符串配置名称：uoLib.OleDbAccess
+                         OleDbAccess Access = OleDbAccess.Instance;
+                         Access.CreateConnection(OleDbAccess.CreateExampleConnectionString(Server.MapPath("files/test.mdb"), "uonun", "udnz.com"));
+                         Response.Write(Access.Conn.ConnectionString);
+                         
+                         // 使用 Odbc 链接字符串的 SQLite 数据库。
+                         // 链接字符串配置名称：uoLib.OdbcSQLite
+                         OdbcSQLite SQLite = OdbcSQLite.Instance;
+                         SQLite.Conn.Open();
+                         //do something.. 
+                         SQLite.Conn.Close();
+                     }
+                 } 
+             }]]></code>
+             <p>注意：<ol>
+            <li>要使用数据库的单体实例，必须在web.config里面配置相应名称的连接字符串节。（可以留空，但必须有这一节，如上例中的uoLib.OleDbAccess）</li>
+            <li>由于使用了单体模式，因此在整个项目中，将只存在一个数据库实例，在简化了数据库使用的同时也提高了性能。不过如此一来，在整个系统中也将仅有一个相同数据库的实例。以<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/>为例，您无法使用<see cref="P:uoLib.Data.Singleton.SqlClientSqlServer.Instance"/>来生成两个不同的数据库。（要在同一系统中使用多个相同数据库实例，请使用<see cref="T:uoLib.Data.Database"/>。）</li>
+            </ol></p>
+             </example>
+             <seealso cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/>
+             <seealso cref="T:uoLib.Data.Singleton.OdbcSQLite"/>
+        </member>
+        <member name="T:uoLib.Data.BaseProvider">
+            <summary>
+            数据库对象基类。可继承使用。
+            </summary>
+        </member>
+        <member name="T:uoLib.Data.IBaseProvider">
+            <summary>
+            定义数据库操作类应实现的方法。
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateConnection(System.String)">
+            <summary>
+            为数据库实例创建数据连接
+            </summary>
+            <remarks>调用此方法之后由此数据库实例所创建的DbCommand、DbDataAdapter、DbDataReader等对象将自动使用此连接。</remarks>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateCommand(System.String)">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <remarks>所创建的DbCommand对象将自动使用数据库实例已有的连接。</remarks>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateCommand(System.String,System.Object[])">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <remarks>所创建的DbCommand对象将自动使用数据库实例已有的连接。</remarks>
+            <example>
+            <code>
+            string tableName = "Table";
+            Database db = new Database();
+            DbCommand cmd = db.CreateCommand("SELECT * FROM [{0}]",tableName);
+            </code>
+            </example>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateDataAdapter(System.String)">
+            <summary>
+            创建一个System.Data.Common.DbDataAdapter对象
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateDataReader(System.String)">
+            <summary>
+            创建一个System.Data.Common.DbDataAdapter对象
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateOutPutParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            生成一个DbParameter输出参数实例
+            </summary>
+            <param name="name">参数名</param>
+            <param name="type">参数类型。e.g.DbType.Int32,DbType.String</param>
+            <param name="parameterSize">获取或设置列中数据的最大大小（以字节为单位）。祥见DbParameter.Size</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.CreateParameter(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            生成一个DbParameter输入参数实例
+            </summary>
+            <param name="name">参数名</param>
+            <param name="type">参数类型。e.g.DbType.Int32,DbType.String</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.SelectData(System.String)">
+            <summary>
+            返回一个数据集。若数据集中无数据则返回 null。
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.SelectData(System.String,System.Object[])">
+            <summary>
+            返回一个数据集。若数据集中无数据则返回 null。
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.SelectData(System.Data.Common.DbCommand)">
+            <summary>
+            返回一个数据集。若数据集中无数据则返回 null。
+            </summary>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            执行DbCommand.ExecuteNonQuery()。
+            </summary>
+            <param name="cmd">要执行的 SQL 命令</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.IBaseProvider.ExecuteScalar(System.Data.Common.DbCommand)">
+            <summary>
+            执行DbCommand.ExecuteScalar()。
+            </summary>
+            <param name="cmd">要执行的 SQL 命令</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="P:uoLib.Data.IBaseProvider.ConnectionType">
+            <summary>
+            数据库连接所使用的驱动程序类型
+            </summary>
+            <remarks>
+            各种数据库所能选择的连接驱动有所不同：
+            SQL 可选 SqlClient、Odbc、OleDb；
+            Access/Excel 可选 Odbc、OleDb；
+            Access2007/Excel2007 可选择为 OleDb；
+            SQLite/DSN 可选择为Odbc；
+            Oracle 可选择为 OracleClient；
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteNonQuery(System.String)">
+            <summary>
+            执行DbCommand.ExecuteNonQuery()。
+            </summary>
+            <param name="cmdStr">要执行的 SQL 语句</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteNonQuery(System.String,System.Object[])">
+            <summary>
+            执行DbCommand.ExecuteNonQuery()。
+            </summary>
+            <param name="cmdStr">要执行的 SQL 语句</param>
+            <param name="args">用于参与string.Format(cmdStr,args)的参数</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteWithTransaction(System.Collections.Generic.List{System.String})">
+            <summary>
+            执行多条SQL语句，实现数据库事务。
+            </summary>
+            <param name="sqlStrs">多条SQL语句</param>
+            <remarks>sqlStrs中的每项只能是一般SQL语句，不能为存储过程。</remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteWithTransaction(System.Collections.Generic.List{System.Data.Common.DbCommand})">
+            <summary>
+            执行多个SQL命令，实现数据库事务。
+            </summary>
+            <param name="cmds">多个SQL命令</param>
+            <remarks>cmds中的所有命令必须使用相同的DbConnection</remarks>
+            <exception cref="T:System.ArgumentNullException">"cmds" is null.</exception>
+            <exception cref="T:System.ArgumentException">There is no command to be executed.</exception>
+            <exception cref="T:System.ArgumentException">There must only one instant of DbConnection for the DbCommand(s).</exception>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateConnection(System.String)">
+            <summary>
+            为数据库实例创建数据连接
+            </summary>
+            <remarks>调用此方法之后由此数据库实例所创建的DbCommand、DbDataAdapter、DbDataReader等对象将自动使用此连接。</remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateCommand(System.String)">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <remarks>
+            所创建的DbCommand对象将自动使用数据库实例已有的连接。
+            </remarks>
+            <example>
+            <code>
+            Database db = new Database();
+            DbCommand cmd = db.CreateCommand("SELECT * FROM [Table]");</code>
+            </example>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateCommand(System.String,System.Object[])">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <param name="sqlStrTxt">SQL语句</param>
+            <param name="args">用于参与string.Format(sqlStrTxt,args)的参数</param>
+            <remarks>
+            所创建的DbCommand对象将自动使用数据库实例已有的连接。
+            </remarks>
+            <example>
+            <code>
+            string tableName = "Table";
+            Database db = new Database();
+            DbCommand cmd = db.CreateCommand("SELECT * FROM [{0}]",tableName);</code>
+            </example>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateCommand(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <param name="sqlStrTxt">SQL语句</param>
+            <param name="parameters">参数数组</param>
+            <remarks>
+            所创建的DbCommand对象将自动使用数据库实例已有的连接。
+            </remarks>
+            <example>
+            <code>
+            Database db = new Database();
+            string sql = "SELECT * FROM [MYTABLE] WHERE Hit>@hit AND WriteDate>@date";
+            DbParameter[] paras = {
+                   db.CreateParameter("@hit", DbType.Int32,100)
+                   ,db.CreateParameter("@date", DbType.DateTime,DateTime.Parse("2009-8-3"))
+            };
+            DbCommand cmd = db.CreateCommand(sql,paras);</code>
+            </example>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateOutPutParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            生成一个DbParameter参数实例
+            </summary>
+            <param name="name">参数名</param>
+            <param name="type">参数类型。e.g.DbType.Int32,DbType.String</param>
+            <param name="parameterSize">获取或设置列中数据的最大大小（以字节为单位）。祥见DbParameter.Size</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.SelectData(System.String)">
+            <summary>
+            执行 SQL 语句返回数据集。
+            </summary>
+            <param name="sqlStrTxt">要执行的SQL语句</param>
+            <returns></returns>
+            <remarks>
+            一般用于只产生一个DataTable的单一SELECT语句，当且仅当返回的DataSet有数据行时才返回数据集，否则返回 null。
+            若使用了多条有返回DataTable的SELECT语句，请保证<see cref="T:System.Data.DataSet"/>.Tables[0].Rows.Count &gt; 0，否则将忽略其他表，也返回 null。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.SelectData(System.String,System.Object[])">
+            <summary>
+            执行 SQL 语句返回数据集。
+            </summary>
+            <param name="sqlStrTxt">要执行的SQL语句</param>
+            <param name="args">用于参与string.Format(sqlStrTxt,args)的参数</param>
+            <returns></returns>
+            <remarks>
+            一般用于只产生一个DataTable的单一SELECT语句，当且仅当返回的DataSet有数据行时才返回数据集，否则返回 null。
+            若使用了多条有返回DataTable的SELECT语句，请保证<see cref="T:System.Data.DataSet"/>.Tables[0].Rows.Count &gt; 0，否则将忽略其他表，也返回 null。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.SelectData(System.Data.Common.DbCommand)">
+            <summary>
+            执行 SQL 语句返回数据集。
+            </summary>
+            <param name="selectCommand"></param>
+            <returns></returns>
+            <remarks>
+            一般用于只产生一个DataTable的单一SELECT语句，当且仅当返回的DataSet有数据行时才返回数据集，否则返回 null。
+            若使用了多条有返回DataTable的SELECT语句，请保证<see cref="T:System.Data.DataSet"/>.Tables[0].Rows.Count &gt; 0，否则将忽略其他表，也返回 null。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            执行DbCommand.ExecuteNonQuery()。
+            </summary>
+            <param name="cmd">要执行的 SQL 命令</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.ExecuteScalar(System.Data.Common.DbCommand)">
+            <summary>
+            执行DbCommand.ExecuteScalar()。
+            </summary>
+            <param name="cmd">要执行的 SQL 命令</param>
+            <returns></returns>
+            <remarks>
+            与<see cref="M:System.Data.Common.DbCommand.ExecuteScalar"/>的区别在于，它在执行前后会自动为你打开和关闭对应的数据库连接。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateCommand">
+            <summary>
+            创建一个System.Data.Common.DbCommand对象
+            </summary>
+            <remarks>所创建的DbCommand对象将自动使用数据库实例已有的连接。</remarks>
+        </member>
+        <member name="M:uoLib.Data.BaseProvider.CreateConnection">
+            <summary>
+            为数据库实例创建数据连接
+            </summary>
+            <remarks>调用此方法之后由此数据库实例所创建的DbCommand、DbDataAdapter、DbDataReader等对象将自动使用此连接。</remarks>
+        </member>
+        <member name="P:uoLib.Data.BaseProvider.ConnectionType">
+            <summary>
+            数据库连接所使用的驱动程序类型。
+            </summary>
+        </member>
+        <member name="P:uoLib.Data.Singleton.OleDbAccess.Instance">
+            <summary>
+            返回一个数据库实例（单件模式）
+            </summary>
+            <remarks>必须在配置文件中设置名称为“uoLib.OleDbAccess”的数据库连接字符串</remarks>
+        </member>
+        <member name="T:uoLib.Web.Debugger.Configuration">
+            <summary>
+            异常日志的配置信息
+            </summary>
+        </member>
+        <member name="P:uoLib.Web.Debugger.Configuration.LogPath">
+            <summary>
+            错误日志的保存路径。默认为"~/Errors/"。
+            </summary>
+        </member>
+        <member name="P:uoLib.Web.Debugger.Configuration.IsRecordErrors">
+            <summary>
+            是否将捕捉的运行时异常以日志形式保存下来。默认为 true。
+            </summary>
+        </member>
+        <member name="P:uoLib.Web.Debugger.Configuration.LogType">
+            <summary>
+            错误日志的保存类型
+            </summary>
+        </member>
+        <member name="T:uoLib.Web.Debugger.LogType">
+            <summary>
+            异常日志类型
+            </summary>
+        </member>
+        <member name="F:uoLib.Web.Debugger.LogType.Txt">
+            <summary>
+            文本文件
+            </summary>
+        </member>
+        <member name="F:uoLib.Web.Debugger.LogType.Html">
+            <summary>
+            htm网页文件
+            </summary>
+        </member>
+        <member name="T:uoLib.Data.Singleton.OdbcSQLite">
+             <summary>
+             使用 Odbc 链接字符串的 SQLite 数据库。
+             链接字符串配置名称：uoLib.OdbcSQLite
+             </summary>
+             <example>
+             <p>uoLib类库在使用上极其方便。它为三种常用数据库类型分别提供了一个数据库单体实例，它们是：</p>
+             <ul>
+             <li>oledb连接的Access：<see cref="T:uoLib.Data.Singleton.OleDbAccess"/></li>
+             <li>SqlClient连接的SQL Server：<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/></li>
+             <li>odbc连接的SQLite：<see cref="T:uoLib.Data.Singleton.OdbcSQLite"/></li>
+             </ul>
+             <p>您可以在程序中直接使用这三个单体实例来访问相应的数据库。下面是示例代码：</p><p><strong>web.Config</strong></p>
+             <code><![CDATA[
+             <?xml version="1.0"?>
+             <configuration>
+                 <connectionStrings>
+                     <remove name="*"/>
+                     <add name="uoLib.SqlClientSqlServer" connectionString="Data Source=127.0.0.1;Initial Catalog=NorthWind;User Id=sa;Password=;"/>
+                     <add name="uoLib.OleDbAccess" connectionString=""/>
+                     <add name="uoLib.OdbcSQLite" connectionString="DRIVER=SQLite3 ODBC Driver;Database=files/demo.db3;LongNames=0;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;"/>
+                 </connectionStrings>
+             </configuration>]]></code>
+             <p>web.config文件中可以将数据库的连接字符串留空。如上面的配置中，可以不配置uoLib.OleDbAccess的连接字符串，因为在 cs 代码中将另行写入。详见下：</p>
+             <code><![CDATA[
+             using System;
+             using System.Data;
+             using System.Data.Common;
+             using uoLib.Data.Singleton;
+             namespace DemoWeb  {
+                 public partial class Demo : System.Web.UI.Page      
+                 {
+                     protected void Page_Load(object sender, EventArgs e)          
+                     {               
+                         // 使用 SqlClient 链接字符串的 Sql Server 数据库
+                         // 2000/2005/2008均可。
+                         // 链接字符串配置名称：uoLib.SqlClientSqlServer
+                         SqlClientSqlServer SQL = SqlClientSqlServer.Instance;
+                         const string TABLENAME = "Products";
+                         DbCommand cmd = SQL.CreateCommand("SELECT TOP 1 ID FROM {0}", TABLENAME);
+                         DataSet ds = SQL.SelectData(cmd);
+                         if (ds == null){
+                             Response.Write("数据库为空！");
+                         }else{
+                             Response.Write(string.Format("共 {0} 行记录。", ds.Tables[0].Rows.Count));
+                         }
+                         
+                         // 使用 OleDb 链接字符串的 Access 数据库
+                         // 97/2000/2007均可。
+                         // 链接字符串配置名称：uoLib.OleDbAccess
+                         OleDbAccess Access = OleDbAccess.Instance;
+                         Access.CreateConnection(OleDbAccess.CreateExampleConnectionString(Server.MapPath("files/test.mdb"), "uonun", "udnz.com"));
+                         Response.Write(Access.Conn.ConnectionString);
+                         
+                         // 使用 Odbc 链接字符串的 SQLite 数据库。
+                         // 链接字符串配置名称：uoLib.OdbcSQLite
+                         OdbcSQLite SQLite = OdbcSQLite.Instance;
+                         SQLite.Conn.Open();
+                         //do something.. 
+                         SQLite.Conn.Close();
+                     }
+                 } 
+             }]]></code>
+             <p>注意：<ol>
+            <li>要使用数据库的单体实例，必须在web.config里面配置相应名称的连接字符串节。（可以留空，但必须有这一节，如上例中的uoLib.OleDbAccess）</li>
+            <li>由于使用了单体模式，因此在整个项目中，将只存在一个数据库实例，在简化了数据库使用的同时也提高了性能。不过如此一来，在整个系统中也将仅有一个相同数据库的实例。以<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/>为例，您无法使用<see cref="P:uoLib.Data.Singleton.SqlClientSqlServer.Instance"/>来生成两个不同的数据库。（要在同一系统中使用多个相同数据库实例，请使用<see cref="T:uoLib.Data.Database"/>。）</li>
+            </ol></p>
+             </example>
+             <seealso cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/>
+             <seealso cref="T:uoLib.Data.Singleton.OleDbAccess"/>
+        </member>
+        <member name="P:uoLib.Data.Singleton.OdbcSQLite.Instance">
+            <summary>
+            返回一个数据库实例（单件模式）
+            </summary>
+            <remarks>必须在配置文件中设置名称为“uoLib.OdbcSQLite”的数据库连接字符串</remarks>
+        </member>
+        <member name="T:uoLib.Data.Database">
+            <summary>
+            数据库对象类。
+            </summary>
+            <example>
+            <para>如果数据库单体实例无法满足您的需求，您可以使用<see cref="T:uoLib.Data.Database"/>这个类来建立自己的数据库实例，它提供了比单体实例更多、更完善的方法和属性。下面对<see cref="T:uoLib.Data.Database"/>类的使用作一个简单的示例：</para>
+            <code><![CDATA[
+            using System;
+            using System.Data;
+            using System.Data.Common;
+            using uoLib.Data;
+            namespace DemoWeb  {
+                public partial class Demo2 : System.Web.UI.Page
+                {
+                    protected void Page_Load(object sender, EventArgs e)
+                    {
+                        // 声明数据库实例
+                        Database db = new Database(ConnectionType.SqlClient);
+                        // 初始化数据库连接
+                        db.CreateConnection(
+                            Database.CreateExampleConnectionString(
+                            "127.0.0.1", "NorthWind", "sa", "",
+                            ConnectionType.SqlClient) 
+                        );
+                        Response.Write(db.ConnectionString);
+                        
+                        // 示例：执行 DbCommand
+                        // 可执行包括SELECT/INSERT/UPDATE/DELETE、存储过程等任何DbCommand命令
+                        int _id = 10;
+                        DbCommand cmd = db.CreateCommand("DELETE FROM [TABLE] WHERE ID=@id");
+                        cmd.Parameters.Add(db.CreateParameter("@id", System.Data.DbType.Int32,_id));
+                        Database.Execute(cmd);
+                        
+                        // 示例：使用存储过程、查询数据库
+                        cmd = db.CreateCommand("myProcedure"); 
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(db.CreateParameter("@id", System.Data.DbType.Int32, _id));
+                        DataSet ds = db.SelectData(cmd);
+                        if (ds == null) 
+                        { 
+                            Response.Write("数据库为空！");
+                        } else {
+                            // do something...
+                        }
+                    }
+                }
+            }]]></code>
+            </example>
+            <exception cref="T:uoLib.Exceptions.DatabaseNotExistException">指定的数据库不存在</exception>
+            <exception cref="T:uoLib.Exceptions.NotSupportedConnException">不支持的连接方式</exception>
+            <exception cref="T:uoLib.Exceptions.NotSupportedDataTypeException">不支持的数据库类型</exception>
+            <exception cref="T:uoLib.Exceptions.NullConnectionStringException">未找到与指定名称匹配的连接字符串</exception>
+        </member>
+        <member name="M:uoLib.Data.Database.#ctor(uoLib.Data.ConnectionType)">
+            <summary>
+            生成一个数据库实例
+            </summary>
+            <param name="connType">数据库连接所使用的驱动程序类型。</param>
+            <remarks>
+            各种数据库所能选择的连接驱动有所不同：
+            <list type="table">
+            <item>
+            <term>SQL</term>
+            <description>SqlClient、Odbc、OleDb</description>
+            </item>
+            <item>
+            <term>Access/Excel/Oracle</term>
+            <description>Odbc、OleDb</description>
+            </item>
+            <item>
+            <term>Access2007/Excel2007</term>
+            <description>OleDb</description>
+            </item>
+            <item>
+            <term>SQLite/DSN</term>
+            <description>Odbc</description>
+            </item>
+            <item>
+            <term>Oracle</term>
+            <description>OracleClient</description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.Database.CreateExampleConnectionString(System.String,System.String,System.String,System.String,uoLib.Data.ConnectionType)">
+            <summary>
+            构造连接字符串
+            </summary>
+            <param name="sqlServer">Sql Server 服务器。若指定端口号，请参考这样的格式：“udnz.com,2433”</param>
+            <param name="database">数据库名称</param>
+            <param name="user">用户名</param>
+            <param name="password">密码</param>
+            <param name="connType">连接类型（Odbc|OleDb|SqlClient）</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Database.CreateExampleConnectionString(System.String,System.String,System.String,uoLib.Data.DatabaseType,uoLib.Data.ConnectionType)">
+            <summary>
+            构造连接字符串
+            </summary>
+            <param name="OfficeFileOrDsnPath_Or_DsnName">
+            文件路径（Access、Excel等）；
+            文件DSN路径（*.dsn）；
+            用户/系统DSN名称；
+            Oracle数据源名称。</param>
+            <param name="user">用户名</param>
+            <param name="password">密码</param>
+            <param name="dbType"></param>
+            <param name="connType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Database.GetSupportedConnType(uoLib.Data.DatabaseType)">
+            <summary>
+            返回各种数据库所支持的连接类型
+            </summary>
+            <param name="dbType">数据库类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:uoLib.Web.Debugger.ErrorReporter">
+            <summary>
+            提供运行时异常的日志记录
+            </summary>
+            <example>
+            <p>此功能是uoLib提供的特色功能，也是最推荐使用的功能。使用起来非常方便，在项目中引用uoLib之后只需要配置Global.asax即可。</p>
+            <code><![CDATA[
+            protected void Application_Error(object sender, EventArgs e)
+            {
+                if (HttpContext.Current.AllErrors.Length > 0)
+                { 
+                    foreach (Exception ex in HttpContext.Current.AllErrors) 
+                    {
+                        uoLib.Web.Debugger.ErrorReporter.RecordErrors(ex); 
+                    }
+                }
+            }]]></code>
+            <p>这样设置之后，项目中一旦产生了运行时异常将自动被以日志形式记录下来。默认的日志类型是.htm文件，记录在~/Errors/目录下（需要有写入权限），您也可以通过配置<see cref="T:uoLib.Web.Debugger.Configuration"/>来设置日志类型、存储路径，甚至关闭此功能。</p>
+            <p>如果您希望能以Web页面的形式访问到系统记录的异常日志，只需要配置web.config中httpHandlers一节即可：</p>
+            <code><![CDATA[
+            <?xml version="1.0" encoding="utf-8"?>
+            <configuration>
+                <system.web>
+                    <httpHandlers>
+                        <add verb="*" path="Errors/List.aspx" type="uoLib.Web.HttpHandlers.ServerErrorList,uoLib"/>
+                    </httpHandlers>
+                </system.web>
+            </configuration>]]></code>
+            <p>其中“Errors/List.aspx”可以是您希望的任意路径，不必存在这个.aspx文件。</p>
+            <p>这里有一个异常捕获的日志列表的在线示例：<a href="http://www.udnz.com/Errors/list.aspx" target="_blank">http://www.udnz.com/Errors/list.aspx</a>。</p>
+            </example>
+            <seealso cref="T:uoLib.Web.HttpHandlers.ServerErrorList"/>
+            <seealso cref="T:uoLib.Web.Debugger.Configuration"/>
+        </member>
+        <member name="M:uoLib.Web.Debugger.ErrorReporter.RecordErrors(System.Exception)">
+            <summary>
+            以日志形式记录运行时异常
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:uoLib.Web.Debugger.ErrorReporter.RecordErrors(System.Exception,uoLib.Web.Debugger.LogType)">
+            <summary>
+            将程序捕获的异常以日志形式记录下来。
+            </summary>
+            <remarks>ShowServerError 方法已经包含了本方法的调用。因此如果调用 ShowServerError 方法，则无需再次调用本方法。</remarks>
+            <summary>
+            以日志形式记录运行时异常
+            </summary>
+        </member>
+        <member name="M:uoLib.Web.Debugger.ErrorReporter.ShowServerError(System.Exception)">
+            <summary>
+            输出当前抛出的错误并执行Response.End()方法。
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:uoLib.Web.Debugger.ErrorReporter.ShowServerError(System.Exception,System.Boolean)">
+            <summary>
+            输出当前抛出的错误。
+            </summary>
+            <param name="ex">当前要输出的异常对象</param>
+            <param name="isResponseEnd">是否调用Page.Response.End();</param>
+        </member>
+        <member name="T:uoLib.Exceptions.NotSupportedConnException">
+            <summary>
+            不支持的连接方式
+            </summary>
+        </member>
+        <member name="M:uoLib.Exceptions.NotSupportedConnException.#ctor(uoLib.Data.ConnectionType)">
+            <summary>
+            不支持的连接方式
+            </summary>
+        </member>
+        <member name="M:uoLib.Exceptions.NotSupportedConnException.#ctor(uoLib.Data.DatabaseType,uoLib.Data.ConnectionType)">
+            <summary>
+            不支持的连接方式
+            </summary>
+        </member>
+        <member name="T:uoLib.Exceptions.NotSupportedDataTypeException">
+            <summary>
+            不支持的数据库类型
+            </summary>
+        </member>
+        <member name="T:uoLib.Exceptions.NullConnectionStringException">
+            <summary>
+            未找到与指定名称匹配的连接字符串
+            </summary>
+        </member>
+        <member name="T:uoLib.Exceptions.DatabaseNotExistException">
+            <summary>
+            指定数据库不存在
+            </summary>
+        </member>
+        <member name="T:uoLib.Web.HttpHandlers.ServerErrorList">
+            <summary>
+            提供异常日志的Web浏览功能
+            </summary>
+            <example>
+            <p>此功能是uoLib提供的特色功能，也是最推荐使用的功能。使用起来非常方便，在项目中引用uoLib之后只需要配置Global.asax即可。</p>
+            <code><![CDATA[
+            protected void Application_Error(object sender, EventArgs e)
+            {
+                if (HttpContext.Current.AllErrors.Length > 0)
+                { 
+                    foreach (Exception ex in HttpContext.Current.AllErrors) 
+                    {
+                        uoLib.Web.Debugger.ErrorReporter.RecordErrors(ex); 
+                    }
+                }
+            }]]></code>
+            <p>这样设置之后，项目中一旦产生了运行时异常将自动被以日志形式记录下来。默认的日志类型是.htm文件，记录在~/Errors/目录下（需要有写入权限），您也可以通过配置<see cref="T:uoLib.Web.Debugger.Configuration"/>来设置日志类型、存储路径，甚至关闭此功能。</p>
+            <p>如果您希望能以Web页面的形式访问到系统记录的异常日志，只需要配置web.config中httpHandlers一节即可：</p>
+            <code><![CDATA[
+            <?xml version="1.0" encoding="utf-8"?>
+            <configuration>
+                <system.web>
+                    <httpHandlers>
+                        <add verb="*" path="Errors/List.aspx" type="uoLib.Web.HttpHandlers.ServerErrorList,uoLib"/>
+                    </httpHandlers>
+                </system.web>
+            </configuration>]]></code>
+            <p>其中“Errors/List.aspx”可以是您希望的任意路径，不必存在这个.aspx文件。</p>
+            <p>这里有一个异常捕获的日志列表的在线示例：<a href="http://www.udnz.com/Errors/list.aspx" target="_blank">http://www.udnz.com/Errors/list.aspx</a>。</p>
+            </example>
+            <seealso cref="T:uoLib.Web.Debugger.ErrorReporter"/>
+            <seealso cref="T:uoLib.Web.Debugger.Configuration"/>
+        </member>
+        <member name="P:uoLib.Web.HttpHandlers.ServerErrorList.IsReusable">
+            <summary>
+            是否可以被多线程同时使用
+            </summary>
+        </member>
+        <member name="T:uoLib.Data.Singleton.SqlClientSqlServer">
+             <summary>
+             使用 SqlClient 链接字符串的 Sql Server 数据库（2000/2005/2008均可）。
+             链接字符串配置名称：uoLib.SqlClientSqlServer
+             </summary>
+             <example>
+             <p>uoLib类库在使用上极其方便。它为三种常用数据库类型分别提供了一个数据库单体实例，它们是：</p>
+             <ul>
+             <li>oledb连接的Access：<see cref="T:uoLib.Data.Singleton.OleDbAccess"/></li>
+             <li>SqlClient连接的SQL Server：<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/></li>
+             <li>odbc连接的SQLite：<see cref="T:uoLib.Data.Singleton.OdbcSQLite"/></li>
+             </ul>
+             <p>您可以在程序中直接使用这三个单体实例来访问相应的数据库。下面是示例代码：</p><p><strong>web.Config</strong></p>
+             <code><![CDATA[
+             <?xml version="1.0"?>
+             <configuration>
+                 <connectionStrings>
+                     <remove name="*"/>
+                     <add name="uoLib.SqlClientSqlServer" connectionString="Data Source=127.0.0.1;Initial Catalog=NorthWind;User Id=sa;Password=;"/>
+                     <add name="uoLib.OleDbAccess" connectionString=""/>
+                     <add name="uoLib.OdbcSQLite" connectionString="DRIVER=SQLite3 ODBC Driver;Database=files/demo.db3;LongNames=0;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;"/>
+                 </connectionStrings>
+             </configuration>]]></code>
+             <p>web.config文件中可以将数据库的连接字符串留空。如上面的配置中，可以不配置uoLib.OleDbAccess的连接字符串，因为在 cs 代码中将另行写入。详见下：</p>
+             <code><![CDATA[
+             using System;
+             using System.Data;
+             using System.Data.Common;
+             using uoLib.Data.Singleton;
+             namespace DemoWeb  {
+                 public partial class Demo : System.Web.UI.Page      
+                 {
+                     protected void Page_Load(object sender, EventArgs e)          
+                     {               
+                         // 使用 SqlClient 链接字符串的 Sql Server 数据库
+                         // 2000/2005/2008均可。
+                         // 链接字符串配置名称：uoLib.SqlClientSqlServer
+                         SqlClientSqlServer SQL = SqlClientSqlServer.Instance;
+                         const string TABLENAME = "Products";
+                         DbCommand cmd = SQL.CreateCommand("SELECT TOP 1 ID FROM {0}", TABLENAME);
+                         DataSet ds = SQL.SelectData(cmd);
+                         if (ds == null){
+                             Response.Write("数据库为空！");
+                         }else{
+                             Response.Write(string.Format("共 {0} 行记录。", ds.Tables[0].Rows.Count));
+                         }
+                         
+                         // 使用 OleDb 链接字符串的 Access 数据库
+                         // 97/2000/2007均可。
+                         // 链接字符串配置名称：uoLib.OleDbAccess
+                         OleDbAccess Access = OleDbAccess.Instance;
+                         Access.CreateConnection(OleDbAccess.CreateExampleConnectionString(Server.MapPath("files/test.mdb"), "uonun", "udnz.com"));
+                         Response.Write(Access.Conn.ConnectionString);
+                         
+                         // 使用 Odbc 链接字符串的 SQLite 数据库。
+                         // 链接字符串配置名称：uoLib.OdbcSQLite
+                         OdbcSQLite SQLite = OdbcSQLite.Instance;
+                         SQLite.Conn.Open();
+                         //do something.. 
+                         SQLite.Conn.Close();
+                     }
+                 } 
+             }]]></code>
+             <p>注意：<ol>
+            <li>要使用数据库的单体实例，必须在web.config里面配置相应名称的连接字符串节。（可以留空，但必须有这一节，如上例中的uoLib.OleDbAccess）</li>
+            <li>由于使用了单体模式，因此在整个项目中，将只存在一个数据库实例，在简化了数据库使用的同时也提高了性能。不过如此一来，在整个系统中也将仅有一个相同数据库的实例。以<see cref="T:uoLib.Data.Singleton.SqlClientSqlServer"/>为例，您无法使用<see cref="P:uoLib.Data.Singleton.SqlClientSqlServer.Instance"/>来生成两个不同的数据库。（要在同一系统中使用多个相同数据库实例，请使用<see cref="T:uoLib.Data.Database"/>。）</li>
+            </ol></p>
+             </example>
+             <seealso cref="T:uoLib.Data.Singleton.OleDbAccess"/>
+             <seealso cref="T:uoLib.Data.Singleton.OdbcSQLite"/>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.IsDatabaseExist(System.String)">
+            <summary>
+            判读数据库名是否已存在
+            </summary>
+            <param name="dbName">数据库名</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.CreateDatabase(System.String)">
+            <summary>
+            创建数据库
+            </summary>
+            <param name="dbName">数据库名</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.DeleteDatabase(System.String)">
+            <summary>
+            删除数据库
+            </summary>
+            <param name="dbName">数据库名</param>
+            <returns></returns>
+            <exception cref="T:uoLib.Exceptions.DatabaseNotExistException">指定的数据库不存在</exception>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.ListDatabases">
+            <summary>
+            查询数据库中已存在的所有数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.ListTables(System.String)">
+            <summary>
+            获取数据库中的所有表名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.ListTriggers(System.String,System.String)">
+            <summary>
+            获取数据库指定表的所有触发器信息
+            </summary>
+            <returns></returns>
+            <remarks>tblname 为空或null时，将查询所有表的触发器</remarks>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.ListViews(System.String)">
+            <summary>
+            获取指定数据库的所有视图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.GetTableDetail(System.String)">
+            <summary>
+            获取数据库中指定表的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.ListColumns(System.String,System.String)">
+            <summary>
+            获取数据库指定表的所有列信息
+            </summary>
+            <param name="dbName">数据库名</param>
+            <param name="tblname">数据表名</param>
+            <returns></returns>
+            <remarks>tblname 为空或null时，将查询所有表信息</remarks>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.IsColumnExists(System.String,System.String,System.String)">
+            <summary>
+            判断数据表中是否存在指定字段
+            </summary>
+            <param name="dbName">数据库名称</param>
+            <param name="tableName">表名称</param>
+            <param name="columnName">列名称</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.BackUp(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+             <summary>
+             备份数据库
+             </summary>
+             <param name="targetDatabaseConn">待备份数据库的连接</param>
+             <param name="backupToPath">用于保存备份文件的目录的全路径（注意：必须使用数据库服务器上的路径）</param>
+            <param name="backupFileName"></param>
+             <returns></returns>
+             <remarks>
+             必须使用目标数据库的连接字符串。如需要备份uoLibDb，则conn中的数据库必须是uoLibDb。
+             </remarks>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.Restore(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            还原指定的数据库文件
+            </summary>
+            <param name="targetDatabaseConn">待还原数据库的连接</param>
+            <param name="databaseFile">数据库备份文件及全路径</param>
+            <returns></returns>
+            <remarks>
+            必须使用目标数据库的连接字符串。如需要还原uoLibDb，则conn中的数据库必须是uoLibDb。
+            </remarks>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.Restore(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            还原指定的数据库文件
+            </summary>
+            <param name="conn">数据库连接</param>
+            <param name="targetDatabaseName">要还原的数据库</param>
+            <param name="databaseFile">数据库备份文件及全路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.CreateExampleConnectionString(System.String,System.String,System.String,System.String)">
+            <summary>
+            构造连接字符串
+            </summary>
+            <param name="sqlServer">服务器IP地址、域名等</param>
+            <param name="database">数据库名</param>
+            <param name="user">登录名</param>
+            <param name="password">登录密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:uoLib.Data.Singleton.SqlClientSqlServer.GetSupportedConnType">
+            <summary>
+            返回支持的连接类型
+            </summary>
+        </member>
+        <member name="P:uoLib.Data.Singleton.SqlClientSqlServer.Instance">
+            <summary>
+            返回一个数据库实例（单件模式）
+            </summary>
+            <remarks>必须在配置文件中设置名称为“uoLib.SqlClientSqlServer”的数据库连接字符串</remarks>
+        </member>
+        <member name="T:uoLib.Info">
+            <summary>
+            提供程序集基本信息
+            </summary>
+        </member>
+        <member name="P:uoLib.Info.AdminEmail">
+            <summary>
+            获取或设置管理员的电子邮件地址。
+            </summary>
+            <remarks>此地址将显示到生成的错误日志中。</remarks>
+        </member>
+        <member name="P:uoLib.Info.Version">
+            <summary>
+            获取已加载uoLib.dll的内部版本号。
+            </summary>
+        </member>
+        <member name="P:uoLib.Info.Path">
+            <summary>
+            获取已加载uoLib.dll的路径。
+            </summary>
+        </member>
+        <member name="P:uoLib.Info.Name">
+            <summary>
+            获取已加载uoLib.dll的程序集名称。
+            </summary>
+        </member>
+        <member name="P:uoLib.Info.CodeBase">
+            <summary>
+            获取已加载uoLib.dll的URL位置。
+            </summary>
+        </member>
+        <member name="P:uoLib.Info.HelpLink">
+            <summary>
+            获取uoLib的官方帮助链接地址。
+            </summary>
+        </member>
+    </members>
+</doc>

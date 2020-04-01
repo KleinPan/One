@@ -4,6 +4,7 @@
 
 # One (一个就够了)
 
+![One.Core](https://img.shields.io/nuget/v/One.Core)
 ![Nuget](https://img.shields.io/nuget/v/One.Core)
 ![Nuget](https://img.shields.io/nuget/v/One.Control)
 

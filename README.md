@@ -10,14 +10,7 @@
 
 
 # Silence
-![Nuget](https://img.shields.io/nuget/v/One.Core)
-
-
-[![Cnblogs](https://img.shields.io/nuget/v/One.Core)](https://github.com/KleinPan/One/releases)
-
-[![Cnblogs](https://img.shields.io/badge/dependencies-jquery-blue.svg)](https://www.cnblogs.com/KevinBran/)
-[![GitHub issues](https://img.shields.io/github/issues/esofar/cnblogs-theme-silence.svg)](https://github.com/esofar/cnblogs-theme-silence/issues)
-[![GitHub license]()]()
+<img alt="Nuget" src="https://img.shields.io/nuget/v/One.Core?label=123">
 
 https://img.shields.io/nuget/v/One.Core
 </div>

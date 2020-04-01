@@ -10,7 +10,7 @@
 
 
 # Silence
-<img alt="Nuget" src="https://img.shields.io/nuget/v/One.Core?label=123">
+https://img.shields.io/nuget/v/One.Core
 
 https://img.shields.io/nuget/v/One.Core
 </div>

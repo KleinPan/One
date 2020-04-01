@@ -11,6 +11,6 @@
 
 # Silence
 ![Nuget](https://img.shields.io/nuget/v/One.Core)
+![GitHub issues](https://img.shields.io/github/issues/KleinPan/One)
 
-https://img.shields.io/nuget/v/One.Core
 </div>

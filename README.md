@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/cnblogs-Link-brightgreen" />
 </div>
 
-## Nuget versions
+## Nuget Links
 
 | [One.Core](https://www.nuget.org/packages/One.Core/)  | [One.Control](https://www.nuget.org/packages/One.Control/) 
 | ------------- | ------------- 

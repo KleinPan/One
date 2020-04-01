@@ -6,6 +6,7 @@
 
 ![Nuget](https://img.shields.io/nuget/v/One.Core)
 ![GitHub issues](https://img.shields.io/github/issues/KleinPan/One)
+<img src="https://img.shields.io/badge/cnblogs-Link-brightgreen" />
 </div>
 
 ## Nuget versions

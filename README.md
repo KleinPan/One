@@ -12,9 +12,9 @@
 [![博客地址](https://img.shields.io/badge/cnblogs-Link-brightgreen")](https://www.cnblogs.com/KevinBran/)
 </div>
 
-/*
-## Nuget Links
+[^_^]:
+  ## Nuget Links
+  
+  | [One.Core](https://www.nuget.org/packages/One.Core/)  | [One.Control](https://www.nuget.org/packages/One.Control/) 
+  | ------------- | ------------- 
 
-| [One.Core](https://www.nuget.org/packages/One.Core/)  | [One.Control](https://www.nuget.org/packages/One.Control/) 
-| ------------- | ------------- 
-*/

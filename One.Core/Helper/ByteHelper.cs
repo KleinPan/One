@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace One.Core.Helper
 {
@@ -58,6 +54,7 @@ namespace One.Core.Helper
                 Marshal.FreeHGlobal(buffer);
             }
         }
+
         /// <summary>
         /// StrData转为Byte数组，实现了序列化
         /// </summary>
@@ -79,6 +76,7 @@ namespace One.Core.Helper
                 Marshal.FreeHGlobal(buffer);
             }
         }
+
         /// <summary> GBK转换成UTF8 </summary>
         /// <param name="text">  </param>
         /// <returns>  </returns>
@@ -96,6 +94,7 @@ namespace One.Core.Helper
             //返回转换后的字符
             return utf8.GetString(gb);
         }
+
         public static string GetGgkStr(string text)//GBK
         {
             //声明字符集
@@ -112,7 +111,7 @@ namespace One.Core.Helper
             return GBK.GetBytes(text);
         }
 
-        public static string UTF_GBK(string text)//UTF8转换成GBK
+        public static string Utf8ToGBK(string text)//UTF8转换成GBK
         {
             //声明字符集
             System.Text.Encoding utf8, gb2312;
@@ -127,7 +126,7 @@ namespace One.Core.Helper
             return gb2312.GetString(utf);
         }
 
-        public static byte[] GBK_Byte(string GbkString)//返回GBK的数组
+        public static byte[] GetGBK(string GbkString)//返回GBK的数组
         {
             //声明字符集
             System.Text.Encoding utf8, gb2312;
@@ -143,25 +142,25 @@ namespace One.Core.Helper
         /// <summary> 返回字符串的GBK </summary>
         /// <param name="Text">  </param>
         /// <returns>  </returns>
-        public static string GetGBK(byte[] Text)
+        public static string GetGBK(byte[] GbkByte)
         {
             //返回转换后的字符
-            return System.Text.Encoding.GetEncoding("GBK").GetString(Text);
+            return System.Text.Encoding.GetEncoding("GBK").GetString(GbkByte);
         }
 
         /// <summary> 返回字符串的GBK 简体中文 (GB2312) </summary>
         /// <param name="Text">  </param>
         /// <returns>  </returns>
-        public static string GetGB2312(byte[] Text)
+        public static string GetGB2312(byte[] byteArray)
         {
             //返回转换后的字符
-            return System.Text.Encoding.GetEncoding("gb2312").GetString(Text);
+            return System.Text.Encoding.GetEncoding("gb2312").GetString(byteArray);
         }
 
         /// <summary> 返回UTF的数组 </summary>
         /// <param name="GbkString">  </param>
         /// <returns>  </returns>
-        public byte[] UTF_Byte(string GbkString)
+        public byte[] GetUtf8(string GbkString)
         {
             //声明字符集
             System.Text.Encoding utf8, gb2312;
@@ -173,6 +172,7 @@ namespace One.Core.Helper
             return utf8.GetBytes(GbkString);
             //return gb2312.GetBytes(GbkString);
         }
+
         #region 转换为大端模式
 
         /// <summary> 转换为对应长度的大端模式 </summary>
@@ -267,7 +267,7 @@ namespace One.Core.Helper
             return Val;
         }
 
-        #endregion 从大端模式复原
+        #endregion 获取对应类型的大端模式
 
         public static ushort GetCRC(byte[] pchMsg, ushort wDataLen)
         {
@@ -391,5 +391,4 @@ namespace One.Core.Helper
         }
         */
     }
-
 }

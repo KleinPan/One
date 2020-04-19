@@ -157,22 +157,6 @@ namespace One.Core.Helper
             return System.Text.Encoding.GetEncoding("gb2312").GetString(byteArray);
         }
 
-        /// <summary> 返回UTF的数组 </summary>
-        /// <param name="GbkString">  </param>
-        /// <returns>  </returns>
-        public byte[] GetUtf8(string GbkString)
-        {
-            //声明字符集
-            System.Text.Encoding utf8, gb2312;
-            //gb2312
-            gb2312 = System.Text.Encoding.GetEncoding("gb2312");
-            //utf8
-            utf8 = System.Text.Encoding.GetEncoding("utf-8");
-            //返回转换后的字符
-            return utf8.GetBytes(GbkString);
-            //return gb2312.GetBytes(GbkString);
-        }
-
         #region 转换为大端模式
 
         /// <summary> 转换为对应长度的大端模式 </summary>

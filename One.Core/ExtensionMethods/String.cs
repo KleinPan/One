@@ -1,9 +1,9 @@
-﻿using One.Core.Helper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using One.Core.Helper;
 
 namespace One.Core.ExtensionMethods
 {
@@ -99,6 +99,14 @@ namespace One.Core.ExtensionMethods
             if (!byte.TryParse(t, out n))
                 return 0;
             return n;
+        }
+
+        /// <summary> 转byte[]</summary>
+        /// <param name="e"> </param>
+        /// <returns> </returns>
+        public static byte[] Tobyte(this string t, System.Text.Encoding encoding)
+        {
+            return encoding.GetBytes(t);
         }
 
         /// <summary> 转byte,失败返回pReturn </summary>
@@ -860,6 +868,14 @@ namespace One.Core.ExtensionMethods
                 return string.Empty;
 
             return str.Replace("\\", "\\\\").Replace("\"", "\\\"");
+        }
+
+
+        public static string Encode(this string content, Encoding encode = null)
+        {
+            if (encode == null) return content;
+
+            return System.Web.HttpUtility.UrlEncode(content, Encoding.UTF8);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace One.Core.Helper.HttpHelper
         /// <param name="paramArray"> </param>
         /// <param name="url">        </param>
         /// <returns> </returns>
-        public static string GetResponseByGet(Dictionary<string, string> paramArray, string url)
+        public static string GetRequestAsync(Dictionary<string, string> paramArray, string url)
         {
             string result = "";
 
@@ -37,6 +37,7 @@ namespace One.Core.Helper.HttpHelper
             if (response.IsSuccessStatusCode)
             {
                 Stream myResponseStream = response.Content.ReadAsStreamAsync().Result;
+                //获取流的内容
                 StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
                 result = myStreamReader.ReadToEnd();
                 myStreamReader.Close();
@@ -46,7 +47,7 @@ namespace One.Core.Helper.HttpHelper
             return result;
         }
 
-        public static string GetResponseBySimpleGet(Dictionary<string, string> paramArray, string url)
+        public static string GetRequest(Dictionary<string, string> paramArray, string url)
         {
             var httpclient = HTTPClientHelper.HttpClient;
 

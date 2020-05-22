@@ -20,7 +20,7 @@ namespace One.Core.ExtensionMethods
 
 
         /// <summary>
-        /// 返回序列非重复元素
+        /// 返回指定筛选条件下序列非重复元素的首项
         /// </summary>
         /// <typeparam name="TSource"></typeparam>
         /// <typeparam name="TKey"></typeparam>

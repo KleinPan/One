@@ -55,7 +55,7 @@ namespace One.Core.Helper
         /// <returns> </returns>
         public static string GetLocalIP()
         {
-            string result = RunApp("route", "print", true);
+            string result =ProcessHelper. RunApp("route", "print", true);
             Match m = Regex.Match(result, @"0.0.0.0\s+0.0.0.0\s+(\d+.\d+.\d+.\d+)\s+(\d+.\d+.\d+.\d+)");
             if (m.Success)
             {
@@ -82,7 +82,7 @@ namespace One.Core.Helper
         /// <returns> </returns>
         public static string GetPrimaryDNS()
         {
-            string result = RunApp("nslookup", "", true);
+            string result = ProcessHelper.RunApp("nslookup", "", true);
             Match m = Regex.Match(result, @"\d+\.\d+\.\d+\.\d+");
             if (m.Success)
             {

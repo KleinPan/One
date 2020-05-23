@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace One.Core.BaseClass
 {
-    /// <summary>带通知的Object基类</summary>
+    /// <summary> 带通知的Object基类 </summary>
     [Serializable]
     public abstract class BindableObject : INotifyPropertyChanged
     {

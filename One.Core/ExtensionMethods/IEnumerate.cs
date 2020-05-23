@@ -1,32 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace One.Core.ExtensionMethods
 {
     public static class ExtensionMethodsForEnumerate
     {
-        /// <summary>
-        ///     An object extension method that gets description attribute.
-        /// </summary>
-        /// <param name="value">The value to act on.</param>
-        /// <returns>The description attribute.</returns>
-        public static string GetCustomAttributeDescription(this Enum value)
-        {
-            var attr = value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
-            return attr.Description;
-        }
-
-
-        /// <summary>
-        /// 返回指定筛选条件下序列非重复元素的首项
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="keySelector"></param>
-        /// <returns></returns>
+        /// <summary> 返回指定筛选条件下序列非重复元素的首项 </summary>
+        /// <typeparam name="TSource"> </typeparam>
+        /// <typeparam name="TKey"> </typeparam>
+        /// <param name="source">      </param>
+        /// <param name="keySelector"> </param>
+        /// <returns> </returns>
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             HashSet<TKey> seenKeys = new HashSet<TKey>();
@@ -54,14 +39,11 @@ namespace One.Core.ExtensionMethods
             return -1;
         }
 
-
-        /// <summary>
-        ///     Enumerates for each in this collection.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="action">The action.</param>
-        /// <returns>An enumerator that allows foreach to be used to process for each in this collection.</returns>
+        /// <summary> Enumerates for each in this collection. </summary>
+        /// <typeparam name="T"> Generic type parameter. </typeparam>
+        /// <param name="this">   The @this to act on. </param>
+        /// <param name="action"> The action. </param>
+        /// <returns> An enumerator that allows foreach to be used to process for each in this collection. </returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
             T[] array = @this.ToArray();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -80,6 +81,60 @@ namespace One.Core.Helper
             {
                 Console.WriteLine("The following exception was raised: ");
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        /// <summary> 运行一个控制台程序并返回其输出参数。 </summary>
+        /// <param name="filename">  方法名 </param>
+        /// <param name="arguments"> </param>
+        /// <param name="recordLog"> </param>
+        /// <returns> </returns>
+        public static string RunApp(string filename, string arguments, bool recordLog)
+        {
+            try
+            {
+                if (recordLog)
+                {
+                    Trace.WriteLine(filename + " " + arguments);
+                }
+                Process proc = new Process();
+                proc.StartInfo.FileName = filename;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.StartInfo.Arguments = arguments;
+                proc.StartInfo.RedirectStandardOutput = true;
+                proc.StartInfo.UseShellExecute = false;
+                proc.Start();
+
+                using (System.IO.StreamReader sr = new System.IO.StreamReader(proc.StandardOutput.BaseStream, Encoding.Default))
+                {
+                    //string txt = sr.ReadToEnd();
+                    //sr.Close();
+                    //if (recordLog)
+                    //{
+                    //    Trace.WriteLine(txt);
+                    //}
+                    //if (!proc.HasExited)
+                    //{
+                    //    proc.Kill();
+                    //}
+                    //上面标记的是原文，下面是我自己调试错误后自行修改的
+                    Thread.Sleep(100);           //貌似调用系统的nslookup还未返回数据或者数据未编码完成，程序就已经跳过直接执行
+                                                 //txt = sr.ReadToEnd()了，导致返回的数据为空，故睡眠令硬件反应
+                    if (!proc.HasExited)         //在无参数调用nslookup后，可以继续输入命令继续操作，如果进程未停止就直接执行
+                    {                            //txt = sr.ReadToEnd()程序就在等待输入，而且又无法输入，直接掐住无法继续运行
+                        proc.Kill();
+                    }
+                    string txt = sr.ReadToEnd();
+                    sr.Close();
+                    if (recordLog)
+                        Trace.WriteLine(txt);
+                    return txt;
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex);
+                return ex.Message;
             }
         }
     }

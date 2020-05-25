@@ -53,5 +53,26 @@ namespace One.Core.ExtensionMethods
             }
             return array;
         }
+
+
+        /// <summary> 统计分组数量 </summary>
+        /// <typeparam name="TSource"> </typeparam>
+        /// <typeparam name="TKey"> </typeparam>
+        /// <param name="source">      </param>
+        /// <param name="keySelector"> </param>
+        /// <returns> </returns>
+        public static int GroupCount<TTempClass, Telement>(this IEnumerable<IGrouping<TTempClass, Telement>> source)
+        {
+            var element = source.FirstOrDefault();
+
+            if (element == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return element.Count();
+            }
+        }
     }
 }

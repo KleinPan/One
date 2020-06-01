@@ -4,7 +4,7 @@ using System.Text;
 
 namespace One.Core.Helper
 {
-    public class IPHelper
+    public class IPConvertHelper
     {
         /// <summary>
         /// 将IPv4格式的字符串转换为int型表示

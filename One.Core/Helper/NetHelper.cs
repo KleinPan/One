@@ -181,6 +181,28 @@ namespace One.Core.Helper
 
             return listNetWorkInfo;
         }
+
+
+
+        /// <summary> 检测网络是否连通 </summary>
+        public static bool Ping(string hostName)
+        {
+            bool online = false; //是否在线
+            Ping ping = new Ping();
+
+            PingReply pingReply = ping.Send(hostName);
+            if (pingReply.Status == IPStatus.Success)
+            {
+                online = true;
+                Console.WriteLine("当前在线，已ping通！");
+            }
+            else
+            {
+                Console.WriteLine("不在线，ping不通！");
+            }
+
+            return online;
+        }
     }
 
     public class NetWorkInfo

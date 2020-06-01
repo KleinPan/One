@@ -6,8 +6,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.0.5</Version>
-    <PackageReleaseNotes>测试</PackageReleaseNotes>
+    <Version>2.0.6</Version>
+    <PackageReleaseNotes>测试发行说明</PackageReleaseNotes>
+    <Description>测试说明</Description>
 
   </PropertyGroup>
 

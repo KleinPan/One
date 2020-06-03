@@ -25,11 +25,21 @@ namespace One.Core.Helper
                 // var a = Process.GetProcessesByName(processName);
                 foreach (Process thisproc in Process.GetProcessesByName(processName))
                 {
-                    if (!thisproc.CloseMainWindow())
+                    //if (!thisproc.CloseMainWindow())
+                    //{
+                    //    thisproc.Kill();
+                    //}
+
+                    if (thisproc.CloseMainWindow())
                     {
-                        thisproc.Kill();
+                        thisproc.WaitForExit((int)TimeSpan.FromSeconds(10)
+                            .TotalMilliseconds); //give some time to process message
                     }
 
+                    if (!thisproc.HasExited)
+                    {
+                        thisproc.Kill(); //TODO show UI message asking user to close program himself instead of silently killing it
+                    }
                     Console.WriteLine("杀死" + processName + "成功！");
 
                 }

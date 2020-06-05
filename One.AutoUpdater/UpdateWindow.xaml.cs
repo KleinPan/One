@@ -154,6 +154,7 @@ namespace One.AutoUpdater
                     ? Path.GetFileName(_webClient.ResponseUri.LocalPath)
                     : contentDisposition.FileName;
 
+                //待解压文件路径
                 var tempPath =
                     Path.Combine(
                         string.IsNullOrEmpty(AutoUpdater.DownloadPath) ? Path.GetTempPath() : AutoUpdater.DownloadPath,
@@ -183,6 +184,8 @@ namespace One.AutoUpdater
                 var extension = Path.GetExtension(tempPath);
                 if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
                 {
+
+                    ZipHelper.Decompression(tempPath, installerArgs);
                     /*
                     string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
 

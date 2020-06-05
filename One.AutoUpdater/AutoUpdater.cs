@@ -11,13 +11,14 @@ using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
 
-using One.AutoUpdater.UpdateEventArgs;
+
 
 using One.AutoUpdater.Interfaces;
 using One.AutoUpdater.Utilities;
 
 using One.Core.Helper;
 using System.Runtime.InteropServices;
+using One.AutoUpdater.Models;
 
 namespace One.AutoUpdater
 {
@@ -418,7 +419,7 @@ namespace One.AutoUpdater
             //    }
             //}
 
-            var downloadDialog = new MainWindow(args);
+            var downloadDialog = new UpdateWindow(args);
             var temp = downloadDialog.ShowDialog();
 
             return (bool)temp;

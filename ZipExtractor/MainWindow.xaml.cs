@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Ionic.Zip;
+
 namespace ZipExtractor
 {
     /// <summary>
@@ -27,6 +29,7 @@ namespace ZipExtractor
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
 
@@ -82,9 +85,42 @@ namespace ZipExtractor
 
                     var path = args[2];
 
+
+
+                    try
+                    {
+                        ReadOptions options = new ReadOptions();
+                        options.Encoding = Encoding.Default;//设置编码，解决解压文件时中文乱码
+                        using (ZipFile zip = ZipFile.Read(args[1], options))
+                        {
+
+
+                            for (int i = 0; i < zip.Entries.Count; i++)
+                            {
+
+                                zip[i].Extract(path, ExtractExistingFileAction.OverwriteSilently);//解压文件，如果已存在就覆盖
+
+
+                                string currentFile = string.Format("Extracting {0}", zip[i].FileName);
+                                int progress = (i + 1) * 100 / zip.Entries.Count;
+                                _backgroundWorker.ReportProgress(progress, currentFile);
+
+                                _logBuilder.AppendLine($"{currentFile} [{progress}%]");
+                            }
+
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    /*
                     // Open an existing zip file for reading.
                     ZipStorer zip = ZipStorer.Open(args[1], FileAccess.Read);
 
+
+                    
                     // Read the central directory collection.
                     List<ZipStorer.ZipFileEntry> dir = zip.ReadCentralDir();
 
@@ -109,6 +145,8 @@ namespace ZipExtractor
                     }
 
                     zip.Close();
+
+                    */
                 };
 
                 _backgroundWorker.ProgressChanged += (o, eventArgs) =>

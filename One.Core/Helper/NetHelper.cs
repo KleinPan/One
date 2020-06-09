@@ -14,7 +14,7 @@ namespace One.Core.Helper
     public class NetHelper
     {
         /// <summary> 获取本机所有IPv4地址 </summary>
-        public static List<IPAddress> GainIPv4AdList()
+        public static List<IPAddress> GetIPv4AdList()
         {
             string hostName = Dns.GetHostName();//本机名
             IPAddress[] addressList = Dns.GetHostAddresses(hostName);//会返回所有地址，包括IPv4和IPv6
@@ -33,7 +33,7 @@ namespace One.Core.Helper
         }
 
         /// <summary> 获取本机所有IPv6地址 </summary>
-        public static List<IPAddress> GainIPv6AdList()
+        public static List<IPAddress> GetIPv6AdList()
         {
             string hostName = Dns.GetHostName();//本机名
             IPAddress[] addressList = Dns.GetHostAddresses(hostName);//会返回所有地址，包括IPv4和IPv6

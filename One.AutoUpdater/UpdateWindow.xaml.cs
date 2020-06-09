@@ -184,15 +184,17 @@ namespace One.AutoUpdater
                 var extension = Path.GetExtension(tempPath);
                 if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
                 {
+                   
+                    
+                    //string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
 
-                    ZipHelper.Decompression(tempPath, installerArgs);
-                    /*
-                    string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
-
-                    File.WriteAllBytes(installerPath, Properties.Resources.ZipExtractor);
+                    //File.WriteAllBytes(installerPath, Properties.Resources.ZipExtractor);
 
                     string executablePath = Process.GetCurrentProcess().MainModule.FileName;
                     string extractionPath = Path.GetDirectoryName(executablePath);
+
+
+                    string installerPath = Path.Combine(extractionPath, "ZipExtractor.exe");
 
                     if (!string.IsNullOrEmpty(AutoUpdater.InstallationPath) &&
                         Directory.Exists(AutoUpdater.InstallationPath))
@@ -220,7 +222,7 @@ namespace One.AutoUpdater
                         UseShellExecute = true,
                         Arguments = arguments.ToString()
                     };
-                    */
+                    
                 }
                 else if (extension.Equals(".msi", StringComparison.OrdinalIgnoreCase))
                 {

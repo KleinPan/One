@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Core", "One.Core\One.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Control", "One.Control\One.Control.csproj", "{71D8601B-4553-41DC-B772-951D74BF5A73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "One.AutoUpdater", "One.AutoUpdater\One.AutoUpdater.csproj", "{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.AutoUpdater", "One.AutoUpdater\One.AutoUpdater.csproj", "{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipExtractor", "ZipExtractor\ZipExtractor.csproj", "{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

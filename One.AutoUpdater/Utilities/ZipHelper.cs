@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
+
 using Ionic.Zip;
 
 namespace One.AutoUpdater.Utilities
@@ -42,8 +44,9 @@ namespace One.AutoUpdater.Utilities
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }

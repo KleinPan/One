@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\One.Core\One.Core.csproj" />
+    <ProjectReference Include="..\ZipExtractor\ZipExtractor.csproj" />
   </ItemGroup>
 
   <ItemGroup>

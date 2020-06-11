@@ -6,9 +6,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.0.6</Version>
-    <PackageReleaseNotes>测试发行说明</PackageReleaseNotes>
-    <Description>测试说明</Description>
+    <Version>2.0.7</Version>
+    <PackageReleaseNotes>稳定版本</PackageReleaseNotes>
+    <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
 
   </PropertyGroup>
 

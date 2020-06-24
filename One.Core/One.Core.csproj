@@ -12,6 +12,10 @@
 
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\bran\Documents\GitHub\One\One.Core\One.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Core.System.Configuration.Install" Version="1.0.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.1.0" />

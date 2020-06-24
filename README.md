@@ -14,7 +14,15 @@
 * [![博客地址](https://img.shields.io/badge/cnblogs-Link-brightgreen")](https://www.cnblogs.com/KevinBran/)
 
 
+## Tools
 
+We use these awesome tools to build and develop MahApps.Metro.
+
+<div>
+  <a href="https://www.jetbrains.com/resharper/">
+    <img alt="R#" width="128" heigth="128" vspace="20" hspace="20" src="./docs/icon_ReSharper.png">
+  </a>
+</div>
 
 <!--
   ## Nuget Links

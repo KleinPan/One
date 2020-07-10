@@ -16,7 +16,7 @@
 
 ## Tools
 
-We use these awesome tools to build and develop MahApps.Metro.
+We use these awesome tools to build and develop One.
 
 <div>
   <a href="https://www.jetbrains.com/resharper/">

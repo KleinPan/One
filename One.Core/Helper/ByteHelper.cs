@@ -11,7 +11,7 @@ namespace One.Core.Helper
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static string GetString(string source)
+        public static string GetStringMD5(string source)
         {
             //计算字符串的MD5
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -29,6 +29,7 @@ namespace One.Core.Helper
                 //调用Convert.ToString(整型,进制数) 来转换为想要的进制数
                 destString += System.Convert.ToString(md5Data[i], 16).PadLeft(2, '0');
             }
+
             //使用 PadLeft 和 PadRight 进行轻松地补位
             destString = destString.PadLeft(32, '0');
             return destString;
@@ -77,85 +78,6 @@ namespace One.Core.Helper
             }
         }
 
-        /// <summary> GBK转换成UTF8 </summary>
-        /// <param name="text">  </param>
-        /// <returns>  </returns>
-        public static string GbkToUtf8(string text)
-        {
-            //声明字符集
-            System.Text.Encoding utf8, gb2312;
-            //gb2312
-            gb2312 = System.Text.Encoding.GetEncoding("gb2312");
-            //utf8
-            utf8 = System.Text.Encoding.GetEncoding("utf-8");
-            byte[] gb;
-            gb = gb2312.GetBytes(text);
-            gb = System.Text.Encoding.Convert(gb2312, utf8, gb);
-            //返回转换后的字符
-            return utf8.GetString(gb);
-        }
-
-        public static string GetGgkStr(string text)//GBK
-        {
-            //声明字符集
-            System.Text.Encoding GBK = System.Text.Encoding.GetEncoding("GBK");
-            //返回转换后的字符
-            return GBK.GetString(GBK.GetBytes(text));
-        }
-
-        public static byte[] GetGgkByte(string text)//GBK
-        {
-            //声明字符集
-            System.Text.Encoding GBK = System.Text.Encoding.GetEncoding("GBK");
-            //返回转换后的字符
-            return GBK.GetBytes(text);
-        }
-
-        public static string Utf8ToGBK(string text)//UTF8转换成GBK
-        {
-            //声明字符集
-            System.Text.Encoding utf8, gb2312;
-            //utf8
-            utf8 = System.Text.Encoding.GetEncoding("utf-8");
-            //gb2312
-            gb2312 = System.Text.Encoding.GetEncoding("gb2312");
-            byte[] utf;
-            utf = utf8.GetBytes(text);
-            utf = System.Text.Encoding.Convert(utf8, gb2312, utf);
-            //返回转换后的字符
-            return gb2312.GetString(utf);
-        }
-
-        public static byte[] GetGBK(string GbkString)//返回GBK的数组
-        {
-            //声明字符集
-            System.Text.Encoding utf8, gb2312;
-            //gb2312
-            gb2312 = System.Text.Encoding.GetEncoding("gb2312");
-            //utf8
-            utf8 = System.Text.Encoding.GetEncoding("utf-8");
-            //返回转换后的字符
-            //return utf8.GetBytes(GbkString);
-            return gb2312.GetBytes(GbkString);
-        }
-
-        /// <summary> 返回字符串的GBK </summary>
-        /// <param name="Text">  </param>
-        /// <returns>  </returns>
-        public static string GetGBK(byte[] GbkByte)
-        {
-            //返回转换后的字符
-            return System.Text.Encoding.GetEncoding("GBK").GetString(GbkByte);
-        }
-
-        /// <summary> 返回字符串的GBK 简体中文 (GB2312) </summary>
-        /// <param name="Text">  </param>
-        /// <returns>  </returns>
-        public static string GetGB2312(byte[] byteArray)
-        {
-            //返回转换后的字符
-            return System.Text.Encoding.GetEncoding("gb2312").GetString(byteArray);
-        }
 
         #region 转换为大端模式
 
@@ -166,9 +88,9 @@ namespace One.Core.Helper
         {
             ushort Val;
             byte[] Buf = new byte[8];
-            Buf[0] = (byte)(Dat >> 0x00);
-            Buf[1] = (byte)(Dat >> 0x08);
-            Val = (ushort)(((Buf[0] & 0xFF) << 0x08) | ((Buf[1] & 0xFF) << 0x00));
+            Buf[0] = (byte) (Dat >> 0x00);
+            Buf[1] = (byte) (Dat >> 0x08);
+            Val = (ushort) (((Buf[0] & 0xFF) << 0x08) | ((Buf[1] & 0xFF) << 0x00));
             return Val;
         }
 
@@ -179,11 +101,12 @@ namespace One.Core.Helper
         {
             uint Val;
             byte[] Buf = new byte[8];
-            Buf[0] = (byte)(Dat >> 0);
-            Buf[1] = (byte)(Dat >> 8);
-            Buf[2] = (byte)(Dat >> 16);
-            Buf[3] = (byte)(Dat >> 24);
-            Val = (uint)(((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) | ((Buf[3] & 0xFF) << 0));
+            Buf[0] = (byte) (Dat >> 0);
+            Buf[1] = (byte) (Dat >> 8);
+            Buf[2] = (byte) (Dat >> 16);
+            Buf[3] = (byte) (Dat >> 24);
+            Val = (uint) (((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
+                          ((Buf[3] & 0xFF) << 0));
             return Val;
         }
 
@@ -197,11 +120,14 @@ namespace One.Core.Helper
             byte[] Buf = new byte[8];
             for (int i = 0; i < 8; i++)
             {
-                Buf[i] = (byte)(Dat >> i * 8);
+                Buf[i] = (byte) (Dat >> i * 8);
             }
-            Val1 = (uint)(((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) | ((Buf[3] & 0xFF) << 0));
-            Val2 = (uint)(((Buf[4] & 0xFF) << 24) | ((Buf[5] & 0xFF) << 16) | ((Buf[6] & 0xFF) << 8) | ((Buf[7] & 0xFF) << 0));
-            Val = (((ulong)Val1 & 0xFFFFFFFF) << 32) | (((ulong)Val2 & 0xFFFFFFFF) << 0);
+
+            Val1 = (uint) (((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
+                           ((Buf[3] & 0xFF) << 0));
+            Val2 = (uint) (((Buf[4] & 0xFF) << 24) | ((Buf[5] & 0xFF) << 16) | ((Buf[6] & 0xFF) << 8) |
+                           ((Buf[7] & 0xFF) << 0));
+            Val = (((ulong) Val1 & 0xFFFFFFFF) << 32) | (((ulong) Val2 & 0xFFFFFFFF) << 0);
             return Val;
         }
 
@@ -215,8 +141,9 @@ namespace One.Core.Helper
             byte[] Buf = new byte[8];
             for (int i = 0; i < 8; i++)
             {
-                Buf[i] = (byte)(Dat >> i * 8);
+                Buf[i] = (byte) (Dat >> i * 8);
             }
+
             Val1 = ((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) | ((Buf[3] & 0xFF) << 0);
             Val2 = ((Buf[4] & 0xFF) << 24) | ((Buf[5] & 0xFF) << 16) | ((Buf[6] & 0xFF) << 8) | ((Buf[7] & 0xFF) << 0);
             Val = ((Val1 & 0xFFFFFFFF) << 32) | ((Val2 & 0xFFFFFFFF) << 0);
@@ -230,14 +157,15 @@ namespace One.Core.Helper
         public static ushort GetUINT16(byte[] Buf, int Index)
         {
             ushort Val;
-            Val = (ushort)(((Buf[Index + 0] & 0xFF) << 0x08) | ((Buf[Index + 1] & 0xFF) << 0x00));
+            Val = (ushort) (((Buf[Index + 0] & 0xFF) << 0x08) | ((Buf[Index + 1] & 0xFF) << 0x00));
             return Val;
         }
 
         public static uint GetUINT32(byte[] Buf, int Index)
         {
             uint Val;
-            Val = (uint)(((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) | ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
+            Val = (uint) (((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
+                          ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
             return Val;
         }
 
@@ -245,9 +173,11 @@ namespace One.Core.Helper
         {
             ulong Val = 0;
             uint Val1 = 0, Val2 = 0;
-            Val1 = (uint)(((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) | ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
-            Val2 = (uint)(((Buf[Index + 4] & 0xFF) << 24) | ((Buf[Index + 5] & 0xFF) << 16) | ((Buf[Index + 6] & 0xFF) << 8) | ((Buf[Index + 7] & 0xFF) << 0));
-            Val = (((ulong)Val1 & 0xFFFFFFFF) << 32) | (((ulong)Val2 & 0xFFFFFFFF) << 0);
+            Val1 = (uint) (((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
+                           ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
+            Val2 = (uint) (((Buf[Index + 4] & 0xFF) << 24) | ((Buf[Index + 5] & 0xFF) << 16) |
+                           ((Buf[Index + 6] & 0xFF) << 8) | ((Buf[Index + 7] & 0xFF) << 0));
+            Val = (((ulong) Val1 & 0xFFFFFFFF) << 32) | (((ulong) Val2 & 0xFFFFFFFF) << 0);
             return Val;
         }
 
@@ -255,7 +185,7 @@ namespace One.Core.Helper
 
         public static ushort GetCRC(byte[] pchMsg, ushort wDataLen)
         {
-            byte[] chCRCHTalbe =                                 // CRC 高位字节值表
+            byte[] chCRCHTalbe = // CRC 高位字节值表
             {
                 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41,
                 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81, 0x40,
@@ -281,7 +211,7 @@ namespace One.Core.Helper
                 0x00, 0xC1, 0x81, 0x40
             };
 
-            byte[] chCRCLTalbe =                                 // CRC 低位字节值表
+            byte[] chCRCLTalbe = // CRC 低位字节值表
             {
                 0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06, 0x07, 0xC7,
                 0x05, 0xC5, 0xC4, 0x04, 0xCC, 0x0C, 0x0D, 0xCD, 0x0F, 0xCF, 0xCE, 0x0E,
@@ -308,18 +238,19 @@ namespace One.Core.Helper
             };
             byte chCRCHi = 0xFF; // 高CRC字节初始化
             byte chCRCLo = 0xFF; // 低CRC字节初始化
-            ushort wIndex = 0;     // CRC循环中的索引
+            ushort wIndex = 0; // CRC循环中的索引
             ushort nIndex = 0;
             while (wDataLen > 0)
             {
                 wDataLen--;
                 // 计算CRC
-                wIndex = (ushort)(chCRCLo ^ pchMsg[nIndex]);
+                wIndex = (ushort) (chCRCLo ^ pchMsg[nIndex]);
                 nIndex++;
-                chCRCLo = (byte)(chCRCHi ^ chCRCHTalbe[wIndex]);
+                chCRCLo = (byte) (chCRCHi ^ chCRCHTalbe[wIndex]);
                 chCRCHi = chCRCLTalbe[wIndex];
             }
-            ushort CRC16 = (ushort)((chCRCHi << 8) | chCRCLo);
+
+            ushort CRC16 = (ushort) ((chCRCHi << 8) | chCRCLo);
             return CRC16;
         }
 

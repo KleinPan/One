@@ -104,7 +104,7 @@ namespace One.Core.ExtensionMethods
         /// <summary> 转byte[]</summary>
         /// <param name="e"> </param>
         /// <returns> </returns>
-        public static byte[] Tobyte(this string t, System.Text.Encoding encoding)
+        public static byte[] ToByte(this string t, System.Text.Encoding encoding)
         {
             return encoding.GetBytes(t);
         }
@@ -876,6 +876,15 @@ namespace One.Core.ExtensionMethods
             if (encode == null) return content;
 
             return System.Web.HttpUtility.UrlEncode(content, Encoding.UTF8);
+        }
+
+        public static string ToOtherEncoding(this string content, Encoding encode = null)
+        {
+            if (encode == null) return content;
+
+          
+            //返回转换后的字符
+            return encode.GetString(encode.GetBytes(content));
         }
     }
 }

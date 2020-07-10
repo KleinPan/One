@@ -124,7 +124,8 @@ namespace One.Core.Helper.HttpHelper
 
             System.Diagnostics.Debug.WriteLine(res);
 
-            var byteArray = res.Tobyte(System.Text.Encoding.UTF8);
+            var byteArray = res.ToByte(System.Text.Encoding.UTF8);
+
             return byteArray;
         }
 

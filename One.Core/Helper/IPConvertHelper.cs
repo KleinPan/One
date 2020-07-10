@@ -4,6 +4,9 @@ using System.Text;
 
 namespace One.Core.Helper
 {
+    /// <summary>
+    /// IP地址字符串和数字转换
+    /// </summary>
     public class IPConvertHelper
     {
         /// <summary>

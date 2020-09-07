@@ -10,6 +10,9 @@ using One.Core.ExtensionMethods;
 
 namespace One.Core.Helper.HttpHelper
 {
+    /// <summary>
+    /// 主要用于get post请求
+    /// </summary>
     public class HTTPClientHelper
     {
         private static readonly HttpClient HttpClient;

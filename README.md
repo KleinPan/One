@@ -1,5 +1,6 @@
 
 
+
 <div align="center">
 
 # One (一个就够了)
@@ -31,3 +32,16 @@ We use these awesome tools to build and develop One.
   | ------------- | ------------- 
   
 -->
+## 功能介绍
+### 合并多Style
+#### 使用
+##### 引入命名空间Nuget
+ `xmlns:wms="clr-namespace:WpfMultiStyle;assembly=WpfMultiStyle"`
+ #####   应用样式
+目前有两种方式。一种是通过MarkupExtension扩展，这种有点儿缺陷，在设计时不能直接实时显示效果，需要把 Style 剪切再粘贴才会显示真正的效果。一种是通过附加属性，这个是实时显示效果的。 以Button 为例：
+```
+<Button Style="{wms:MultiStyle btn btn-default btn-lg}" Content="Large button"/>
+
+<Button wms:Apply.MultiStyle="btn btn-primary btn-lg" Content="Large button"/>
+```
+

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -54,7 +55,6 @@ namespace One.Core.ExtensionMethods
             return array;
         }
 
-
         /// <summary> 统计分组数量 </summary>
         /// <typeparam name="TSource"> </typeparam>
         /// <typeparam name="TKey"> </typeparam>
@@ -73,6 +73,22 @@ namespace One.Core.ExtensionMethods
             {
                 return element.Count();
             }
+        }
+
+        /// <summary> Adds each item in the <see cref="IEnumerator"/> into a <see cref="List{T}"/> and return the new <see cref="List{T}"/>. </summary>
+        /// <typeparam name="T"> The type of the elements in the <see cref="List{T}"/>. </typeparam>
+        /// <param name="enumerator"> The <see cref="IEnumerator"/> instance that the extension method affects. </param>
+        /// <returns> The <see cref="List{T}"/> instance with the elements of the <see cref="IEnumerator"/>. </returns>
+        public static List<T> ToList<T>(this IEnumerator enumerator)
+        {
+            List<T> collection = new List<T>();
+
+            while (enumerator.MoveNext())
+            {
+                collection.Add((T)enumerator.Current);
+            }
+
+            return collection;
         }
     }
 }

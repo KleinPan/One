@@ -7,8 +7,8 @@ using System.Net;
 using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+
 using One.AutoUpdater.Models;
 using One.AutoUpdater.Utilities;
 
@@ -78,8 +78,6 @@ namespace One.AutoUpdater
 
         private void UpdateView_Loaded(object sender, RoutedEventArgs e)
         {
-
-
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(filePath);
             request.Method = WebRequestMethods.Ftp.GetFileSize;
 
@@ -182,17 +180,17 @@ namespace One.AutoUpdater
                 };
 
                 var extension = Path.GetExtension(tempPath);
+
+                #region zip
+
                 if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
                 {
-                   
-                    
                     //string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
 
                     //File.WriteAllBytes(installerPath, Properties.Resources.ZipExtractor);
 
                     string executablePath = Process.GetCurrentProcess().MainModule.FileName;
                     string extractionPath = Path.GetDirectoryName(executablePath);
-
 
                     string installerPath = Path.Combine(extractionPath, "ZipExtractor.exe");
 
@@ -222,8 +220,30 @@ namespace One.AutoUpdater
                         UseShellExecute = true,
                         Arguments = arguments.ToString()
                     };
-                    
                 }
+
+                #endregion zip
+
+                /*
+
+                if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
+                {
+                    string executablePath = Process.GetCurrentProcess().MainModule.FileName;
+                    string extractionPath = Path.GetDirectoryName(executablePath);
+
+                    ZipHelper.Decompression(tempPath, extractionPath);
+
+                    processStartInfo = new ProcessStartInfo
+                    {
+                        FileName = executablePath,
+                        UseShellExecute = true,
+                        //Arguments = arguments.ToString()
+                    };
+                }
+                 */
+
+                #region msi
+
                 else if (extension.Equals(".msi", StringComparison.OrdinalIgnoreCase))
                 {
                     processStartInfo = new ProcessStartInfo
@@ -237,6 +257,8 @@ namespace One.AutoUpdater
                     }
                 }
 
+                #endregion msi
+
                 if (AutoUpdater.RunUpdateAsAdmin)
                 {
                     processStartInfo.Verb = "runas";
@@ -244,7 +266,18 @@ namespace One.AutoUpdater
 
                 try
                 {
+                    //启动 net core3.1项目时，需要添加启动配置文件
+
                     Process.Start(processStartInfo);
+
+                    //ProcessStartInfo startInfo = new ProcessStartInfo("edge.exe");
+                    //startInfo.WindowStyle = ProcessWindowStyle.Minimized;
+
+                    //Process.Start(startInfo);
+
+                    //startInfo.Arguments = "www.northwindtraders.com";
+
+                    //Process.Start(startInfo);
                 }
                 catch (Win32Exception exception)
                 {
@@ -271,8 +304,7 @@ namespace One.AutoUpdater
 
         private static void CompareChecksum(string fileName, CheckSum checksum)
         {
-            using (var hashAlgorithm =
-                HashAlgorithm.Create(
+            using (var hashAlgorithm = HashAlgorithm.Create(
                     string.IsNullOrEmpty(checksum.HashingAlgorithm) ? "MD5" : checksum.HashingAlgorithm))
             {
                 using (var stream = File.OpenRead(fileName))

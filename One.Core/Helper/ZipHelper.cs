@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Windows;
 
-using Ionic.Zip;
-
-namespace One.AutoUpdater.Utilities
+namespace One.Core.Helper
 {
-  public  class ZipHelper
+    public class ZipHelper
     {
+
+        /*
         /// <summary>
         /// 压缩ZIP文件
         /// 支持多文件和多目录，或是多文件和多目录一起压缩
@@ -62,7 +59,7 @@ namespace One.AutoUpdater.Utilities
         /// <param name="strUnZipPath">解压的目录</param>
         /// <param name="overWrite">是否覆盖</param>
         /// <returns>成功：true/失败：false</returns>
-        public static bool Decompression(string strZipPath, string strUnZipPath, bool overWrite=true)
+        public static bool Decompression(string strZipPath, string strUnZipPath, bool overWrite = true)
         {
             try
             {
@@ -94,5 +91,7 @@ namespace One.AutoUpdater.Utilities
                 return false;
             }
         }
+
+        */
     }
 }

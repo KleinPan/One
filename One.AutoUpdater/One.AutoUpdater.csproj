@@ -3,23 +3,36 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>BranPan</Authors>
+    <Company>One</Company>
+    <Description>自动升级</Description>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\update.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.13.8" />
-  </ItemGroup>
-
+ 
   <ItemGroup>
     <ProjectReference Include="..\One.Core\One.Core.csproj" />
-    <ProjectReference Include="..\ZipExtractor\ZipExtractor.csproj" />
+  </ItemGroup>
+
+  
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\update.ico" />
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy $(ProjectDir)Resources $(OutDir) /Y &#xD;&#xA;" />
+  </Target>
 
 </Project>

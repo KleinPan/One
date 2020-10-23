@@ -1,40 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 using Ionic.Zip;
 
 namespace ZipExtractor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// <summary> Interaction logic for MainWindow.xaml </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-
         private BackgroundWorker _backgroundWorker;
-        readonly StringBuilder _logBuilder = new StringBuilder();
+        private readonly StringBuilder _logBuilder = new StringBuilder();
+
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             _logBuilder.AppendLine(DateTime.Now.ToString("F"));
@@ -85,21 +70,15 @@ namespace ZipExtractor
 
                     var path = args[2];
 
-
-
                     try
                     {
                         ReadOptions options = new ReadOptions();
                         options.Encoding = Encoding.Default;//设置编码，解决解压文件时中文乱码
                         using (ZipFile zip = ZipFile.Read(args[1], options))
                         {
-
-
                             for (int i = 0; i < zip.Entries.Count; i++)
                             {
-
                                 zip[i].Extract(path, ExtractExistingFileAction.OverwriteSilently);//解压文件，如果已存在就覆盖
-
 
                                 string currentFile = string.Format("Extracting {0}", zip[i].FileName);
                                 int progress = (i + 1) * 100 / zip.Entries.Count;
@@ -107,20 +86,15 @@ namespace ZipExtractor
 
                                 _logBuilder.AppendLine($"{currentFile} [{progress}%]");
                             }
-
-
                         }
                     }
                     catch (Exception ex)
                     {
-
                     }
                     /*
                     // Open an existing zip file for reading.
                     ZipStorer zip = ZipStorer.Open(args[1], FileAccess.Read);
 
-
-                    
                     // Read the central directory collection.
                     List<ZipStorer.ZipFileEntry> dir = zip.ReadCentralDir();
 

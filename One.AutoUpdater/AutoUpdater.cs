@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Cache;
@@ -11,32 +10,25 @@ using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
 
-
-
 using One.AutoUpdater.Interfaces;
-using One.AutoUpdater.Utilities;
-
-using One.Core.Helper;
-using System.Runtime.InteropServices;
 using One.AutoUpdater.Models;
+using One.AutoUpdater.Utilities;
+using One.Core.Helper;
 
 namespace One.AutoUpdater
 {
-    /// <summary> Main class that lets you auto update applications by setting some static fields and executing its Start method. </summary>
+    /// <summary> 通过设置一些静态字段并执行其Start方法，可以自动更新应用程序的主类。 </summary>
     public static class AutoUpdater
     {
         #region 静态变量
 
-        /// <summary>
-        ///     If you are using a zip file as an update file then you can set this value to path where your app is installed. This is only necessary when your installation directory differs from your executable path.
-        /// </summary>
+        /// <summary> 如果您将zip文件用作更新文件，则可以将此值设置为应用程序的安装路径。仅当您的安装目录与可执行路径不同时才需要这样做。 </summary>
         public static string InstallationPath;
-        /// <summary>
-        ///     Set this to false if your application doesn't need administrator privileges to replace the old version.
-        /// </summary>
+
+        /// <summary> 如果您的应用程序不需要管理员权限来替换旧版本，请将其设置为false。 </summary>
         public static bool RunUpdateAsAdmin = true;
 
-        /// <summary> URL of the xml file that contains information about latest version of the application. </summary>
+        /// <summary> 包含有关应用程序最新版本信息的xml文件的URL。 </summary>
         public static string AppCastURL;
 
         private static System.Timers.Timer _remindLaterTimer;
@@ -53,10 +45,16 @@ namespace One.AutoUpdater
         /// </summary>
         public static bool ReportErrors = true;
 
-        /// <summary> Login/password/domain for FTP-request FTP请求的登录名/密码/域 </summary>
+        /// <summary>
+        /// Login/password/domain for FTP-request
+        /// <para> FTP请求的登录名/密码/域 </para>
+        /// </summary>
         public static NetworkCredential FtpCredentials;
 
-        /// <summary> Set the User-Agent string to be used for HTTP web requests. 设置用于HTTP Web请求的User-Agent字符串。 </summary>
+        /// <summary>
+        /// Set the User-Agent string to be used for HTTP web requests.
+        /// <para> 设置用于HTTP Web请求的User-Agent字符串。 </para>
+        /// </summary>
         public static string HttpUserAgent;
 
         /// <summary> Set Basic Authentication credentials required to download the file.设置下载文件所需的基本身份验证凭据。 </summary>
@@ -85,12 +83,16 @@ namespace One.AutoUpdater
         /// <summary> Set Basic Authentication credentials required to download the XML file. </summary>
         public static IAuthentication BasicAuthXML;
 
+        #region Event
+
         /// <summary> A delegate type for hooking up parsing logic. </summary>
         /// <param name="args"> An object containing the AppCast file received from server. </param>
         public delegate void ParseUpdateInfoHandler(ParseUpdateInfoEventArgs args);
 
         /// <summary> An event that clients can use to be notified whenever the AppCast file needs parsing. </summary>
         public static event ParseUpdateInfoHandler ParseUpdateInfoEvent;
+
+        #endregion Event
 
         /// <summary> If this is true users can see the skip button. </summary>
         public static bool ShowSkipButton = true;
@@ -108,7 +110,10 @@ namespace One.AutoUpdater
         /// <summary> A delegate type to handle how to exit the application after update is downloaded. </summary>
         public delegate void ApplicationExitEventHandler();
 
-        /// <summary> An event that developers can use to exit the application gracefully. </summary>
+        /// <summary>
+        /// An event that developers can use to exit the application gracefully.
+        /// <para> 正常退出应用程序的事件。如果此项注册了自定义事件，则不会执行默认流程。 </para>
+        /// </summary>
         public static event ApplicationExitEventHandler ApplicationExitEvent;
 
         #endregion 静态变量
@@ -120,9 +125,9 @@ namespace One.AutoUpdater
         }
 
         /// <summary> Start checking for new version of application and display a dialog to the user if update is available. </summary>
-        /// <param name="appCast">    URL of the xml file that contains information about latest version of the application. </param>
+        /// <param name="updateURL">    URL of the xml file that contains information about latest version of the application. </param>
         /// <param name="myAssembly"> Assembly to use for version checking. </param>
-        public static void Start(string appCast, Assembly myAssembly = null)
+        public static void Start(string updateURL, Assembly myAssembly = null)
         {
             try
             {
@@ -144,7 +149,7 @@ namespace One.AutoUpdater
             {
                 Running = true;
 
-                AppCastURL = appCast;
+                AppCastURL = updateURL;
 
                 // Application.EnableVisualStyles();
 
@@ -174,7 +179,6 @@ namespace One.AutoUpdater
                                     //Running = false;
                                     return;
                                 }
-
                             }
                         }
 
@@ -246,9 +250,13 @@ namespace One.AutoUpdater
 
                 if (ParseUpdateInfoEvent == null)
                 {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(UpdateInfoEventArgs));
-                    XmlTextReader xmlTextReader = new XmlTextReader(new StringReader(xml)) { XmlResolver = null };
-                    args = (UpdateInfoEventArgs)xmlSerializer.Deserialize(xmlTextReader);
+                    //XmlSerializer xmlSerializer = new XmlSerializer(typeof(UpdateInfoEventArgs));
+                    //XmlTextReader xmlTextReader = new XmlTextReader(new StringReader(xml)) { XmlResolver = null };
+                    //args = (UpdateInfoEventArgs)xmlSerializer.Deserialize(xmlTextReader);
+                    ParseUpdateInfoEventArgs parseArgs = new ParseUpdateInfoEventArgs(xml);
+                    AutoUpdaterOnParseUpdateInfoEvent(parseArgs);
+                    args = parseArgs.UpdateInfo;
+                  
                 }
                 else
                 {
@@ -311,7 +319,27 @@ namespace One.AutoUpdater
 
             return args;
         }
-
+        static  void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
+        {
+            var json = System.Text.Json.JsonSerializer.Deserialize<UpdateInfoEventArgs>(args.RemoteData);
+            args.UpdateInfo = new UpdateInfoEventArgs
+            {
+                CurrentVersion = json.CurrentVersion,
+                ChangelogURL = json.ChangelogURL,
+                DownloadURL = json.DownloadURL,
+                Mandatory = new Mandatory
+                {
+                    Value = json.Mandatory.Value,
+                    //UpdateMode = json.mandatory.mode,
+                    MinimumVersion = json.Mandatory.MinimumVersion
+                },
+                CheckSum = new CheckSum
+                {
+                    Value = json.CheckSum.Value,
+                    HashingAlgorithm = json.CheckSum.HashingAlgorithm
+                }
+            };
+        }
         private static bool StartUpdate(object result)
         {
             if (result is DateTime time)
@@ -499,5 +527,4 @@ namespace One.AutoUpdater
         {
         }
     }
-
 }

@@ -14,5 +14,14 @@ namespace One.Core.ExtensionMethods
             var attr = value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
             return attr.Description;
         }
+
+        public static T TryParse<T>(this string value) where T : struct
+        {
+            var isSucc = Enum.TryParse<T>(value, out var result);
+
+            if (!isSucc) return default(T);
+
+            return result;
+        }
     }
 }

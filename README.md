@@ -9,6 +9,7 @@
 
 * One.Core &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.Core)](https://www.nuget.org/packages/One.Core/)
 * One.Control &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.Control)](https://www.nuget.org/packages/One.Control/)
+* One.AutoUpdater &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.AutoUpdater)](https://www.nuget.org/packages/One.AutoUpdater/)
 
 * ![GitHub issues](https://img.shields.io/github/issues/KleinPan/One)
 
@@ -33,8 +34,9 @@ We use these awesome tools to build and develop One.
   
 -->
 ## 功能介绍
-### 合并多Style
-#### 使用
+### 1. One.Core
+### 2. One.Control
+#### 合并多Style
 ##### 引入命名空间Nuget
  `xmlns:ex="clr-namespace:One.Control.ExtentionMethods;assembly=One.Control"`
  #####   应用样式
@@ -44,4 +46,31 @@ We use these awesome tools to build and develop One.
 
 <Button ex:Apply.MultiStyle="btn btn-primary btn-lg" Content="Large button"/>
 ```
+### 3. One.AutoUpdater
+#### 使用方法
+```
+System.Net.NetworkCredential networkCredential = new System.Net.NetworkCredential()
+  {
+    UserName = "UpdateUser",
+    Password="123456",
+  };
 
+One.AutoUpdater.AutoUpdater.Start("ftp://114.215.94.141//UpdateDirectories//Version.json", networkCredential);
+ ```
+
+#### 格式说明
+推荐使用Json格式
+```
+{
+   "CurrentVersion":"1.1.0.0",
+   "DownloadURL":"ftp://114.215.94.141/Update.zip",
+   "ChangelogURL":"https://github.com/ravibpatel/AutoUpdater.NET/releases",
+   "Mandatory":{
+      "Value":false,
+      "MinimumVersion": "1.1.0.0"
+   },
+   "CheckSum":{
+      "Value":"C5A5DF71B99285E8C98B1AB3BD49025FA0B800A3",
+      "HashingAlgorithm":"SHA1"
+   }
+}

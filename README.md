@@ -47,6 +47,17 @@ We use these awesome tools to build and develop One.
 <Button ex:Apply.MultiStyle="btn btn-primary btn-lg" Content="Large button"/>
 ```
 ### 3. One.AutoUpdater
+#### 使用方法
+```
+System.Net.NetworkCredential networkCredential = new System.Net.NetworkCredential()
+  {
+    UserName = "UpdateUser",
+    Password="123456",
+  };
+
+One.AutoUpdater.AutoUpdater.Start("ftp://114.215.94.141//UpdateDirectories//Version.json", networkCredential);
+ ```
+
 #### 格式说明
 推荐使用Json格式
 ```

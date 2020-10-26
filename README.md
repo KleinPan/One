@@ -9,7 +9,7 @@
 
 * One.Core &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.Core)](https://www.nuget.org/packages/One.Core/)
 * One.Control &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.Control)](https://www.nuget.org/packages/One.Control/)
-* One.AutoUpdater &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.AutoUpdater )](https://www.nuget.org/packages/One.AutoUpdater /)
+* One.AutoUpdater &nbsp; [![Nuget](https://img.shields.io/nuget/v/One.AutoUpdater)](https://www.nuget.org/packages/One.AutoUpdater/)
 
 * ![GitHub issues](https://img.shields.io/github/issues/KleinPan/One)
 

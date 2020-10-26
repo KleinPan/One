@@ -34,8 +34,9 @@ We use these awesome tools to build and develop One.
   
 -->
 ## 功能介绍
-### 合并多Style
-#### 使用
+### 1. One.Core
+### 2. One.Control
+#### 合并多Style
 ##### 引入命名空间Nuget
  `xmlns:ex="clr-namespace:One.Control.ExtentionMethods;assembly=One.Control"`
  #####   应用样式
@@ -45,4 +46,20 @@ We use these awesome tools to build and develop One.
 
 <Button ex:Apply.MultiStyle="btn btn-primary btn-lg" Content="Large button"/>
 ```
-
+### 3. One.AutoUpdater
+#### 格式说明
+推荐使用Json格式
+```
+{
+   "CurrentVersion":"1.1.0.0",
+   "DownloadURL":"ftp://114.215.94.141/Update.zip",
+   "ChangelogURL":"https://github.com/ravibpatel/AutoUpdater.NET/releases",
+   "Mandatory":{
+      "Value":false,
+      "MinimumVersion": "1.1.0.0"
+   },
+   "CheckSum":{
+      "Value":"C5A5DF71B99285E8C98B1AB3BD49025FA0B800A3",
+      "HashingAlgorithm":"SHA1"
+   }
+}

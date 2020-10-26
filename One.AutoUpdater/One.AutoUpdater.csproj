@@ -7,9 +7,13 @@
     <Authors>BranPan</Authors>
     <Company>One</Company>
     <Description>自动升级</Description>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageReleaseNotes>test</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetZip" Version="1.14.0" />
+  </ItemGroup>
 
  
   <ItemGroup>
@@ -33,8 +37,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy $(ProjectDir)Resources $(OutDir) /Y &#xD;&#xA;" />
-  </Target>
+  
 
 </Project>

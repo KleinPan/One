@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -12,6 +13,7 @@ using System.Windows;
 using One.AutoUpdater.Models;
 using One.AutoUpdater.Utilities;
 
+//xcopy $(ProjectDir)Resources $(OutDir) /Y
 namespace One.AutoUpdater
 {
     /// <summary> Interaction logic for MainWindow.xaml </summary>
@@ -185,23 +187,42 @@ namespace One.AutoUpdater
 
                 if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
                 {
-                    //string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
-
-                    //File.WriteAllBytes(installerPath, Properties.Resources.ZipExtractor);
 
                     string executablePath = Process.GetCurrentProcess().MainModule.FileName;
                     string extractionPath = Path.GetDirectoryName(executablePath);
 
+                    string installerPathdll = Path.Combine(extractionPath, "ZipExtractor.dll");
+                    File.WriteAllBytes(installerPathdll, Properties.Resources.ZipExtractorDll);
+
                     string installerPath = Path.Combine(extractionPath, "ZipExtractor.exe");
+
+                    //string installerPath = Path.Combine(Path.GetDirectoryName(tempPath), "ZipExtractor.exe");
+                    File.WriteAllBytes(installerPath, Properties.Resources.ZipExtractorExe);
+
+                    string installerPath2 = Path.Combine(extractionPath, "ZipExtractor.deps.json");
+                    File.WriteAllBytes(installerPath2, Properties.Resources.ZipExtractor_deps);
+
+                    string installerPath3 = Path.Combine(extractionPath, "ZipExtractor.runtimeconfig.json");
+                    File.WriteAllBytes(installerPath3, Properties.Resources.ZipExtractor_runtimeconfig);
+
+                    string installerPath4 = Path.Combine(extractionPath, "ZipExtractor.runtimeconfig.dev.json");
+                    File.WriteAllBytes(installerPath4, Properties.Resources.ZipExtractor_runtimeconfig_dev);
+                 
+
+
+
 
                     if (!string.IsNullOrEmpty(AutoUpdater.InstallationPath) &&
                         Directory.Exists(AutoUpdater.InstallationPath))
                     {
                         extractionPath = AutoUpdater.InstallationPath;
                     }
+                    //总长度 5  0 被启动的程序自己路径  1 压缩包目录（包括文件名）  2 解压目录  3 可执行文件路径 4 启动参数
+                    //StringBuilder arguments = new StringBuilder($"\"{tempPath}\" \"{extractionPath}\" \"{executablePath}\"");
+                    StringBuilder arguments = new StringBuilder($"\"{tempPath}\" \"{extractionPath}\" \"{executablePath}\"");
 
-                    StringBuilder arguments =
-                        new StringBuilder($"\"{tempPath}\" \"{extractionPath}\" \"{executablePath}\"");
+
+
                     string[] args = Environment.GetCommandLineArgs();
                     for (int i = 1; i < args.Length; i++)
                     {
@@ -213,13 +234,16 @@ namespace One.AutoUpdater
                         arguments.Append(args[i]);
                         arguments.Append(i.Equals(args.Length - 1) ? "\"" : " ");
                     }
-
+                    Debug.WriteLine(arguments.ToString());
                     processStartInfo = new ProcessStartInfo
                     {
                         FileName = installerPath,
-                        UseShellExecute = true,
-                        Arguments = arguments.ToString()
+                        UseShellExecute = false,
+                        Arguments = arguments.ToString(),
+
                     };
+
+
                 }
 
                 #endregion zip

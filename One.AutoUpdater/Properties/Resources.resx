@@ -117,4 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ZipExtractorDll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZipExtractor.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ZipExtractorExe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZipExtractor.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ZipExtractor_deps" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZipExtractor.deps.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ZipExtractor_runtimeconfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZipExtractor.runtimeconfig.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ZipExtractor_runtimeconfig_dev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZipExtractor.runtimeconfig.dev.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

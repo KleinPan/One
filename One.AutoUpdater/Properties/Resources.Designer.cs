@@ -59,5 +59,55 @@ namespace One.AutoUpdater.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] ZipExtractor_deps {
+            get {
+                object obj = ResourceManager.GetObject("ZipExtractor_deps", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] ZipExtractor_runtimeconfig {
+            get {
+                object obj = ResourceManager.GetObject("ZipExtractor_runtimeconfig", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] ZipExtractor_runtimeconfig_dev {
+            get {
+                object obj = ResourceManager.GetObject("ZipExtractor_runtimeconfig_dev", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] ZipExtractorDll {
+            get {
+                object obj = ResourceManager.GetObject("ZipExtractorDll", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] ZipExtractorExe {
+            get {
+                object obj = ResourceManager.GetObject("ZipExtractorExe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

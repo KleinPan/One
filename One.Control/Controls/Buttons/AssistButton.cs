@@ -215,5 +215,28 @@ namespace One.Control.Controls.Buttons
                 }
             }
         }
+
+        /*
+       <local:FloatButton2
+            x:Name="f2"
+            Width="50" Height="50"
+            MinEdgeDist="10" MinMagneticSuctionDist="50">
+
+            <local:FloatButton2.Content>
+                <Grid>
+                    <Border
+                        Width="50" Height="50"
+                        Background="#022938" CornerRadius="25" Opacity="0.2" />
+                    <Border
+                        Width="40" Height="40"
+                        Background="#022938" CornerRadius="20" Opacity="0.3" />
+                    <Border
+                        Width="28" Height="28"
+                        Background="White" CornerRadius="14" Opacity="0.8" />
+                </Grid>
+
+            </local:FloatButton2.Content>
+        </local:FloatButton2>
+        */
     }
 }

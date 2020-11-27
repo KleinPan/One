@@ -6,10 +6,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.4.0</Version>
+    <Version>2.4.1</Version>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
-    <PackageReleaseNotes>增加合并多style的扩展属性</PackageReleaseNotes>
+    <PackageReleaseNotes>增加辅助可拖动按钮</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.1.0" />

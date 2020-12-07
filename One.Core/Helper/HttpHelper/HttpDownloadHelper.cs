@@ -26,13 +26,13 @@ namespace One.Core.Helper.HttpHelper
             source = new CancellationTokenSource();
         }
 
-        public static async void DownloadLittleAsync(Dictionary<string, string> paramArray, string url, string filePath, string fileName)
+        public static async void DownloadLittleAsync( string downloadUrl, string filePath, string fileName)
         {
             var httpclient = HttpDownloadHelper.HttpClient;
 
             //url = url + "?";
 
-            var response = httpclient.GetByteArrayAsync(url).Result;
+            var response = httpclient.GetByteArrayAsync(downloadUrl).Result;
 
             if (File.Exists(filePath + "//" + fileName))
             {

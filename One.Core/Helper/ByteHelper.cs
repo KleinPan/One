@@ -154,14 +154,14 @@ namespace One.Core.Helper
 
         #region 获取对应类型的大端模式
 
-        public static ushort GetUINT16(byte[] Buf, int Index)
+        public static ushort GetUINT16(byte[] Buf, int Index=0)
         {
             ushort Val;
             Val = (ushort) (((Buf[Index + 0] & 0xFF) << 0x08) | ((Buf[Index + 1] & 0xFF) << 0x00));
             return Val;
         }
 
-        public static uint GetUINT32(byte[] Buf, int Index)
+        public static uint GetUINT32(byte[] Buf, int Index=0)
         {
             uint Val;
             Val = (uint) (((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
@@ -169,7 +169,7 @@ namespace One.Core.Helper
             return Val;
         }
 
-        public static ulong GetUINT64(byte[] Buf, int Index)
+        public static ulong GetUINT64(byte[] Buf, int Index=0)
         {
             ulong Val = 0;
             uint Val1 = 0, Val2 = 0;

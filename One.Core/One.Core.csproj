@@ -6,8 +6,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.0.10</Version>
-    <PackageReleaseNotes>优化字节转字符串方法</PackageReleaseNotes>
+    <Version>2.0.11</Version>
+    <PackageReleaseNotes>新增并优化一些方法</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
 

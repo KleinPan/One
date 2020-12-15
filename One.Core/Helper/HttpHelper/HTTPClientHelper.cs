@@ -155,7 +155,7 @@ namespace One.Core.Helper.HttpHelper
         /// </summary>
         /// <param name="Url">234</param>
         /// <param name="paramArray">324</param>
-        /// <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间&amp;用间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
+        /// <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&（&amp;）用间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
         /// <returns></returns>
         private static Task<HttpResponseMessage> HttpPostRequestAsync(string Url, string jsonStr, string ContentType = "application/x-www-form-urlencoded")//"application/x-www-form-urlencoded"
         {

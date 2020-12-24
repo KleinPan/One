@@ -50,20 +50,44 @@
             <param name="e"> string字符编码 </param>
             <returns> </returns>
         </member>
+        <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForCollection.AddRange``1(System.Collections.ObjectModel.ObservableCollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            添加T类型的序列到当前序列末尾（带通知）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForCollection.AddRange``1(System.Collections.ObjectModel.Collection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            添加T类型的序列到当前序列末尾
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="items"></param>
+        </member>
         <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForDateTime.StartOfDay(System.DateTime)">
-            <summary> A DateTime extension method that return a DateTime with the time set to "00:00:00:000". The first moment of the day. </summary>
+            <summary> 获取当天起始时间 00:00:00:000 </summary>
             <param name="this"> The @this to act on. </param>
             <returns> A DateTime of the day with the time set to "00:00:00:000". </returns>
         </member>
         <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForDateTime.EndOfDay(System.DateTime)">
-            <summary> A DateTime extension method that return a DateTime with the time set to "23:59:59:999". The last moment of the day. Use "DateTime2" column type in sql to keep the precision. </summary>
+            <summary> 获取当天最后一刻 "23:59:59:999" The last moment of the day. Use "DateTime2" column type in sql to keep the precision. </summary>
             <param name="this"> The @this to act on. </param>
             <returns> A DateTime of the day with the time set to "23:59:59:999". </returns>
         </member>
         <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnum.GetCustomAttributeDescription(System.Enum)">
-            <summary> An object extension method that gets description attribute. </summary>
+            <summary> 获取枚举描述属性 </summary>
             <param name="value"> The value to act on. </param>
             <returns> The description attribute. </returns>
+        </member>
+        <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnum.TryParse``1(System.String)">
+            <summary>
+            解析枚举
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
         </member>
         <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
             <summary> 返回指定筛选条件下序列非重复元素的首项 </summary>
@@ -72,6 +96,15 @@
             <param name="source">      </param>
             <param name="keySelector"> </param>
             <returns> </returns>
+        </member>
+        <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            获取指定筛选条件下对象的Index
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="predicate"></param>
+            <returns></returns>
         </member>
         <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
             <summary> Enumerates for each in this collection. </summary>
@@ -87,6 +120,12 @@
             <param name="source">      </param>
             <param name="keySelector"> </param>
             <returns> </returns>
+        </member>
+        <member name="M:One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.ToList``1(System.Collections.IEnumerator)">
+            <summary> Adds each item in the <see cref="T:System.Collections.IEnumerator"/> into a <see cref="T:System.Collections.Generic.List`1"/> and return the new <see cref="T:System.Collections.Generic.List`1"/>. </summary>
+            <typeparam name="T"> The type of the elements in the <see cref="T:System.Collections.Generic.List`1"/>. </typeparam>
+            <param name="enumerator"> The <see cref="T:System.Collections.IEnumerator"/> instance that the extension method affects. </param>
+            <returns> The <see cref="T:System.Collections.Generic.List`1"/> instance with the elements of the <see cref="T:System.Collections.IEnumerator"/>. </returns>
         </member>
         <member name="T:One.Core.ExtensionMethods.ExtensionMethodsForString">
             <summary> 扩展字符串类 </summary>
@@ -408,6 +447,23 @@
             <param name="Dat">  </param>
             <returns>  </returns>
         </member>
+        <member name="M:One.Core.Helper.ByteHelper.FloatToUshort(System.Single)">
+            <summary> float 数据变为 ushort 数组 </summary>
+            <param name="data"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:One.Core.Helper.ByteHelper.UshortToFloat2(System.UInt16[])">
+            <summary>
+            另一种BlockCopy方案
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:One.Core.Helper.ByteHelper.FloatToUshort2(System.Single)">
+            <summary> 另一种BlockCopy方案</summary>
+            <param name="data"> </param>
+            <returns> </returns>
+        </member>
         <member name="T:One.Core.Helper.FileHelper">
             <summary>
             文件帮助类
@@ -423,6 +479,11 @@
         <member name="M:One.Core.Helper.FileHelper.DeleteExe">
             <summary>
             删除使用这个方法的exe,必须放在formclosed方法里边,并且调用后程序要退出
+            </summary>
+        </member>
+        <member name="T:One.Core.Helper.HttpHelper.HTTPClientHelper">
+            <summary>
+            主要用于get post请求
             </summary>
         </member>
         <member name="M:One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
@@ -448,14 +509,11 @@
             <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&amp;间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
             <returns></returns>
         </member>
-        <member name="M:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.String,System.String)">
+        <!-- Badly formed XML comment ignored for member "M:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.String,System.String)" -->
+        <member name="T:One.Core.Helper.HttpHelper.HttpDownloadHelper">
             <summary>
-            异步POST请求
+            官方推荐的HttpClient，下载方法使用上边的
             </summary>
-            <param name="Url">234</param>
-            <param name="paramArray">324</param>
-            <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间&amp;用间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
-            <returns></returns>
         </member>
         <member name="T:One.Core.Helper.IPConvertHelper">
             <summary>
@@ -683,6 +741,14 @@
             <param name="size"> 字节值 </param>
             <param name="mod">  除数，硬盘除以1000，内存除以1024 </param>
             <returns>  </returns>
+        </member>
+        <member name="M:One.Core.PathHelper.PathHelper.GetParentDirectory(System.String,System.Int32)">
+            <summary>
+            获取父目录
+            </summary>
+            <param name="path">当前目录</param>
+            <param name="i">第几级父目录</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

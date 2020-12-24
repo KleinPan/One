@@ -6,7 +6,7 @@ namespace One.Core.ExtensionMethods
 {
     public static class ExtensionMethodsForEnum
     {
-        /// <summary> An object extension method that gets description attribute. </summary>
+        /// <summary> 获取枚举描述属性 </summary>
         /// <param name="value"> The value to act on. </param>
         /// <returns> The description attribute. </returns>
         public static string GetCustomAttributeDescription(this Enum value)
@@ -15,6 +15,12 @@ namespace One.Core.ExtensionMethods
             return attr.Description;
         }
 
+        /// <summary>
+        /// 解析枚举
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static T TryParse<T>(this string value) where T : struct
         {
             var isSucc = Enum.TryParse<T>(value, out var result);

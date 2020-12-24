@@ -4,7 +4,7 @@ namespace One.Core.ExtensionMethods
 {
     public static class ExtensionMethodsForDateTime
     {
-        /// <summary> A DateTime extension method that return a DateTime with the time set to "00:00:00:000". The first moment of the day. </summary>
+        /// <summary> 获取当天起始时间 00:00:00:000 </summary>
         /// <param name="this"> The @this to act on. </param>
         /// <returns> A DateTime of the day with the time set to "00:00:00:000". </returns>
         public static DateTime StartOfDay(this DateTime @this)
@@ -12,7 +12,7 @@ namespace One.Core.ExtensionMethods
             return new DateTime(@this.Year, @this.Month, @this.Day);
         }
 
-        /// <summary> A DateTime extension method that return a DateTime with the time set to "23:59:59:999". The last moment of the day. Use "DateTime2" column type in sql to keep the precision. </summary>
+        /// <summary> 获取当天最后一刻 "23:59:59:999" The last moment of the day. Use "DateTime2" column type in sql to keep the precision. </summary>
         /// <param name="this"> The @this to act on. </param>
         /// <returns> A DateTime of the day with the time set to "23:59:59:999". </returns>
         public static DateTime EndOfDay(this DateTime @this)

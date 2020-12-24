@@ -183,6 +183,9 @@ namespace One.Core.Helper
 
         #endregion 获取对应类型的大端模式
 
+
+
+        #region 校验
         public static ushort GetCRC(byte[] pchMsg, ushort wDataLen)
         {
             byte[] chCRCHTalbe = // CRC 高位字节值表
@@ -244,15 +247,17 @@ namespace One.Core.Helper
             {
                 wDataLen--;
                 // 计算CRC
-                wIndex = (ushort) (chCRCLo ^ pchMsg[nIndex]);
+                wIndex = (ushort)(chCRCLo ^ pchMsg[nIndex]);
                 nIndex++;
-                chCRCLo = (byte) (chCRCHi ^ chCRCHTalbe[wIndex]);
+                chCRCLo = (byte)(chCRCHi ^ chCRCHTalbe[wIndex]);
                 chCRCHi = chCRCLTalbe[wIndex];
             }
 
-            ushort CRC16 = (ushort) ((chCRCHi << 8) | chCRCLo);
+            ushort CRC16 = (ushort)((chCRCHi << 8) | chCRCLo);
             return CRC16;
         }
+
+        #endregion
 
         /*
         /// <summary> 校验 </summary>
@@ -305,5 +310,69 @@ namespace One.Core.Helper
             return bFlag;
         }
         */
+
+        #region ushort 和 float 互转
+        /// <summary> float 数据变为 ushort 数组 </summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
+        public static ushort[] FloatToUshort(float data)
+        {
+            unsafe
+            {
+                ushort* pdata = (ushort*)&data;
+                ushort[] byteArray = new ushort[sizeof(float)];
+                for (int i = 0; i < sizeof(float); ++i)
+                    byteArray[i] = *pdata++;
+                return byteArray;
+            }
+        }
+        public static float UshortToFloat(ushort[] data)
+        {
+            unsafe
+            {
+                float a = 0.0F;
+                byte i;
+                ushort[] x = data;
+                void* pf;
+                fixed (ushort* px = x)
+                {
+                    pf = &a;
+                    for (i = 0; i < data.Length; i++)
+                    {
+                        *((ushort*)pf + i) = *(px + i);
+                    }
+                }
+                return a;
+            }
+        }
+        /// <summary>
+        /// 另一种BlockCopy方案
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static float[] UshortToFloat2(ushort[] data)
+        {
+            //data = new ushort[2] { 19311, 65529 };
+            float[] floatData = new float[data.Length / 2];
+            Buffer.BlockCopy(data, 0, floatData, 0, data.Length * 2);
+
+            return floatData;
+
+        }
+
+        /// <summary> 另一种BlockCopy方案</summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
+        public static ushort[] FloatToUshort2(float data)
+        {
+            ushort[] ushortData = new ushort[sizeof(float)];
+            Buffer.BlockCopy(BitConverter.GetBytes(data), 0, ushortData, 0, 4);
+
+            return ushortData;
+        }
+        #endregion
+
+
+
     }
 }

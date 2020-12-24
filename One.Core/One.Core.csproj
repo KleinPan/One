@@ -6,8 +6,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.0.11</Version>
-    <PackageReleaseNotes>新增并优化一些方法</PackageReleaseNotes>
+    <Version>2.0.12</Version>
+    <PackageReleaseNotes>新增float和ushaort的互相转换</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
 
@@ -15,6 +15,11 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

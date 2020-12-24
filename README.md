@@ -35,6 +35,65 @@ We use these awesome tools to build and develop One.
 -->
 ## 功能介绍
 ### 1. One.Core
+    -BaseClass
+        BindableObject
+    -ExtensionMethods
+        Array
+          //复制指定长度的字符到新的字符串
+          public static string[] Copy(this Array str, int start, int length)
+          
+          //Array添加单项
+          public static T[] Add<T>(this T[] array, T item)
+        
+          //Array添加多项
+          public static T[] AddRange<T>(this T[] sourceArray, T[] addArray)
+        Byte
+          //转换当前byte[]为对应的string
+          public static string ToString(this byte[] args, System.Text.Encoding encoding)
+        
+        Collection
+          //添加T类型的序列到当前序列末尾（带通知）
+          public static void AddRange<T>(this ObservableCollection<T> collection, IEnumerable<T> items)
+          
+          //添加T类型的序列到当前序列末尾
+          public static void AddRange<T>(this Collection<T> collection, IEnumerable<T> items)
+        DateTime
+          //获取当天起始时间 00:00:00:000
+          public static DateTime StartOfDay(this DateTime @this)
+          
+          //获取当天最后一刻 "23:59:59:999"
+          public static DateTime EndOfDay(this DateTime @this)
+        Enum
+          //获取枚举描述属性
+          public static string GetCustomAttributeDescription(this Enum value)
+          
+          //解析枚举
+          public static T TryParse<T>(this string value) where T : struct
+        IEnumerate
+          //返回指定筛选条件下序列非重复元素的首项
+          public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+          
+          //获取指定筛选条件下对象的Index
+          public static int FindIndex<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
+          
+          //Enumerates for each in this collection.
+          public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
+          
+          //统计分组数量
+          public static int GroupCount<TTempClass, Telement>(this IEnumerable<IGrouping<TTempClass, Telement>> source)
+          
+          //Adds each item in the <see cref="IEnumerator"/> into a <see cref="List{T}"/> and return the new <see cref="List{T}"
+          public static List<T> ToList<T>(this IEnumerator enumerator)
+        ExtensionMethodsForString
+        //数据转换
+        
+        //载取左字符
+        
+        //删除文件名或路径的特殊字符
+        
+        //进制转换
+        
+        //...
 ### 2. One.Control
 #### 合并多Style
 ##### 引入命名空间Nuget

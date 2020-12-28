@@ -366,7 +366,7 @@ namespace One.Core.Helper
         public static ushort[] FloatToUshort2(float data)
         {
             ushort[] ushortData = new ushort[sizeof(float)];
-            Buffer.BlockCopy(BitConverter.GetBytes(data), 0, ushortData, 0, 4);
+            Buffer.BlockCopy(BitConverter.GetBytes(data), 0, ushortData, 0, sizeof(float));
 
             return ushortData;
         }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
+using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace One.Control.Helper
@@ -12,9 +15,9 @@ namespace One.Control.Helper
         /// </summary>
         /// <param name="imageName"></param>
         /// <returns></returns>
-        public static BitmapImage FindImage(string imageName,string dir= @"\Resources\")
+        public static BitmapImage FindImage(string imageName,string fullDir)
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + dir + imageName;
+            string path =  fullDir +"\\"+ imageName;
 
             BitmapImage bitmapImage = new BitmapImage();
 
@@ -24,6 +27,26 @@ namespace One.Control.Helper
             bitmapImage.EndInit();
 
             return bitmapImage.Clone();
+        }
+
+
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr hObject);
+
+        public static ImageSource ChangeBitmapToImageSource(Bitmap bitmap)
+        {
+            IntPtr hBitmap = bitmap.GetHbitmap();
+            ImageSource wpfBitmap = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                hBitmap,
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
+
+            if (!DeleteObject(hBitmap))
+            {
+                throw new System.ComponentModel.Win32Exception();
+            }
+            return wpfBitmap;
         }
     }
 }

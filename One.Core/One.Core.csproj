@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>2.0.12</Version>
+    <Version>2.0.13</Version>
     <PackageReleaseNotes>新增float和ushaort的互相转换</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>

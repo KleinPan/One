@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,10 +6,6 @@ namespace One.Control.AttachDP
 {
     public class SelectedItemsAttach
     {
-
-
-
-
         public static IList GetSelectedItems(DependencyObject obj)
         {
             return (IList)obj.GetValue(SelectedItemsProperty);
@@ -28,6 +19,7 @@ namespace One.Control.AttachDP
         //Using a DependencyProperty as the backing store for SelectedItems.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectedItemsProperty =
             DependencyProperty.RegisterAttached("SelectedItems", typeof(IList), typeof(SelectedItemsAttach), new PropertyMetadata(OnSelectedItemsChanged));
+
         static public void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var listBox = d as ListBox;
@@ -50,7 +42,7 @@ namespace One.Control.AttachDP
             }
         }
 
-        static void OnlistBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private static void OnlistBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             IList dataSource = GetSelectedItems(sender as DependencyObject);
             //添加用户选中的当前项.

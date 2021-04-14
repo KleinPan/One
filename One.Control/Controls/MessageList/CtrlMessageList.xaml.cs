@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
@@ -24,7 +23,7 @@ namespace One.Controls.Controls.MessageList
     }
 
     /// <summary> MessageList.xaml 的交互逻辑 </summary>
-    [ToolboxBitmap(typeof(CtrlMessageList), "ctrlMessageList.bmp")]
+    
     public partial class CtrlMessageList : UserControl
     {
         // private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();

@@ -1072,19 +1072,6 @@
             </summary>
             <param name="element"></param>
         </member>
-        <member name="T:One.Control.Controls.SerialPortPack.SerialPortUC">
-            <summary>
-            SerialPortUC.xaml 的交互逻辑
-            </summary>
-            <summary>
-            SerialPortUC
-            </summary>
-        </member>
-        <member name="M:One.Control.Controls.SerialPortPack.SerialPortUC.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
         <member name="M:One.Control.Converters.ShowDefaultCloseButtonConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             [0] is owning tabcontrol ShowDefaultCloseButton value.
@@ -1166,6 +1153,18 @@
             </summary>
             <param name="imageName"></param>
             <returns></returns>
+        </member>
+        <member name="T:One.Control.Helper.MessageHelper">
+            <summary>
+            带颜色的消息帮助事件
+            </summary>
+        </member>
+        <member name="M:One.Control.Helper.MessageHelper.Notify(System.String,System.Windows.Media.SolidColorBrush)">
+            <summary>
+            使用方法 Mes.NotifyMessage += SetNotifyMessage;  SetNotifyMessage(string message, SolidColorBrush fc)
+            </summary>
+            <param name="message"></param>
+            <param name="color"></param>
         </member>
         <member name="T:One.Control.Helper.MyVisualTreeHelper">
              <summary>
@@ -1487,36 +1486,6 @@
         <member name="M:EsspClassLibrary.MyNet.Server.ReceiveAndSend(System.String)">
             <summary>需要在外部重写对消息格式 最后需要加上SendData(string data)</summary>
             <param name="mes"></param>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
-            </summary>
         </member>
     </members>
 </doc>

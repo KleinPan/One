@@ -618,6 +618,17 @@
         <member name="P:One.Core.Helper.NetWorkInfo.BroadcastPoint">
             <summary> 广播地址 </summary>
         </member>
+        <member name="T:One.Core.Helper.PathHelper">
+            <summary>
+            路径寻找帮助类
+            </summary>
+        </member>
+        <member name="M:One.Core.Helper.PathHelper.GetParentDirectory(System.String,System.Int32)">
+            <summary> 获取父目录 </summary>
+            <param name="path"> 当前目录 </param>
+            <param name="i">    第几级父目录 </param>
+            <returns> </returns>
+        </member>
         <member name="T:One.Core.Helper.ProcessHelper">
             <summary>
             进程帮助类
@@ -703,7 +714,7 @@
             <param name="IniFile">  </param>
         </member>
         <member name="T:One.Core.Helper.Computer.WindowsAPIType">
-            <summary> windows api 名称 </summary>
+            <summary> windows api 类型 </summary>
         </member>
         <member name="F:One.Core.Helper.Computer.WindowsAPIType.Win32_PhysicalMemory">
             <summary> 内存 </summary>
@@ -752,11 +763,11 @@
         </member>
         <member name="M:One.Core.Helper.Computer.GetCPU">
             <summary> 查找cpu的名称，主频, 核心数 </summary>
-            <returns>  </returns>
+            <returns> </returns>
         </member>
         <member name="M:One.Core.Helper.Computer.GetCPU_Count">
             <summary> 获取cpu核心数 </summary>
-            <returns>  </returns>
+            <returns> </returns>
         </member>
         <member name="M:One.Core.Helper.Computer.GetPhisicalMemory">
             <summary> 获取系统内存大小 </summary>
@@ -781,17 +792,6 @@
             <summary> 将字节转换为GB </summary>
             <param name="size"> 字节值 </param>
             <param name="mod">  除数，硬盘除以1000，内存除以1024 </param>
-            <returns>  </returns>
-        </member>
-        <member name="T:One.Core.PathHelper.PathHelper">
-            <summary>
-            路径寻找帮助类
-            </summary>
-        </member>
-        <member name="M:One.Core.PathHelper.PathHelper.GetParentDirectory(System.String,System.Int32)">
-            <summary> 获取父目录 </summary>
-            <param name="path"> 当前目录 </param>
-            <param name="i">    第几级父目录 </param>
             <returns> </returns>
         </member>
     </members>

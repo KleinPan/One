@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Management;
 using System.Text;
+
 namespace One.Core.Helper
 {
     public class Computer
     {
-        /// <summary> windows api 名称 </summary>
+        /// <summary> windows api 类型 </summary>
         public enum WindowsAPIType
         {
             /// <summary> 内存 </summary>
@@ -83,7 +84,7 @@ namespace One.Core.Helper
         }
 
         /// <summary> 查找cpu的名称，主频, 核心数 </summary>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public Tuple<string, string> GetCPU()
         {
             Tuple<string, string> result = null;
@@ -107,7 +108,7 @@ namespace One.Core.Helper
         }
 
         /// <summary> 获取cpu核心数 </summary>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public string GetCPU_Count()
         {
             string str = "查询失败";
@@ -270,7 +271,7 @@ namespace One.Core.Helper
         /// <summary> 将字节转换为GB </summary>
         /// <param name="size"> 字节值 </param>
         /// <param name="mod">  除数，硬盘除以1000，内存除以1024 </param>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public static string ToGB(double size, double mod)
         {
             string[] units = new string[] { "B", "KB", "MB", "GB", "TB", "PB" };

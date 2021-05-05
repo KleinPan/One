@@ -16,7 +16,3 @@
 ***
 [One.Core.Helper.HttpHelper](One_Core_Helper_HttpHelper.md 'One.Core.Helper.HttpHelper')
 
-
-***
-[One.Core.PathHelper](One_Core_PathHelper.md 'One.Core.PathHelper')
-

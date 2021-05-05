@@ -1,7 +1,7 @@
 #### [One.Core](index.md 'index')
 ### [One.Core.Helper](One_Core_Helper.md 'One.Core.Helper').[Computer](One_Core_Helper_Computer.md 'One.Core.Helper.Computer')
 ## Computer.WindowsAPIType Enum
-windows api 名称 
+windows api 类型 
 ```csharp
 public enum Computer.WindowsAPIType
 

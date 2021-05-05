@@ -42,6 +42,11 @@ IP地址字符串和数字转换
 
 
 ***
+[PathHelper](One_Core_Helper_PathHelper.md 'One.Core.Helper.PathHelper')
+
+路径寻找帮助类  
+
+***
 [ProcessHelper](One_Core_Helper_ProcessHelper.md 'One.Core.Helper.ProcessHelper')
 
 进程帮助类  
@@ -64,7 +69,7 @@ Windows服务帮助类
 ***
 [Computer.WindowsAPIType](One_Core_Helper_Computer_WindowsAPIType.md 'One.Core.Helper.Computer.WindowsAPIType')
 
-windows api 名称 
+windows api 类型 
 
 ***
 [HardwareEnum](One_Core_Helper_HardwareEnum.md 'One.Core.Helper.HardwareEnum')

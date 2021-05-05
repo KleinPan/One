@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace One.Core.PathHelper
+﻿namespace One.Core.PathHelper
 {
-  public   class PathHelper
+    /// <summary>
+    /// 路径寻找帮助类
+    /// </summary>
+    public class PathHelper
     {
-        /// <summary>
-        /// 获取父目录
-        /// </summary>
-        /// <param name="path">当前目录</param>
-        /// <param name="i">第几级父目录</param>
-        /// <returns></returns>
+        /// <summary> 获取父目录 </summary>
+        /// <param name="path"> 当前目录 </param>
+        /// <param name="i">    第几级父目录 </param>
+        /// <returns> </returns>
         public static string GetParentDirectory(string path, int i = 1)
         {
             string result = "";
@@ -32,10 +29,6 @@ namespace One.Core.PathHelper
             }
 
             return result;
-
         }
-
     }
-
-  
 }

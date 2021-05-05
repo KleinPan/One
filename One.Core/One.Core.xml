@@ -783,13 +783,16 @@
             <param name="mod">  除数，硬盘除以1000，内存除以1024 </param>
             <returns>  </returns>
         </member>
-        <member name="M:One.Core.PathHelper.PathHelper.GetParentDirectory(System.String,System.Int32)">
+        <member name="T:One.Core.PathHelper.PathHelper">
             <summary>
-            获取父目录
+            路径寻找帮助类
             </summary>
-            <param name="path">当前目录</param>
-            <param name="i">第几级父目录</param>
-            <returns></returns>
+        </member>
+        <member name="M:One.Core.PathHelper.PathHelper.GetParentDirectory(System.String,System.Int32)">
+            <summary> 获取父目录 </summary>
+            <param name="path"> 当前目录 </param>
+            <param name="i">    第几级父目录 </param>
+            <returns> </returns>
         </member>
     </members>
 </doc>

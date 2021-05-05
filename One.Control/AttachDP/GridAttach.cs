@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace One.Control.AttachDP
 {
-    
     public class GridAttach
     {
         public static readonly DependencyProperty NameProperty = DependencyProperty.RegisterAttached(

@@ -464,6 +464,25 @@
             <param name="data"> </param>
             <returns> </returns>
         </member>
+        <member name="M:One.Core.Helper.DatetimeHelper.TimeSpanFormat(System.TimeSpan)">
+            <summary> 格式化时间戳，生成例如 02小时03分钟04秒的格式 </summary>
+            <param name="ts"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:One.Core.Helper.DatetimeHelper.ConvertDataTimeToLong(System.DateTime)">
+            <summary>
+            DateTime --> long
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:One.Core.Helper.DatetimeHelper.ConvertLongToDateTime(System.Int64)">
+            <summary>
+            long --> DateTime
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
         <member name="T:One.Core.Helper.FileHelper">
             <summary>
             文件帮助类
@@ -480,6 +499,21 @@
             <summary>
             删除使用这个方法的exe,必须放在formclosed方法里边,并且调用后程序要退出
             </summary>
+        </member>
+        <member name="M:One.Core.Helper.HardwareInfoHelper.MulGetHardwareInfo(One.Core.Helper.HardwareEnum,System.String,System.String)">
+            <summary>
+            WMI取硬件信息
+            </summary>
+            <param name="hardType"></param>
+            <param name="propKey"></param>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:One.Core.Helper.HardwareEnum">
+            <summary> 枚举win32 api </summary>
+        </member>
+        <member name="F:One.Core.Helper.HardwareEnum.Win32_PnPEntity">
+            <summary> all device </summary>
         </member>
         <member name="T:One.Core.Helper.HttpHelper.HTTPClientHelper">
             <summary>
@@ -533,6 +567,13 @@
             </summary>
             <param name="intIPAddress">int型表示的IP</param>
             <returns></returns>
+        </member>
+        <member name="M:One.Core.Helper.MessageHelper.Notify(System.String)">
+            <summary>
+            使用方法 Mes.NotifyMessage += SetNotifyMessage;  SetNotifyMessage(string message, SolidColorBrush fc)
+            </summary>
+            <param name="message"></param>
+            <param name="color"></param>
         </member>
         <member name="T:One.Core.Helper.NetHelper">
             <summary> 网络帮助类 </summary>

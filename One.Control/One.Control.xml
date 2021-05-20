@@ -497,39 +497,27 @@
             </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.Savablz.BranchState`1">
-            <summary>
-            The state of a layout branching
-            </summary>
-            <typeparam name="TTabModel">The type of the tab content model</typeparam>
+            <summary> The state of a layout branching </summary>
+            <typeparam name="TTabModel"> The type of the tab content model </typeparam>
         </member>
         <member name="M:One.Control.Controls.Dragablz.Savablz.BranchState`1.#ctor(One.Control.Controls.Dragablz.Savablz.BranchItemState{`0},One.Control.Controls.Dragablz.Savablz.BranchItemState{`0},System.Windows.Controls.Orientation,System.Double)">
-            <summary>
-            The constructor
-            </summary>
-            <param name="firstChild">The first child</param>
-            <param name="secondChild">The second child</param>
-            <param name="orientation">The split orientation</param>
-            <param name="ratio">The split ratio</param>
+            <summary> The constructor </summary>
+            <param name="firstChild">  The first child </param>
+            <param name="secondChild"> The second child </param>
+            <param name="orientation"> The split orientation </param>
+            <param name="ratio">       The split ratio </param>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Savablz.BranchState`1.FirstChild">
-            <summary>
-            The first branch
-            </summary>
+            <summary> The first branch </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Savablz.BranchState`1.SecondChild">
-            <summary>
-            The second branch
-            </summary>
+            <summary> The second branch </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Savablz.BranchState`1.Orientation">
-            <summary>
-            The split orientation
-            </summary>
+            <summary> The split orientation </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Savablz.BranchState`1.Ratio">
-            <summary>
-            The split ratio
-            </summary>
+            <summary> The split ratio </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.Savablz.LayoutWindowState`1">
             <summary>

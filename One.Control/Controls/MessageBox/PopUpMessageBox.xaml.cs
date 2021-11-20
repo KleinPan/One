@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace One.Controls.Controls.MessageBox
+namespace One.Control.Controls.MessageBox
 {
     /// <summary> TextMessageBox.xaml 的交互逻辑 </summary>
     public partial class PopUpMessageBox : Window

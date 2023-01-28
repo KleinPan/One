@@ -14,6 +14,7 @@ using One.AutoUpdater.Interfaces;
 using One.AutoUpdater.Models;
 using One.AutoUpdater.Utilities;
 using One.Core.Helper;
+using One.Core.Helpers;
 
 namespace One.AutoUpdater
 {
@@ -125,7 +126,7 @@ namespace One.AutoUpdater
         }
 
         /// <summary> Start checking for new version of application and display a dialog to the user if update is available. </summary>
-        /// <param name="updateURL">    URL of the xml file that contains information about latest version of the application. </param>
+        /// <param name="updateURL">  URL of the xml file that contains information about latest version of the application. </param>
         /// <param name="myAssembly"> Assembly to use for version checking. </param>
         public static void Start(string updateURL, Assembly myAssembly = null)
         {
@@ -256,7 +257,6 @@ namespace One.AutoUpdater
                     ParseUpdateInfoEventArgs parseArgs = new ParseUpdateInfoEventArgs(xml);
                     AutoUpdaterOnParseUpdateInfoEvent(parseArgs);
                     args = parseArgs.UpdateInfo;
-                  
                 }
                 else
                 {
@@ -319,7 +319,8 @@ namespace One.AutoUpdater
 
             return args;
         }
-        static  void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
+
+        static void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             var json = System.Text.Json.JsonSerializer.Deserialize<UpdateInfoEventArgs>(args.RemoteData);
             args.UpdateInfo = new UpdateInfoEventArgs
@@ -340,6 +341,7 @@ namespace One.AutoUpdater
                 }
             };
         }
+
         private static bool StartUpdate(object result)
         {
             if (result is DateTime time)

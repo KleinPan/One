@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29905.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Core", "One.Core\One.Core.csproj", "{6D3E5E4D-4510-494C-9CF7-BAE20322AD47}"
 EndProject
@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Control", "One.Control\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.AutoUpdater", "One.AutoUpdater\One.AutoUpdater.csproj", "{AAEA1315-69AB-4F54-BB50-9EB92CCA4516}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipExtractor", "ZipExtractor\ZipExtractor.csproj", "{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZipExtractor", "ZipExtractor\ZipExtractor.csproj", "{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{6F59255C-FE63-401C-9EBE-51ABD09418F3}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

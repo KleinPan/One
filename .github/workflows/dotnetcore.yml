@@ -1,14 +1,18 @@
-name: publish to nuget
+#工作流的名称，它将显示在 GitHub 存储库的“操作”选项卡中。
+name: Publish to nuget.org
+#指定此工作流程的触发器。 此示例使用 push 事件，因此每当有人将更改推送到存储库或合并拉取请求时都会触发工作流运行。
 on:
   push:
     branches:
       - master # Default release branch
+
+#将 learn-github-actions 工作流中运行的所有作业组合在一起。
 jobs:
   publish:
     name: list on nuget
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Required for a specific dotnet version that doesn't come with ubuntu-latest / windows-latest
       # Visit bit.ly/2synnZl to see the list of SDKs that are pre-installed with ubuntu-latest / windows-latest

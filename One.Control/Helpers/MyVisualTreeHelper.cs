@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media;
 
-namespace One.Control.Helper
+namespace One.Control.Helpers
 {
     /// <summary>
     ///关于WPF界面交互的帮助类
     /// </summary>
     public class MyVisualTreeHelper
     {
-        /// <summary>查找可视化树的父元素,包括本级元素</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <summary> 查找可视化树的父元素,包括本级元素 </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="obj"> </param>
+        /// <returns> </returns>
         public static T FindVisualParent<T>(DependencyObject obj) where T : class
         {
             while (obj != null)
@@ -30,10 +30,10 @@ namespace One.Control.Helper
             return null;
         }
 
-        /// <summary>查找可视化树的父元素,不包括本级元素</summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <summary> 查找可视化树的父元素,不包括本级元素 </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="obj"> </param>
+        /// <returns> </returns>
         public static T FindVisualParent2<T>(DependencyObject obj) where T : class
         {
             while (obj != null)
@@ -48,12 +48,11 @@ namespace One.Control.Helper
 
             return null;
         }
-        /// <summary>
-        /// 查找可视化树的子元素
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+
+        /// <summary> 查找可视化树的子元素 </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="obj"> </param>
+        /// <returns> </returns>
         public static List<T> FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
         {
             try
@@ -88,6 +87,4 @@ namespace One.Control.Helper
             }
         }
     }
-
-  
 }

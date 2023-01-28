@@ -7,18 +7,16 @@ using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
-    /// <summary>
-    /// Windows服务帮助类
-    /// </summary>
+    /// <summary> Windows服务帮助类 </summary>
     public class ServiceHelper
     {
         #region C#控制服务
 
         /// <summary> C#判断服务是否存在 </summary>
-        /// <param name="serviceName">  </param>
-        /// <returns>  </returns>
+        /// <param name="serviceName"> </param>
+        /// <returns> </returns>
         public static bool IsServiceExisted(string serviceName)
         {
             //logger.Trace("private bool IsServiceExisted(" + serviceName + ")");
@@ -39,13 +37,12 @@ namespace One.Core.Helper
             {
                 Console.WriteLine("C#判断服务是否存在错误,请查看Error日志");
 
-
                 return false;
             }
         }
 
         /// <summary> C#停止服务 </summary>
-        /// <param name="serviceName">  </param>
+        /// <param name="serviceName"> </param>
         public static void ServiceStop(string serviceName)
         {
             //logger.Trace("private void ServiceStop(" + serviceName + ")");
@@ -67,13 +64,12 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("C#停止服务错误,请查看Error日志");
-
             }
         }
 
         /// <summary> C#检测服务状态 </summary>
-        /// <param name="serviceName">  </param>
-        /// <returns>  </returns>
+        /// <param name="serviceName"> </param>
+        /// <returns> </returns>
         public static bool ServiceStat(string serviceName)
         {
             // logger.Trace("private bool ServiceStat(" + serviceName + ")");
@@ -102,7 +98,7 @@ namespace One.Core.Helper
         }
 
         /// <summary> C#安装服务 </summary>
-        /// <param name="serviceFilePath">  </param>
+        /// <param name="serviceFilePath"> </param>
         public static void InstallService(string serviceFilePath)
         {
             // logger.Trace("private void InstallService(" + serviceFilePath + ")");
@@ -121,13 +117,11 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("C#安装服务错误,请查看Error日志");
-
-
             }
         }
 
         /// <summary> C#启动服务 </summary>
-        /// <param name="serviceName">  </param>
+        /// <param name="serviceName"> </param>
         public static void ServiceStart(string serviceName)
         {
             // logger.Trace("private void ServiceStart(" + serviceName + ")");
@@ -149,12 +143,11 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("C#启动服务错误,请查看Error日志");
-
             }
         }
 
         /// <summary> C#卸载服务 </summary>
-        /// <param name="serviceFilePath">  </param>
+        /// <param name="serviceFilePath"> </param>
         public static void UnstallService(string serviceFilePath)
         {
             //logger.Trace("private void UnstallService(" + serviceFilePath + ")");
@@ -171,7 +164,6 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("C#卸载服务错误,请查看Error日志");
-
             }
         }
 
@@ -180,7 +172,7 @@ namespace One.Core.Helper
         #region 系统命令控制服务
 
         /// <summary> 调用系统cmd关闭服务 </summary>
-        /// <param name="Name">  </param>
+        /// <param name="Name"> </param>
         public static void NetStopService(string Name)
         {
             try
@@ -204,12 +196,11 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("关闭服务出现错误!请查看Error日志.");
-
             }
         }
 
         /// <summary> 调用系统cmd删除服务 </summary>
-        /// <param name="Name">  </param>
+        /// <param name="Name"> </param>
         public static void ScDellService(string Name)
         {
             //logger.Trace(System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -236,13 +227,12 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("删除服务出现错误!请查看Error日志.");
-
             }
         }
 
         /// <summary> 调用系统cmd安装服务 </summary>
-        /// <param name="AppName">  </param>
-        /// <param name="IniFile">  </param>
+        /// <param name="AppName"> </param>
+        /// <param name="IniFile"> </param>
         public static void CmdInstallService(string CmdPm, string AppName)
         {
             try
@@ -267,24 +257,21 @@ namespace One.Core.Helper
                 if (!RetOut.Contains("Service successfully installed"))
                 {
                     Console.WriteLine("安装过程完成,出现错误!请查看Error日志!");
-
                 }
                 else
                 {
                     Console.WriteLine("安装成功!CMD返回" + RetOut);
-
                 }
             }
             catch (Exception)
             {
                 Console.WriteLine("安装错误!请查看Error日志!");
-
             }
         }
 
         /// <summary> 调用系统cmd启动服务 </summary>
-        /// <param name="AppName">  </param>
-        /// <param name="IniFile">  </param>
+        /// <param name="AppName"> </param>
+        /// <param name="IniFile"> </param>
         public static void CmdStartService(string serviceName)
         {
             try
@@ -311,7 +298,6 @@ namespace One.Core.Helper
             catch (Exception)
             {
                 Console.WriteLine("启动错误!请查看错误日志!");
-
             }
         }
 

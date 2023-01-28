@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>

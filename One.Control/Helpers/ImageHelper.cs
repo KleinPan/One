@@ -6,18 +6,16 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace One.Control.Helper
+namespace One.Control.Helpers
 {
     public class ImageHelper
     {
-        /// <summary>
-        /// Assembly: PresentationCore.dll
-        /// </summary>
-        /// <param name="imageName"></param>
-        /// <returns></returns>
-        public static BitmapImage FindImage(string imageName,string fullDir)
+        /// <summary> Assembly: PresentationCore.dll </summary>
+        /// <param name="imageName"> </param>
+        /// <returns> </returns>
+        public static BitmapImage FindImage(string imageName, string fullDir)
         {
-            string path =  fullDir +"\\"+ imageName;
+            string path = fullDir + "\\" + imageName;
 
             BitmapImage bitmapImage = new BitmapImage();
 
@@ -28,7 +26,6 @@ namespace One.Control.Helper
 
             return bitmapImage.Clone();
         }
-
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         public static extern bool DeleteObject(IntPtr hObject);

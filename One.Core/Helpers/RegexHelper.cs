@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace One.Core.Helper
+﻿namespace One.Core.Helpers
 {
     public static class RegexHelper
     {
         // Match IPv4-Address like 192.168.178.1
         private const string IPv4AddressValues = @"(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])";
+
         public const string IPv4AddressRegex = "^" + IPv4AddressValues + "$";
 
         // Match IPv6-Address
@@ -24,6 +21,7 @@ namespace One.Core.Helper
 
         // Private subnetmask / cidr values
         private const string SubnetmaskValues = @"(((255\.){3}(255|254|252|248|240|224|192|128|0+))|((255\.){2}(255|254|252|248|240|224|192|128|0+)\.0)|((255\.)(255|254|252|248|240|224|192|128|0+)(\.0+){2})|((255|254|252|248|240|224|192|128|0+)(\.0+){3}))";
+
         private const string CidrRegex = @"([1-9]|[1-2][0-9]|3[0-2])";
 
         // Match a Subnetmask like 255.255.255.0
@@ -68,5 +66,4 @@ namespace One.Core.Helper
         // Match any filepath --> https://www.codeproject.com/Tips/216238/Regular-Expression-to-Validate-File-Path-and-Exten
         public const string FilePath = @"^(?:[\w]\:|\\)(\\[a-z_\-\s0-9\.]+)+\.[a-zA-z0-9]{1,4}$";
     }
-
 }

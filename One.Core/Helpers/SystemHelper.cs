@@ -2,7 +2,7 @@
 using System.Management;
 using System.Text;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
     public class Computer
     {

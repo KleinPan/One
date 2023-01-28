@@ -1,25 +1,16 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
-    /// <summary>
-    /// 文件帮助类
-    /// </summary>
+    /// <summary> 文件帮助类 </summary>
     public class FileHelper
     {
-        /// <summary>
-        /// 获取文件的MD5
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <summary> 获取文件的MD5 </summary>
+        /// <param name="fileName"> </param>
+        /// <returns> </returns>
         public static string GetMD5HashFromFile(string fileName)
         {
             try
@@ -41,18 +32,14 @@ namespace One.Core.Helper
                 //throw new Exception("GetMD5HashFromFile() fail,error:" + ex.Message);
                 //LogOutTxt("GetMD5HashFromFile() fail,error:" + ex.Message);
 
-
                 Console.WriteLine("GetMD5HashFromFile() fail,error:" + ex.Message);
             }
             return null;
         }
 
-        /// <summary>
-        /// 删除使用这个方法的exe,必须放在formclosed方法里边,并且调用后程序要退出
-        /// </summary>
+        /// <summary> 删除使用这个方法的exe,必须放在formclosed方法里边,并且调用后程序要退出 </summary>
         public static void DeleteExe()
         {
-
             try
             {
                 //LogOutTxt("CONDITION1 is defined");
@@ -70,17 +57,12 @@ namespace One.Core.Helper
 
                 Process.Start(psi);
 
-
                 //Application.Exit();
             }
             catch (Exception Exp)
             {
                 Console.WriteLine(Exp.Message);
-
             }
-
         }
-
-
     }
 }

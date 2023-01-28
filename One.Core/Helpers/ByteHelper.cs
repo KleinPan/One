@@ -2,15 +2,13 @@
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
     public class ByteHelper
     {
-        /// <summary>
-        /// 计算字符串的特征码
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <summary> 计算字符串的特征码 </summary>
+        /// <param name="source"> </param>
+        /// <returns> </returns>
         public static string GetStringMD5(string source)
         {
             //计算字符串的MD5
@@ -35,12 +33,10 @@ namespace One.Core.Helper
             return destString;
         }
 
-        /// <summary>
-        /// Byte数组转为StrData，实现了反序列化
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <param name="StrData"></param>
-        /// <returns></returns>
+        /// <summary> Byte数组转为StrData，实现了反序列化 </summary>
+        /// <param name="bytes">   </param>
+        /// <param name="StrData"> </param>
+        /// <returns> </returns>
         public static object BytesToStruct(byte[] bytes, Type StrData)
         {
             int size = Marshal.SizeOf(StrData);
@@ -56,11 +52,9 @@ namespace One.Core.Helper
             }
         }
 
-        /// <summary>
-        /// StrData转为Byte数组，实现了序列化
-        /// </summary>
-        /// <param name="StrData"></param>
-        /// <returns></returns>
+        /// <summary> StrData转为Byte数组，实现了序列化 </summary>
+        /// <param name="StrData"> </param>
+        /// <returns> </returns>
         public static byte[] StructToBytes(object StrData)
         {
             int size = Marshal.SizeOf(StrData);
@@ -78,41 +72,40 @@ namespace One.Core.Helper
             }
         }
 
-
         #region 转换为大端模式
 
         /// <summary> 转换为对应长度的大端模式 </summary>
-        /// <param name="Dat">  </param>
-        /// <returns>  </returns>
+        /// <param name="Dat"> </param>
+        /// <returns> </returns>
         public static ushort EndianUINT16(ushort Dat)
         {
             ushort Val;
             byte[] Buf = new byte[8];
-            Buf[0] = (byte) (Dat >> 0x00);
-            Buf[1] = (byte) (Dat >> 0x08);
-            Val = (ushort) (((Buf[0] & 0xFF) << 0x08) | ((Buf[1] & 0xFF) << 0x00));
+            Buf[0] = (byte)(Dat >> 0x00);
+            Buf[1] = (byte)(Dat >> 0x08);
+            Val = (ushort)(((Buf[0] & 0xFF) << 0x08) | ((Buf[1] & 0xFF) << 0x00));
             return Val;
         }
 
         /// <summary> 转换为对应长度的大端模式 </summary>
-        /// <param name="Dat">  </param>
-        /// <returns>  </returns>
+        /// <param name="Dat"> </param>
+        /// <returns> </returns>
         public static uint EndianUINT32(uint Dat)
         {
             uint Val;
             byte[] Buf = new byte[8];
-            Buf[0] = (byte) (Dat >> 0);
-            Buf[1] = (byte) (Dat >> 8);
-            Buf[2] = (byte) (Dat >> 16);
-            Buf[3] = (byte) (Dat >> 24);
-            Val = (uint) (((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
+            Buf[0] = (byte)(Dat >> 0);
+            Buf[1] = (byte)(Dat >> 8);
+            Buf[2] = (byte)(Dat >> 16);
+            Buf[3] = (byte)(Dat >> 24);
+            Val = (uint)(((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
                           ((Buf[3] & 0xFF) << 0));
             return Val;
         }
 
         /// <summary> 转换为对应长度的大端模式 </summary>
-        /// <param name="Dat">  </param>
-        /// <returns>  </returns>
+        /// <param name="Dat"> </param>
+        /// <returns> </returns>
         public static ulong EndianUINT64(ulong Dat)
         {
             ulong Val = 0;
@@ -120,20 +113,20 @@ namespace One.Core.Helper
             byte[] Buf = new byte[8];
             for (int i = 0; i < 8; i++)
             {
-                Buf[i] = (byte) (Dat >> i * 8);
+                Buf[i] = (byte)(Dat >> i * 8);
             }
 
-            Val1 = (uint) (((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
+            Val1 = (uint)(((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) |
                            ((Buf[3] & 0xFF) << 0));
-            Val2 = (uint) (((Buf[4] & 0xFF) << 24) | ((Buf[5] & 0xFF) << 16) | ((Buf[6] & 0xFF) << 8) |
+            Val2 = (uint)(((Buf[4] & 0xFF) << 24) | ((Buf[5] & 0xFF) << 16) | ((Buf[6] & 0xFF) << 8) |
                            ((Buf[7] & 0xFF) << 0));
-            Val = (((ulong) Val1 & 0xFFFFFFFF) << 32) | (((ulong) Val2 & 0xFFFFFFFF) << 0);
+            Val = (((ulong)Val1 & 0xFFFFFFFF) << 32) | (((ulong)Val2 & 0xFFFFFFFF) << 0);
             return Val;
         }
 
         /// <summary> 转换为对应长度的大端模式 </summary>
-        /// <param name="Dat">  </param>
-        /// <returns>  </returns>
+        /// <param name="Dat"> </param>
+        /// <returns> </returns>
         public static long EndianINT64(long Dat)
         {
             long Val = 0;
@@ -141,7 +134,7 @@ namespace One.Core.Helper
             byte[] Buf = new byte[8];
             for (int i = 0; i < 8; i++)
             {
-                Buf[i] = (byte) (Dat >> i * 8);
+                Buf[i] = (byte)(Dat >> i * 8);
             }
 
             Val1 = ((Buf[0] & 0xFF) << 24) | ((Buf[1] & 0xFF) << 16) | ((Buf[2] & 0xFF) << 8) | ((Buf[3] & 0xFF) << 0);
@@ -154,38 +147,37 @@ namespace One.Core.Helper
 
         #region 获取对应类型的大端模式
 
-        public static ushort GetUINT16(byte[] Buf, int Index=0)
+        public static ushort GetUINT16(byte[] Buf, int Index = 0)
         {
             ushort Val;
-            Val = (ushort) (((Buf[Index + 0] & 0xFF) << 0x08) | ((Buf[Index + 1] & 0xFF) << 0x00));
+            Val = (ushort)(((Buf[Index + 0] & 0xFF) << 0x08) | ((Buf[Index + 1] & 0xFF) << 0x00));
             return Val;
         }
 
-        public static uint GetUINT32(byte[] Buf, int Index=0)
+        public static uint GetUINT32(byte[] Buf, int Index = 0)
         {
             uint Val;
-            Val = (uint) (((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
+            Val = (uint)(((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
                           ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
             return Val;
         }
 
-        public static ulong GetUINT64(byte[] Buf, int Index=0)
+        public static ulong GetUINT64(byte[] Buf, int Index = 0)
         {
             ulong Val = 0;
             uint Val1 = 0, Val2 = 0;
-            Val1 = (uint) (((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
+            Val1 = (uint)(((Buf[Index + 0] & 0xFF) << 24) | ((Buf[Index + 1] & 0xFF) << 16) |
                            ((Buf[Index + 2] & 0xFF) << 8) | ((Buf[Index + 3] & 0xFF) << 0));
-            Val2 = (uint) (((Buf[Index + 4] & 0xFF) << 24) | ((Buf[Index + 5] & 0xFF) << 16) |
+            Val2 = (uint)(((Buf[Index + 4] & 0xFF) << 24) | ((Buf[Index + 5] & 0xFF) << 16) |
                            ((Buf[Index + 6] & 0xFF) << 8) | ((Buf[Index + 7] & 0xFF) << 0));
-            Val = (((ulong) Val1 & 0xFFFFFFFF) << 32) | (((ulong) Val2 & 0xFFFFFFFF) << 0);
+            Val = (((ulong)Val1 & 0xFFFFFFFF) << 32) | (((ulong)Val2 & 0xFFFFFFFF) << 0);
             return Val;
         }
 
         #endregion 获取对应类型的大端模式
 
-
-
         #region 校验
+
         public static ushort GetCRC(byte[] pchMsg, ushort wDataLen)
         {
             byte[] chCRCHTalbe = // CRC 高位字节值表
@@ -257,11 +249,11 @@ namespace One.Core.Helper
             return CRC16;
         }
 
-        #endregion
+        #endregion 校验
 
         /*
         /// <summary> 校验 </summary>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public static bool Verify()
         {
             bool bFlag = true;
@@ -312,6 +304,7 @@ namespace One.Core.Helper
         */
 
         #region ushort 和 float 互转
+
         /// <summary> float 数据变为 ushort 数组 </summary>
         /// <param name="data"> </param>
         /// <returns> </returns>
@@ -326,6 +319,7 @@ namespace One.Core.Helper
                 return byteArray;
             }
         }
+
         public static float UshortToFloat(ushort[] data)
         {
             unsafe
@@ -345,11 +339,10 @@ namespace One.Core.Helper
                 return a;
             }
         }
-        /// <summary>
-        /// 另一种BlockCopy方案
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+
+        /// <summary> 另一种BlockCopy方案 </summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
         public static float[] UshortToFloat2(ushort[] data)
         {
             //data = new ushort[2] { 19311, 65529 };
@@ -357,10 +350,9 @@ namespace One.Core.Helper
             Buffer.BlockCopy(data, 0, floatData, 0, data.Length * 2);
 
             return floatData;
-
         }
 
-        /// <summary> 另一种BlockCopy方案</summary>
+        /// <summary> 另一种BlockCopy方案 </summary>
         /// <param name="data"> </param>
         /// <returns> </returns>
         public static ushort[] FloatToUshort2(float data)
@@ -370,9 +362,7 @@ namespace One.Core.Helper
 
             return ushortData;
         }
-        #endregion
 
-
-
+        #endregion ushort 和 float 互转
     }
 }

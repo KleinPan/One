@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers.NetHelpers
 {
-    /// <summary>
-    /// IP地址字符串和数字转换
-    /// </summary>
+    /// <summary> IP地址字符串和数字转换 </summary>
     public class IPConvertHelper
     {
-        /// <summary>
-        /// 将IPv4格式的字符串转换为int型表示
-        /// </summary>
-        /// <param name="strIPAddress">IPv4格式的字符</param>
-        /// <returns></returns>
+        /// <summary> 将IPv4格式的字符串转换为int型表示 </summary>
+        /// <param name="strIPAddress"> IPv4格式的字符 </param>
+        /// <returns> </returns>
         public static int IPToNumber(string strIPAddress)
         {
             //将目标IP地址字符串strIPAddress转换为数字
@@ -27,17 +23,15 @@ namespace One.Core.Helper
             return tmpIpNumber;
         }
 
-        /// <summary>
-        /// 将int型表示的IP还原成正常IPv4格式。
-        /// </summary>
-        /// <param name="intIPAddress">int型表示的IP</param>
-        /// <returns></returns>
+        /// <summary> 将int型表示的IP还原成正常IPv4格式。 </summary>
+        /// <param name="intIPAddress"> int型表示的IP </param>
+        /// <returns> </returns>
         public static string NumberToIP(int intIPAddress)
         {
             int tempIPAddress;
             //将目标整形数字intIPAddress转换为IP地址字符串
-            //-1062731518 192.168.1.2 
-            //-1062731517 192.168.1.3 
+            //-1062731518 192.168.1.2
+            //-1062731517 192.168.1.3
             if (intIPAddress >= 0)
             {
                 tempIPAddress = intIPAddress;

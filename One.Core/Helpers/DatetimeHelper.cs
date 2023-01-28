@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
     public class DatetimeHelper
     {
@@ -31,12 +31,9 @@ namespace One.Core.Helper
             return str;
         }
 
-
-        /// <summary>
-        /// DateTime --> long
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <returns></returns>
+        /// <summary> DateTime --&gt; long </summary>
+        /// <param name="dt"> </param>
+        /// <returns> </returns>
         public static long ConvertDataTimeToLong(DateTime dt)
         {
             DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
@@ -46,12 +43,9 @@ namespace One.Core.Helper
             return timeStamp;
         }
 
-
-        /// <summary>
-        /// long --> DateTime
-        /// </summary>
-        /// <param name="d"></param>
-        /// <returns></returns>
+        /// <summary> long --&gt; DateTime </summary>
+        /// <param name="d"> </param>
+        /// <returns> </returns>
         public static DateTime ConvertLongToDateTime(long d)
         {
             DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));

@@ -1,10 +1,8 @@
-﻿
-//using NetFwTypeLib;
+﻿//using NetFwTypeLib;
 using System;
 using System.Windows;
 
-
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
     /*
     class FireWallHelper
@@ -47,7 +45,6 @@ namespace One.Core.Helper
             if (exist)
             {
                 Console.WriteLine("exist");
-
             }
             if (!exist)
             {
@@ -90,18 +87,14 @@ namespace One.Core.Helper
             }
             if (!exist)
             {
-
                 try
                 {
                     netFwMgr.LocalPolicy.CurrentProfile.AuthorizedApplications.Add(app);
-
                 }
                 catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
-
                 }
-
             }
         }
 
@@ -132,7 +125,9 @@ namespace One.Core.Helper
     }
     */
 }
+
 #region 备份
+
 /*
  * public class FireWallHelper
     {
@@ -152,7 +147,6 @@ namespace One.Core.Helper
 
             //fwPolicy = netFwMgr.LocalPolicy;
             //INetFwProfile fwProfile = fwPolicy.CurrentProfile;
-            
 
             //Type NetFwMgrTypeWithAdSecurity = Type.GetTypeFromProgID("HNetCfg.FwPolicy2", false);
             //INetFwPolicy2 mgrWithAdSecurity = (INetFwPolicy2)Activator.CreateInstance(NetFwMgrTypeWithAdSecurity);
@@ -162,14 +156,11 @@ namespace One.Core.Helper
 
             //if (foo.HasFlag(NET_FW_PROFILE_TYPE2_.NET_FW_PROFILE2_PRIVATE))
             //    Console.WriteLine("PrivateNet");
-            
+
             //if (!foo.HasFlag(NET_FW_PROFILE_TYPE2_.NET_FW_PROFILE2_PUBLIC))
             //    Console.WriteLine("NOT PUBLIC");
 
             //bool FwEnabled = mgrWithAdSecurity.FirewallEnabled[NET_FW_PROFILE_TYPE2_.NET_FW_PROFILE2_PUBLIC] || mgrWithAdSecurity.FirewallEnabled[NET_FW_PROFILE_TYPE2_.NET_FW_PROFILE2_PRIVATE];
-            
-
-           
 
             objPort.Name = name;
             objPort.Port = port;
@@ -182,9 +173,7 @@ namespace One.Core.Helper
                 objPort.Protocol = NET_FW_IP_PROTOCOL_.NET_FW_IP_PROTOCOL_UDP;
             }
             objPort.Scope = NET_FW_SCOPE_.NET_FW_SCOPE_ALL;
-            objPort.Enabled = true;          
-
-           
+            objPort.Enabled = true;
 
             bool exist = false;
             //加入到防火墙的管理策略
@@ -203,7 +192,6 @@ namespace One.Core.Helper
             if (!exist)
             {
                 netFwMgr.LocalPolicy.CurrentProfile.GloballyOpenPorts.Add(objPort);
-    
             }
         }
 
@@ -271,8 +259,7 @@ namespace One.Core.Helper
             netFwMgr.LocalPolicy.CurrentProfile.AuthorizedApplications.Remove(executablePath);
         }
     }
- * 
+ *
  * */
-#endregion
 
- 
+#endregion 备份

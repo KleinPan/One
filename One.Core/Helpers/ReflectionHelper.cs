@@ -2,15 +2,15 @@
 using System.Diagnostics;
 using System.Reflection;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 
 {
     /// <summary> 反射帮助类 </summary>
     public class ReflectionHelper
     {
         /// <summary> 遍历类属性 </summary>
-        /// <typeparam name="T">  </typeparam>
-        /// <param name="model">  </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="model"> </param>
         public static void ForeachClassProperties<T>(T model)
         {
             Type t = model.GetType();
@@ -25,8 +25,8 @@ namespace One.Core.Helper
         }
 
         /// <summary> 遍历类字段 </summary>
-        /// <typeparam name="T">  </typeparam>
-        /// <param name="model">  </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="model"> </param>
         public static void ForeachClassFields<T>(T model)
         {
             Type t = model.GetType();
@@ -41,7 +41,7 @@ namespace One.Core.Helper
         }
 
         /// <summary> 获取父方法名 </summary>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public static string GetParentMethodName()
         {
             string str = "";

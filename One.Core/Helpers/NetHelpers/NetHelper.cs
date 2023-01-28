@@ -8,7 +8,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace One.Core.Helper
+using One.Core.Helper;
+
+namespace One.Core.Helpers.NetHelpers
 {
     /// <summary> 网络帮助类 </summary>
     public class NetHelper
@@ -55,7 +57,8 @@ namespace One.Core.Helper
         /// <returns> </returns>
         public static string GetLocalIP()
         {
-            string result =ProcessHelper. RunApp("route", "print", true);
+            string result;
+            new ProcessHelper(null).RunExeAndReadResult("", "route", "print", out result);
             Match m = Regex.Match(result, @"0.0.0.0\s+0.0.0.0\s+(\d+.\d+.\d+.\d+)\s+(\d+.\d+.\d+.\d+)");
             if (m.Success)
             {
@@ -65,9 +68,9 @@ namespace One.Core.Helper
             {
                 try
                 {
-                    System.Net.Sockets.TcpClient c = new System.Net.Sockets.TcpClient();
+                    TcpClient c = new TcpClient();
                     c.Connect("www.baidu.com", 80);
-                    string ip = ((System.Net.IPEndPoint)c.Client.LocalEndPoint).Address.ToString();
+                    string ip = ((IPEndPoint)c.Client.LocalEndPoint).Address.ToString();
                     c.Close();
                     return ip;
                 }
@@ -82,7 +85,7 @@ namespace One.Core.Helper
         /// <returns> </returns>
         public static string GetPrimaryDNS()
         {
-            string result = ProcessHelper.RunApp("nslookup", "", true);
+            new ProcessHelper(null).RunExeAndReadResult("", "nslookup", "", out string result);
             Match m = Regex.Match(result, @"\d+\.\d+\.\d+\.\d+");
             if (m.Success)
             {
@@ -94,15 +97,13 @@ namespace One.Core.Helper
             }
         }
 
-       
-
         /// <summary> 检测端口是否占用 </summary>
         /// <param name="port"> </param>
         /// <returns> </returns>
         public static bool PortInUse(int port)
         {
             bool inUse = false;
-            System.Net.NetworkInformation.IPGlobalProperties ipProperties = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties();
+            IPGlobalProperties ipProperties = IPGlobalProperties.GetIPGlobalProperties();
             IPEndPoint[] ipEndPoints = ipProperties.GetActiveTcpListeners();
 
             foreach (IPEndPoint endPoint in ipEndPoints)
@@ -181,8 +182,6 @@ namespace One.Core.Helper
 
             return listNetWorkInfo;
         }
-
-
 
         /// <summary> 检测网络是否连通 </summary>
         public static bool Ping(string hostName)

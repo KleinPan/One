@@ -1,8 +1,6 @@
-﻿namespace One.Core.Helper
+﻿namespace One.Core.Helpers
 {
-    /// <summary>
-    /// 路径寻找帮助类
-    /// </summary>
+    /// <summary> 路径寻找帮助类 </summary>
     public class PathHelper
     {
         /// <summary> 获取父目录 </summary>

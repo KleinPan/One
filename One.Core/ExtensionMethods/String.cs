@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 using One.Core.Helper;
+using One.Core.Helpers;
 
 namespace One.Core.ExtensionMethods
 {
@@ -14,11 +15,9 @@ namespace One.Core.ExtensionMethods
 
         #region 转Int
 
-        /// <summary>
-        /// 转Int,失败返回0
-        /// </summary>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <summary> 转Int,失败返回0 </summary>
+        /// <param name="t"> </param>
+        /// <returns> </returns>
         public static int ToInt(this string t)
         {
             int n;
@@ -27,12 +26,10 @@ namespace One.Core.ExtensionMethods
             return n;
         }
 
-        /// <summary>
-        /// 转Int,失败返回pReturn
-        /// </summary>
-        /// <param name="t"></param>
-        /// <param name="pReturn">失败返回的值</param>
-        /// <returns></returns>
+        /// <summary> 转Int,失败返回pReturn </summary>
+        /// <param name="t">       </param>
+        /// <param name="pReturn"> 失败返回的值 </param>
+        /// <returns> </returns>
         public static int ToInt(this string t, int pReturn)
         {
             int n;
@@ -101,7 +98,7 @@ namespace One.Core.ExtensionMethods
             return n;
         }
 
-        /// <summary> 转byte[]</summary>
+        /// <summary> 转byte[] </summary>
         /// <param name="e"> </param>
         /// <returns> </returns>
         public static byte[] ToByte(this string t, System.Text.Encoding encoding)
@@ -870,7 +867,6 @@ namespace One.Core.ExtensionMethods
             return str.Replace("\\", "\\\\").Replace("\"", "\\\"");
         }
 
-
         public static string Encode(this string content, Encoding encode = null)
         {
             if (encode == null) return content;
@@ -882,7 +878,6 @@ namespace One.Core.ExtensionMethods
         {
             if (encode == null) return content;
 
-          
             //返回转换后的字符
             return encode.GetString(encode.GetBytes(content));
         }

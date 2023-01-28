@@ -1,17 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Management;
 
-namespace One.Core.Helper
+namespace One.Core.Helpers
 {
     public class HardwareInfoHelper
     {
-        /// <summary>
-        /// WMI取硬件信息
-        /// </summary>
-        /// <param name="hardType"></param>
-        /// <param name="propKey"></param>
-        /// <param name="filter"></param>
-        /// <returns></returns>
+        /// <summary> WMI取硬件信息 </summary>
+        /// <param name="hardType"> </param>
+        /// <param name="propKey">  </param>
+        /// <param name="filter">   </param>
+        /// <returns> </returns>
         public static string[] MulGetHardwareInfo(HardwareEnum hardType, string propKey, string filter = "COM")
         {
             List<string> strs = new List<string>();

@@ -27,7 +27,7 @@ jobs:
       
       # Publish 1
       - name: Publish One.Core
-        uses: rohith/publish-nuget@v2
+        uses: alirezanet/publish-nuget@v3.0.4
         with:
           PROJECT_FILE_PATH: One.Core/One.Core.csproj # Relative to repository root
           TAG_COMMIT: true # Flag to enable / disalge git tagging
@@ -36,7 +36,7 @@ jobs:
          
        # Publish 2
       - name: Publish One.Control
-        uses: rohith/publish-nuget@v2
+        uses: alirezanet/publish-nuget@v3.0.4
         with:
           PROJECT_FILE_PATH: One.Control/One.Control.csproj # Relative to repository root
         
@@ -45,7 +45,7 @@ jobs:
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key
       # Publish 3
       - name: Publish One.AutoUpdater
-        uses: rohith/publish-nuget@v2
+        uses: alirezanet/publish-nuget@v3.0.4
         with:
           PROJECT_FILE_PATH: One.AutoUpdater/One.AutoUpdater.csproj # Relative to repository root
         

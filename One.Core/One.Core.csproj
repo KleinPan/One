@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>

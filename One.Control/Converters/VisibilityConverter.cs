@@ -5,9 +5,7 @@ using System.Windows.Data;
 
 namespace One.Control.Converters
 {
-    /// <summary>
-    /// true 显示
-    /// </summary>
+    /// <summary> true 显示 </summary>
     public class BoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -22,10 +20,7 @@ namespace One.Control.Converters
         }
     }
 
-
-    /// <summary>
-    /// true 折叠
-    /// </summary>
+    /// <summary> true 折叠 </summary>
     public class BoolToVisibilityConverterInverse : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -40,9 +35,7 @@ namespace One.Control.Converters
         }
     }
 
-    /// <summary>
-    /// Null则不显示
-    /// </summary>
+    /// <summary> Null则不显示 </summary>
     public class NullToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -56,9 +49,7 @@ namespace One.Control.Converters
         }
     }
 
-    /// <summary>
-    /// 0-折叠,其他显示
-    /// </summary>
+    /// <summary> 0-折叠,其他显示 </summary>
     public class IntToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -72,7 +63,6 @@ namespace One.Control.Converters
             {
                 return Visibility.Visible;
             }
-
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

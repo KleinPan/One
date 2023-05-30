@@ -1,0 +1,183 @@
+﻿<Page
+    x:Class="One.Toolbox.Views.Pages.NetworklPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:EnumConverters="clr-namespace:One.Control.EnumConverters;assembly=One.Control"
+    xmlns:convert="clr-namespace:One.Toolbox.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enums="clr-namespace:One.Toolbox.Enums"
+    xmlns:local="clr-namespace:One.Toolbox.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
+    Title="TcpLocalPage"
+    d:DataContext="{d:DesignInstance Type=viewmodels:NetworkViewModel}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <convert:CommonProtoclShowConverter x:Key="CommonProtoclShowConverter" />
+    </Page.Resources>
+    <Grid Name="MainGrid">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+
+            <FlowDocumentScrollViewer
+                Name="uartDataFlowDocument"
+                BorderBrush="#FF009400"
+                BorderThickness="0"
+                MinZoom="50"
+                VerticalScrollBarVisibility="Visible">
+                <!--  更改段落间距  -->
+                <FlowDocumentScrollViewer.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </FlowDocumentScrollViewer.Resources>
+                <!--  更改段落间距END  -->
+                <FlowDocument
+                    FontFamily="Consolas,Microsoft YaHei,微软雅黑"
+                    FontSize="12"
+                    IsOptimalParagraphEnabled="False"
+                    TextAlignment="Left" />
+            </FlowDocumentScrollViewer>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Margin="2"
+                    VerticalAlignment="Center"
+                    FontSize="15">
+                    协议类型:
+                </TextBlock>
+                <ComboBox
+                    Grid.Column="1"
+                    Margin="5,0"
+                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:CommunProtocalType}}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding SelectCommunProtocalType}" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox
+                        Name="IpListComboBox"
+                        Width="300"
+                        Margin="2"
+                        IsEditable="True"
+                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
+                        ItemsSource="{Binding IpList}"
+                        SelectedIndex="0"
+                        SelectedItem="{Binding SelectedIP}" />
+
+                    <TextBox
+                        x:Name="IpPortTextBox"
+                        Grid.Column="1"
+                        Width="100"
+                        Margin="2"
+                        IsEnabled="{Binding ElementName=RefreshIpButton, Path=IsEnabled}"
+                        Text="{Binding InputPort}" />
+                </StackPanel>
+            </Grid>
+            <StackPanel
+                Grid.Row="2"
+                Orientation="Horizontal"
+                Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP服务端}">
+
+                <Button
+                    x:Name="RefreshIpButton"
+                    Grid.Column="2"
+                    Margin="2"
+                    Command="{Binding}"
+                    Content="{DynamicResource RefreshIpList}"
+                    IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+
+                <Button
+                    x:Name="StopListenButton"
+                    Grid.Row="1"
+                    Command="{Binding StopListenCommand}"
+                    Content="{DynamicResource StopListen}"
+                    Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                <Button
+                    x:Name="ListenButton"
+                    Grid.Row="1"
+                    Command="{Binding ListenCommand}"
+                    Content="{DynamicResource StartListen}"
+                    Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+            </StackPanel>
+            <StackPanel
+                Name="socket"
+                Grid.Row="2"
+                Orientation="Horizontal"
+                Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
+
+                <Button
+                    Name="ConnectButton"
+                    Command="{Binding SocketConnectCommand}"
+                    Content="{DynamicResource ConnectButton}" />
+                <Button
+                    Name="DisconnectButton"
+                    Command="{Binding SocketDisconnectCommand}"
+                    Content="{DynamicResource DisconnectButton}"
+                    Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+            </StackPanel>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Margin="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="{DynamicResource ToSendDataTextBlock}" />
+                <CheckBox
+                    Grid.Column="1"
+                    Margin="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="Hex"
+                    IsChecked="{Binding HexMode}" />
+
+                <TextBox
+                    Name="toSendDataTextBox"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Margin="2"
+                    VerticalAlignment="Stretch"
+                    VerticalContentAlignment="Top"
+                    AcceptsReturn="True"
+                    FontFamily="Consolas"
+                    Text="{Binding DataToSend}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" />
+            </Grid>
+
+            <Button
+                Name="SendDataButton"
+                Grid.Row="4"
+                Margin="2"
+                HorizontalAlignment="Right"
+                Command="{Binding SendDataCommand}"
+                Content="{DynamicResource NetSendDataButton}"
+                IsEnabled="{Binding IsConnected}" />
+        </Grid>
+    </Grid>
+</Page>

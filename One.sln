@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决�
 		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Toolbox", "One.Toolbox\One.Toolbox.csproj", "{FADB6AF7-4ED9-407D-8A3B-957A1B509550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6821B823-59F3-4BD7-9D0E-5CC7917C10ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADB6AF7-4ED9-407D-8A3B-957A1B509550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADB6AF7-4ED9-407D-8A3B-957A1B509550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADB6AF7-4ED9-407D-8A3B-957A1B509550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADB6AF7-4ED9-407D-8A3B-957A1B509550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

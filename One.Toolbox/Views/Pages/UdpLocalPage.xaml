@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="One.Toolbox.Views.Pages.UdpLocalPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:One.Toolbox.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="TcpLocalPage"
+    d:DesignHeight="480"
+    d:DesignWidth="400"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+    <Page.Resources />
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+            <ComboBox
+                Name="IpListComboBox"
+                IsEditable="True"
+                IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+            <Button
+                x:Name="RefreshIpButton"
+                Grid.Column="1"
+                Margin="5,0,0,0"
+                Click="RefreshIpButton_Click"
+                Content="{DynamicResource RefreshIpList}"
+                IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+            <TextBox
+                x:Name="IpPortTextBox"
+                Grid.Column="2"
+                Margin="5,0,0,0"
+                IsEnabled="{Binding ElementName=RefreshIpButton, Path=IsEnabled}"
+                Text="{Binding udpServerPort}" />
+        </Grid>
+        <Button
+            x:Name="StopListenButton"
+            Grid.Row="1"
+            Margin="0,5,0,0"
+            Click="StopListenButton_Click"
+            Content="{DynamicResource StopListen}"
+            Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+        <Button
+            x:Name="ListenButton"
+            Grid.Row="1"
+            Margin="0,5,0,0"
+            Click="ListenButton_Click"
+            Content="{DynamicResource StartListen}"
+            Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+    </Grid>
+</Page>

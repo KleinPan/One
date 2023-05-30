@@ -1,0 +1,409 @@
+<Window
+    x:Class="One.Toolbox.Views.SettingWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+    xmlns:local="clr-namespace:One.Toolbox.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{DynamicResource SettingTitle}"
+    Width="450"
+    Height="490"
+    Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Style>
+        <Style BasedOn="{StaticResource {x:Type Window}}" TargetType="Window" />
+    </Window.Style>
+    <Grid>
+        <TabControl>
+            <TabItem Header="{DynamicResource SettingBasic}">
+                <ScrollViewer>
+                    <StackPanel Margin="10,0,0,0">
+                        <CheckBox
+                            Margin="5"
+                            Content="{DynamicResource SettingAutoReconnect}"
+                            IsChecked="{Binding autoReconnect}" />
+                        <Button
+                            Name="OpenLogButton"
+                            Margin="5"
+                            Click="OpenLogButton_Click"
+                            Content="{DynamicResource SettingOpenLogFolder}" />
+                        <WrapPanel Margin="5">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingShowFormat}" />
+                            <ComboBox
+                                Name="showHexComboBox"
+                                Width="170"
+                                SelectedIndex="{Binding showHexFormat}">
+                                <ComboBoxItem Content="{DynamicResource SettingShowBoth}" />
+                                <ComboBoxItem Content="{DynamicResource SettingShoText}" />
+                                <ComboBoxItem Content="{DynamicResource SettingShowHexOnly}" />
+                            </ComboBox>
+                        </WrapPanel>
+                        <CheckBox
+                            Margin="5"
+                            Content="{DynamicResource SettingShowSend}"
+                            IsChecked="{Binding showSend}" />
+                        <CheckBox
+                            Margin="5"
+                            Content="{DynamicResource SettingKeepTop}"
+                            IsChecked="{Binding topmost}" />
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingUartTimeout}" />
+                            <TextBox MinWidth="50" Text="{Binding timeout, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock
+                                Margin="3,0"
+                                VerticalAlignment="Center"
+                                Text="{DynamicResource SettingMs}" />
+                        </StackPanel>
+                        <CheckBox
+                            Margin="5"
+                            Content="{DynamicResource SettingSplitByEmpty}"
+                            IsChecked="{Binding bitDelay}" />
+                        <CheckBox
+                            Margin="5"
+                            Content="{DynamicResource SettingTerminal}"
+                            IsChecked="{Binding terminal}" />
+                        <StackPanel Margin="0,10,0,5" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingMaxPack}" />
+                            <TextBox MinWidth="60" Text="{Binding maxLength, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingByte}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,5" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingMaxShowPack}" />
+                            <TextBox MinWidth="60" Text="{Binding MaxPackShow, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingByte}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingPacksText}" />
+                            <TextBox MinWidth="60" Text="{Binding MaxPacksAutoClear, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingPacks}" />
+                        </StackPanel>
+                        <CheckBox
+                            Margin="0,0,0,10"
+                            Content="{DynamicResource SettingLagAutoClear}"
+                            IsChecked="{Binding LagAutoClear}" />
+                        <WrapPanel Margin="5">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingDataBits}" />
+                            <ComboBox
+                                Name="dataBitsComboBox"
+                                Width="50"
+                                SelectionChanged="DataBitsComboBox_SelectionChanged">
+                                <ComboBoxItem Content="5" Tag="5" />
+                                <ComboBoxItem Content="6" Tag="6" />
+                                <ComboBoxItem Content="7" Tag="7" />
+                                <ComboBoxItem Content="8" Tag="8" />
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Margin="5">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingStopBit}" />
+                            <ComboBox
+                                Name="stopBitComboBox"
+                                Width="50"
+                                SelectionChanged="StopBitComboBox_SelectionChanged">
+                                <ComboBoxItem Content="1" />
+                                <ComboBoxItem Content="2" />
+                                <ComboBoxItem Content="1.5" />
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Margin="5">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingParity}" />
+                            <ComboBox
+                                Name="dataCheckComboBox"
+                                Width="70"
+                                SelectionChanged="DataCheckComboBox_SelectionChanged">
+                                <ComboBoxItem Content="{DynamicResource SettingParityNone}" />
+                                <ComboBoxItem Content="{DynamicResource SettingParityOdd}" />
+                                <ComboBoxItem Content="{DynamicResource SettingParityEven}" />
+                                <ComboBoxItem Content="{DynamicResource SettingParityMark}" />
+                                <ComboBoxItem Content="{DynamicResource SettingParitySpace}" />
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Margin="5">
+                            <TextBlock VerticalAlignment="Center" Text="{DynamicResource Encoding}" />
+                            <ComboBox
+                                Name="encodingComboBox"
+                                Width="auto"
+                                SelectionChanged="encodingComboBox_SelectionChanged" />
+                        </WrapPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="{DynamicResource SettingSendLuaScript}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="0,0,0,5" Orientation="Horizontal">
+                        <ComboBox
+                            Name="luaFileList"
+                            Width="250"
+                            SelectionChanged="LuaFileList_SelectionChanged" />
+                        <Button
+                            Name="newScriptButton"
+                            Margin="3,0,0,0"
+                            Click="NewScriptButton_Click"
+                            ToolTip="{DynamicResource LuaNewScript}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="LightSkyBlue" Icon="File" />
+                                <fa:FontAwesome Icon="FileCodeOutline" />-->
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="testScriptButton"
+                            Margin="3,0,0,0"
+                            Click="TestScriptButton_Click"
+                            ToolTip="{DynamicResource SettingLuaTestScript}">
+                            <!--<fa:FontAwesome Foreground="DarkGreen" Icon="Play" />-->
+                        </Button>
+                        <Button
+                            Name="openScriptFolderButton"
+                            Margin="3,0,0,0"
+                            Click="OpenScriptFolderButton_Click"
+                            ToolTip="{DynamicResource LuaOpenFolder}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="Yellow" Icon="FolderOpen" />
+                                <fa:FontAwesome Icon="FolderOutlinepenOutline" />-->
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="apiDocumentButton"
+                            Margin="3,0,0,0"
+                            Click="ApiDocumentButton_Click"
+                            ToolTip="{DynamicResource LuaApiReference}">
+                            <!--<fa:FontAwesome Foreground="DarkSlateGray" Icon="Book" />-->
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel
+                        Name="newLuaFileWrapPanel"
+                        Grid.Row="1"
+                        Margin="3"
+                        Visibility="Collapsed">
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource LuaFileName}" />
+                        <TextBox
+                            Name="newLuaFileNameTextBox"
+                            Width="90"
+                            Text="new script" />
+                        <Button
+                            Name="newLuaFilebutton"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="NewLuaFilebutton_Click"
+                            Content="{fa:Icon Check,
+                                              Foreground=Green}"
+                            ToolTip="{DynamicResource LuaConfirmCreate}">
+                            <!--<fa:FontAwesome Foreground="Green" Icon="Check" />-->
+                        </Button>
+                        <Button
+                            Name="newLuaFileCancelbutton"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="NewLuaFileCancelbutton_Click"
+                            Content="{fa:Icon Ban,
+                                              Foreground=Red}"
+                            ToolTip="{DynamicResource LuaCancel}">
+                            <!--<fa:FontAwesome Foreground="Red" Icon="Ban" />-->
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel
+                        Name="luaTestWrapPanel"
+                        Grid.Row="1"
+                        Margin="3"
+                        Visibility="Collapsed">
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingLuaTestInput}" />
+                        <TextBox
+                            Name="luaTestTextBox"
+                            Width="150"
+                            Text="uart data" />
+                        <Button
+                            Name="luaTestbutton"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="LuaTestbutton_Click"
+                            ToolTip="{DynamicResource SettingLuaTestButton}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="LightBlue" Icon="PaperPlane" />
+                                <fa:FontAwesome Foreground="Black" Icon="PaperPlaneOutline" />-->
+                                <fa:IconBlock Foreground="LightBlue" Icon="PaperPlane" />
+                                <fa:IconBlock Foreground="Black" Icon="ToiletPaper" />
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="luaTestCancelbutton"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="LuaTestCancelbutton_Click"
+                            Content="{fa:Icon Ban,
+                                              Foreground=Red}"
+                            ToolTip="{DynamicResource LuaCancel}">
+                            <!--<fa:FontAwesome Foreground="Red" Icon="Ban" />-->
+                        </Button>
+                    </WrapPanel>
+                    <avalonEdit:TextEditor
+                        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                        Name="textEditor"
+                        Grid.Row="2"
+                        FontFamily="Consolas"
+                        FontSize="10pt"
+                        LostFocus="TextEditor_LostFocus"
+                        ShowLineNumbers="True" />
+                    <WrapPanel Grid.Row="3" Margin="5">
+                        <TextBlock Text="{DynamicResource SettingLuaText1}" TextWrapping="Wrap" />
+                        <TextBlock Text="{DynamicResource SettingLuaText2}" TextWrapping="Wrap" />
+                        <TextBlock Text="{DynamicResource SettingLuaText3}" TextWrapping="Wrap" />
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="{DynamicResource SettingRecvLuaScript}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <WrapPanel Margin="0,0,0,5" Orientation="Horizontal">
+                        <ComboBox
+                            Name="luaFileListRev"
+                            Width="250"
+                            SelectionChanged="luaFileListRev_SelectionChanged" />
+                        <Button
+                            Name="newScriptButtonRev"
+                            Margin="3,0,0,0"
+                            Click="newScriptButtonRev_Click"
+                            ToolTip="{DynamicResource LuaNewScript}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="LightSkyBlue" Icon="File" />
+                                <fa:FontAwesome Icon="FileCodeOutline" />-->
+
+                                <fa:IconBlock Foreground="LightSkyBlue" Icon="File" />
+                                <fa:IconBlock Icon="FileCode" />
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="testScriptButtonRev"
+                            Margin="3,0,0,0"
+                            Click="testScriptButtonRev_Click"
+                            Content="{fa:Icon Play,
+                                              Foreground=DarkGreen}"
+                            ToolTip="{DynamicResource SettingLuaTestScript}">
+                            <!--<fa:FontAwesome Foreground="DarkGreen" Icon="Play" />-->
+                        </Button>
+                        <Button
+                            Name="openScriptFolderButtonRev"
+                            Margin="3,0,0,0"
+                            Click="openScriptFolderButtonRev_Click"
+                            ToolTip="{DynamicResource LuaOpenFolder}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="Yellow" Icon="FolderOpen" />
+                                <fa:FontAwesome Icon="FolderOutlinepenOutline" />-->
+                                <fa:IconBlock Foreground="Yellow" Icon="FolderOpen" />
+                                <fa:IconBlock Icon="FolderOpen" />
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="apiDocumentButtonRev"
+                            Margin="3,0,0,0"
+                            Click="ApiDocumentButton_Click"
+                            Content="{fa:Icon Book,
+                                              Foreground=DarkSlateGray}"
+                            ToolTip="{DynamicResource LuaApiReference}">
+                            <!--<fa:FontAwesome Foreground="DarkSlateGray" Icon="Book" />-->
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel
+                        Name="newLuaFileWrapPanelRev"
+                        Grid.Row="1"
+                        Margin="3"
+                        Visibility="Collapsed">
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource LuaFileName}" />
+                        <TextBox
+                            Name="newLuaFileNameTextBoxRev"
+                            Width="90"
+                            Text="new script" />
+                        <Button
+                            Name="newLuaFilebuttonRev"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="newLuaFilebuttonRev_Click"
+                            Content="{fa:Icon Check,
+                                              Foreground=Green}"
+                            ToolTip="{DynamicResource LuaConfirmCreate}">
+                            <!--<fa:FontAwesome Foreground="Green" Icon="Check" />-->
+                        </Button>
+                        <Button
+                            Name="newLuaFileCancelbuttonRev"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="newLuaFileCancelbuttonRev_Click"
+                            Content="{fa:Icon Ban,
+                                              Foreground=Red}"
+                            ToolTip="{DynamicResource LuaCancel}">
+                            <!--<fa:FontAwesome Foreground="Red" Icon="Ban" />-->
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel
+                        Name="luaTestWrapPanelRev"
+                        Grid.Row="1"
+                        Margin="3"
+                        Visibility="Collapsed">
+                        <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingLuaTestInput}" />
+                        <TextBox
+                            Name="luaTestTextBoxRev"
+                            Width="150"
+                            Text="uart data" />
+                        <Button
+                            Name="luaTestbuttonRev"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="luaTestbuttonRev_Click"
+                            ToolTip="{DynamicResource SettingLuaTestButton}">
+                            <Grid>
+                                <!--<fa:FontAwesome Foreground="LightBlue" Icon="PaperPlane" />
+                                <fa:FontAwesome Foreground="Black" Icon="PaperPlaneOutline" />-->
+
+                                <fa:IconBlock Foreground="LightBlue" Icon="PaperPlane" />
+                                <fa:IconBlock Foreground="Black" Icon="PaperPlane" />
+                            </Grid>
+                        </Button>
+                        <Button
+                            Name="luaTestCancelbuttonRev"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="luaTestCancelbuttonRev_Click"
+                            Content="{fa:Icon Ban,
+                                              Foreground=Red}"
+                            ToolTip="{DynamicResource LuaCancel}">
+                            <!--<fa:FontAwesome Foreground="Red" Icon="Ban" />-->
+                        </Button>
+                    </WrapPanel>
+                    <avalonEdit:TextEditor
+                        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                        Name="textEditorRev"
+                        Grid.Row="2"
+                        FontFamily="Consolas"
+                        FontSize="10pt"
+                        LostFocus="textEditorRev_LostFocus"
+                        ShowLineNumbers="True" />
+                    <WrapPanel Grid.Row="3" Margin="5">
+                        <TextBlock Text="{DynamicResource SettingLuaText1}" TextWrapping="Wrap" />
+                        <TextBlock Text="{DynamicResource SettingLuaText2Recv}" TextWrapping="Wrap" />
+                        <TextBlock Text="{DynamicResource SettingLuaText3}" TextWrapping="Wrap" />
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

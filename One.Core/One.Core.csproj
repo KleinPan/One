@@ -6,12 +6,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
-	  <DocumentationFile />
-	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<DocumentationFile />
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace One.Core.Helpers
+namespace One.Core.Helpers.DataProcessHelpers
 {
     public class StringHelper
     {

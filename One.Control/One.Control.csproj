@@ -7,14 +7,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Description>A control library ,Contain som useful controls and methods...</Description>
-	
-	
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

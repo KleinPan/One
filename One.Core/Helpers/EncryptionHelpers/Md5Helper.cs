@@ -27,6 +27,33 @@ namespace One.Core.Helpers.EncryptionHelpers
             }
         }
 
+        /// <summary> 计算字符串的特征码 </summary>
+        /// <param name="source"> </param>
+        /// <returns> </returns>
+        public static string GetStringMD5(string source)
+        {
+            //计算字符串的MD5
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            byte[] data = System.Text.Encoding.UTF8.GetBytes(source);
+            byte[] md5Data = md5.ComputeHash(data, 0, data.Length);
+            md5.Clear();
+
+            string destString = string.Empty;
+            for (int i = 0; i < md5Data.Length; i++)
+            {
+                //返回一个新字符串，该字符串通过在此实例中的字符左侧填充指定的
+                //Unicode 字符来达到指定的总长度，从而使这些字符右对齐。
+                // string num=12; num.PadLeft(4, '0'); 结果为为 '0012' 看字符串长度是否满足4位,
+                //不满足则在字符串左边以"0"补足
+                //调用Convert.ToString(整型,进制数) 来转换为想要的进制数
+                destString += System.Convert.ToString(md5Data[i], 16).PadLeft(2, '0');
+            }
+
+            //使用 PadLeft 和 PadRight 进行轻松地补位
+            destString = destString.PadLeft(32, '0');
+            return destString;
+        }
+
         public static string GetFileMd5(string path)
         {
             try

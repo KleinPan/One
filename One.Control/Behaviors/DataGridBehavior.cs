@@ -11,10 +11,6 @@ namespace One.Control.Behaviors
     /// <summary> 使用方法 左尖括号 DataGrid ItemsSource="{Binding ...}" behaviors:DataGridBehavior.DisplayRowNumber="True" 右尖括号 </summary>
     public class DataGridBehavior
     {
-         
-
-       
-
         #region DisplayRowNumber
 
         public static DependencyProperty DisplayRowNumberProperty =
@@ -96,6 +92,7 @@ namespace One.Control.Behaviors
         #endregion Get Visuals
 
         #region 自动滚动
+
         public static readonly DependencyProperty AutoscrollProperty = DependencyProperty.RegisterAttached(
            "Autoscroll", typeof(bool), typeof(DataGridBehavior), new PropertyMetadata(default(bool), AutoscrollChangedCallback));
 
@@ -133,8 +130,6 @@ namespace One.Control.Behaviors
                 ((INotifyCollectionChanged)dataGrid.Items).CollectionChanged += handler;
                 ScrollToEnd(dataGrid);
             }
-
-
         }
 
         private static void Unsubscribe(DataGrid dataGrid)
@@ -186,6 +181,6 @@ namespace One.Control.Behaviors
             return (bool)element.GetValue(AutoscrollProperty);
         }
 
-        #endregion
+        #endregion 自动滚动
     }
 }

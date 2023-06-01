@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace One.Core.Helpers.EncryptionHelpers
 {
-    public class AESHelper
+    public class AES256Helper
     {
         /// <summary> AES256加密 </summary>
         /// <param name="encryptStr"> 明文 </param>

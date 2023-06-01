@@ -1,4 +1,4 @@
-﻿namespace One.Core.Helpers
+﻿namespace One.Core.Helpers.DataProcessHelpers
 {
     public static class RegexHelper
     {

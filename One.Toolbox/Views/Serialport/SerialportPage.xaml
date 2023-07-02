@@ -1,11 +1,11 @@
 ﻿<Page
-    x:Class="One.Toolbox.Views.Pages.SerialportPage"
+    x:Class="One.Toolbox.Views.Serialport.SerialportPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
+    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
     Title="SerialportPage"
     d:DataContext="{d:DesignInstance Type=viewmodels:SerialportViewModel}"
     d:DesignHeight="450"
@@ -78,8 +78,8 @@
                         Content="{DynamicResource ClearLog}"
                         Style="{StaticResource ClickButton}" />
                     <Button
-                        Name="MoreSettingButton"
                         Margin="2"
+                        Command="{Binding MoreSerialportSettingCommand}"
                         Content="{DynamicResource MoreSettings}"
                         Style="{StaticResource ClickButton}"
                         ToolTip="{DynamicResource MoreSettingsTip}" />
@@ -96,33 +96,33 @@
                     <CheckBox
                         Name="RTSCheckBox"
                         Content="RTS"
-                        IsChecked="{Binding Rts}" />
+                        IsChecked="{Binding SerialportUISetting.SerialportParams.RtsEnable}" />
                     <CheckBox
                         Name="DTRCheckBox"
                         Content="DTR"
-                        IsChecked="{Binding Dtr}" />
+                        IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
                     <CheckBox
                         Name="HEXBox"
                         Content="{DynamicResource ShowHexFormat}"
-                        IsChecked="{Binding HexReceive}"
+                        IsChecked="{Binding SerialportUISetting.HexShow}"
                         ToolTip="{DynamicResource ShowHexFormatTip}" />
 
                     <CheckBox
                         Name="EnableSymbolCheckBox"
                         Content="{DynamicResource ShowSymbol}"
-                        IsChecked="{Binding EnableSymbol}"
+                        IsChecked="{Binding SerialportUISetting.EnableSymbol}"
                         ToolTip="{DynamicResource ShowSymbolTooltip}" />
 
                     <CheckBox
                         Name="HexSendCheckBox"
                         HorizontalAlignment="Right"
                         Content="{DynamicResource HexSendMode}"
-                        IsChecked="{Binding HexSend}" />
+                        IsChecked="{Binding SerialportUISetting.HexSend}" />
 
                     <CheckBox
                         Name="ExtraEnterCheckBox"
                         Content="{DynamicResource AddExtraEnter}"
-                        IsChecked="{Binding extraEnter}"
+                        IsChecked="{Binding SerialportUISetting.WithExtraEnter}"
                         ToolTip="{DynamicResource AddExtraEnterTip}" />
                 </StackPanel>
             </StackPanel>

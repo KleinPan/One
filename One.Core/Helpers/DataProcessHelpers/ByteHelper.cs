@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 
@@ -85,5 +87,30 @@ namespace One.Core.Helpers.DataProcessHelpers
         }
 
         #endregion Byte-Int
+
+        #region Compare
+
+        public static bool ArrayCompare(IEnumerable<byte> baseArray, IEnumerable<byte> targetArray, int length, int index = 0)
+        {
+            int allLength = baseArray.Count();
+            if (length > allLength)
+            {
+                length = allLength;
+            }
+            if (index > length)
+            {
+                throw new Exception("index > length");
+            }
+            for (int i = index; i < length; i++)
+            {
+                if (baseArray.ElementAt(i) != targetArray.ElementAt(i))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        #endregion Compare
     }
 }

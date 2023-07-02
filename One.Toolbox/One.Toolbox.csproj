@@ -28,6 +28,8 @@
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0" />
     <PackageReference Include="System.Management" Version="7.0.1" />
+	<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.15" />
+    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="3.4.15" />
     <PackageReference Include="WPF-UI" Version="3.0.0-preview.2" />
   </ItemGroup>
 

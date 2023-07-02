@@ -6,14 +6,14 @@ using System.Windows.Input;
 
 using Wpf.Ui.Controls.Navigation;
 
-namespace One.Toolbox.Views.Pages
+namespace One.Toolbox.Views.Serialport
 {
     /// <summary> SerialportPage.xaml 的交互逻辑 </summary>
-    public partial class SerialportPage : INavigableView<ViewModels.SerialportViewModel>
+    public partial class SerialportPage : INavigableView<ViewModels.Serialport.SerialportViewModel>
     {
-        public ViewModels.SerialportViewModel ViewModel { get; }
+        public ViewModels.Serialport.SerialportViewModel ViewModel { get; }
 
-        public SerialportPage(ViewModels.SerialportViewModel viewModel)
+        public SerialportPage(ViewModels.Serialport.SerialportViewModel viewModel)
         {
             DataContext = ViewModel = viewModel;
 

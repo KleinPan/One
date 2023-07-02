@@ -55,8 +55,8 @@ namespace One.Toolbox
                 services.AddScoped<Views.Pages.SettingsPage>();
                 services.AddScoped<ViewModels.SettingsViewModel>();
 
-                services.AddScoped<Views.Pages.SerialportPage>();
-                services.AddScoped<ViewModels.SerialportViewModel>();
+                services.AddScoped<Views.Serialport.SerialportPage>();
+                services.AddScoped<ViewModels.Serialport.SerialportViewModel>();
 
                 services.AddScoped<Views.Pages.NetworklPage>();
                 services.AddScoped<ViewModels.NetworkViewModel>();

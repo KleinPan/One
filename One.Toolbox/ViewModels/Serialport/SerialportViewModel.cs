@@ -1,7 +1,9 @@
 ﻿using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Model;
+using One.Toolbox.Models.Serialport;
 using One.Toolbox.Tools;
+using One.Toolbox.Views;
 
 using System.Collections.ObjectModel;
 using System.IO.Ports;
@@ -11,7 +13,7 @@ using System.Windows.Controls;
 
 using Wpf.Ui.Controls.Navigation;
 
-namespace One.Toolbox.ViewModels
+namespace One.Toolbox.ViewModels.Serialport
 {
     public partial class SerialportViewModel : BaseViewModel, INavigationAware
     {
@@ -28,6 +30,9 @@ namespace One.Toolbox.ViewModels
         [ObservableProperty]
         private string selectedBaudRate;
 
+        [ObservableProperty]
+        private SerialportSettingViewModel serialportUISetting;
+
         #endregion SerialPortSetting
 
         [ObservableProperty]
@@ -39,41 +44,6 @@ namespace One.Toolbox.ViewModels
         private FlowDocumentComponent flowDocumentHelper { get; set; }
 
         public ObservableCollection<ToSendData> ToSendListItems { get; set; } = new ObservableCollection<ToSendData>();
-
-        #region 界面设置
-
-        [ObservableProperty]
-        private bool withExtraEnter;
-
-        [ObservableProperty]
-        private bool hexSend;
-
-        [ObservableProperty]
-        private bool hexReceive;
-
-        [ObservableProperty]
-        private bool rts;
-
-        partial void OnRtsChanged(bool value)
-        {
-            if (serialPortHelper != null)
-            {
-                serialPortHelper.Rts = value;
-            }
-        }
-
-        [ObservableProperty]
-        private bool dtr;
-
-        partial void OnDtrChanged(bool value)
-        {
-            if (serialPortHelper != null)
-            {
-                serialPortHelper.Dtr = value;
-            }
-        }
-
-        #endregion 界面设置
 
         #region 界面显示
 
@@ -118,7 +88,7 @@ namespace One.Toolbox.ViewModels
 
             SelectedBaudRate = "115200";
 
-            Dtr = true;
+            //Dtr = true;
             serialPortHelper = new SerialPortComponent();
             serialPortHelper.UartDataSent += SerialPortHelper_UartDataSent;
             serialPortHelper.UartDataRecived += SerialPortHelper_UartDataRecived;
@@ -132,7 +102,7 @@ namespace One.Toolbox.ViewModels
 
             var temp = ByteHelper.ByteToHexString(data);
             NLogger.Debug(temp);
-            if (HexReceive)
+            if (SerialportUISetting.HexShow)
             {
                 flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
                 {
@@ -157,7 +127,7 @@ namespace One.Toolbox.ViewModels
 
             string realData = "";
 
-            if (HexSend)
+            if (SerialportUISetting.HexSend)
             {
                 //realData = One.Core.Helpers.StringHelper.BytesToHexString(data);
                 realData = ByteHelper.ByteToHexString(data);
@@ -181,6 +151,14 @@ namespace One.Toolbox.ViewModels
         private bool refreshLock = false;
 
         #region Command
+
+        [RelayCommand]
+        private void MoreSerialportSetting(object obj)
+        {
+            SettingWindow settingWindow = new SettingWindow();
+            settingWindow.DataContext = SerialportUISetting;
+            settingWindow.Show();
+        }
 
         [RelayCommand]
         private void InitFlowDocumentControl(object obj)
@@ -275,11 +253,6 @@ namespace One.Toolbox.ViewModels
             ToSendListItems.Add(new ToSendData() { Id = ToSendListItems.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
         }
 
-        #endregion Command
-
-        private bool isOpeningPort = false;
-        private bool forcusClosePort = true;
-
         [RelayCommand]
         private void OpenClosePort()
         {
@@ -312,6 +285,13 @@ namespace One.Toolbox.ViewModels
                 //refreshPortList(lastPort);
             }
         }
+
+        #endregion Command
+
+        /// <summary> 是否正在打开端口 </summary>
+        private bool isOpeningPort = false;
+
+        private bool forcusClosePort = true;
 
         private void OpenPort()
         {
@@ -356,7 +336,8 @@ namespace One.Toolbox.ViewModels
                             NLogger.Debug($"SetName");
                             serialPortHelper.SetName(port);
                             NLogger.Debug($"Open");
-                            serialPortHelper.Open();
+
+                            serialPortHelper.Open(serialportUISetting.SerialportParams);
 
                             IsOpen = true;
                             App.Current.Dispatcher.Invoke(new Action(delegate
@@ -394,9 +375,9 @@ namespace One.Toolbox.ViewModels
 
                 try
                 {
-                    dataConvert = HexSend ? ByteHelper.HexToByte(ByteHelper.ByteToString(data)) : data;
+                    dataConvert = SerialportUISetting.HexSend ? ByteHelper.HexToByte(ByteHelper.ByteToString(data)) : data;
 
-                    if (WithExtraEnter)
+                    if (SerialportUISetting.WithExtraEnter)
                     {
                         var temp = dataConvert.ToList();
                         temp.Add(0x0d);
@@ -417,37 +398,19 @@ namespace One.Toolbox.ViewModels
 
         public void SaveSetting()
         {
-            SerialportSetting setting = new SerialportSetting();
+            if (serialportUISetting == null)
+            {
+                serialportUISetting = new SerialportSettingViewModel();
+            }
 
-            setting.DTR = Dtr;
-            setting.RTS = Rts;
-            setting.HexShow = HexReceive;
-            setting.HexSend = HexSend;
-            setting.WithExtraEnter = WithExtraEnter;
-
-            ConfigHelper.Instance.AllConfig.SerialportSetting = setting;
+            ConfigHelper.Instance.AllConfig.SerialportSetting = serialportUISetting;
 
             ConfigHelper.Instance.Save();
         }
 
         public void LoadSetting()
         {
-            SerialportSetting setting = ConfigHelper.Instance.AllConfig.SerialportSetting;
-
-            Dtr = setting.DTR;
-            Rts = setting.RTS;
-            HexReceive = setting.HexShow;
-            HexSend = setting.HexSend;
-            WithExtraEnter = setting.WithExtraEnter;
+            serialportUISetting = ConfigHelper.Instance.AllConfig.SerialportSetting;
         }
-    }
-
-    public class SerialportSetting
-    {
-        public bool RTS { get; set; }
-        public bool DTR { get; set; }
-        public bool HexShow { get; set; }
-        public bool HexSend { get; set; }
-        public bool WithExtraEnter { get; set; }
     }
 }

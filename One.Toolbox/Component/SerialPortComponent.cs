@@ -1,3 +1,4 @@
+using One.Toolbox.Models.Serialport;
 using One.Toolbox.ViewModels;
 
 using System.IO;
@@ -22,21 +23,17 @@ namespace One.Toolbox.Component
 
         private bool _dtr = true;
 
-        /// <summary> Request To Send 请求发送 </summary>
-        public bool Rts { get; set; }
-
-        /// <summary> Data Terminal Ready 数据终端准备好 </summary>
-        public bool Dtr { get; set; } = true;
-
         private static readonly object objLock = new object();
+
+        public SerialportParams SerialportParams { get; set; }
 
         /// <summary> 初始化串口各个触发函数 </summary>
         public SerialPortComponent()
         {
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-            serialPort.RtsEnable = Rts;
-            serialPort.DtrEnable = Dtr;
+            //serialPort.RtsEnable = Rts;
+            //serialPort.DtrEnable = Dtr;
             new Thread(ReadData).Start();
 
             //适配一下通用通道
@@ -108,12 +105,12 @@ namespace One.Toolbox.Component
             serialPort = new SerialPort();
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-            serialPort.BaudRate = Tools.Global.setting.baudRate;
-            serialPort.Parity = (Parity)Tools.Global.setting.parity;
-            serialPort.DataBits = Tools.Global.setting.dataBits;
-            serialPort.StopBits = (StopBits)Tools.Global.setting.stopBit;
-            serialPort.RtsEnable = Rts;
-            serialPort.DtrEnable = Dtr;
+            //serialPort.BaudRate = Tools.Global.setting.baudRate;
+            //serialPort.Parity = (Parity)Tools.Global.setting.parity;
+            //serialPort.DataBits = Tools.Global.setting.dataBits;
+            //serialPort.StopBits = (StopBits)Tools.Global.setting.stopBit;
+            //serialPort.RtsEnable = Rts;
+            //serialPort.DtrEnable = Dtr;
             NLogger.Info($"[refreshSerialDevice]done");
         }
 
@@ -139,12 +136,22 @@ namespace One.Toolbox.Component
         }
 
         /// <summary> 开启串口 </summary>
-        public void Open()
+        public void Open(SerialportParams serialportParams)
         {
             string temp = serialPort.PortName;
             NLogger.Info($"[UartOpen]refreshSerialDevice");
             refreshSerialDevice();
             serialPort.PortName = temp;
+
+            this.SerialportParams = serialportParams;
+
+            serialPort.BaudRate = SerialportParams.BaudRate;
+            serialPort.Parity = (Parity)SerialportParams.Parity;
+            serialPort.DataBits = SerialportParams.DataBits;
+            serialPort.StopBits = (StopBits)SerialportParams.StopBits;
+            serialPort.RtsEnable = SerialportParams.RtsEnable;
+            serialPort.DtrEnable = SerialportParams.DtrEnable;
+
             NLogger.Info($"[UartOpen]open");
             serialPort.Open();
             lastPortBaseStream = serialPort.BaseStream;

@@ -1,9 +1,9 @@
-﻿using One.Toolbox.ViewModels;
+﻿using One.Toolbox.ViewModels.Serialport;
 
 namespace One.Toolbox.Models
 {
     internal class AllConfigModel
     {
-        public SerialportSetting SerialportSetting { get; set; } = new SerialportSetting();
+        public SerialportSettingViewModel SerialportSetting { get; set; } = new SerialportSettingViewModel();
     }
 }

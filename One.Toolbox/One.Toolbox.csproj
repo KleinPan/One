@@ -9,9 +9,17 @@
     <AssemblyVersion>2.0.0.3</AssemblyVersion>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
+	<ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\Icon.png" />
     <None Remove="Resources\pexels-johannes-plenio-1103970.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+    <Content Include="Resources\Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +38,7 @@
     <PackageReference Include="System.Management" Version="7.0.1" />
 	<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.15" />
     <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="3.4.15" />
-    <PackageReference Include="WPF-UI" Version="3.0.0-preview.2" />
+    <PackageReference Include="WPF-UI" Version="3.0.0-preview.3" />
   </ItemGroup>
 
   <ItemGroup>

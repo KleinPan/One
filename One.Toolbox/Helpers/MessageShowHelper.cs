@@ -14,12 +14,17 @@ namespace One.Toolbox.Helpers
         static MessageShowHelper()
         {
             _snackbarService = App.GetService<ISnackbarService>();
-            _snackbarService.Timeout = _snackbarTimeout;
+            //_snackbarService.Timeout = _snackbarTimeout;
         }
 
         public static void ShowErrorMessage(string message)
         {
-            _snackbarService.Show("Error", message, new SymbolIcon(SymbolRegular.Fluent24), _snackbarAppearance);
+            // _snackbarService.Show("Error", message, new SymbolIcon(SymbolRegular.Fluent24), _snackbarAppearance);
+
+            App.Current.Dispatcher.Invoke(() =>
+            {
+                _snackbarService.Show("Error", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
+            });
         }
     }
 }

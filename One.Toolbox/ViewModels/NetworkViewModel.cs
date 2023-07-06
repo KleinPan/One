@@ -48,28 +48,6 @@ namespace One.Toolbox.ViewModels
                 ShowData($" → receive ({(string)name})", data);
             };
 
-            //适配一下通用通道
-            /*
-            LuaApis.SendChannelsRegister("tcp-server", (data, _) =>
-            {
-                if (Server != null && data != null)
-                {
-                    return Broadcast(data);
-                }
-                else
-                    return false;
-            });
-            //通用通道收到消息
-            DataRecived += (name, data) =>
-            {
-                LuaApis.SendChannelsReceived("tcp-server",
-                    new
-                    {
-                        from = (string)name,
-                        data
-                    });
-            };
-            */
             base.InitializeViewModel();
         }
 

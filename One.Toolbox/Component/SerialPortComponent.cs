@@ -1,5 +1,6 @@
 using One.Toolbox.Models.Serialport;
 using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Serialport;
 
 using System.IO;
 using System.IO.Ports;
@@ -25,7 +26,7 @@ namespace One.Toolbox.Component
 
         private static readonly object objLock = new object();
 
-        public SerialportParams SerialportParams { get; set; }
+        private SerialportSettingViewModel SerialportSetting { get; set; }
 
         /// <summary> 初始化串口各个触发函数 </summary>
         public SerialPortComponent()
@@ -136,21 +137,21 @@ namespace One.Toolbox.Component
         }
 
         /// <summary> 开启串口 </summary>
-        public void Open(SerialportParams serialportParams)
+        public void Open(SerialportSettingViewModel serialportParams)
         {
             string temp = serialPort.PortName;
             NLogger.Info($"[UartOpen]refreshSerialDevice");
             refreshSerialDevice();
             serialPort.PortName = temp;
 
-            this.SerialportParams = serialportParams;
+            this.SerialportSetting = serialportParams;
 
-            serialPort.BaudRate = SerialportParams.BaudRate;
-            serialPort.Parity = (Parity)SerialportParams.Parity;
-            serialPort.DataBits = SerialportParams.DataBits;
-            serialPort.StopBits = (StopBits)SerialportParams.StopBits;
-            serialPort.RtsEnable = SerialportParams.RtsEnable;
-            serialPort.DtrEnable = SerialportParams.DtrEnable;
+            serialPort.BaudRate = SerialportSetting.SerialportParams.BaudRate;
+            serialPort.Parity = (Parity)SerialportSetting.SerialportParams.Parity;
+            serialPort.DataBits = SerialportSetting.SerialportParams.DataBits;
+            serialPort.StopBits = (StopBits)(SerialportSetting.SerialportParams.StopBits + 1);
+            serialPort.RtsEnable = SerialportSetting.SerialportParams.RtsEnable;
+            serialPort.DtrEnable = SerialportSetting.SerialportParams.DtrEnable;
 
             NLogger.Info($"[UartOpen]open");
             serialPort.Open();
@@ -199,8 +200,8 @@ namespace One.Toolbox.Component
                 WaitUartReceive.WaitOne();
                 if (Tools.Global.isMainWindowsClosed)
                     return;
-                if (Tools.Global.setting.timeout > 0)
-                    Thread.Sleep(Tools.Global.setting.timeout);//等待时间
+                if (SerialportSetting.Timeout > 0)
+                    Thread.Sleep(SerialportSetting.Timeout);//等待时间
                 List<byte> result = new List<byte>();
                 while (true)//循环读
                 {
@@ -219,12 +220,12 @@ namespace One.Toolbox.Component
                     }
                     catch { break; }//崩了？
 
-                    if (result.Count > Tools.Global.setting.maxLength)//长度超了
+                    if (result.Count > SerialportSetting.MaxLength)//长度超了
                         break;
-                    if (Tools.Global.setting.bitDelay && Tools.Global.setting.timeout > 0)//如果是设置了等待间隔时间
-                    {
-                        Thread.Sleep(Tools.Global.setting.timeout);//等待时间
-                    }
+                    //if (Tools.Global.setting.bitDelay && Tools.Global.setting.timeout > 0)//如果是设置了等待间隔时间
+                    //{
+                    //    Thread.Sleep(Tools.Global.setting.timeout);//等待时间
+                    //}
                 }
                 //Tools.Global.setting.ReceivedCount += result.Count;
                 if (result.Count > 0)

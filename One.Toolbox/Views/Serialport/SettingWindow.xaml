@@ -23,27 +23,19 @@
                 <WrapPanel Margin="5">
                     <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingDataBits}" />
                     <ComboBox
-                        Name="dataBitsComboBox"
                         Width="100"
-                        SelectedItem="{Binding SerialportParams.DataBits}">
-
-                        <ComboBoxItem Content="5" Tag="5" />
-                        <ComboBoxItem Content="6" Tag="6" />
-                        <ComboBoxItem Content="7" Tag="7" />
-                        <ComboBoxItem Content="8" Tag="8" />
-                    </ComboBox>
+                        ItemsSource="{Binding DatabitList}"
+                        SelectedItem="{Binding SerialportParams.DataBits}" />
                 </WrapPanel>
                 <WrapPanel Margin="5">
                     <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingStopBit}" />
-                    <ComboBox
-                        Name="stopBitComboBox"
-                        Width="100"
-                        SelectedIndex="{Binding SerialportParams.StopBits}">
-                        <ComboBoxItem Content="0" />
+                    <ComboBox Width="100" SelectedIndex="{Binding SerialportParams.StopBits}">
+
                         <ComboBoxItem Content="1" />
                         <ComboBoxItem Content="2" />
                         <ComboBoxItem Content="1.5" />
                     </ComboBox>
+                    <!--  ItemsSource="{Binding StopBits}"  -->
                 </WrapPanel>
                 <WrapPanel Margin="5">
                     <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingParity}" />
@@ -59,6 +51,20 @@
                         <ComboBoxItem Content="{DynamicResource SettingParitySpace}" />
                     </ComboBox>
                 </WrapPanel>
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingUartTimeout}" />
+                    <TextBox MinWidth="50" Text="{Binding Timeout, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        Margin="3,0"
+                        VerticalAlignment="Center"
+                        Text="{DynamicResource SettingMs}" />
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,5" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingMaxPack}" />
+                    <TextBox MinWidth="60" Text="{Binding MaxLength, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingByte}" />
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Grid>

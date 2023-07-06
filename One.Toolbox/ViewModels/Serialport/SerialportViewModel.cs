@@ -158,6 +158,8 @@ namespace One.Toolbox.ViewModels.Serialport
             SettingWindow settingWindow = new SettingWindow();
             settingWindow.DataContext = SerialportUISetting;
             settingWindow.Show();
+
+            SaveSetting();
         }
 
         [RelayCommand]
@@ -335,9 +337,11 @@ namespace One.Toolbox.ViewModels.Serialport
                             forcusClosePort = false;//不再强制关闭串口
                             NLogger.Debug($"SetName");
                             serialPortHelper.SetName(port);
+
+                            serialportUISetting.SerialportParams.BaudRate = int.Parse(SelectedBaudRate);
                             NLogger.Debug($"Open");
 
-                            serialPortHelper.Open(serialportUISetting.SerialportParams);
+                            serialPortHelper.Open(serialportUISetting);
 
                             IsOpen = true;
                             App.Current.Dispatcher.Invoke(new Action(delegate
@@ -403,14 +407,17 @@ namespace One.Toolbox.ViewModels.Serialport
                 serialportUISetting = new SerialportSettingViewModel();
             }
 
-            ConfigHelper.Instance.AllConfig.SerialportSetting = serialportUISetting;
+            ConfigHelper.Instance.AllConfig.SerialportSetting = SerialportUISetting.ToModel();
+            ConfigHelper.Instance.AllConfig.SerialportParams = SerialportUISetting.SerialportParams;
 
             ConfigHelper.Instance.Save();
         }
 
         public void LoadSetting()
         {
-            serialportUISetting = ConfigHelper.Instance.AllConfig.SerialportSetting;
+            SerialportUISetting = ConfigHelper.Instance.AllConfig.SerialportSetting.ToVM();
+
+            SerialportUISetting.SerialportParams = ConfigHelper.Instance.AllConfig.SerialportParams;
         }
     }
 }

@@ -60,8 +60,7 @@
             </ui:NavigationView.AutoSuggestBox>
             <ui:NavigationView.ContentOverlay>
                 <Grid>
-
-                    <ui:Snackbar x:Name="SnackbarPresenter" />
+                    <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
                 </Grid>
             </ui:NavigationView.ContentOverlay>
         </ui:NavigationView>

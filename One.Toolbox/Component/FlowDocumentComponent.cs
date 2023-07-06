@@ -1,4 +1,5 @@
-﻿using One.Toolbox.Helpers;
+﻿using One.Core.Helpers;
+using One.Toolbox.Helpers;
 using One.Toolbox.Models;
 using One.Toolbox.Tools;
 
@@ -136,8 +137,9 @@ namespace One.Toolbox.Component
                 var start = DateTime.Now;
                 if (!DoInvoke(() =>
                 {
+                    var count = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.MaxPacksAutoClear;
                     //条目过多，自动清空
-                    if (FlowDocumentScrollViewer.Document.Blocks.Count > Global.setting.MaxPacksAutoClear)
+                    if (FlowDocumentScrollViewer.Document.Blocks.Count > count)
                     {
                         FlowDocumentScrollViewer.Document.Blocks.Clear();
                         Paragraph p = new Paragraph(new Run(logAutoClearWarn));
@@ -156,7 +158,9 @@ namespace One.Toolbox.Component
                 }))
                     return;
                 //如果卡顿超过了半秒，则触发自动清空
-                if (Global.setting.LagAutoClear && (DateTime.Now - start).Milliseconds > 250)
+
+                var autoClear = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.LagAutoClear;
+                if (autoClear && (DateTime.Now - start).Milliseconds > 250)
                 {
                     DoInvoke(() =>
                     {
@@ -208,7 +212,8 @@ namespace One.Toolbox.Component
         /// <param name="send"> true为发送，false为接收 </param>
         private void addUartLog(DataUart d)
         {
-            if (Global.setting.timeout >= 0)
+            var temp = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.Timeout;
+            if (temp >= 0)
             {
                 Paragraph p = new Paragraph(new Run(""));
 

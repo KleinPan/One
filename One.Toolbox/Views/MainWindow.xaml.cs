@@ -3,6 +3,7 @@ using One.Toolbox.ViewModels;
 using One.Toolbox.Views.Pages;
 
 using Wpf.Ui.Controls.Navigation;
+using Wpf.Ui.Services;
 
 namespace One.Toolbox.Views
 {
@@ -19,7 +20,8 @@ namespace One.Toolbox.Views
             InitializeComponent();
 
             //snackbarService.SetSnackbarPresenter(SnackbarPresenter);
-            snackbarService.SetSnackbarControl(SnackbarPresenter);
+            //isnackbarService.SetSnackbarControl(SnackbarPresenter);
+            snackbarService.SetSnackbarPresenter(SnackbarPresenter);
             navigationService.SetNavigationControl(NavigationView);
             contentDialogService.SetContentPresenter(RootContentDialog);
 

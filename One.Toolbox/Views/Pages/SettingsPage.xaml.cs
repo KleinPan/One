@@ -14,7 +14,7 @@ public partial class SettingsPage : INavigableView<ViewModels.SettingsViewModel>
 
     public SettingsPage(ViewModels.SettingsViewModel viewModel)
     {
-        DataContext = viewModel;
+        DataContext = ViewModel = viewModel;
 
         InitializeComponent();
     }
@@ -26,8 +26,6 @@ public partial class SettingsPage : INavigableView<ViewModels.SettingsViewModel>
         if (loaded)
             return;
         loaded = true;
-        // this.DataContext = Tools.Global.setting;
-        aboutScrollViewer.ScrollToTop();
 
         //设置为手动检查
         AutoUpdaterDotNET.AutoUpdater.CheckForUpdateEvent += checkUpdateEvent;

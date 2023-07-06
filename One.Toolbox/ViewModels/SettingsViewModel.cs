@@ -12,9 +12,9 @@ public partial class SettingsViewModel : BaseViewModel, INavigationAware
     [ObservableProperty]
     private Wpf.Ui.Appearance.ThemeType currentTheme = Wpf.Ui.Appearance.ThemeType.Light;
 
-    private void InitializeViewModel()
+    public override void InitializeViewModel()
     {
-        Tools.Global.LoadSetting();
+        //Tools.Global.LoadSetting();
 
         CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
         AppVersion = $"{GetAssemblyVersion()}";

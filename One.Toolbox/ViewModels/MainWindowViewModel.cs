@@ -17,10 +17,10 @@ public partial class MainWindowViewModel : BaseViewModel
     private string _applicationTitle = String.Empty;
 
     [ObservableProperty]
-    private ObservableCollection<object> _navigationItems = new();
+    private ObservableCollection<object> _navigationFooter = new();
 
     [ObservableProperty]
-    private ObservableCollection<object> _navigationFooter = new();
+    private ObservableCollection<object> _navigationItems = new();
 
     [ObservableProperty]
     private ObservableCollection<MenuItem> _trayMenuItems = new();
@@ -44,20 +44,19 @@ public partial class MainWindowViewModel : BaseViewModel
                 TargetPageType = typeof(Views.Pages.DashboardPage)
             },
 
-             new NavigationViewItem()
-             {
-                Content = "Text",
-                Icon = new SymbolIcon { Symbol = SymbolRegular. TextNumberFormat20},
-                TargetPageType = typeof(Views.Pages.StringConvertPage),
-             },
-
-        new NavigationViewItem()
-        {
-            Content = "Com",
-            Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort16 },
-            TargetPageType = typeof(Views.Serialport.SerialportPage),
-        },
-        new NavigationViewItem()
+            new NavigationViewItem()
+            {
+               Content = "Text",
+               Icon = new SymbolIcon { Symbol = SymbolRegular. TextNumberFormat20},
+               TargetPageType = typeof(Views.Pages.StringConvertPage),
+            },
+            new NavigationViewItem()
+                {
+                    Content = "Com",
+                    Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort16 },
+                    TargetPageType = typeof(Views.Serialport.SerialportPage),
+                },
+            new NavigationViewItem()
              {
                 Content = "Net",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.NetworkCheck20},

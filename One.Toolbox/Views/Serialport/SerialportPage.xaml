@@ -24,13 +24,14 @@
         </Grid.ColumnDefinitions>
 
         <!--  收发数据显示  -->
-        <Grid Background="Transparent">
+        <Grid Name="aaa" Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <FlowDocumentScrollViewer
                 Name="uartDataFlowDocument"
+                Height="{Binding ElementName=aaa, Path=ActualHeight}"
                 BorderBrush="#FF009400"
                 BorderThickness="0"
                 MinZoom="50"
@@ -75,6 +76,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Button
                         Name="clearLogButton"
+                        Command="{Binding ClearLogCommand}"
                         Content="{DynamicResource ClearLog}"
                         Style="{StaticResource ClickButton}" />
                     <Button
@@ -83,6 +85,12 @@
                         Content="{DynamicResource MoreSettings}"
                         Style="{StaticResource ClickButton}"
                         ToolTip="{DynamicResource MoreSettingsTip}" />
+                    <Button
+                        Margin="2"
+                        Command="{Binding SaveLogCommand}"
+                        Content="{DynamicResource SaveLog}"
+                        MouseRightButtonUp="LogButton_MouseRightButtonUp"
+                        Style="{StaticResource ClickButton}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel.Resources>
@@ -231,6 +239,7 @@
                     <ComboBox
                         Name="baudRateComboBox"
                         Width="150"
+                        IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}"
                         ItemsSource="{Binding BaudRateList}"
                         SelectedItem="{Binding SelectedBaudRate}" />
                 </StatusBarItem>

@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 using Vanara.PInvoke;
 
@@ -147,18 +149,24 @@ namespace One.Toolbox.Helpers
         /// <param name="timeout">    </param>
         /// <returns> </returns>
         /// <exception cref="Exception"> </exception>
-        public static DeviceInfo SearchPortByLocation(DeviceType deviceType, string location, int timeout = 60)
+        public static List<DeviceInfo> SearchPortByLocation(DeviceType deviceType, string location, Predicate<List<DeviceInfo>> predicate, int timeout = 60)
         {
+            List<DeviceInfo> aa = new List<DeviceInfo>();
             for (int i = 0; i < timeout; i++)
             {
                 var list = GetAllPluginDevice(deviceType);
 
                 foreach (var deviceInfo in list)
                 {
-                    if (deviceInfo.DevicePath.StartsWith(location))
+                    if (deviceInfo.LoctionPath.StartsWith(location))
                     {
-                        return deviceInfo;
+                        aa.Add(deviceInfo);
                     }
+                }
+
+                if (predicate(aa))
+                {
+                    return aa;
                 }
 
                 Thread.Sleep(1000);

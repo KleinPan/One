@@ -1,6 +1,7 @@
 ﻿using One.Toolbox.Helpers;
 using One.Toolbox.Model;
 
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -29,6 +30,11 @@ namespace One.Toolbox.Views.Serialport
             {
                 ((Button)sender).Content = data.Commit = ret.Item2;
             }
+        }
+
+        private void LogButton_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("explorer.exe", PathHelper.logPath);
         }
     }
 }

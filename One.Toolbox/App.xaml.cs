@@ -94,6 +94,8 @@ namespace One.Toolbox
             await _host.StopAsync();
 
             _host.Dispose();
+
+            Environment.Exit(0);
         }
 
         /// <summary> Occurs when an exception is thrown by an application but not handled. </summary>

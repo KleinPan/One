@@ -52,6 +52,11 @@ namespace One.Toolbox.Component
             return true;
         }
 
+        public void ClearContent()
+        {
+            FlowDocumentScrollViewer.Document.Blocks.Clear();
+        }
+
         /// <summary> 分发显示数据的任务 </summary>
         private void DataShowTask()
         {

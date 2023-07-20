@@ -13,6 +13,8 @@ using System.Windows.Controls;
 
 using Wpf.Ui.Controls.Navigation;
 
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace One.Toolbox.ViewModels.Serialport
 {
     public partial class SerialportViewModel : BaseViewModel, INavigationAware
@@ -88,10 +90,13 @@ namespace One.Toolbox.ViewModels.Serialport
 
             SelectedBaudRate = "115200";
 
+            RandomHeader = "Default";
+
             //Dtr = true;
             serialPortHelper = new SerialPortComponent();
             serialPortHelper.UartDataSent += SerialPortHelper_UartDataSent;
             serialPortHelper.UartDataRecived += SerialPortHelper_UartDataRecived;
+
             base.InitializeViewModel();
         }
 
@@ -101,24 +106,24 @@ namespace One.Toolbox.ViewModels.Serialport
             ReceivedCount += data.Length;
 
             var temp = ByteHelper.ByteToHexString(data);
-            NLogger.Debug(temp);
+
+            string realData;
             if (SerialportUISetting.HexShow)
             {
-                flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
-                {
-                    send = false,
-                    data = temp,
-                });
+                realData = temp;
             }
             else
             {
-                var realData = System.Text.Encoding.UTF8.GetString(data);
-                flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
-                {
-                    send = false,
-                    data = realData,
-                });
+                realData = System.Text.Encoding.UTF8.GetString(data);
             }
+
+            flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
+            {
+                send = false,
+                data = realData,
+            });
+
+            NLogger.WithProperty("SlotHeader", RandomHeader).Info(realData);
         }
 
         private void SerialPortHelper_UartDataSent(object? sender, EventArgs e)
@@ -129,28 +134,31 @@ namespace One.Toolbox.ViewModels.Serialport
 
             if (SerialportUISetting.HexSend)
             {
-                //realData = One.Core.Helpers.StringHelper.BytesToHexString(data);
                 realData = ByteHelper.ByteToHexString(data);
-
-                // realData = Global.Byte2Readable(data);
             }
             else
             {
                 realData = System.Text.Encoding.UTF8.GetString(data);
             }
 
-            NLogger.Trace(realData);
-
             flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
             {
                 send = true,
                 data = realData,
             });
+
+            NLogger.WithProperty("SlotHeader", RandomHeader).Info(realData);
         }
 
         private bool refreshLock = false;
 
         #region Command
+
+        [RelayCommand]
+        private void ClearLog(object obj)
+        {
+            flowDocumentHelper.ClearContent();
+        }
 
         [RelayCommand]
         private void MoreSerialportSetting(object obj)
@@ -288,7 +296,25 @@ namespace One.Toolbox.ViewModels.Serialport
             }
         }
 
+        [RelayCommand]
+        private void SaveLog()
+        {
+            GenerateRandomHeader();
+        }
+
         #endregion Command
+
+        #region Help
+
+        public string RandomHeader { get; set; }
+
+        private void GenerateRandomHeader()
+        {
+            Random random = new Random();
+            RandomHeader = random.Next(0, 100000).ToString();
+        }
+
+        #endregion Help
 
         /// <summary> 是否正在打开端口 </summary>
         private bool isOpeningPort = false;

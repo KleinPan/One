@@ -2,6 +2,7 @@
 
 using One.Toolbox.Helpers;
 
+using System.Diagnostics;
 using System.ServiceProcess;
 
 namespace One.Toolbox.ViewModels;
@@ -18,6 +19,8 @@ public partial class DashboardViewModel : BaseViewModel
     [RelayCommand]
     private void Test()
     {
-        HardwareHelper.SearchPortByLocation(DeviceType.ComPort, "PCIROOT(0)#PCI(1400)#USBROOT(0)#USB(10)");
+        //string aa = @"D:\Program Files\Oray\SunLogin\SunloginClient\SunloginClient.exe";
+        //Process.Start(aa);
+        //HardwareHelper.SearchPortByLocation(DeviceType.ComPort, "PCIROOT(0)#PCI(1400)#USBROOT(0)#USB(10)", x => x.Count > 2);
     }
 }

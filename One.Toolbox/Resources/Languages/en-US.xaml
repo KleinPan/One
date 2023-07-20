@@ -219,4 +219,5 @@
     <system:String x:Key="LogLagWarn">!!Detect log print lag 250ms, auto clear logs!!</system:String>
 
     <system:String x:Key="ShowIndex">ShowIndex</system:String>
+    <system:String x:Key="SaveLog">SaveLog</system:String>
 </ResourceDictionary>

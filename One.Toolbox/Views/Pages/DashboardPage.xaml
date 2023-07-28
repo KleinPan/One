@@ -22,6 +22,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Border
@@ -163,7 +164,19 @@
                 NavigateUri="https://github.com/KleinPan/One.Toolbox"
                 ToolTip="https://github.com/KleinPan/One.Toolbox" />
         </StackPanel>
+        <StackPanel
+            Grid.Row="4"
+            Margin="0,24,0,0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                Name="txb1"
+                FontSize="14"
+                Text="{Binding Text}" />
+            <TextBlock FontSize="12" Text="--" />
 
+            <TextBlock FontSize="12" Text="{Binding Author}" />
+        </StackPanel>
         <Button Command="{Binding TestCommand}" Content="Test" />
     </Grid>
 </Page>

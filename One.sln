@@ -14,8 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{6F59255C-FE63-401C-9EBE-51ABD09418F3}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
-		.github\release-drafter.yml = .github\release-drafter.yml
-		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "One.Toolbox", "One.Toolbox\One.Toolbox.csproj", "{FADB6AF7-4ED9-407D-8A3B-957A1B509550}"

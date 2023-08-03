@@ -12,7 +12,7 @@ on:
 
 #将 learn-github-actions 工作流中运行的所有作业组合在一起。
 jobs:
-  publish:
+  job_id-publish:
     name: Publish to nuget
     #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
     runs-on: windows-latest
@@ -31,29 +31,29 @@ jobs:
       
       # Publish 1
       - name: Publish One.Core
-        uses: alirezanet/publish-nuget@v3.0.4
+        uses: alirezanet/publish-nuget@v3.1.0
         with:
           PROJECT_FILE_PATH: One.Core/One.Core.csproj # Relative to repository root
-          TAG_COMMIT: true # Flag to enable / disalge git tagging
+          TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key
          
        # Publish 2
       - name: Publish One.Control
-        uses: alirezanet/publish-nuget@v3.0.4
+        uses: alirezanet/publish-nuget@v3.1.0
         with:
           PROJECT_FILE_PATH: One.Control/One.Control.csproj # Relative to repository root
         
-          TAG_COMMIT: true # Flag to enable / disalge git tagging
+          TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key
       # Publish 3
       - name: Publish One.AutoUpdater
-        uses: alirezanet/publish-nuget@v3.0.4
+        uses: alirezanet/publish-nuget@v3.1.0
         with:
           PROJECT_FILE_PATH: One.AutoUpdater/One.AutoUpdater.csproj # Relative to repository root
         
-          TAG_COMMIT: true # Flag to enable / disalge git tagging
+          TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key: 
         

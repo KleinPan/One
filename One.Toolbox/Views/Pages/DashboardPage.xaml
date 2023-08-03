@@ -177,6 +177,6 @@
 
             <TextBlock FontSize="12" Text="{Binding Author}" />
         </StackPanel>
-        <Button Command="{Binding TestCommand}" Content="Test" />
+        <!--<Button Command="{Binding TestCommand}" Content="Test" />-->
     </Grid>
 </Page>

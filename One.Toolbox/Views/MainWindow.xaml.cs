@@ -1,3 +1,5 @@
+using Microsoft.AppCenter.Analytics;
+
 using One.Toolbox.Interfaces;
 using One.Toolbox.ViewModels;
 using One.Toolbox.Views.Pages;
@@ -42,6 +44,13 @@ namespace One.Toolbox.Views
             NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
                 ? Visibility.Visible
                 : Visibility.Collapsed;
+
+
+            var targetVM = navigationView.SelectedItem?.TargetPageType.Name;
+            if (targetVM!= "DashboardPage")
+            {
+                Analytics.TrackEvent($"{targetVM} clicked.");
+            }
         }
 
         private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)

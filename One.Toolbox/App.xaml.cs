@@ -1,3 +1,6 @@
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -6,6 +9,7 @@ using One.Toolbox.Interfaces;
 using One.Toolbox.Models;
 using One.Toolbox.Services;
 
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
@@ -81,11 +85,18 @@ namespace One.Toolbox
 
             //Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
             //var CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
+            var countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
+            AppCenter.SetCountryCode(countryCode);
+
 #if DEBUG
 #else
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
-            Application.Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
+
 #endif
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
+
+            AppCenter.Start("fc53b46a-1bc7-4f67-8382-2f96c799223f",
+               typeof(Analytics), typeof(Crashes));
         }
 
         /// <summary> Occurs when the application is closing. </summary>
@@ -116,6 +127,12 @@ namespace One.Toolbox
 
         public static void SendReport(Exception exception, string developerMessage = "", bool silent = true)
         {
+            Crashes.ShouldProcessErrorReport = (ErrorReport report) =>
+            {
+                // Check the report in here and return true or false depending on the ErrorReport.
+                return true;
+            };
+
             if (exception.GetType() == typeof(System.ComponentModel.Win32Exception))
             {
                 Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");

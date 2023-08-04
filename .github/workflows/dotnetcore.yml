@@ -16,6 +16,8 @@ jobs:
     name: Publish to nuget
     #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
     runs-on: windows-latest
+    env: 
+      OutDir: d:\output\
     #将在 check-bats-version 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。
     steps:
         #uses 关键字指定此步骤将运行 actions/checkout 操作的 v3。 
@@ -54,9 +56,12 @@ jobs:
           TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key: 
+
+      - name: echo 
+        run : echo ${{env.OutDir}}
         
       - name: Build One.Toolbox
-        run: dotnet publish One.Toolbox/One.Toolbox.csproj
+        run: dotnet publish One.Toolbox/One.Toolbox.csproj 
         working-directory: ./
 
       - name: Upload One.Toolbox

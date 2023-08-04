@@ -54,12 +54,9 @@ jobs:
           TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key: 
-
-      - name: echo
-        run : echo $OutputPath
         
       - name: Build One.Toolbox
-        run: dotnet publish One.Toolbox/One.Toolbox.csproj -o d:\Output\
+        run: dotnet publish One.Toolbox/One.Toolbox.csproj
         working-directory: ./
 
       - name: Upload One.Toolbox
@@ -67,5 +64,5 @@ jobs:
         
         with:
           name: One.Toolbox.zip
-          path: d:\Output\bin\Debug
+          path: D:\a\One\One\One.Toolbox\bin\Debug\
         

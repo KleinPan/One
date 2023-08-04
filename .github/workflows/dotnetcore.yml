@@ -66,8 +66,13 @@ jobs:
 
       - name: Upload One.Toolbox
         uses: actions/upload-artifact@v3
-        
         with:
           name: One.Toolbox.zip
           path: ${{env.OutDir}}
-        
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: One.Toolbox.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

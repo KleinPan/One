@@ -74,5 +74,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: One.Toolbox.zip
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

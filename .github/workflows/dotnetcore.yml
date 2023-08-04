@@ -17,6 +17,8 @@ jobs:
     #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
     runs-on: windows-latest
     #将在 check-bats-version 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。
+    env: 
+      OutputPath: d:\Output
     steps:
         #uses 关键字指定此步骤将运行 actions/checkout 操作的 v3。 
         #这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
@@ -55,13 +57,17 @@ jobs:
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key: 
 
+      - name: echo
+        run : echo $OutputPath
+        
       - name: Build One.Toolbox
-        run: dotnet build One.Toolbox/One.Toolbox.csproj
+        run: dotnet publish One.Toolbox/One.Toolbox.csproj -o $OutputPath
         working-directory: ./
 
       - name: Upload One.Toolbox
         uses: actions/upload-artifact@v3
+        
         with:
           name: One.Toolbox.zip
-          path: ./One.Toolbox/One.Toolbox/bin/Debug
+          path: $OutputPath/bin/Debug
         

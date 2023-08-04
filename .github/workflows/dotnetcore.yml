@@ -57,10 +57,11 @@ jobs:
 
       - name: Build One.Toolbox
         run: dotnet build One.Toolbox/One.Toolbox.csproj
+        working-directory: ./
 
       - name: Upload One.Toolbox
         uses: actions/upload-artifact@v3
         with:
           name: One.Toolbox.zip
-          path: One.Toolbox/One.Toolbox/bin/Debug
+          path: ./One.Toolbox/One.Toolbox/bin/Debug
         

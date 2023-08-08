@@ -61,7 +61,7 @@ jobs:
         run : |
             echo ${{env.OutDir}}
             echo ${{github.ref}}
-        
+       #Test
       - name: Build One.Toolbox
         run: dotnet publish One.Toolbox/One.Toolbox.csproj --output ${{env.OutDir}}
         working-directory: ./

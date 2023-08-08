@@ -71,7 +71,7 @@ One.AutoUpdater.AutoUpdater.Start("ftp://114.215.94.141//UpdateDirectories//Vers
 ![image](https://github.com/KleinPan/One/blob/427f8f332a826520d4f9f829a6515de9dadbf34f/docs/Serialport.jpg)
 
 ### 显示编号
-![image](https://github.com/KleinPan/One.Toolbox/assets/34428802/23e2cc12-f89e-47bf-af0a-1c983900c337)
+![image](https://github.com/KleinPan/One/blob/master/docs/StringHelper.jpg?raw=true)
 
 ### 串口工具
 待完善

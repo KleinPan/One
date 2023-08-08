@@ -85,13 +85,15 @@ jobs:
       #- name: 'Echo download path'
       #  run: echo ${{steps.download.outputs.download-path}}
       - name: Zip the Build
-        run: zip -r One.Tool.zip ${{env.OutDir}}
+        uses: thedoctor0/zip-release@0.7.1
+        with:
+          type: 'zip'
+          filename: 'One.Tool.zip'
+          path : ${{env.OutDir}}
       
 
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1.12.0
         with:
-          files: One.Tool.zip
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'One.Tool.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -27,6 +27,11 @@ jobs:
         run : |
             echo ${{env.OutDir}}
             echo ${{github.ref}}
+
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
         #uses 关键字指定此步骤将运行 actions/checkout 操作的 v3。 
         #这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
       - uses: actions/checkout@v3
@@ -69,25 +74,28 @@ jobs:
         run: dotnet publish One.Toolbox/One.Toolbox.csproj --output ${{env.OutDir}}
         working-directory: ./
 
-      - name: Upload One.Toolbox
-        uses: actions/upload-artifact@v3
-        with:
-          name: One.Toolbox.zip
-          path: ${{env.OutDir}}
-
-      - name: Download One.Toolbox
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: One.Toolbox.zip
-
-      - name: 'Echo download path'
-        run: echo ${{steps.download.outputs.download-path}}
+      #- name: Upload One.Toolbox
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: One.Toolbox.zip
+      #    path: ${{env.OutDir}}
+      #
+      #- name: Download One.Toolbox
+      #  uses: actions/download-artifact@v3
+      #  id: download
+      #  with:
+      #    name: One.Toolbox.zip
+      #
+      #- name: 'Echo download path'
+      #  run: echo ${{steps.download.outputs.download-path}}
+      - name: Zip the Build
+        run: zip -r ${{ steps.get_version.outputs.VERSION }}.zip ${{env.OutDir}}
+      
 
       - name: Release
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v1
         with:
-          files: ${{steps.download.outputs.download-path}}\One.Toolbox.zip
+          files: ${{ steps.get_version.outputs.VERSION }}.zip
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

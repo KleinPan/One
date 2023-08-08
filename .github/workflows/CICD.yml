@@ -9,6 +9,8 @@ on:
   push:
     branches:
       - master # Default release branch
+    tags:        
+      - v*
 
 #将 learn-github-actions 工作流中运行的所有作业组合在一起。
 jobs:

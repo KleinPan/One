@@ -56,3 +56,24 @@ jobs:
           TAG_COMMIT: false # Flag to enable / disalge git tagging
           TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key: 
+          
+      - name: echo OutDir
+        run : echo ${{env.OutDir}}
+        
+      - name: Build One.Toolbox
+        run: dotnet publish One.Toolbox/One.Toolbox.csproj --output ${{env.OutDir}}
+        working-directory: ./
+
+      - name: Upload One.Toolbox
+        uses: actions/upload-artifact@v3
+        with:
+          name: One.Toolbox.zip
+          path: ${{env.OutDir}}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: One.Toolbox.zip
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -17,8 +17,8 @@ jobs:
   job_id-publish:
     name: Publish to nuget
     #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
-    #runs-on: windows-latest
-    runs-on: self-hosted
+    runs-on: windows-latest
+    #runs-on: self-hosted
     env: 
       OutDir: d:\output\
     #将在 check-bats-version 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。

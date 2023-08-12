@@ -6,8 +6,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.4.0</Version>
-    <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
+    <Version>3.4.1</Version>
+    <PackageReleaseNotes>Update AssemblyHelper</PackageReleaseNotes>
     <Description>This is a tool class library that contains extension methods, help classes, etc...</Description>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
 	<DocumentationFile />

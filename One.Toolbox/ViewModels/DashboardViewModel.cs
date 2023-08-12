@@ -1,6 +1,14 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
+using Newtonsoft.Json;
+
+using One.Core.Helpers;
+using One.Toolbox.Helpers;
+using One.Toolbox.Models.Dashboard;
+
 using RestSharp;
+
+using System.Reflection;
 
 namespace One.Toolbox.ViewModels;
 
@@ -18,6 +26,16 @@ public partial class DashboardViewModel : BaseViewModel
 
             Text = a.hitokoto;
             Author = a.from;
+        });
+
+        Task.Run(async () =>
+        {
+            var a = await GetLatestInfo();
+
+            if (a.NeedUpdate)
+            {
+                MessageShowHelper.ShowInfoMessage($"New Version => {a.Version}!\r\nDownloadURL => {a.DownloadURL} ");
+            }
         });
     }
 
@@ -50,25 +68,48 @@ public partial class DashboardViewModel : BaseViewModel
         return timeline;
     }
 
-    public class YiyanAPI
+    private static async Task<GithubReleaseFilterInfo> GetLatestInfo()
     {
-        public int id { get; set; }
-        public string uuid { get; set; }
 
-        /// <summary> 正文 utf-8 </summary>
-        public string hitokoto { get; set; }
+       
 
-        public string type { get; set; }
+        var options = new RestClientOptions("https://api.github.com/repos/KleinPan/One/releases/latest") //https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
+        {
+        };
+        var client = new RestClient(options);
+        client.AddDefaultHeader("Accept", "application/vnd.github+json");
+        var request = new RestRequest("");
 
-        /// <summary> 出处 </summary>
-        public string from { get; set; }
+        // The cancellation token comes from the caller. You can still make a call without it.
+        var timeline = await client.GetAsync(request);
 
-        public string from_who { get; set; }
-        public string creator { get; set; }
-        public int creator_uid { get; set; }
-        public int reviewer { get; set; }
-        public string commit_from { get; set; }
-        public string created_at { get; set; }
-        public int length { get; set; }
+        if (timeline.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            var githubReleaseInfoM = JsonConvert.DeserializeObject<GithubReleaseInfoM>(timeline.Content);
+
+            GithubReleaseFilterInfo githubReleaseFilterInfo = new GithubReleaseFilterInfo();
+
+            //var localVersion = Assembly.GetExecutingAssembly().GetName().Version;
+
+            //var localVersion =new AssemblyHelper(Assembly.GetExecutingAssembly()).ProductVersion;
+            var localVersion =   AssemblyHelper.Instance.ProductVersion;
+
+            Version gitVersion = Version.Parse(githubReleaseInfoM.tag_name.Replace("v", ""));
+
+            if (gitVersion > localVersion)
+            {
+                githubReleaseFilterInfo.NeedUpdate = true;
+                githubReleaseFilterInfo.Version = gitVersion.ToString();
+                githubReleaseFilterInfo.DownloadURL = githubReleaseInfoM.assets[0].browser_download_url;
+            }
+            return githubReleaseFilterInfo;
+        }
+        else
+        {
+            return new GithubReleaseFilterInfo()
+            {
+                NeedUpdate = false,
+            };
+        }
     }
 }

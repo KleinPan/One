@@ -26,5 +26,15 @@ namespace One.Toolbox.Helpers
                 _snackbarService.Show("Error", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
             });
         }
+
+        public static void ShowInfoMessage(string message)
+        {
+            // _snackbarService.Show("Error", message, new SymbolIcon(SymbolRegular.Fluent24), _snackbarAppearance);
+
+            App.Current.Dispatcher.Invoke(() =>
+            {
+                _snackbarService.Show("Info", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
+            });
+        }
     }
 }

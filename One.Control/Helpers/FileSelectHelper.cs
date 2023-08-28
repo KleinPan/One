@@ -3,7 +3,7 @@ using System.Windows;
 
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
-namespace Aquarius.Common.Helpers
+namespace One.Control.Helpers
 {
     public class FileSelectHelper
     {

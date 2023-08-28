@@ -1,6 +1,4 @@
-﻿using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
-using Wpf.Ui.Controls.IconElements;
+﻿using Wpf.Ui;
 
 namespace One.Toolbox.Helpers
 {

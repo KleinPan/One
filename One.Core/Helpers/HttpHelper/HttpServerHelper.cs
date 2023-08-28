@@ -1,7 +1,8 @@
-﻿using System;
+﻿using One.Core.ExtensionMethods;
+
+using System;
 using System.IO;
 using System.Net;
-using One.Core.ExtensionMethods;
 
 namespace One.Core.Helper.HttpHelper
 {
@@ -99,7 +100,7 @@ namespace One.Core.Helper.HttpHelper
                 try
                 {
                     byte[] bytes = new byte[request.ContentLength64];
-                    request.InputStream.Read(bytes, 0,(int) request.ContentLength64);
+                    request.InputStream.Read(bytes, 0, (int)request.ContentLength64);
 
                     byte[] result = PreprocessingData(bytes);
 

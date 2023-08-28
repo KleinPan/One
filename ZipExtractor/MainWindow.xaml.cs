@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Ionic.Zip;
+
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
-
-using Ionic.Zip;
 
 namespace ZipExtractor
 {

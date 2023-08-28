@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,12 +6,11 @@ using System.Windows.Media.Animation;
 
 namespace One.Control.ExtentionMethods
 {
-    /// <summary>
-    /// 滚动扩展方法
-    /// </summary>
-   public static class ItemControlExtentionMethods
+    /// <summary> 滚动扩展方法 </summary>
+    public static class ItemControlExtentionMethods
     {
         #region 水平
+
         public static double GetHorizontalOffset(DependencyObject obj)
         {
             return (double)obj.GetValue(HorizontalOffsetProperty);
@@ -33,8 +30,7 @@ namespace One.Control.ExtentionMethods
             ((ScrollViewer)sender).ScrollToHorizontalOffset((double)args.NewValue);
         }
 
-        #endregion
-
+        #endregion 水平
 
         #region 垂直
 
@@ -57,7 +53,7 @@ namespace One.Control.ExtentionMethods
             ((ScrollViewer)sender).ScrollToVerticalOffset((double)args.NewValue);
         }
 
-        #endregion
+        #endregion 垂直
 
         public static void ScrollToSelectedItem(this ItemsControl listbox, object selectedItem)
         {

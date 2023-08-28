@@ -12,10 +12,10 @@ namespace One.Toolbox.Views.Pages
         public delegate int CallbackDelegate(IntPtr param);
 
         [DllImport("serial_monitor.dll")]
-        static extern bool UnMonitorComm();
+        private static extern bool UnMonitorComm();
 
         [DllImport("serial_monitor.dll")]
-        static extern bool MonitorComm(uint Pid, uint ComIndex, CallbackDelegate lpCallFunc);
+        private static extern bool MonitorComm(uint Pid, uint ComIndex, CallbackDelegate lpCallFunc);
 
         /// <summary> 事件类型，对应CommState </summary>
         private enum State

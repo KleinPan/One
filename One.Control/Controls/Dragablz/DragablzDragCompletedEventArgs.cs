@@ -4,7 +4,6 @@ using System.Windows.Controls.Primitives;
 
 namespace One.Control.Controls.Dragablz
 {
-
     public delegate void DragablzDragCompletedEventHandler(object sender, DragablzDragCompletedEventArgs e);
 
     public class DragablzDragCompletedEventArgs : RoutedEventArgs

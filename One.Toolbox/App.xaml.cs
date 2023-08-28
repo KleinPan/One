@@ -14,6 +14,8 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
 
+using Wpf.Ui;
+
 namespace One.Toolbox
 {
     /// <summary> App.xaml 的交互逻辑 </summary>

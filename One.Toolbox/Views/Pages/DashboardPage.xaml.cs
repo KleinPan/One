@@ -2,8 +2,6 @@
 
 using One.Toolbox.ViewModels;
 
-using Wpf.Ui.Controls.Navigation;
-
 namespace One.Toolbox.Views.Pages;
 
 public partial class DashboardPage : INavigableView<DashboardViewModel>

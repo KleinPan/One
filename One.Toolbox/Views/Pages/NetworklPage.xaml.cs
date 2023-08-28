@@ -1,6 +1,4 @@
-﻿using Wpf.Ui.Controls.Navigation;
-
-namespace One.Toolbox.Views.Pages
+﻿namespace One.Toolbox.Views.Pages
 {
     public partial class NetworklPage : INavigableView<ViewModels.NetworkViewModel>
     {

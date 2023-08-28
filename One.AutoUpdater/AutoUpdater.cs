@@ -1,20 +1,16 @@
-﻿using System;
+﻿using One.AutoUpdater.Interfaces;
+using One.AutoUpdater.Models;
+using One.AutoUpdater.Utilities;
+using One.Core.Helpers;
+
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.Net;
 using System.Net.Cache;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using System.Xml;
-using System.Xml.Serialization;
-
-using One.AutoUpdater.Interfaces;
-using One.AutoUpdater.Models;
-using One.AutoUpdater.Utilities;
-using One.Core.Helper;
-using One.Core.Helpers;
 
 namespace One.AutoUpdater
 {
@@ -320,7 +316,7 @@ namespace One.AutoUpdater
             return args;
         }
 
-        static void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
+        private static void AutoUpdaterOnParseUpdateInfoEvent(ParseUpdateInfoEventArgs args)
         {
             var json = System.Text.Json.JsonSerializer.Deserialize<UpdateInfoEventArgs>(args.RemoteData);
             args.UpdateInfo = new UpdateInfoEventArgs

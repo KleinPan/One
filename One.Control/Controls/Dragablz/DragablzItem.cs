@@ -1,13 +1,13 @@
-﻿using System;
-using System.Dynamic;
+﻿using One.Control.Controls.Dragablz.Core;
+using One.Control.Controls.Dragablz.Referenceless;
+
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Core;
-using One.Control.Controls.Dragablz.Referenceless;
 
 namespace One.Control.Controls.Dragablz
 {
@@ -182,40 +182,49 @@ namespace One.Control.Controls.Dragablz
             {
                 case SizeGrip.NotApplicable:
                     break;
+
                 case SizeGrip.Left:
                     width += -dragDeltaEventArgs.HorizontalChange;
                     x += dragDeltaEventArgs.HorizontalChange;
                     break;
+
                 case SizeGrip.TopLeft:
                     width += -dragDeltaEventArgs.HorizontalChange;
                     height += -dragDeltaEventArgs.VerticalChange;
                     x += dragDeltaEventArgs.HorizontalChange;
                     y += dragDeltaEventArgs.VerticalChange;
                     break;
+
                 case SizeGrip.Top:
                     height += -dragDeltaEventArgs.VerticalChange;
                     y += dragDeltaEventArgs.VerticalChange;
                     break;
+
                 case SizeGrip.TopRight:
                     height += -dragDeltaEventArgs.VerticalChange;
                     width += dragDeltaEventArgs.HorizontalChange;
                     y += dragDeltaEventArgs.VerticalChange;
                     break;
+
                 case SizeGrip.Right:
                     width += dragDeltaEventArgs.HorizontalChange;
                     break;
+
                 case SizeGrip.BottomRight:
                     width += dragDeltaEventArgs.HorizontalChange;
                     height += dragDeltaEventArgs.VerticalChange;
                     break;
+
                 case SizeGrip.Bottom:
                     height += dragDeltaEventArgs.VerticalChange;
                     break;
+
                 case SizeGrip.BottomLeft:
                     height += dragDeltaEventArgs.VerticalChange;
                     width += -dragDeltaEventArgs.HorizontalChange;
                     x += dragDeltaEventArgs.HorizontalChange;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -235,27 +244,21 @@ namespace One.Control.Controls.Dragablz
             return (SizeGrip)element.GetValue(SizeGripProperty);
         }
 
-        /// <summary>
-        /// Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab.
-        /// </summary>
+        /// <summary> Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab. </summary>
         public static readonly DependencyProperty ContentRotateTransformAngleProperty = DependencyProperty.RegisterAttached(
             "ContentRotateTransformAngle", typeof(double), typeof(DragablzItem), new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.Inherits));
 
-        /// <summary>
-        /// Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab.
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="value"></param>
+        /// <summary> Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab. </summary>
+        /// <param name="element"> </param>
+        /// <param name="value">   </param>
         public static void SetContentRotateTransformAngle(DependencyObject element, double value)
         {
             element.SetValue(ContentRotateTransformAngleProperty, value);
         }
 
-        /// <summary>
-        /// Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab.
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
+        /// <summary> Allows item content to be rotated (in suppported templates), typically for use in a vertical/side tab. </summary>
+        /// <param name="element"> </param>
+        /// <returns> </returns>
         public static double GetContentRotateTransformAngle(DependencyObject element)
         {
             return (double)element.GetValue(ContentRotateTransformAngleProperty);
@@ -418,13 +421,7 @@ namespace One.Control.Controls.Dragablz
             _templateSubscriptions.Disposable = SelectAndSubscribeToThumb().Item2;
         }
 
-        /// <summary>
-        /// <see cref="DragablzItem" /> templates contain a thumb, which is used to drag the item around.
-        /// For most scenarios this is fine, but by setting this flag to <value>true</value> you can define
-        /// a custom thumb in your content, without having to override the template.  This can be useful if you
-        /// have extra content; such as a custom button that you want the user to be able to interact with (as usually
-        /// the default thumb will handle mouse interaction).
-        /// </summary>
+        /// <summary> <see cref="DragablzItem"/> templates contain a thumb, which is used to drag the item around. For most scenarios this is fine, but by setting this flag to <value> true </value> you can define a custom thumb in your content, without having to override the template. This can be useful if you have extra content; such as a custom button that you want the user to be able to interact with (as usually the default thumb will handle mouse interaction). </summary>
         public static readonly DependencyProperty IsCustomThumbProperty = DependencyProperty.RegisterAttached(
             "IsCustomThumb", typeof(bool), typeof(DragablzItem), new PropertyMetadata(default(bool), IsCustomThumbPropertyChangedCallback));
 
@@ -439,13 +436,7 @@ namespace One.Control.Controls.Dragablz
                 thumb.Loaded += CustomThumbOnLoaded;
         }
 
-        /// <summary>
-        /// <see cref="DragablzItem" /> templates contain a thumb, which is used to drag the item around.
-        /// For most scenarios this is fine, but by setting this flag to <value>true</value> you can define
-        /// a custom thumb in your content, without having to override the template.  This can be useful if you
-        /// have extra content; such as a custom button that you want the user to be able to interact with (as usually
-        /// the default thumb will handle mouse interaction).
-        /// </summary>
+        /// <summary> <see cref="DragablzItem"/> templates contain a thumb, which is used to drag the item around. For most scenarios this is fine, but by setting this flag to <value> true </value> you can define a custom thumb in your content, without having to override the template. This can be useful if you have extra content; such as a custom button that you want the user to be able to interact with (as usually the default thumb will handle mouse interaction). </summary>
         public static void SetIsCustomThumb(Thumb element, bool value)
         {
             element.SetValue(IsCustomThumbProperty, value);
@@ -457,6 +448,7 @@ namespace One.Control.Controls.Dragablz
         }
 
         private bool _isTemplateThumbWithMouseAfterSeize = false;
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

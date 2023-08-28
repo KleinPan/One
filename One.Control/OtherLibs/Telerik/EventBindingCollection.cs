@@ -10,9 +10,7 @@ namespace One.Control.OtherLibs.Telerik
         private UIElement owner;
         private List<EventBinding> eventBindingsCopy;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventBindingCollection"/> class. 
-        /// </summary>
+        /// <summary> Initializes a new instance of the <see cref="EventBindingCollection"/> class. </summary>
         public EventBindingCollection()
         {
             this.eventBindingsCopy = new List<EventBinding>();
@@ -28,10 +26,8 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        /// Creates new instance of <see cref="EventBindingCollection"/>.
-        /// </summary>
-        /// <returns>New instance of <see cref="EventBindingCollection"/>.</returns>
+        /// <summary> Creates new instance of <see cref="EventBindingCollection"/>. </summary>
+        /// <returns> New instance of <see cref="EventBindingCollection"/>. </returns>
         protected override Freezable CreateInstanceCore()
         {
             return new EventBindingCollection();

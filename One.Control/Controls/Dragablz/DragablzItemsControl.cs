@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// Items control which typically uses a canvas and
-    /// </summary>
+    /// <summary> Items control which typically uses a canvas and </summary>
     public class DragablzItemsControl : ItemsControl
     {
         private object[] _previousSortQueryResult;
@@ -115,22 +112,18 @@ namespace One.Control.Controls.Dragablz
             private set { SetValue(ItemsPresenterHeightPropertyKey, value); }
         }
 
-        /// <summary>
-        /// Adds an item to the underlying source, displaying in a specific position in rendered control.
-        /// </summary>
-        /// <param name="item"></param>
-        /// <param name="addLocationHint"></param>
+        /// <summary> Adds an item to the underlying source, displaying in a specific position in rendered control. </summary>
+        /// <param name="item">            </param>
+        /// <param name="addLocationHint"> </param>
         public void AddToSource(object item, AddLocationHint addLocationHint)
         {
             AddToSource(item, null, addLocationHint);
         }
 
-        /// <summary>
-        /// Adds an item to the underlying source, displaying in a specific position in rendered control.
-        /// </summary>
-        /// <param name="item"></param>
-        /// <param name="nearItem"></param>
-        /// <param name="addLocationHint"></param>
+        /// <summary> Adds an item to the underlying source, displaying in a specific position in rendered control. </summary>
+        /// <param name="item">            </param>
+        /// <param name="nearItem">        </param>
+        /// <param name="addLocationHint"> </param>
         public void AddToSource(object item, object nearItem, AddLocationHint addLocationHint)
         {
             CollectionTeaser collectionTeaser;
@@ -211,10 +204,8 @@ namespace One.Control.Controls.Dragablz
             dragablzItem.InstigateDrag(continuation);
         }
 
-        /// <summary>
-        /// Move an item in the rendered layout.
-        /// </summary>
-        /// <param name="moveItemRequest"></param>
+        /// <summary> Move an item in the rendered layout. </summary>
+        /// <param name="moveItemRequest"> </param>
         public void MoveItem(MoveItemRequest moveItemRequest)
         {
             if (moveItemRequest == null) throw new ArgumentNullException("moveItemRequest");
@@ -238,9 +229,11 @@ namespace One.Control.Controls.Dragablz
                 case AddLocationHint.First:
                     sortedItems.Insert(0, dragablzItem);
                     break;
+
                 case AddLocationHint.Last:
                     sortedItems.Add(dragablzItem);
                     break;
+
                 case AddLocationHint.Prior:
                 case AddLocationHint.After:
                     if (contextDragablzItem == null)
@@ -250,6 +243,7 @@ namespace One.Control.Controls.Dragablz
                     sortedItems.Insert(moveItemRequest.AddLocationHint == AddLocationHint.Prior ? contextIndex : contextIndex + 1, dragablzItem);
 
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

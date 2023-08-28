@@ -1,7 +1,5 @@
 ﻿using One.Toolbox.Models.Serialport;
 
-using Windows.UI.WebUI;
-
 namespace One.Toolbox.ViewModels.Serialport
 {
     public partial class SerialportSettingViewModel : ObservableObject

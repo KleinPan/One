@@ -14,22 +14,15 @@ namespace One.Control.Converters
             if (status == 1)
             {
                 return new System.Windows.Media.SolidColorBrush(Color.FromRgb(252, 57, 90));//红色
-
-
             }
             else if (status == 0)
             {
                 return new System.Windows.Media.SolidColorBrush(Color.FromRgb(112, 255, 1));//绿色
-
-
             }
             else
             {
                 return new System.Windows.Media.SolidColorBrush(Color.FromRgb(252, 57, 90));//红色
-
             }
-
-
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

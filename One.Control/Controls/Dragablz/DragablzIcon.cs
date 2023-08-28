@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Control.Controls.Dragablz
 {

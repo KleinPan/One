@@ -1,37 +1,32 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Dockablz;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Dockablz;
 
 namespace One.Control.Controls.Dragablz.Savablz
 {
-     /// <summary>
-    /// Saves/restore the state of the windows
-    /// </summary>
+    /// <summary> Saves/restore the state of the windows </summary>
     public static class WindowsStateSaver
     {
-        /// <summary>
-        /// Gets the state of all windows in the app
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model, currently displayed in the app.</typeparam>
-        /// <param name="tabContentModelConverter">The converter that transforms tab view models to models</param>
-        /// <returns>The state of all windows</returns>
+        /// <summary> Gets the state of all windows in the app </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model, currently displayed in the app. </typeparam>
+        /// <param name="tabContentModelConverter"> The converter that transforms tab view models to models </param>
+        /// <returns> The state of all windows </returns>
         public static IEnumerable<LayoutWindowState<TTabModel>> GetWindowsState<TTabModel, TTabViewModel>(Func<TTabViewModel, TTabModel> tabContentModelConverter)
         {
             return Layout.GetLoadedInstances().Select(layout => GetLayoutState(layout, tabContentModelConverter));
         }
 
-        /// <summary>
-        /// Gets the state of a single window
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model, currently displayed in the app.</typeparam>
-        /// <param name="layout">The layout to be inspected</param>
-        /// <param name="tabContentModelConverter">The converter that transforms tab view models to models</param>
-        /// <returns>The state of the specified window</returns>
+        /// <summary> Gets the state of a single window </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model, currently displayed in the app. </typeparam>
+        /// <param name="layout">                   The layout to be inspected </param>
+        /// <param name="tabContentModelConverter"> The converter that transforms tab view models to models </param>
+        /// <returns> The state of the specified window </returns>
         private static LayoutWindowState<TTabModel> GetLayoutState<TTabModel, TTabViewModel>(Layout layout, Func<TTabViewModel, TTabModel> tabContentModelConverter)
         {
             var window = Window.GetWindow(layout);
@@ -51,14 +46,12 @@ namespace One.Control.Controls.Dragablz.Savablz
             return new LayoutWindowState<TTabModel>(window.Left, window.Top, window.Width, window.Height, window.WindowState, root);
         }
 
-        /// <summary>
-        /// Gets the state of a branch
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model, currently displayed in the app.</typeparam>
-        /// <param name="branchVisitor">The branch to be inspected</param>
-        /// <param name="tabContentModelConverter">The converter that transforms tab view models to models</param>
-        /// <returns>The read state of the branch</returns>
+        /// <summary> Gets the state of a branch </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model, currently displayed in the app. </typeparam>
+        /// <param name="branchVisitor">            The branch to be inspected </param>
+        /// <param name="tabContentModelConverter"> The converter that transforms tab view models to models </param>
+        /// <returns> The read state of the branch </returns>
         private static BranchState<TTabModel> GetBranchState<TTabModel, TTabViewModel>(BranchAccessor branchVisitor, Func<TTabViewModel, TTabModel> tabContentModelConverter)
         {
             BranchItemState<TTabModel> firstState = null;
@@ -89,14 +82,12 @@ namespace One.Control.Controls.Dragablz.Savablz
                 branchVisitor.Branch.GetFirstProportion());
         }
 
-        /// <summary>
-        /// Gets the state of a TabablzControl so that it can be serialized
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model, currently displayed in the app.</typeparam>
-        /// <param name="tabablzControl">The control to be </param>
-        /// <param name="tabContentModelConverter">The converter that transforms tab view models to models</param>
-        /// <returns>The state of the tab set</returns>
+        /// <summary> Gets the state of a TabablzControl so that it can be serialized </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model, currently displayed in the app. </typeparam>
+        /// <param name="tabablzControl">           The control to be </param>
+        /// <param name="tabContentModelConverter"> The converter that transforms tab view models to models </param>
+        /// <returns> The state of the tab set </returns>
         public static TabSetState<TTabModel> GetTabSetState<TTabModel, TTabViewModel>(TabablzControl tabablzControl, Func<TTabViewModel, TTabModel> tabContentModelConverter)
         {
             int? selectedIndex = tabablzControl.SelectedIndex;
@@ -108,14 +99,12 @@ namespace One.Control.Controls.Dragablz.Savablz
             return new TabSetState<TTabModel>(selectedIndex, tabablzControl.Items.Cast<TTabViewModel>().Select(tabContentModelConverter));
         }
 
-        /// <summary>
-        /// Restors the state of all windows
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model to be displayed in the app.</typeparam>
-        /// <param name="windowInitialTabablzControl">The initial tabablz control that will be used for restore</param>
-        /// <param name="layoutWindowsState">The state of the windows</param>
-        /// <param name="viewModelFactory">The function that creates the view model based on a model</param>
+        /// <summary> Restors the state of all windows </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model to be displayed in the app. </typeparam>
+        /// <param name="windowInitialTabablzControl"> The initial tabablz control that will be used for restore </param>
+        /// <param name="layoutWindowsState">          The state of the windows </param>
+        /// <param name="viewModelFactory">            The function that creates the view model based on a model </param>
         public static void RestoreWindowsState<TTabModel, TTabViewModel>(TabablzControl windowInitialTabablzControl, LayoutWindowState<TTabModel>[] layoutWindowsState, Func<TTabModel, TTabViewModel> viewModelFactory)
         {
             if (!layoutWindowsState.Any())
@@ -152,14 +141,12 @@ namespace One.Control.Controls.Dragablz.Savablz
             }
         }
 
-        /// <summary>
-        /// Restores the state of the tabSet
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model to be displayed in the app.</typeparam>
-        /// <param name="tabablzControl">The control in which to restore the items</param>
-        /// <param name="tabSetState">The state of the tab set to be restored</param>
-        /// <param name="viewModelFactory">The function that creates the view model based on a model</param>
+        /// <summary> Restores the state of the tabSet </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model to be displayed in the app. </typeparam>
+        /// <param name="tabablzControl">   The control in which to restore the items </param>
+        /// <param name="tabSetState">      The state of the tab set to be restored </param>
+        /// <param name="viewModelFactory"> The function that creates the view model based on a model </param>
         public static void RestoreTabSetState<TTabModel, TTabViewModel>(TabablzControl tabablzControl, TabSetState<TTabModel> tabSetState, Func<TTabModel, TTabViewModel> viewModelFactory)
         {
             foreach (var tabModel in tabSetState.TabItems)
@@ -173,14 +160,12 @@ namespace One.Control.Controls.Dragablz.Savablz
             }), DispatcherPriority.Loaded);
         }
 
-        /// <summary>
-        /// Restores the state of the branch
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model to be displayed in the app.</typeparam>
-        /// <param name="tabablzControl">The control in which to restore the items</param>
-        /// <param name="branchState">The state of the branch to be restored</param>
-        /// <param name="viewModelFactory">The function that creates the view model based on a model</param>
+        /// <summary> Restores the state of the branch </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model to be displayed in the app. </typeparam>
+        /// <param name="tabablzControl">   The control in which to restore the items </param>
+        /// <param name="branchState">      The state of the branch to be restored </param>
+        /// <param name="viewModelFactory"> The function that creates the view model based on a model </param>
         private static void RestoreBranchState<TTabModel, TTabViewModel>(TabablzControl tabablzControl, BranchState<TTabModel> branchState, Func<TTabModel, TTabViewModel> viewModelFactory)
         {
             var branchResult = Layout.Branch(tabablzControl, CopyTabablzControl(tabablzControl), branchState.Orientation, false, branchState.Ratio);
@@ -188,31 +173,27 @@ namespace One.Control.Controls.Dragablz.Savablz
             RestoreBranchItemState(branchResult.TabablzControl, branchState.SecondChild, viewModelFactory);
         }
 
-        /// <summary>
-        /// Restores the state of a branch item
-        /// </summary>
-        /// <typeparam name="TTabModel">The type of tab model</typeparam>
-        /// <typeparam name="TTabViewModel">The type of tab view model to be displayed in the app.</typeparam>
-        /// <param name="tabablzControl">The control in which to restore the items</param>
-        /// <param name="branchItemState">The state of the branch item to be restored</param>
-        /// <param name="viewModelFactory">The function that creates the view model based on a model</param>
+        /// <summary> Restores the state of a branch item </summary>
+        /// <typeparam name="TTabModel"> The type of tab model </typeparam>
+        /// <typeparam name="TTabViewModel"> The type of tab view model to be displayed in the app. </typeparam>
+        /// <param name="tabablzControl">   The control in which to restore the items </param>
+        /// <param name="branchItemState">  The state of the branch item to be restored </param>
+        /// <param name="viewModelFactory"> The function that creates the view model based on a model </param>
         private static void RestoreBranchItemState<TTabModel, TTabViewModel>(TabablzControl tabablzControl, BranchItemState<TTabModel> branchItemState, Func<TTabModel, TTabViewModel> viewModelFactory)
         {
             if (branchItemState.ItemAsTabSet != null)
             {
                 RestoreTabSetState(tabablzControl, branchItemState.ItemAsTabSet, viewModelFactory);
             }
-            else if(branchItemState.ItemAsBranch != null)
+            else if (branchItemState.ItemAsBranch != null)
             {
                 RestoreBranchState(tabablzControl, branchItemState.ItemAsBranch, viewModelFactory);
             }
         }
 
-        /// <summary>
-        /// Creates a new TabablzControl based on the specified control
-        /// </summary>
-        /// <param name="tabablzControl">The control to copy</param>
-        /// <returns>The created control</returns>
+        /// <summary> Creates a new TabablzControl based on the specified control </summary>
+        /// <param name="tabablzControl"> The control to copy </param>
+        /// <returns> The created control </returns>
         private static TabablzControl CopyTabablzControl(TabablzControl tabablzControl)
         {
             var result = new TabablzControl

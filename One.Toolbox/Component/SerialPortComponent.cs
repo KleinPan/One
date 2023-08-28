@@ -1,4 +1,3 @@
-using One.Toolbox.Models.Serialport;
 using One.Toolbox.ViewModels;
 using One.Toolbox.ViewModels.Serialport;
 

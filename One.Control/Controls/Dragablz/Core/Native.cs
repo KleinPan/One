@@ -84,10 +84,12 @@ namespace One.Control.Controls.Dragablz.Core
         }
 
         public const int SW_SHOWNORMAL = 1;
+
         [DllImport("user32.dll")]
         public static extern bool SetWindowPlacement(IntPtr hWnd, [In] ref WINDOWPLACEMENT lpwndpl);
 
         private const uint GW_HWNDNEXT = 2;
+
         [DllImport("User32")]
         public static extern IntPtr GetTopWindow(IntPtr hWnd);
 
@@ -108,9 +110,9 @@ namespace One.Control.Controls.Dragablz.Core
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, WindowMessage msg, IntPtr wParam, IntPtr lParam);
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr PostMessage(IntPtr hWnd, WindowMessage msg, IntPtr wParam, IntPtr lParam);
-
 
         [DllImport("dwmapi.dll", EntryPoint = "#127")]
         internal static extern void DwmGetColorizationParameters(ref DWMCOLORIZATIONPARAMS dp);
@@ -126,6 +128,5 @@ namespace One.Control.Controls.Dragablz.Core
             public UInt32 ColorizationGlassReflectionIntensity;
             public UInt32 ColorizationOpaqueBlend;
         }
-
     }
 }

@@ -10,12 +10,10 @@ namespace One.Control.Controls.Dragablz
     {
         public virtual void Organise(DragablzItemsControl requestor, Size measureBounds, IEnumerable<DragablzItem> items)
         {
-
         }
 
         public virtual void Organise(DragablzItemsControl requestor, Size measureBounds, IOrderedEnumerable<DragablzItem> items)
         {
-
         }
 
         public virtual void OrganiseOnMouseDownWithin(DragablzItemsControl requestor, Size measureBounds, List<DragablzItem> siblingItems, DragablzItem dragablzItem)
@@ -24,24 +22,20 @@ namespace One.Control.Controls.Dragablz
             foreach (var source in siblingItems.OrderByDescending(Panel.GetZIndex))
             {
                 Panel.SetZIndex(source, --zIndex);
-
             }
             Panel.SetZIndex(dragablzItem, int.MaxValue);
         }
 
         public virtual void OrganiseOnDragStarted(DragablzItemsControl requestor, Size measureBounds, IEnumerable<DragablzItem> siblingItems, DragablzItem dragItem)
         {
-
         }
 
         public virtual void OrganiseOnDrag(DragablzItemsControl requestor, Size measureBounds, IEnumerable<DragablzItem> siblingItems, DragablzItem dragItem)
         {
-
         }
 
         public virtual void OrganiseOnDragCompleted(DragablzItemsControl requestor, Size measureBounds, IEnumerable<DragablzItem> siblingItems, DragablzItem dragItem)
         {
-
         }
 
         public virtual Point ConstrainLocation(DragablzItemsControl requestor, Size measureBounds, Point itemCurrentLocation, Size itemCurrentSize, Point itemDesiredLocation, Size itemDesiredSize)

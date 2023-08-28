@@ -20,7 +20,6 @@ namespace One.Control.Converters
             else
             {
                 return new System.Windows.Media.SolidColorBrush(Color.FromRgb(112, 255, 1));//绿色
-
             }
         }
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace One.Control.Controls
 {
@@ -33,7 +32,8 @@ namespace One.Control.Controls
             VisibilityProperty.OverrideMetadata(typeof(ProgressRing),
                                                 new FrameworkPropertyMetadata(
                                                     new PropertyChangedCallback(
-                                                        (ringObject, e) => {
+                                                        (ringObject, e) =>
+                                                        {
                                                             if (e.NewValue != e.OldValue)
                                                             {
                                                                 var ring = (ProgressRing)ringObject;
@@ -107,7 +107,6 @@ namespace One.Control.Controls
 
             var action = new Action(() =>
             {
-
                 ring.SetEllipseDiameter((double)dependencyPropertyChangedEventArgs.NewValue);
                 ring.SetEllipseOffset((double)dependencyPropertyChangedEventArgs.NewValue);
                 ring.SetMaxSideLength((double)dependencyPropertyChangedEventArgs.NewValue);
@@ -154,7 +153,6 @@ namespace One.Control.Controls
 
             if (_deferredActions != null)
                 _deferredActions.Add(action);
-
             else
                 action();
         }
@@ -184,7 +182,6 @@ namespace One.Control.Controls
 
             if (_deferredActions != null)
                 _deferredActions.Add(action);
-
             else
                 action();
         }

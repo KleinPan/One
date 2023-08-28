@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Control.Controls.Dragablz.Referenceless
 {
@@ -10,10 +8,7 @@ namespace One.Control.Controls.Dragablz.Referenceless
         private IDisposable _current;
         private bool _disposed;
 
-        /// <summary>
-        /// Gets a value that indicates whether the object is disposed.
-        /// 
-        /// </summary>
+        /// <summary> Gets a value that indicates whether the object is disposed. </summary>
         public bool IsDisposed
         {
             get
@@ -23,14 +18,8 @@ namespace One.Control.Controls.Dragablz.Referenceless
             }
         }
 
-        /// <summary>
-        /// Gets or sets the underlying disposable.
-        /// 
-        /// </summary>
-        /// 
-        /// <remarks>
-        /// If the SerialDisposable has already been disposed, assignment to this property causes immediate disposal of the given disposable object. Assigning this property disposes the previous disposable object.
-        /// </remarks>
+        /// <summary> Gets or sets the underlying disposable. </summary>
+        /// <remarks> If the SerialDisposable has already been disposed, assignment to this property causes immediate disposal of the given disposable object. Assigning this property disposes the previous disposable object. </remarks>
         public IDisposable Disposable
         {
             get
@@ -58,10 +47,7 @@ namespace One.Control.Controls.Dragablz.Referenceless
             }
         }
 
-        /// <summary>
-        /// Disposes the underlying disposable as well as all future replacements.
-        /// 
-        /// </summary>
+        /// <summary> Disposes the underlying disposable as well as all future replacements. </summary>
         public void Dispose()
         {
             IDisposable disposable = (IDisposable)null;

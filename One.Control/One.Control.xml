@@ -57,9 +57,9 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.DefaultInterLayoutClient">
             <summary>
-            Provides a simple implementation of <see cref="T:One.Control.Controls.Dragablz.IInterLayoutClient"/>, but only really useful if
-            <see cref="T:System.Windows.Controls.TabItem"/> instances are specified in XAML.  If you are binding via ItemsSource then
-            you most likely want to create your own implementation of <see cref="T:One.Control.Controls.Dragablz.IInterLayoutClient"/>.
+            Provides a simple implementation of <see cref="T:One.Control.Controls.Dragablz.IInterLayoutClient" />, but only really useful if
+            <see cref="T:System.Windows.Controls.TabItem" /> instances are specified in XAML.  If you are binding via ItemsSource then
+            you most likely want to create your own implementation of <see cref="T:One.Control.Controls.Dragablz.IInterLayoutClient" />.
             </summary>
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Branch.GetFirstProportion">
@@ -70,7 +70,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.BranchAccessor.Visit(One.Control.Controls.Dragablz.Dockablz.BranchItem,System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})">
             <summary>
-            Visits the content of the first or second side of a branch, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
+            Visits the content of the first or second side of a branch, according to its content type.  No more than one of the provided <see cref="T:System.Action" />
             callbacks will be called.
             </summary>
             <param name="childItem"></param>
@@ -98,7 +98,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Extensions.Visit``1(One.Control.Controls.Dragablz.Dockablz.LayoutAccessor,``0,System.Action{``0,One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{``0,One.Control.Controls.Dragablz.TabablzControl},System.Action{``0,System.Object})">
             <summary>
-            Helper method for <see cref="M:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.Visit(System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            Helper method for <see cref="M:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.Visit(System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})" /> which allows a context to be passed through.
             </summary>
             <typeparam name="TContext"></typeparam>
             <param name="layoutAccessor"></param>
@@ -110,7 +110,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Extensions.Visit``1(One.Control.Controls.Dragablz.Dockablz.BranchAccessor,``0,One.Control.Controls.Dragablz.Dockablz.BranchItem,System.Action{``0,One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{``0,One.Control.Controls.Dragablz.TabablzControl},System.Action{``0,System.Object})">
             <summary>
-            Helper method for <see cref="M:One.Control.Controls.Dragablz.Dockablz.BranchAccessor.Visit(One.Control.Controls.Dragablz.Dockablz.BranchItem,System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})"/> which allows a context to be passed through.
+            Helper method for <see cref="M:One.Control.Controls.Dragablz.Dockablz.BranchAccessor.Visit(One.Control.Controls.Dragablz.Dockablz.BranchItem,System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})" /> which allows a context to be passed through.
             </summary>
             <typeparam name="TContext"></typeparam>
             <param name="branchAccessor"></param>
@@ -141,7 +141,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Layout.Branch(One.Control.Controls.Dragablz.TabablzControl,System.Windows.Controls.Orientation,System.Boolean)">
             <summary>
-            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>.
+            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />.
             </summary>
             <para></para>
             <param name="tabablzControl">Tab control to be split.</param>
@@ -151,7 +151,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Layout.Branch(One.Control.Controls.Dragablz.TabablzControl,System.Windows.Controls.Orientation,System.Boolean,System.Double)">
             <summary>
-            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>.
+            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />.
             </summary>
             <para></para>
             <param name="tabablzControl">Tab control to be split.</param>
@@ -162,11 +162,11 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.Layout.Branch(One.Control.Controls.Dragablz.TabablzControl,One.Control.Controls.Dragablz.TabablzControl,System.Windows.Controls.Orientation,System.Boolean,System.Double)">
             <summary>
-            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>.
+            Creates a split in a layout, at the location of a specified <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />.
             </summary>
             <para></para>
             <param name="tabablzControl">Tab control to be split.</param>
-            <param name="newSiblingTabablzControl">New sibling tab control (otherwise <see cref="P:One.Control.Controls.Dragablz.Dockablz.Layout.BranchTemplate"/> will be used).</param>
+            <param name="newSiblingTabablzControl">New sibling tab control (otherwise <see cref="P:One.Control.Controls.Dragablz.Dockablz.Layout.BranchTemplate" /> will be used).</param>
             <param name="orientation">Direction of split.</param>
             <param name="makeCurrentSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
             <param name="firstItemProportion">Sets the proportion of the first tab control, with 0.5 being 50% of available space.</param>
@@ -174,7 +174,7 @@
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.Layout.Partition">
             <summary>
-            Use in conjuction with the <see cref="P:One.Control.Controls.Dragablz.InterTabController.Partition"/> on a <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>
+            Use in conjuction with the <see cref="P:One.Control.Controls.Dragablz.InterTabController.Partition" /> on a <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />
             to isolate drag and drop spaces/control instances.
             </summary>
         </member>
@@ -190,17 +190,17 @@
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.Layout.FloatingItems">
             <summary>
-            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content"/>.
+            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content" />.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.Layout.FloatingItemsSource">
             <summary>
-            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content"/>.
+            Floating items, such as tool/MDI windows, which will sit above the <see cref="!:Content" />.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.Layout.FloatingItemsControlStyle">
             <summary>
-            The style to be applied to the <see cref="T:One.Control.Controls.Dragablz.DragablzItemsControl"/> which is used to display floating items.
+            The style to be applied to the <see cref="T:One.Control.Controls.Dragablz.DragablzItemsControl" /> which is used to display floating items.
             In most scenarios it should be OK to leave this to that applied by the default style.
             </summary>
         </member>
@@ -224,22 +224,22 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor">
             <summary>
-            Provides information about the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.Layout"/> instance.
+            Provides information about the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.Layout" /> instance.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.BranchAccessor">
             <summary>
-            <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.BranchAccessor"/> and <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.BranchAccessor" /> and <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.TabablzControl" /> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.TabablzControl">
             <summary>
-            <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.BranchAccessor"/> and <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
+            <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.BranchAccessor" /> and <see cref="P:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.TabablzControl" /> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
             </summary>
         </member>
         <member name="M:One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.Visit(System.Action{One.Control.Controls.Dragablz.Dockablz.BranchAccessor},System.Action{One.Control.Controls.Dragablz.TabablzControl},System.Action{System.Object})">
             <summary>
-            Visits the content of the layout, according to its content type.  No more than one of the provided <see cref="T:System.Action"/>
+            Visits the content of the layout, according to its content type.  No more than one of the provided <see cref="T:System.Action" />
             callbacks will be called.
             </summary>
         </member>
@@ -256,12 +256,12 @@
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.ParentBranch">
             <summary>
-            Gets the parent branch if this is a leaf. If the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.TabablzControl"/> is directly under the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.RootLayout"/> will be <c>null</c>.
+            Gets the parent branch if this is a leaf. If the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.TabablzControl" /> is directly under the <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.RootLayout" /> will be <c>null</c>.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.IsLeaf">
             <summary>
-            Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.ParentBranch"/> is not null.
+            Idicates if this is a leaf in a branch. <c>True</c> if <see cref="P:One.Control.Controls.Dragablz.Dockablz.LocationReport.ParentBranch" /> is not null.
             </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.Dockablz.LocationSnapShot">
@@ -273,7 +273,6 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.DragablzColors">
             <summary>
-            
             </summary>
             <remarks>
             In supporting .Net 4.0 we don't have access to SystemParameters.WindowGlassBrush, and even then
@@ -345,7 +344,7 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.DragablzWindow">
             <summary>
-            It is not necessary to use a <see cref="T:One.Control.Controls.Dragablz.DragablzWindow"/> to gain tab dragging features.
+            It is not necessary to use a <see cref="T:One.Control.Controls.Dragablz.DragablzWindow" /> to gain tab dragging features.
             What this Window does is allow a quick way to remove the Window border, and support transparency whilst
             dragging.
             </summary>
@@ -372,7 +371,7 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.IInterLayoutClient">
             <summary>
-            Implementors should provide a mechanism to provide a new host control which contains a new <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>.
+            Implementors should provide a mechanism to provide a new host control which contains a new <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />.
             </summary>
         </member>
         <member name="M:One.Control.Controls.Dragablz.IInterLayoutClient.GetNewHost(System.Object,One.Control.Controls.Dragablz.TabablzControl)">
@@ -442,27 +441,25 @@
             Consumers can provide a position monitor to receive updates regarding the location of an item.
             </summary>
             <remarks>
-            A <see cref="T:One.Control.Controls.Dragablz.PositionMonitor"/> can be used to listen to  changes
+            A <see cref="T:One.Control.Controls.Dragablz.PositionMonitor" /> can be used to listen to  changes
             instead of routed events, which can be easier in a MVVM scenario.
             </remarks>
         </member>
         <member name="E:One.Control.Controls.Dragablz.PositionMonitor.LocationChanged">
             <summary>
-            Raised when the X,Y coordinate of a <see cref="T:One.Control.Controls.Dragablz.DragablzItem"/> changes.
+            Raised when the X,Y coordinate of a <see cref="T:One.Control.Controls.Dragablz.DragablzItem" /> changes.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Referenceless.SerialDisposable.IsDisposed">
             <summary>
             Gets a value that indicates whether the object is disposed.
-            
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.Referenceless.SerialDisposable.Disposable">
             <summary>
             Gets or sets the underlying disposable.
-            
             </summary>
-            
+
             <remarks>
             If the SerialDisposable has already been disposed, assignment to this property causes immediate disposal of the given disposable object. Assigning this property disposes the previous disposable object.
             </remarks>
@@ -470,7 +467,6 @@
         <member name="M:One.Control.Controls.Dragablz.Referenceless.SerialDisposable.Dispose">
             <summary>
             Disposes the underlying disposable as well as all future replacements.
-            
             </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.Savablz.BranchItemState`1">
@@ -677,7 +673,7 @@
         <member name="T:One.Control.Controls.Dragablz.StackPositionMonitor">
             <summary>
             A linear position monitor simplifies the montoring of the order of items, where they are laid out
-            horizontally or vertically (typically via a <see cref="T:One.Control.Controls.Dragablz.StackOrganiser"/>.
+            horizontally or vertically (typically via a <see cref="T:One.Control.Controls.Dragablz.StackOrganiser" />.
             </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.TabablzControl">
@@ -703,7 +699,7 @@
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand">
             <summary>
-            Routed command which can be used to add a new tab.  See <see cref="P:One.Control.Controls.Dragablz.TabablzControl.NewItemFactory"/>.
+            Routed command which can be used to add a new tab.  See <see cref="P:One.Control.Controls.Dragablz.TabablzControl.NewItemFactory" />.
             </summary>
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.#ctor">
@@ -735,11 +731,11 @@
             <remarks>
             Due to the organisable nature of the control, the order of items may not reflect the order in the source collection.  This method
             will add items to the source collection, managing their initial appearance on screen at the same time.
-            If you are using a <see cref="P:One.Control.Controls.Dragablz.InterTabController.InterTabClient"/> this will be used to add the item into the source collection.
+            If you are using a <see cref="P:One.Control.Controls.Dragablz.InterTabController.InterTabClient" /> this will be used to add the item into the source collection.
             </remarks>
             <param name="item">New item to add.</param>
             <param name="nearItem">Existing object/tab item content which defines which tab control should be used to add the object.</param>
-            <param name="addLocationHint">Location, relative to the <paramref name="nearItem"/> object</param>
+            <param name="addLocationHint">Location, relative to the <paramref name="nearItem" /> object</param>
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.SelectItem(System.Object)">
             <summary>
@@ -749,20 +745,20 @@
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.CustomHeaderItemStyle">
             <summary>
-            Style to apply to header items which are not their own item container (<see cref="T:System.Windows.Controls.TabItem"/>).  Typically items bound via the <see cref="!:ItemsSource"/> will use this style.
+            Style to apply to header items which are not their own item container (<see cref="T:System.Windows.Controls.TabItem" />).  Typically items bound via the <see cref="!:ItemsSource" /> will use this style.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.ShowDefaultCloseButton">
             <summary>
             Indicates whether a default close button should be displayed.  If manually templating the tab header content the close command
-            can be called by executing the <see cref="F:One.Control.Controls.Dragablz.TabablzControl.CloseItemCommand"/> command (typically via a <see cref="T:System.Windows.Controls.Button"/>).
+            can be called by executing the <see cref="F:One.Control.Controls.Dragablz.TabablzControl.CloseItemCommand" /> command (typically via a <see cref="T:System.Windows.Controls.Button" />).
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.ShowDefaultAddButton">
             <summary>
             Indicates whether a default add button should be displayed.  Alternately an add button
-            could be added in <see cref="P:One.Control.Controls.Dragablz.TabablzControl.HeaderPrefixContent"/> or <see cref="P:One.Control.Controls.Dragablz.TabablzControl.HeaderSuffixContent"/>, utilising
-            <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand"/>.
+            could be added in <see cref="P:One.Control.Controls.Dragablz.TabablzControl.HeaderPrefixContent" /> or <see cref="P:One.Control.Controls.Dragablz.TabablzControl.HeaderSuffixContent" />, utilising
+            <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand" />.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.IsHeaderPanelVisible">
@@ -786,18 +782,18 @@
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.InterTabController">
             <summary>
-            An <see cref="P:One.Control.Controls.Dragablz.TabablzControl.InterTabController"/> must be provided to enable tab tearing. Behaviour customisations can be applied
+            An <see cref="P:One.Control.Controls.Dragablz.TabablzControl.InterTabController" /> must be provided to enable tab tearing. Behaviour customisations can be applied
             vie the controller.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.NewItemFactoryProperty">
             <summary>
-            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand"/>.
+            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand" />.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.NewItemFactory">
             <summary>
-            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand"/>.
+            Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="F:One.Control.Controls.Dragablz.TabablzControl.AddItemCommand" />.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.IsEmptyProperty">
@@ -812,12 +808,12 @@
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.IsEmptyChangedEvent">
             <summary>
-            Raised when <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsEmpty"/> changes.
+            Raised when <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsEmpty" /> changes.
             </summary>
         </member>
         <member name="E:One.Control.Controls.Dragablz.TabablzControl.IsEmptyChanged">
             <summary>
-            Event handler to list to <see cref="F:One.Control.Controls.Dragablz.TabablzControl.IsEmptyChangedEvent"/>.
+            Event handler to list to <see cref="F:One.Control.Controls.Dragablz.TabablzControl.IsEmptyChangedEvent" />.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.ClosingItemCallbackProperty">
@@ -846,38 +842,38 @@
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.ConsolidatingOrphanedItemCallbackProperty">
             <summary>
-            Assuming <see cref="P:One.Control.Controls.Dragablz.TabablzControl.ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
-            tab items can be cancelled by providing this call back and cancelling the <see cref="T:One.Control.Controls.Dragablz.ItemActionCallbackArgs`1"/>
+            Assuming <see cref="P:One.Control.Controls.Dragablz.TabablzControl.ConsolidateOrphanedItems" /> is set to <c>true</c>, consolidation of individual
+            tab items can be cancelled by providing this call back and cancelling the <see cref="T:One.Control.Controls.Dragablz.ItemActionCallbackArgs`1" />
             instance.
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.ConsolidatingOrphanedItemCallback">
             <summary>
-            Assuming <see cref="P:One.Control.Controls.Dragablz.TabablzControl.ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
-            tab items can be cancelled by providing this call back and cancelling the <see cref="T:One.Control.Controls.Dragablz.ItemActionCallbackArgs`1"/>
+            Assuming <see cref="P:One.Control.Controls.Dragablz.TabablzControl.ConsolidateOrphanedItems" /> is set to <c>true</c>, consolidation of individual
+            tab items can be cancelled by providing this call back and cancelling the <see cref="T:One.Control.Controls.Dragablz.ItemActionCallbackArgs`1" />
             instance.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindowProperty">
             <summary>
-            Readonly dependency property which indicates whether the owning <see cref="T:System.Windows.Window"/>
+            Readonly dependency property which indicates whether the owning <see cref="T:System.Windows.Window" />
             is currently dragged
             </summary>
         </member>
         <member name="P:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindow">
             <summary>
-            Readonly dependency property which indicates whether the owning <see cref="T:System.Windows.Window"/>
+            Readonly dependency property which indicates whether the owning <see cref="T:System.Windows.Window" />
             is currently dragged
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindowChangedEvent">
             <summary>
-            Event indicating <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindow"/> has changed.
+            Event indicating <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindow" /> has changed.
             </summary>
         </member>
         <member name="E:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindowChanged">
             <summary>
-            Event indicating <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindow"/> has changed.
+            Event indicating <see cref="P:One.Control.Controls.Dragablz.TabablzControl.IsDraggingWindow" /> has changed.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabablzControl.IsClosingAsPartOfDragOperationProperty">
@@ -887,7 +883,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.GetIsClosingAsPartOfDragOperation(System.Windows.Window)">
             <summary>
-            Helper method which can tell you if a <see cref="T:System.Windows.Window"/> is being automatically closed due
+            Helper method which can tell you if a <see cref="T:System.Windows.Window" /> is being automatically closed due
             to a user instigated drag operation (typically when a single tab is dropped into another window.
             </summary>
             <param name="element"></param>
@@ -906,14 +902,14 @@
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.AddToSource(System.Object)">
             <summary>
             Adds an item to the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
-            Otherwise an attempt will be made to add to the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items"/>.
+            Otherwise an attempt will be made to add to the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items" />.
             </summary>
             <param name="item"></param>
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.RemoveFromSource(System.Object)">
             <summary>
             Removes an item from the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
-            Otherwise an attempt will be made to remove from the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items"/>.
+            Otherwise an attempt will be made to remove from the <see cref="!:ItemsSource" /> property, and lastly <see cref="!:Items" />.
             </summary>
             <param name="item"></param>
         </member>
@@ -925,7 +921,7 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.OnApplyTemplate">
             <summary>
-            Called when <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/> is called.
+            Called when <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" /> is called.
             </summary>
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs)">
@@ -942,9 +938,9 @@
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.OnKeyDown(System.Windows.Input.KeyEventArgs)">
             <summary>
-            Provides class handling for the <see cref="E:System.Windows.ContentElement.KeyDown"/> routed event that occurs when the user presses a key.
+            Provides class handling for the <see cref="E:System.Windows.ContentElement.KeyDown" /> routed event that occurs when the user presses a key.
             </summary>
-            <param name="e">Provides data for <see cref="T:System.Windows.Input.KeyEventArgs"/>.</param>
+            <param name="e">Provides data for <see cref="T:System.Windows.Input.KeyEventArgs" />.</param>
         </member>
         <member name="M:One.Control.Controls.Dragablz.TabablzControl.OnCreateAutomationPeer">
             <summary>
@@ -980,7 +976,7 @@
         <member name="M:One.Control.Controls.Dragablz.TabablzHeaderSizeConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
             The first value should be the total size available size, typically the parent control size.
-            The second value should be from <see cref="F:One.Control.Controls.Dragablz.DragablzItemsControl.ItemsPresenterWidthProperty"/> or (height equivalent)
+            The second value should be from <see cref="F:One.Control.Controls.Dragablz.DragablzItemsControl.ItemsPresenterWidthProperty" /> or (height equivalent)
             All additional values should be siblings sizes (width or height) which will affect (reduce) the available size.
             </summary>
             <param name="values"></param>
@@ -991,7 +987,7 @@
         </member>
         <member name="T:One.Control.Controls.Dragablz.TabablzItemStyleSelector">
             <summary>
-            Selects style to apply to a <see cref="T:One.Control.Controls.Dragablz.DragablzItem"/> according to the tab item content itself.
+            Selects style to apply to a <see cref="T:One.Control.Controls.Dragablz.DragablzItem" /> according to the tab item content itself.
             </summary>
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabEmptiedResponse.CloseWindowOrLayoutBranch">
@@ -1001,7 +997,7 @@
         </member>
         <member name="F:One.Control.Controls.Dragablz.TabEmptiedResponse.DoNothing">
             <summary>
-            The window will not be closed by the <see cref="T:One.Control.Controls.Dragablz.TabablzControl"/>, probably meaning the implementor will close the window manually
+            The window will not be closed by the <see cref="T:One.Control.Controls.Dragablz.TabablzControl" />, probably meaning the implementor will close the window manually
             </summary>
         </member>
         <member name="T:One.Control.Controls.Dragablz.Themes.MaterialDesignAssist">
@@ -1101,17 +1097,17 @@
             <summary> 动画属性，控制水平方向移动 </summary>
         </member>
         <member name="T:One.Control.ExtentionMethods.MultiStyleExtension">
-            <summary> 实现一个标记扩展，该标记扩展支持根据 XAML 制作的多个静态（XAML 加载时） <see cref="T:System.Windows.Style"/> 资源引用。 </summary>
+            <summary> 实现一个标记扩展，该标记扩展支持根据 XAML 制作的多个静态（XAML 加载时） <see cref="T:System.Windows.Style" /> 资源引用。 </summary>
         </member>
         <member name="M:One.Control.ExtentionMethods.MultiStyleExtension.#ctor">
             <summary> 构造方法。 </summary>
         </member>
         <member name="M:One.Control.ExtentionMethods.MultiStyleExtension.#ctor(System.String)">
             <summary> 构造方法。 </summary>
-            <param name="resourceKeys"> 多个 <see cref="T:System.Windows.Style"/> 资源字典多个 Key </param>
+            <param name="resourceKeys"> 多个 <see cref="T:System.Windows.Style" /> 资源字典多个 Key </param>
         </member>
         <member name="M:One.Control.ExtentionMethods.MultiStyleExtension.ProvideValue(System.IServiceProvider)">
-            <summary> 返回一个应在此扩展应用的属性上设置的对象。对于 <see cref="!:WpfMultiStyle.MultiStyleExtension"/>，这是在资源字典中查找的多个 <see cref="T:System.Windows.Style"/> 对象，并合并这些对象，其中要查找的对象由 <see cref="P:System.Windows.StaticResourceExtension.ResourceKey"/> 标识。 </summary>
+            <summary> 返回一个应在此扩展应用的属性上设置的对象。对于 <see cref="!:WpfMultiStyle.MultiStyleExtension" />，这是在资源字典中查找的多个 <see cref="T:System.Windows.Style" /> 对象，并合并这些对象，其中要查找的对象由 <see cref="P:System.Windows.StaticResourceExtension.ResourceKey" /> 标识。 </summary>
             <param name="serviceProvider"> 可以为标记扩展提供服务的对象。 </param>
             <returns> 要在计算标记扩展提供的值的属性上设置的对象值。 </returns>
         </member>
@@ -1122,7 +1118,7 @@
         </member>
         <member name="M:One.Control.ExtentionMethods.StyleExtensions.Merge(System.Windows.Style,System.Windows.Style)">
             <summary>
-            合并指定的 <see cref="T:System.Windows.Style"/>。
+            合并指定的 <see cref="T:System.Windows.Style" />。
             </summary>
             <param name="style1"></param>
             <param name="style2"></param>
@@ -1189,7 +1185,7 @@
         </member>
         <member name="T:One.Control.OtherLibs.Telerik.EventBinding">
             <summary>
-            Represents a binding between an event and a command. The command is potentially a <see cref="T:System.Windows.Input.RoutedCommand"/>. 
+            Represents a binding between an event and a command. The command is potentially a <see cref="T:System.Windows.Input.RoutedCommand" />.
             </summary>
         </member>
         <member name="F:One.Control.OtherLibs.Telerik.EventBinding.CommandParameterProperty">
@@ -1230,7 +1226,7 @@
         </member>
         <member name="P:One.Control.OtherLibs.Telerik.EventBinding.RaiseOnHandledEvents">
             <summary>
-            Gets or sets whether <see cref="T:One.Control.OtherLibs.Telerik.EventBinding"/> will raise the <see cref="P:One.Control.OtherLibs.Telerik.EventBinding.Command"/> on handled routed events.
+            Gets or sets whether <see cref="T:One.Control.OtherLibs.Telerik.EventBinding" /> will raise the <see cref="P:One.Control.OtherLibs.Telerik.EventBinding.Command" /> on handled routed events.
             The default value is false. This is a dependency property.
             </summary>
         </member>
@@ -1257,20 +1253,20 @@
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.EventBinding.CreateInstanceCore">
             <summary>
-            Creates an instance of an <see cref="T:One.Control.OtherLibs.Telerik.EventBinding"/>.
+            Creates an instance of an <see cref="T:One.Control.OtherLibs.Telerik.EventBinding" />.
             </summary>
-            <returns>A new instance of an <see cref="T:One.Control.OtherLibs.Telerik.EventBinding"/>.</returns>
+            <returns>A new instance of an <see cref="T:One.Control.OtherLibs.Telerik.EventBinding" />.</returns>
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.EventBindingCollection.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection"/> class. 
+            Initializes a new instance of the <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection" /> class.
             </summary>
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.EventBindingCollection.CreateInstanceCore">
             <summary>
-            Creates new instance of <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection"/>.
+            Creates new instance of <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection" />.
             </summary>
-            <returns>New instance of <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection"/>.</returns>
+            <returns>New instance of <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection" />.</returns>
         </member>
         <member name="T:One.Control.OtherLibs.Telerik.EventToCommandBehavior">
             <summary>
@@ -1279,10 +1275,10 @@
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.EventToCommandBehavior.GetEventBindings(System.Windows.DependencyObject)">
             <summary>
-            Gets the collection of <see cref="T:One.Control.OtherLibs.Telerik.EventBinding"/>s associated with this element. 
+            Gets the collection of <see cref="T:One.Control.OtherLibs.Telerik.EventBinding" />s associated with this element.
             </summary>
-            <param name="obj">The object that <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection"/> is returned.</param>
-            <returns>Returns the <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection"/> associated with this object.</returns>
+            <param name="obj">The object that <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection" /> is returned.</param>
+            <returns>Returns the <see cref="T:One.Control.OtherLibs.Telerik.EventBindingCollection" /> associated with this object.</returns>
         </member>
         <member name="T:One.Control.OtherLibs.Telerik.RadRoutedEventHandler">
             <summary>
@@ -1301,8 +1297,8 @@
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.RadRoutedEventArgs.#ctor(System.Windows.RoutedEvent)">
             <summary>
-            Initializes a new instance of the RadRoutedEventArgs class, 
-            using the supplied routed event identifier. 
+            Initializes a new instance of the RadRoutedEventArgs class,
+            using the supplied routed event identifier.
             </summary>
             <param name="routedEvent">
             The routed event identifier for this instance of the RoutedEventArgs class.
@@ -1310,26 +1306,26 @@
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.RadRoutedEventArgs.#ctor(System.Windows.RoutedEvent,System.Object)">
             <summary>
-            Initializes a new instance of the RadRoutedEventArgs class, using 
-            the supplied routed event identifier, and providing the opportunity 
-            to declare a different source for the event. 
+            Initializes a new instance of the RadRoutedEventArgs class, using
+            the supplied routed event identifier, and providing the opportunity
+            to declare a different source for the event.
             </summary>
             <param name="routedEvent">
             The routed event identifier for this instance of the RoutedEventArgs class.
             </param>
             <param name="source">
-            An alternate source that will be reported when the event is handled. 
+            An alternate source that will be reported when the event is handled.
             This pre-populates the Source property.
             </param>
         </member>
         <member name="M:One.Control.OtherLibs.Telerik.RadRoutedEventArgs.#ctor(System.Object)">
             <summary>
-            Initializes a new instance of the RadRoutedEventArgs class, using 
-            the supplied routed event identifier, and providing the opportunity 
-            to declare a different source for the event. 
-            </summary>		
+            Initializes a new instance of the RadRoutedEventArgs class, using
+            the supplied routed event identifier, and providing the opportunity
+            to declare a different source for the event.
+            </summary>
             <param name="source">
-            An alternate source that will be reported when the event is handled. 
+            An alternate source that will be reported when the event is handled.
             This pre-populates the Source property.
             </param>
         </member>

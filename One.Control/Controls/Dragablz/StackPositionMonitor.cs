@@ -5,10 +5,7 @@ using System.Windows.Controls;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// A linear position monitor simplifies the montoring of the order of items, where they are laid out
-    /// horizontally or vertically (typically via a <see cref="StackOrganiser"/>.
-    /// </summary>
+    /// <summary> A linear position monitor simplifies the montoring of the order of items, where they are laid out horizontally or vertically (typically via a <see cref="StackOrganiser"/>. </summary>
     public abstract class StackPositionMonitor : PositionMonitor
     {
         private readonly Func<DragablzItem, double> _getLocation;
@@ -20,9 +17,11 @@ namespace One.Control.Controls.Dragablz
                 case Orientation.Horizontal:
                     _getLocation = item => item.X;
                     break;
+
                 case Orientation.Vertical:
                     _getLocation = item => item.Y;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException("orientation");
             }

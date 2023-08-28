@@ -8,9 +8,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 
-using Wpf.Ui.Controls.Navigation;
-
-using c = System.Convert;
+using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace One.Toolbox.ViewModels
 {
@@ -127,8 +125,8 @@ namespace One.Toolbox.ViewModels
             ["String to Hex(with space)"] = (e) => Encoding.Default.GetBytes(BitConverter.ToString(e).Replace("-", " ")),
             ["String to Hex(without space)"] = (e) => Encoding.Default.GetBytes(BitConverter.ToString(e).Replace("-", "")),
             ["Hex to String"] = (e) => Hex2byte(Encoding.Default.GetString(e)),
-            ["String to Base64"] = (e) => { try { return Encoding.Default.GetBytes(c.ToBase64String(e)); } catch (Exception ee) { return Encoding.Default.GetBytes(ee.Message); } },
-            ["Base64 to String"] = (e) => { try { return c.FromBase64String(Encoding.Default.GetString(e)); } catch (Exception ee) { return Encoding.Default.GetBytes(ee.Message); } },
+            ["String to Base64"] = (e) => { try { return Encoding.Default.GetBytes(System.Convert.ToBase64String(e)); } catch (Exception ee) { return Encoding.Default.GetBytes(ee.Message); } },
+            ["Base64 to String"] = (e) => { try { return (System.Convert.FromBase64String(Encoding.Default.GetString(e))); } catch (Exception ee) { return Encoding.Default.GetBytes(ee.Message); } },
             ["URL encode"] = (e) => Encoding.Default.GetBytes(System.Web.HttpUtility.UrlEncode(Encoding.Default.GetString(e))),
             ["URL decode"] = (e) => Encoding.Default.GetBytes(System.Web.HttpUtility.UrlDecode(Encoding.Default.GetString(e))),
             ["HTML encode"] = (e) => Encoding.Default.GetBytes(System.Web.HttpUtility.HtmlEncode(Encoding.Default.GetString(e))),
@@ -174,7 +172,7 @@ namespace One.Toolbox.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageShowHelper.ShowErrorMessage(ex.Message);
                 return "";
             }
         }
@@ -237,7 +235,7 @@ namespace One.Toolbox.ViewModels
 
         public static string Unicode2String(string source)
         {
-            return new Regex(@"\\u([0-9a-fA-F]{4})", RegexOptions.IgnoreCase | RegexOptions.Compiled).Replace(source, x => c.ToChar(c.ToUInt16(x.Result("$1"), 16)).ToString());
+            return new Regex(@"\\u([0-9a-fA-F]{4})", RegexOptions.IgnoreCase | RegexOptions.Compiled).Replace(source, x => System.Convert.ToChar(System.Convert.ToUInt16(x.Result("$1"), 16)).ToString());
         }
 
         #endregion Helpers
@@ -286,7 +284,7 @@ namespace One.Toolbox.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageShowHelper.ShowErrorMessage(ex.Message);
             }
         }
 
@@ -355,7 +353,7 @@ namespace One.Toolbox.ViewModels
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             //textBlock.Foreground = System.Windows.Media.Brushes.Gray;
-            textBlock.Foreground = Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
+            textBlock.Foreground = Wpf.Ui.Appearance.ApplicationAccentColorManager.SecondaryAccentBrush; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
             innerGrid.Children.Add(textBlock);
             Grid.SetRow(textBlock, 1);
 

@@ -1,6 +1,4 @@
-﻿using Wpf.Ui.Controls.Navigation;
-
-namespace One.Toolbox.Views.Pages
+﻿namespace One.Toolbox.Views.Pages
 {
     /// <summary> 编码转换工具页面 </summary>
     public partial class StringConvertPage : INavigableView<ViewModels.StringConvertViewModel>

@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+
+using System;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using Microsoft.Xaml.Behaviors;
 
 namespace One.Control.Command
 {
-
     /*
     * 此类来源
     * https://stackoverflow.com/questions/6205472/mvvm-passing-eventargs-as-command-parameter/28410798#28410798?newreg=e1a56600c74f433693fd67eeff71a710
     */
+
     /// <summary> EventToCommand of MVVMLight 最小化 </summary>
     public class EventToCommandBehaviorMin : Behavior<FrameworkElement>
     {
@@ -18,17 +19,20 @@ namespace One.Control.Command
         private EventInfo _oldEvent;
 
         // Event
-        public string Event { get { return (string)GetValue(EventProperty); } set { SetValue(EventProperty, value); } }
+        public string Event
+        { get { return (string)GetValue(EventProperty); } set { SetValue(EventProperty, value); } }
 
         public static readonly DependencyProperty EventProperty = DependencyProperty.Register("Event", typeof(string), typeof(EventToCommandBehaviorMin), new PropertyMetadata(null, OnEventChanged));
 
         // Command
-        public ICommand Command { get { return (ICommand)GetValue(CommandProperty); } set { SetValue(CommandProperty, value); } }
+        public ICommand Command
+        { get { return (ICommand)GetValue(CommandProperty); } set { SetValue(CommandProperty, value); } }
 
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(EventToCommandBehaviorMin), new PropertyMetadata(null));
 
         // PassArguments (default: false)
-        public bool PassArguments { get { return (bool)GetValue(PassArgumentsProperty); } set { SetValue(PassArgumentsProperty, value); } }
+        public bool PassArguments
+        { get { return (bool)GetValue(PassArgumentsProperty); } set { SetValue(PassArgumentsProperty, value); } }
 
         public static readonly DependencyProperty PassArgumentsProperty = DependencyProperty.Register("PassArguments", typeof(bool), typeof(EventToCommandBehaviorMin), new PropertyMetadata(false));
 

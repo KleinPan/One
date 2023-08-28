@@ -20,7 +20,7 @@ namespace One.Control.AttachDP
         public static readonly DependencyProperty SelectedItemsProperty =
             DependencyProperty.RegisterAttached("SelectedItems", typeof(IList), typeof(SelectedItemsAttach), new PropertyMetadata(OnSelectedItemsChanged));
 
-        static public void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var listBox = d as ListBox;
             if ((listBox != null) && (listBox.SelectionMode == SelectionMode.Multiple))

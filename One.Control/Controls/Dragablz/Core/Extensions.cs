@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,7 +11,6 @@ namespace One.Control.Controls.Dragablz.Core
     {
         public static IEnumerable<TContainer> Containers<TContainer>(this ItemsControl itemsControl) where TContainer : class
         {
-
             for (var i = 0; i < itemsControl.ItemContainerGenerator.Items.Count; i++)
 
             {
@@ -52,11 +50,9 @@ namespace One.Control.Controls.Dragablz.Core
             }
         }
 
-        /// <summary>
-        /// Yields the visual ancestory (including the starting point).
-        /// </summary>
-        /// <param name="dependencyObject"></param>
-        /// <returns></returns>
+        /// <summary> Yields the visual ancestory (including the starting point). </summary>
+        /// <param name="dependencyObject"> </param>
+        /// <returns> </returns>
         public static IEnumerable<DependencyObject> VisualTreeAncestory(this DependencyObject dependencyObject)
         {
             if (dependencyObject == null) throw new ArgumentNullException("dependencyObject");
@@ -68,11 +64,9 @@ namespace One.Control.Controls.Dragablz.Core
             }
         }
 
-        /// <summary>
-        /// Yields the logical ancestory (including the starting point).
-        /// </summary>
-        /// <param name="dependencyObject"></param>
-        /// <returns></returns>
+        /// <summary> Yields the logical ancestory (including the starting point). </summary>
+        /// <param name="dependencyObject"> </param>
+        /// <returns> </returns>
         public static IEnumerable<DependencyObject> LogicalTreeAncestory(this DependencyObject dependencyObject)
         {
             if (dependencyObject == null) throw new ArgumentNullException("dependencyObject");
@@ -84,11 +78,9 @@ namespace One.Control.Controls.Dragablz.Core
             }
         }
 
-        /// <summary>
-        /// Returns the actual Left of the Window independently from the LayoutWindowState
-        /// </summary>
-        /// <param name="window"></param>
-        /// <returns></returns>
+        /// <summary> Returns the actual Left of the Window independently from the LayoutWindowState </summary>
+        /// <param name="window"> </param>
+        /// <returns> </returns>
         public static double GetActualLeft(this Window window)
         {
             if (window.WindowState == WindowState.Maximized)
@@ -100,11 +92,9 @@ namespace One.Control.Controls.Dragablz.Core
             return window.Left;
         }
 
-        /// <summary>
-        /// Returns the actual Top of the Window independently from the LayoutWindowState
-        /// </summary>
-        /// <param name="window"></param>
-        /// <returns></returns>
+        /// <summary> Returns the actual Top of the Window independently from the LayoutWindowState </summary>
+        /// <param name="window"> </param>
+        /// <returns> </returns>
         public static double GetActualTop(this Window window)
         {
             if (window.WindowState == WindowState.Maximized)
@@ -115,6 +105,5 @@ namespace One.Control.Controls.Dragablz.Core
 
             return window.Top;
         }
-
     }
 }

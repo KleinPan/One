@@ -8,7 +8,7 @@ using One.Toolbox.Models.Dashboard;
 
 using RestSharp;
 
-using System.Reflection;
+using Wpf.Ui;
 
 namespace One.Toolbox.ViewModels;
 
@@ -70,9 +70,6 @@ public partial class DashboardViewModel : BaseViewModel
 
     private static async Task<GithubReleaseFilterInfo> GetLatestInfo()
     {
-
-       
-
         var options = new RestClientOptions("https://api.github.com/repos/KleinPan/One/releases/latest") //https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
         {
         };
@@ -92,7 +89,7 @@ public partial class DashboardViewModel : BaseViewModel
             //var localVersion = Assembly.GetExecutingAssembly().GetName().Version;
 
             //var localVersion =new AssemblyHelper(Assembly.GetExecutingAssembly()).ProductVersion;
-            var localVersion =   AssemblyHelper.Instance.ProductVersion;
+            var localVersion = AssemblyHelper.Instance.ProductVersion;
 
             Version gitVersion = Version.Parse(githubReleaseInfoM.tag_name.Replace("v", ""));
 

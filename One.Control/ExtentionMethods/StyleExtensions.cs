@@ -5,16 +5,12 @@ using System.Windows;
 
 namespace One.Control.ExtentionMethods
 {
-    /// <summary>
-    /// 一些扩展方法。
-    /// </summary>
+    /// <summary> 一些扩展方法。 </summary>
     public static class StyleExtensions
     {
-        /// <summary>
-        /// 合并指定的 <see cref="System.Windows.Style"/>。
-        /// </summary>
-        /// <param name="style1"></param>
-        /// <param name="style2"></param>
+        /// <summary> 合并指定的 <see cref="System.Windows.Style"/>。 </summary>
+        /// <param name="style1"> </param>
+        /// <param name="style2"> </param>
         public static void Merge(this Style style1, Style style2)
         {
             if (style1 == null)
@@ -53,12 +49,10 @@ namespace One.Control.ExtentionMethods
             }
         }
 
-        /// <summary>
-        /// 集合是否有值。
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <summary> 集合是否有值。 </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="source"> </param>
+        /// <returns> </returns>
         public static bool HasValue<T>(this IEnumerable<T> source)
         {
             return source != null && source.Any();

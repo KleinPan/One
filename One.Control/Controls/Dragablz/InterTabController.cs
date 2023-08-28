@@ -1,5 +1,4 @@
-﻿using System.Dynamic;
-using System.Windows;
+﻿using System.Windows;
 
 namespace One.Control.Controls.Dragablz
 {
@@ -53,10 +52,7 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty PartitionProperty = DependencyProperty.Register(
             "Partition", typeof (object), typeof (InterTabController), new PropertyMetadata(default(object)));
 
-        /// <summary>
-        /// The partition allows on or more tab environments in a single application.  Only tabs which have a tab controller
-        /// with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
-        /// </summary>
+        /// <summary> The partition allows on or more tab environments in a single application. Only tabs which have a tab controller with a common partition will be allowed to have tabs dragged between them. <c> null </c> is a valid partition (i.e global). </summary>
         public object Partition
         {
             get { return (object) GetValue(PartitionProperty); }
@@ -64,10 +60,7 @@ namespace One.Control.Controls.Dragablz
         }
          */
 
-        /// <summary>
-        /// The partition allows on or more tab environments in a single application.  Only tabs which have a tab controller
-        /// with a common partition will be allowed to have tabs dragged between them.  <c>null</c> is a valid partition (i.e global).
-        /// </summary>
+        /// <summary> The partition allows on or more tab environments in a single application. Only tabs which have a tab controller with a common partition will be allowed to have tabs dragged between them. <c> null </c> is a valid partition (i.e global). </summary>
         public string Partition { get; set; }
     }
 }

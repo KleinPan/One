@@ -64,7 +64,6 @@ namespace One.Control.Controls.Dragablz.Core
         {
             //TODO handle ref types better
             return new FuncComparer<TObject>((x, y) => accessor(x).CompareTo(accessor(y)));
-
         }
 
         private static FuncComparer<TObject> BuildDescendingComparer<TAttribute>(Func<TObject, TAttribute> accessor)

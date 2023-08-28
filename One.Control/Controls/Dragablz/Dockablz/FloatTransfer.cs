@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
@@ -27,14 +25,12 @@ namespace One.Control.Controls.Dragablz.Dockablz
         }
 
         [Obsolete]
-        //TODO width and height transfer obsolete
         public double Width
         {
             get { return _width; }
         }
 
         [Obsolete]
-        //TODO width and height transfer obsolete
         public double Height
         {
             get { return _height; }

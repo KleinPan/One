@@ -6,8 +6,6 @@ using System.Windows.Media.Animation;
 
 namespace One.Control.Controls.Buttons
 {
-    
-
     [TemplatePart(Name = "PART_PGrid", Type = typeof(Grid))]
     public class AssistButton : Button
     {

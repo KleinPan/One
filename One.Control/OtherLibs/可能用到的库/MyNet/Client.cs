@@ -26,8 +26,8 @@ namespace EsspClassLibrary.MyNet
         #endregion 变量
 
         /// <summary> 初始化作为客户端并连接 </summary>
-        /// <param name="ip">    </param>
-        /// <param name="port">  </param>
+        /// <param name="ip">   </param>
+        /// <param name="port"> </param>
         public bool InitAsClient(string ip, int port)
         {
             try
@@ -51,8 +51,8 @@ namespace EsspClassLibrary.MyNet
         }
 
         /// <summary> 初始化作为客户端并连接 </summary>
-        /// <param name="ip">    </param>
-        /// <param name="port">  </param>
+        /// <param name="ip">   </param>
+        /// <param name="port"> </param>
         public bool InitAsClient(IPAddress ip, int port)
         {
             try
@@ -74,7 +74,7 @@ namespace EsspClassLibrary.MyNet
         }
 
         /// <summary> 断开当前客户端连接 </summary>
-        /// <returns>  </returns>
+        /// <returns> </returns>
         public bool UnInitAsClient()
         {
             try
@@ -91,7 +91,7 @@ namespace EsspClassLibrary.MyNet
         }
 
         /// <summary> 连接服务器回调函数 </summary>
-        /// <param name="ar">  </param>
+        /// <param name="ar"> </param>
         private void ConnectCallback(IAsyncResult ar)
         {
             try

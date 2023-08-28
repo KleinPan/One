@@ -11,28 +11,28 @@ namespace EsspClassLibrary.MyNet
     {
         #region 变量
 
-        /// <summary>服务器套接字</summary>
+        /// <summary> 服务器套接字 </summary>
         private Socket sckServer = null;
 
         public Socket sckSend = null;
 
         public ObservableCollection<Socket> listConnection = new ObservableCollection<Socket>();
 
-        /// <summary>接收缓冲区</summary>
+        /// <summary> 接收缓冲区 </summary>
         private byte[] ReceiveBuf = new byte[1024 * 10];
 
-        /// <summary>发送缓冲区</summary>
+        /// <summary> 发送缓冲区 </summary>
         private byte[] SendBuf = new byte[1024 * 10];
 
-        /// <summary>接收数据存储区</summary>
+        /// <summary> 接收数据存储区 </summary>
         public string DataReceived = "";
 
         #endregion 变量
 
-        /// <summary>初始化作为服务器并启动</summary>
-        /// <param name="ip">  </param>
-        /// <param name="port"></param>
-        /// <returns></returns>
+        /// <summary> 初始化作为服务器并启动 </summary>
+        /// <param name="ip">   </param>
+        /// <param name="port"> </param>
+        /// <returns> </returns>
         public bool InitAsServer(string ip, int port)
         {
             try
@@ -57,7 +57,7 @@ namespace EsspClassLibrary.MyNet
 
                 return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -66,8 +66,8 @@ namespace EsspClassLibrary.MyNet
         //注意
         //需要重新写服务器,多个客户端连接要记录服务器的socket
 
-        /// <summary>接受连接请求回调函数—— 连接完成后执行</summary>
-        /// <param name="ar"></param>
+        /// <summary> 接受连接请求回调函数—— 连接完成后执行 </summary>
+        /// <param name="ar"> </param>
         private void ConnectedCallback(IAsyncResult ar)
         {
             try
@@ -96,7 +96,7 @@ namespace EsspClassLibrary.MyNet
                 //接受连接请求
                 sckServer.BeginAccept(new AsyncCallback(ConnectedCallback), sckServer);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //string s = e.Message.Replace("\r\n", "\t");
                 //tsslShow.Text = s + "服务器关闭！";
@@ -104,8 +104,8 @@ namespace EsspClassLibrary.MyNet
             }
         }
 
-        /// <summary>接收数据回调函数—— 接收完显示用</summary>
-        /// <param name="ar"></param>
+        /// <summary> 接收数据回调函数—— 接收完显示用 </summary>
+        /// <param name="ar"> </param>
         private void ServeReceivedCallback(IAsyncResult ar)
         {
             try
@@ -122,7 +122,7 @@ namespace EsspClassLibrary.MyNet
                 //再次接收数据
                 sckReceive.BeginReceive(ReceiveBuf, 0, 256, SocketFlags.None, new AsyncCallback(ServeReceivedCallback), sckReceive);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -135,14 +135,14 @@ namespace EsspClassLibrary.MyNet
                 sckServer.EndDisconnect(ar);
                 listConnection.Clear();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        /// <summary>发送数据</summary>
-        /// <param name="data"></param>
+        /// <summary> 发送数据 </summary>
+        /// <param name="data"> </param>
         public void SendData(string data)
         {
             SendBuf = Encoding.UTF8.GetBytes(data);
@@ -150,16 +150,16 @@ namespace EsspClassLibrary.MyNet
             sckSend.BeginSend(SendBuf, 0, SendBuf.Length, SocketFlags.None, new AsyncCallback(SendCallback), sckSend);
         }
 
-        /// <summary>发送数据回调函数</summary>
-        /// <param name="ar"></param>
+        /// <summary> 发送数据回调函数 </summary>
+        /// <param name="ar"> </param>
         private void SendCallback(IAsyncResult ar)
         {
             Socket sckSend = (Socket)ar.AsyncState;
             int sendLen = sckSend.EndSend(ar);
         }
 
-        /// <summary>需要在外部重写对消息格式 最后需要加上SendData(string data)</summary>
-        /// <param name="mes"></param>
+        /// <summary> 需要在外部重写对消息格式 最后需要加上SendData(string data) </summary>
+        /// <param name="mes"> </param>
         public virtual void ReceiveAndSend(string mes)
         {
         }

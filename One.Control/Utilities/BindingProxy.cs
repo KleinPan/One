@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+
 namespace One.Control.Utilities
 {
     public class BindingProxy : Freezable
@@ -10,7 +11,7 @@ namespace One.Control.Utilities
             return new BindingProxy();
         }
 
-        #endregion
+        #endregion Overrides of Freezable
 
         public object Data
         {
@@ -18,7 +19,7 @@ namespace One.Control.Utilities
             set { SetValue(DataProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Data.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for Data. This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DataProperty =
             DependencyProperty.Register("Data", typeof(object), typeof(BindingProxy), new UIPropertyMetadata(null));
     }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+using One.Control.Controls.Dragablz.Dockablz;
+using One.Control.Controls.Dragablz.Referenceless;
+
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -7,18 +11,10 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Core;
-using One.Control.Controls.Dragablz.Dockablz;
-using One.Control.Controls.Dragablz.Referenceless;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// It is not necessary to use a <see cref="DragablzWindow"/> to gain tab dragging features.
-    /// What this Window does is allow a quick way to remove the Window border, and support transparency whilst
-    /// dragging.
-    /// </summary>
+    /// <summary> It is not necessary to use a <see cref="DragablzWindow"/> to gain tab dragging features. What this Window does is allow a quick way to remove the Window border, and support transparency whilst dragging. </summary>
     [TemplatePart(Name = WindowSurfaceGridPartName, Type = typeof(Grid))]
     [TemplatePart(Name = WindowRestoreThumbPartName, Type = typeof(Thumb))]
     [TemplatePart(Name = WindowResizeThumbPartName, Type = typeof(Thumb))]
@@ -307,20 +303,28 @@ namespace One.Control.Controls.Dragablz
             {
                 case SizeGrip.Left:
                     return Cursors.SizeWE;
+
                 case SizeGrip.TopLeft:
                     return Cursors.SizeNWSE;
+
                 case SizeGrip.Top:
                     return Cursors.SizeNS;
+
                 case SizeGrip.TopRight:
                     return Cursors.SizeNESW;
+
                 case SizeGrip.Right:
                     return Cursors.SizeWE;
+
                 case SizeGrip.BottomRight:
                     return Cursors.SizeNWSE;
+
                 case SizeGrip.Bottom:
                     return Cursors.SizeNS;
+
                 case SizeGrip.BottomLeft:
                     return Cursors.SizeNESW;
+
                 default:
                     return Cursors.Arrow;
             }

@@ -2,10 +2,7 @@
 using One.Toolbox.Model;
 
 using System.Diagnostics;
-using System.Windows.Controls;
 using System.Windows.Input;
-
-using Wpf.Ui.Controls.Navigation;
 
 namespace One.Toolbox.Views.Serialport
 {
@@ -23,12 +20,12 @@ namespace One.Toolbox.Views.Serialport
 
         private void Button_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ToSendData data = ((Button)sender).DataContext as ToSendData;
+            ToSendData data = ((System.Windows.Controls.Button)sender).DataContext as ToSendData;
             Tuple<bool, string> ret = Tools.InputDialog.OpenDialog(ResourceHelper.FindStringResource("QuickSendSetButton"),
                 data.Commit, ResourceHelper.FindStringResource("QuickSendChangeButton"));
             if (ret.Item1)
             {
-                ((Button)sender).Content = data.Commit = ret.Item2;
+                ((System.Windows.Controls.Button)sender).Content = data.Commit = ret.Item2;
             }
         }
 

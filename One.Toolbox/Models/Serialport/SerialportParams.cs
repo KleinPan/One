@@ -1,11 +1,5 @@
 ﻿using One.Toolbox.ViewModels.Serialport;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace One.Toolbox.Models.Serialport
 {
     public class SerialportSettingModel

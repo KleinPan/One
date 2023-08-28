@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace One.Control.Controls.Dragablz.Core
+﻿namespace One.Control.Controls.Dragablz.Core
 {
     internal enum SystemCommand
     {

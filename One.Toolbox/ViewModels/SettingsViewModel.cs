@@ -1,7 +1,5 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
-using Wpf.Ui.Controls.Navigation;
-
 namespace One.Toolbox.ViewModels;
 
 public partial class SettingsViewModel : BaseViewModel, INavigationAware
@@ -10,13 +8,13 @@ public partial class SettingsViewModel : BaseViewModel, INavigationAware
     private string _appVersion = String.Empty;
 
     [ObservableProperty]
-    private Wpf.Ui.Appearance.ThemeType currentTheme = Wpf.Ui.Appearance.ThemeType.Light;
+    private Wpf.Ui.Appearance.ApplicationTheme currentTheme = Wpf.Ui.Appearance.ApplicationTheme.Unknown;
 
     public override void InitializeViewModel()
     {
         //Tools.Global.LoadSetting();
 
-        CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
+        CurrentTheme = Wpf.Ui.Appearance.ApplicationThemeManager.GetAppTheme();
         AppVersion = $"{GetAssemblyVersion()}";
 
         base.InitializeViewModel();
@@ -60,20 +58,20 @@ public partial class SettingsViewModel : BaseViewModel, INavigationAware
         switch (parameter)
         {
             case "theme_light":
-                if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Light)
+                if (CurrentTheme == Wpf.Ui.Appearance.ApplicationTheme.Light)
                     break;
 
-                Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
-                CurrentTheme = Wpf.Ui.Appearance.ThemeType.Light;
+                Wpf.Ui.Appearance.ApplicationThemeManager.Apply(Wpf.Ui.Appearance.ApplicationTheme.Light);
+                CurrentTheme = Wpf.Ui.Appearance.ApplicationTheme.Light;
 
                 break;
 
             default:
-                if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Dark)
+                if (CurrentTheme == Wpf.Ui.Appearance.ApplicationTheme.Dark)
                     break;
 
-                Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
-                CurrentTheme = Wpf.Ui.Appearance.ThemeType.Dark;
+                Wpf.Ui.Appearance.ApplicationThemeManager.Apply(Wpf.Ui.Appearance.ApplicationTheme.Dark);
+                CurrentTheme = Wpf.Ui.Appearance.ApplicationTheme.Dark;
 
                 break;
         }

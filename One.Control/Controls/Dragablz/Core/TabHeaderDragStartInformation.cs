@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace One.Control.Controls.Dragablz.Core
 {
     internal class TabHeaderDragStartInformation

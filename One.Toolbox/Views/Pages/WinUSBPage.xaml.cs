@@ -227,7 +227,7 @@ namespace One.Toolbox.Views.Pages
         public ushort Vid { get; set; }
         public string SerialNumber { get; set; }
 
-        public unsafe override string ToString()
+        public override unsafe string ToString()
         {
             if (Name == null)
                 return $"VID: 0x{Vid:X04}, PID: 0x{Pid:X04}, {SerialNumber}";

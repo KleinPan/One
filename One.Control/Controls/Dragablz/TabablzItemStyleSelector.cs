@@ -3,9 +3,7 @@ using System.Windows.Controls;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// Selects style to apply to a <see cref="DragablzItem"/> according to the tab item content itself.
-    /// </summary>
+    /// <summary> Selects style to apply to a <see cref="DragablzItem"/> according to the tab item content itself. </summary>
     public class TabablzItemStyleSelector : StyleSelector
     {
         private readonly Style _defaultHeaderItemStyle;

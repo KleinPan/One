@@ -3,8 +3,6 @@
 using System.Diagnostics;
 using System.Windows.Navigation;
 
-using Wpf.Ui.Controls.Navigation;
-
 namespace One.Toolbox.Views.Pages;
 
 /// <summary> Interaction logic for SettingsPage.xaml </summary>

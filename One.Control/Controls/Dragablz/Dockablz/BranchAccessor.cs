@@ -1,10 +1,8 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
@@ -66,15 +64,12 @@ namespace One.Control.Controls.Dragablz.Dockablz
             get { return _secondItemTabablzControl; }
         }
 
-        /// <summary>
-        /// Visits the content of the first or second side of a branch, according to its content type.  No more than one of the provided <see cref="Action"/>
-        /// callbacks will be called.
-        /// </summary>
-        /// <param name="childItem"></param>
-        /// <param name="childBranchVisitor"></param>
-        /// <param name="childTabablzControlVisitor"></param>
-        /// <param name="childContentVisitor"></param>
-        /// <returns></returns>
+        /// <summary> Visits the content of the first or second side of a branch, according to its content type. No more than one of the provided <see cref="Action"/> callbacks will be called. </summary>
+        /// <param name="childItem">                  </param>
+        /// <param name="childBranchVisitor">         </param>
+        /// <param name="childTabablzControlVisitor"> </param>
+        /// <param name="childContentVisitor">        </param>
+        /// <returns> </returns>
         public BranchAccessor Visit(BranchItem childItem,
             Action<BranchAccessor> childBranchVisitor = null,
             Action<TabablzControl> childTabablzControlVisitor = null,
@@ -91,11 +86,13 @@ namespace One.Control.Controls.Dragablz.Dockablz
                     tabGetter = () => _firstItemTabablzControl;
                     contentGetter = () => _branch.FirstItem;
                     break;
+
                 case BranchItem.Second:
                     branchGetter = () => _secondItemBranchAccessor;
                     tabGetter = () => _secondItemTabablzControl;
                     contentGetter = () => _branch.SecondItem;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException("childItem");
             }

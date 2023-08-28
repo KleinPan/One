@@ -1,4 +1,8 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+using One.Control.Controls.Dragablz.Dockablz;
+using One.Control.Controls.Dragablz.Referenceless;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -10,41 +14,27 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Core;
-using One.Control.Controls.Dragablz.Dockablz;
-using One.Control.Controls.Dragablz.Referenceless;
 
 namespace One.Control.Controls.Dragablz
 {
     //original code specific to keeping visual tree "alive" sourced from http://stackoverflow.com/questions/12432062/binding-to-itemssource-of-tabcontrol-in-wpf
 
-    /// <summary>
-    /// Extended tab control which supports tab repositioning, and drag and drop.  Also
-    /// uses the common WPF technique for pesisting the visual tree across tabs.
-    /// </summary>
+    /// <summary> Extended tab control which supports tab repositioning, and drag and drop. Also uses the common WPF technique for pesisting the visual tree across tabs. </summary>
     [TemplatePart(Name = HeaderItemsControlPartName, Type = typeof(DragablzItemsControl))]
     [TemplatePart(Name = ItemsHolderPartName, Type = typeof(Panel))]
     public class TabablzControl : TabControl
     {
-        /// <summary>
-        /// Template part.
-        /// </summary>
+        /// <summary> Template part. </summary>
         public const string HeaderItemsControlPartName = "PART_HeaderItemsControl";
-        /// <summary>
-        /// Template part.
-        /// </summary>
+
+        /// <summary> Template part. </summary>
         public const string ItemsHolderPartName = "PART_ItemsHolder";
 
-        /// <summary>
-        /// Routed command which can be used to close a tab.
-        /// </summary>
+        /// <summary> Routed command which can be used to close a tab. </summary>
         public static RoutedCommand CloseItemCommand = new RoutedUICommand("Close", "Close", typeof(TabablzControl));
 
-        /// <summary>
-        /// Routed command which can be used to add a new tab.  See <see cref="NewItemFactory"/>.
-        /// </summary>
+        /// <summary> Routed command which can be used to add a new tab. See <see cref="NewItemFactory"/>. </summary>
         public static RoutedCommand AddItemCommand = new RoutedUICommand("Add", "Add", typeof(TabablzControl));
 
         private static readonly HashSet<TabablzControl> LoadedInstances = new HashSet<TabablzControl>();
@@ -59,16 +49,13 @@ namespace One.Control.Controls.Dragablz
 
         private InterTabTransfer _interTabTransfer;
 
-
         static TabablzControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TabablzControl), new FrameworkPropertyMetadata(typeof(TabablzControl)));
             CommandManager.RegisterClassCommandBinding(typeof(FrameworkElement), new CommandBinding(CloseItemCommand, CloseItemClassHandler, CloseItemCanExecuteClassHandler));
         }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
+        /// <summary> Default constructor. </summary>
         public TabablzControl()
         {
             AddHandler(DragablzItem.DragStarted, new DragablzDragStartedEventHandler(ItemDragStarted), true);
@@ -85,24 +72,16 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty CustomHeaderItemStyleProperty = DependencyProperty.Register(
             "CustomHeaderItemStyle", typeof(Style), typeof(TabablzControl), new PropertyMetadata(default(Style)));
 
-        /// <summary>
-        /// Helper method which returns all the currently loaded instances.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Helper method which returns all the currently loaded instances. </summary>
+        /// <returns> </returns>
         public static IEnumerable<TabablzControl> GetLoadedInstances()
         {
             return LoadedInstances.Union(VisibleInstances).Distinct().ToList();
         }
 
-        /// <summary>
-        /// Helper method to close all tabs where the item is the tab's content (helpful with MVVM scenarios)
-        /// </summary>
-        /// <remarks>
-        /// In MVVM scenarios where you don't want to bind the routed command to your ViewModel,
-        /// with this helper method and embedding the TabablzControl in a UserControl, you can keep
-        /// the View-specific dependencies out of the ViewModel.
-        /// </remarks>
-        /// <param name="tabContentItem">An existing Tab item content (a ViewModel in MVVM scenarios) which is backing a tab control</param>
+        /// <summary> Helper method to close all tabs where the item is the tab's content (helpful with MVVM scenarios) </summary>
+        /// <remarks> In MVVM scenarios where you don't want to bind the routed command to your ViewModel, with this helper method and embedding the TabablzControl in a UserControl, you can keep the View-specific dependencies out of the ViewModel. </remarks>
+        /// <param name="tabContentItem"> An existing Tab item content (a ViewModel in MVVM scenarios) which is backing a tab control </param>
         public static void CloseItem(object tabContentItem)
         {
             if (tabContentItem == null) return; //Do nothing.
@@ -116,17 +95,11 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-        /// <summary>
-        /// Helper method to add an item next to an existing item.
-        /// </summary>
-        /// <remarks>
-        /// Due to the organisable nature of the control, the order of items may not reflect the order in the source collection.  This method
-        /// will add items to the source collection, managing their initial appearance on screen at the same time.
-        /// If you are using a <see cref="InterTabController.InterTabClient"/> this will be used to add the item into the source collection.
-        /// </remarks>
-        /// <param name="item">New item to add.</param>
-        /// <param name="nearItem">Existing object/tab item content which defines which tab control should be used to add the object.</param>
-        /// <param name="addLocationHint">Location, relative to the <paramref name="nearItem"/> object</param>
+        /// <summary> Helper method to add an item next to an existing item. </summary>
+        /// <remarks> Due to the organisable nature of the control, the order of items may not reflect the order in the source collection. This method will add items to the source collection, managing their initial appearance on screen at the same time. If you are using a <see cref="InterTabController.InterTabClient"/> this will be used to add the item into the source collection. </remarks>
+        /// <param name="item">            New item to add. </param>
+        /// <param name="nearItem">        Existing object/tab item content which defines which tab control should be used to add the object. </param>
+        /// <param name="addLocationHint"> Location, relative to the <paramref name="nearItem"/> object </param>
         public static void AddItem(object item, object nearItem, AddLocationHint addLocationHint)
         {
             if (nearItem == null) throw new ArgumentNullException("nearItem");
@@ -144,10 +117,8 @@ namespace One.Control.Controls.Dragablz
                 existingLocation.tabControl._dragablzItemsControl.MoveItem(new MoveItemRequest(item, nearItem, addLocationHint));
         }
 
-        /// <summary>
-        /// Finds and selects an item.
-        /// </summary>
-        /// <param name="item"></param>
+        /// <summary> Finds and selects an item. </summary>
+        /// <param name="item"> </param>
         public static void SelectItem(object item)
         {
             var existingLocation = GetLoadedInstances().SelectMany(tabControl =>
@@ -160,9 +131,7 @@ namespace One.Control.Controls.Dragablz
             existingLocation.tabControl.SelectedItem = item;
         }
 
-        /// <summary>
-        /// Style to apply to header items which are not their own item container (<see cref="TabItem"/>).  Typically items bound via the <see cref="ItemsSource"/> will use this style.
-        /// </summary>
+        /// <summary> Style to apply to header items which are not their own item container ( <see cref="TabItem"/>). Typically items bound via the <see cref="ItemsSource"/> will use this style. </summary>
         [Obsolete]
         public Style CustomHeaderItemStyle
         {
@@ -306,10 +275,7 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty ShowDefaultCloseButtonProperty = DependencyProperty.Register(
             "ShowDefaultCloseButton", typeof(bool), typeof(TabablzControl), new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        /// Indicates whether a default close button should be displayed.  If manually templating the tab header content the close command
-        /// can be called by executing the <see cref="TabablzControl.CloseItemCommand"/> command (typically via a <see cref="Button"/>).
-        /// </summary>
+        /// <summary> Indicates whether a default close button should be displayed. If manually templating the tab header content the close command can be called by executing the <see cref="TabablzControl.CloseItemCommand"/> command (typically via a <see cref="Button"/>). </summary>
         public bool ShowDefaultCloseButton
         {
             get { return (bool)GetValue(ShowDefaultCloseButtonProperty); }
@@ -319,11 +285,7 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty ShowDefaultAddButtonProperty = DependencyProperty.Register(
             "ShowDefaultAddButton", typeof(bool), typeof(TabablzControl), new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        /// Indicates whether a default add button should be displayed.  Alternately an add button
-        /// could be added in <see cref="HeaderPrefixContent"/> or <see cref="HeaderSuffixContent"/>, utilising
-        /// <see cref="AddItemCommand"/>.
-        /// </summary>
+        /// <summary> Indicates whether a default add button should be displayed. Alternately an add button could be added in <see cref="HeaderPrefixContent"/> or <see cref="HeaderSuffixContent"/>, utilising <see cref="AddItemCommand"/>. </summary>
         public bool ShowDefaultAddButton
         {
             get { return (bool)GetValue(ShowDefaultAddButtonProperty); }
@@ -333,9 +295,7 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty IsHeaderPanelVisibleProperty = DependencyProperty.Register(
             "IsHeaderPanelVisible", typeof(bool), typeof(TabablzControl), new PropertyMetadata(true));
 
-        /// <summary>
-        /// Indicates wither the heaeder panel is visible.  Default is <c>true</c>.
-        /// </summary>
+        /// <summary> Indicates wither the heaeder panel is visible. Default is <c> true </c>. </summary>
         public bool IsHeaderPanelVisible
         {
             get { return (bool)GetValue(IsHeaderPanelVisibleProperty); }
@@ -345,13 +305,8 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty AddLocationHintProperty = DependencyProperty.Register(
             "AddLocationHint", typeof(AddLocationHint), typeof(TabablzControl), new PropertyMetadata(AddLocationHint.Last));
 
-        /// <summary>
-        /// Gets or sets the location to add new tab items in the header.
-        /// </summary>
-        /// <remarks>
-        /// The logical order of the header items might not add match the content of the source items,
-        /// so this property allows control of where new items should appear.
-        /// </remarks>
+        /// <summary> Gets or sets the location to add new tab items in the header. </summary>
+        /// <remarks> The logical order of the header items might not add match the content of the source items, so this property allows control of where new items should appear. </remarks>
         public AddLocationHint AddLocationHint
         {
             get { return (AddLocationHint)GetValue(AddLocationHintProperty); }
@@ -361,9 +316,7 @@ namespace One.Control.Controls.Dragablz
         public static readonly DependencyProperty FixedHeaderCountProperty = DependencyProperty.Register(
             "FixedHeaderCount", typeof(int), typeof(TabablzControl), new PropertyMetadata(default(int)));
 
-        /// <summary>
-        /// Allows a the first adjacent tabs to be fixed (no dragging, and default close button will not show).
-        /// </summary>
+        /// <summary> Allows a the first adjacent tabs to be fixed (no dragging, and default close button will not show). </summary>
         public int FixedHeaderCount
         {
             get { return (int)GetValue(FixedHeaderCountProperty); }
@@ -382,25 +335,18 @@ namespace One.Control.Controls.Dragablz
                 instance.AddLogicalChild(dependencyPropertyChangedEventArgs.NewValue);
         }
 
-        /// <summary>
-        /// An <see cref="InterTabController"/> must be provided to enable tab tearing. Behaviour customisations can be applied
-        /// vie the controller.
-        /// </summary>
+        /// <summary> An <see cref="InterTabController"/> must be provided to enable tab tearing. Behaviour customisations can be applied vie the controller. </summary>
         public InterTabController InterTabController
         {
             get { return (InterTabController)GetValue(InterTabControllerProperty); }
             set { SetValue(InterTabControllerProperty, value); }
         }
 
-        /// <summary>
-        /// Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="AddItemCommand"/>.
-        /// </summary>
+        /// <summary> Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="AddItemCommand"/>. </summary>
         public static readonly DependencyProperty NewItemFactoryProperty = DependencyProperty.Register(
             "NewItemFactory", typeof(Func<object>), typeof(TabablzControl), new PropertyMetadata(default(Func<object>)));
 
-        /// <summary>
-        /// Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="AddItemCommand"/>.
-        /// </summary>
+        /// <summary> Allows a factory to be provided for generating new items. Typically used in conjunction with <see cref="AddItemCommand"/>. </summary>
         public Func<object> NewItemFactory
         {
             get { return (Func<object>)GetValue(NewItemFactoryProperty); }
@@ -412,24 +358,18 @@ namespace One.Control.Controls.Dragablz
                 "IsEmpty", typeof(bool), typeof(TabablzControl),
                 new PropertyMetadata(true, OnIsEmptyChanged));
 
-        /// <summary>
-        /// Indicates if there are no current tab items.
-        /// </summary>
+        /// <summary> Indicates if there are no current tab items. </summary>
         public static readonly DependencyProperty IsEmptyProperty =
             IsEmptyPropertyKey.DependencyProperty;
 
-        /// <summary>
-        /// Indicates if there are no current tab items.
-        /// </summary>
+        /// <summary> Indicates if there are no current tab items. </summary>
         public bool IsEmpty
         {
             get { return (bool)GetValue(IsEmptyProperty); }
             private set { SetValue(IsEmptyPropertyKey, value); }
         }
 
-        /// <summary>
-        /// Raised when <see cref="IsEmpty"/> changes.
-        /// </summary>
+        /// <summary> Raised when <see cref="IsEmpty"/> changes. </summary>
         public static readonly RoutedEvent IsEmptyChangedEvent =
             EventManager.RegisterRoutedEvent(
                 "IsEmptyChanged",
@@ -437,9 +377,7 @@ namespace One.Control.Controls.Dragablz
                 typeof(RoutedPropertyChangedEventHandler<bool>),
                 typeof(TabablzControl));
 
-        /// <summary>
-        /// Event handler to list to <see cref="IsEmptyChangedEvent"/>.
-        /// </summary>
+        /// <summary> Event handler to list to <see cref="IsEmptyChangedEvent"/>. </summary>
         public event RoutedPropertyChangedEventHandler<bool> IsEmptyChanged
         {
             add { AddHandler(IsEmptyChangedEvent, value); }
@@ -457,87 +395,56 @@ namespace One.Control.Controls.Dragablz
             instance?.RaiseEvent(args);
         }
 
-
-        /// <summary>
-        /// Optionally allows a close item hook to be bound in.  If this propety is provided, the func must return true for the close to continue.
-        /// </summary>
+        /// <summary> Optionally allows a close item hook to be bound in. If this propety is provided, the func must return true for the close to continue. </summary>
         public static readonly DependencyProperty ClosingItemCallbackProperty = DependencyProperty.Register(
             "ClosingItemCallback", typeof(ItemActionCallback), typeof(TabablzControl), new PropertyMetadata(default(ItemActionCallback)));
 
-        /// <summary>
-        /// Optionally allows a close item hook to be bound in.  If this propety is provided, the func must return true for the close to continue.
-        /// </summary>
+        /// <summary> Optionally allows a close item hook to be bound in. If this propety is provided, the func must return true for the close to continue. </summary>
         public ItemActionCallback ClosingItemCallback
         {
             get { return (ItemActionCallback)GetValue(ClosingItemCallbackProperty); }
             set { SetValue(ClosingItemCallbackProperty, value); }
         }
 
-        /// <summary>
-        /// Set to <c>true</c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost.
-        /// Can be useful for fixed/persistant tabs that may have been dragged into another Window.  You can further control
-        /// this behaviour on a per tab item basis by providing <see cref="ConsolidatingOrphanedItemCallback" />.
-        /// </summary>
+        /// <summary> Set to <c> true </c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost. Can be useful for fixed/persistant tabs that may have been dragged into another Window. You can further control this behaviour on a per tab item basis by providing <see cref="ConsolidatingOrphanedItemCallback"/>. </summary>
         public static readonly DependencyProperty ConsolidateOrphanedItemsProperty = DependencyProperty.Register(
             "ConsolidateOrphanedItems", typeof(bool), typeof(TabablzControl), new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        /// Set to <c>true</c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost.
-        /// Can be useful for fixed/persistant tabs that may have been dragged into another Window.  You can further control
-        /// this behaviour on a per tab item basis by providing <see cref="ConsolidatingOrphanedItemCallback" />.
-        /// </summary>
+        /// <summary> Set to <c> true </c> to have tabs automatically be moved to another tab is a window is closed, so that they arent lost. Can be useful for fixed/persistant tabs that may have been dragged into another Window. You can further control this behaviour on a per tab item basis by providing <see cref="ConsolidatingOrphanedItemCallback"/>. </summary>
         public bool ConsolidateOrphanedItems
         {
             get { return (bool)GetValue(ConsolidateOrphanedItemsProperty); }
             set { SetValue(ConsolidateOrphanedItemsProperty, value); }
         }
 
-        /// <summary>
-        /// Assuming <see cref="ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
-        /// tab items can be cancelled by providing this call back and cancelling the <see cref="ItemActionCallbackArgs{TOwner}"/>
-        /// instance.
-        /// </summary>
+        /// <summary> Assuming <see cref="ConsolidateOrphanedItems"/> is set to <c> true </c>, consolidation of individual tab items can be cancelled by providing this call back and cancelling the <see cref="ItemActionCallbackArgs{TOwner}"/> instance. </summary>
         public static readonly DependencyProperty ConsolidatingOrphanedItemCallbackProperty = DependencyProperty.Register(
             "ConsolidatingOrphanedItemCallback", typeof(ItemActionCallback), typeof(TabablzControl), new PropertyMetadata(default(ItemActionCallback)));
 
-        /// <summary>
-        /// Assuming <see cref="ConsolidateOrphanedItems"/> is set to <c>true</c>, consolidation of individual
-        /// tab items can be cancelled by providing this call back and cancelling the <see cref="ItemActionCallbackArgs{TOwner}"/>
-        /// instance.
-        /// </summary>
+        /// <summary> Assuming <see cref="ConsolidateOrphanedItems"/> is set to <c> true </c>, consolidation of individual tab items can be cancelled by providing this call back and cancelling the <see cref="ItemActionCallbackArgs{TOwner}"/> instance. </summary>
         public ItemActionCallback ConsolidatingOrphanedItemCallback
         {
             get { return (ItemActionCallback)GetValue(ConsolidatingOrphanedItemCallbackProperty); }
             set { SetValue(ConsolidatingOrphanedItemCallbackProperty, value); }
         }
 
-
-
         private static readonly DependencyPropertyKey IsDraggingWindowPropertyKey =
             DependencyProperty.RegisterReadOnly(
                 "IsDraggingWindow", typeof(bool), typeof(TabablzControl),
                 new PropertyMetadata(default(bool), OnIsDraggingWindowChanged));
 
-        /// <summary>
-        /// Readonly dependency property which indicates whether the owning <see cref="Window"/>
-        /// is currently dragged
-        /// </summary>
+        /// <summary> Readonly dependency property which indicates whether the owning <see cref="Window"/> is currently dragged </summary>
         public static readonly DependencyProperty IsDraggingWindowProperty =
             IsDraggingWindowPropertyKey.DependencyProperty;
 
-        /// <summary>
-        /// Readonly dependency property which indicates whether the owning <see cref="Window"/>
-        /// is currently dragged
-        /// </summary>
+        /// <summary> Readonly dependency property which indicates whether the owning <see cref="Window"/> is currently dragged </summary>
         public bool IsDraggingWindow
         {
             get { return (bool)GetValue(IsDraggingWindowProperty); }
             private set { SetValue(IsDraggingWindowPropertyKey, value); }
         }
 
-        /// <summary>
-        /// Event indicating <see cref="IsDraggingWindow"/> has changed.
-        /// </summary>
+        /// <summary> Event indicating <see cref="IsDraggingWindow"/> has changed. </summary>
         public static readonly RoutedEvent IsDraggingWindowChangedEvent =
             EventManager.RegisterRoutedEvent(
                 "IsDraggingWindowChanged",
@@ -545,9 +452,7 @@ namespace One.Control.Controls.Dragablz
                 typeof(RoutedPropertyChangedEventHandler<bool>),
                 typeof(TabablzControl));
 
-        /// <summary>
-        /// Event indicating <see cref="IsDraggingWindow"/> has changed.
-        /// </summary>
+        /// <summary> Event indicating <see cref="IsDraggingWindow"/> has changed. </summary>
         public event RoutedPropertyChangedEventHandler<bool> IsDraggingWindowChanged
         {
             add { AddHandler(IsDraggingWindowChangedEvent, value); }
@@ -565,12 +470,9 @@ namespace One.Control.Controls.Dragablz
                 RoutedEvent = IsDraggingWindowChangedEvent
             };
             instance.RaiseEvent(args);
-
         }
 
-        /// <summary>
-        /// Temporarily set by the framework if a users drag opration causes a Window to close (e.g if a tab is dragging into another tab).
-        /// </summary>
+        /// <summary> Temporarily set by the framework if a users drag opration causes a Window to close (e.g if a tab is dragging into another tab). </summary>
         public static readonly DependencyProperty IsClosingAsPartOfDragOperationProperty = DependencyProperty.RegisterAttached(
             "IsClosingAsPartOfDragOperation", typeof(bool), typeof(TabablzControl), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.NotDataBindable));
 
@@ -579,26 +481,19 @@ namespace One.Control.Controls.Dragablz
             element.SetValue(IsClosingAsPartOfDragOperationProperty, value);
         }
 
-        /// <summary>
-        /// Helper method which can tell you if a <see cref="Window"/> is being automatically closed due
-        /// to a user instigated drag operation (typically when a single tab is dropped into another window.
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
+        /// <summary> Helper method which can tell you if a <see cref="Window"/> is being automatically closed due to a user instigated drag operation (typically when a single tab is dropped into another window. </summary>
+        /// <param name="element"> </param>
+        /// <returns> </returns>
         public static bool GetIsClosingAsPartOfDragOperation(Window element)
         {
             return (bool)element.GetValue(IsClosingAsPartOfDragOperationProperty);
         }
 
-        /// <summary>
-        /// Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open).
-        /// </summary>
+        /// <summary> Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open). </summary>
         public static readonly DependencyProperty EmptyHeaderSizingHintProperty = DependencyProperty.Register(
             "EmptyHeaderSizingHint", typeof(EmptyHeaderSizingHint), typeof(TabablzControl), new PropertyMetadata(default(EmptyHeaderSizingHint)));
 
-        /// <summary>
-        /// Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open).
-        /// </summary>
+        /// <summary> Provide a hint for how the header should size itself if there are no tabs left (and a Window is still open). </summary>
         public EmptyHeaderSizingHint EmptyHeaderSizingHint
         {
             get { return (EmptyHeaderSizingHint)GetValue(EmptyHeaderSizingHintProperty); }
@@ -618,11 +513,8 @@ namespace One.Control.Controls.Dragablz
             return (bool)element.GetValue(IsWrappingTabItemProperty);
         }
 
-        /// <summary>
-        /// Adds an item to the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
-        /// Otherwise an attempt will be made to add to the <see cref="ItemsSource" /> property, and lastly <see cref="Items"/>.
-        /// </summary>
-        /// <param name="item"></param>
+        /// <summary> Adds an item to the source collection. If the InterTabController.InterTabClient is set that instance will be deferred to. Otherwise an attempt will be made to add to the <see cref="ItemsSource"/> property, and lastly <see cref="Items"/>. </summary>
+        /// <param name="item"> </param>
         public void AddToSource(object item)
         {
             if (item == null) throw new ArgumentNullException("item");
@@ -642,11 +534,8 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-        /// <summary>
-        /// Removes an item from the source collection.  If the InterTabController.InterTabClient is set that instance will be deferred to.
-        /// Otherwise an attempt will be made to remove from the <see cref="ItemsSource" /> property, and lastly <see cref="Items"/>.
-        /// </summary>
-        /// <param name="item"></param>
+        /// <summary> Removes an item from the source collection. If the InterTabController.InterTabClient is set that instance will be deferred to. Otherwise an attempt will be made to remove from the <see cref="ItemsSource"/> property, and lastly <see cref="Items"/>. </summary>
+        /// <param name="item"> </param>
         public void RemoveFromSource(object item)
         {
             if (item == null) throw new ArgumentNullException("item");
@@ -666,18 +555,14 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-        /// <summary>
-        /// Gets the header items, ordered according to their current visual position in the tab header.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the header items, ordered according to their current visual position in the tab header. </summary>
+        /// <returns> </returns>
         public IEnumerable<DragablzItem> GetOrderedHeaders()
         {
             return _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragablzItems());
         }
 
-        /// <summary>
-        /// Called when <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/> is called.
-        /// </summary>
+        /// <summary> Called when <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/> is called. </summary>
         public override void OnApplyTemplate()
         {
             _templateSubscription?.Dispose();
@@ -707,10 +592,8 @@ namespace One.Control.Controls.Dragablz
             base.OnApplyTemplate();
         }
 
-        /// <summary>
-        /// update the visible child in the ItemsHolder
-        /// </summary>
-        /// <param name="e"></param>
+        /// <summary> update the visible child in the ItemsHolder </summary>
+        /// <param name="e"> </param>
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
             if (e.RemovedItems.Count > 0 && e.AddedItems.Count > 0)
@@ -748,10 +631,8 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-        /// <summary>
-        /// when the items change we remove any generated panel children and add any new ones as necessary
-        /// </summary>
-        /// <param name="e"></param>
+        /// <summary> when the items change we remove any generated panel children and add any new ones as necessary </summary>
+        /// <param name="e"> </param>
         protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
         {
             base.OnItemsChanged(e);
@@ -801,10 +682,8 @@ namespace One.Control.Controls.Dragablz
             IsEmpty = Items.Count == 0;
         }
 
-        /// <summary>
-        /// Provides class handling for the <see cref="E:System.Windows.ContentElement.KeyDown"/> routed event that occurs when the user presses a key.
-        /// </summary>
-        /// <param name="e">Provides data for <see cref="T:System.Windows.Input.KeyEventArgs"/>.</param>
+        /// <summary> Provides class handling for the <see cref="E:System.Windows.ContentElement.KeyDown"/> routed event that occurs when the user presses a key. </summary>
+        /// <param name="e"> Provides data for <see cref="T:System.Windows.Input.KeyEventArgs"/>. </param>
         protected override void OnKeyDown(KeyEventArgs e)
         {
             var sortedDragablzItems = _dragablzItemsControl.ItemsOrganiser.Sort(_dragablzItemsControl.DragablzItems()).ToList();
@@ -831,9 +710,11 @@ namespace One.Control.Controls.Dragablz
                         selectDragablzItem = sortedDragablzItems[newIndex];
                     }
                     break;
+
                 case Key.Home:
                     selectDragablzItem = sortedDragablzItems.FirstOrDefault();
                     break;
+
                 case Key.End:
                     selectDragablzItem = sortedDragablzItems.LastOrDefault();
                     break;
@@ -850,11 +731,8 @@ namespace One.Control.Controls.Dragablz
                 base.OnKeyDown(e);
         }
 
-        /// <summary>
-        /// Provides an appropriate automation peer implementation for this control
-        /// as part of the WPF automation infrastructure.
-        /// </summary>
-        /// <returns>The type-specific System.Windows.Automation.Peers.AutomationPeer implementation.</returns>
+        /// <summary> Provides an appropriate automation peer implementation for this control as part of the WPF automation infrastructure. </summary>
+        /// <returns> The type-specific System.Windows.Automation.Peers.AutomationPeer implementation. </returns>
         protected override AutomationPeer OnCreateAutomationPeer()
         {
             return new FrameworkElementAutomationPeer(this);
@@ -1034,6 +912,7 @@ namespace One.Control.Controls.Dragablz
 
             e.Handled = true;
         }
+
         private bool MonitorReentry(DragablzDragDeltaEventArgs e)
         {
             var screenMousePosition = _dragablzItemsControl.PointToScreen(Mouse.GetPosition(_dragablzItemsControl));
@@ -1066,7 +945,6 @@ namespace One.Control.Controls.Dragablz
 
                     return new { tc, topLeft, bottomRight };
                 });
-
 
             var target = Native.SortWindowsTopToBottom(Application.Current.Windows.OfType<Window>())
                 .Join(otherTabablzControls, w => w, a => Window.GetWindow(a.tc), (w, a) => a)
@@ -1377,9 +1255,8 @@ namespace One.Control.Controls.Dragablz
                 newContainer.MouseAtDragStart = interTabTransfer.DragStartItemOffset;
             });
         }
-        /// <summary>
-        /// generate a ContentPresenter for the selected item
-        /// </summary>
+
+        /// <summary> generate a ContentPresenter for the selected item </summary>
         private void UpdateSelectedItem()
         {
             if (_itemsHolder == null)
@@ -1404,11 +1281,9 @@ namespace One.Control.Controls.Dragablz
             return (item is TabItem) ? ((TabItem)item).Content : item;
         }
 
-        /// <summary>
-        /// create the child ContentPresenter for the given item (could be data or a TabItem)
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
+        /// <summary> create the child ContentPresenter for the given item (could be data or a TabItem) </summary>
+        /// <param name="item"> </param>
+        /// <returns> </returns>
         private void CreateChildContentPresenter(object item)
         {
             if (item == null) return;
@@ -1416,7 +1291,7 @@ namespace One.Control.Controls.Dragablz
             var cp = FindChildContentPresenter(item);
             if (cp != null) return;
 
-            // the actual child to be added.  cp.Tag is a reference to the TabItem
+            // the actual child to be added. cp.Tag is a reference to the TabItem
             cp = new ContentPresenter
             {
                 Content = GetContent(item),
@@ -1428,11 +1303,9 @@ namespace One.Control.Controls.Dragablz
             _itemsHolder.Children.Add(cp);
         }
 
-        /// <summary>
-        /// Find the CP for the given object.  data could be a TabItem or a piece of data
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <summary> Find the CP for the given object. data could be a TabItem or a piece of data </summary>
+        /// <param name="data"> </param>
+        /// <returns> </returns>
         private ContentPresenter FindChildContentPresenter(object data)
         {
             if (data is TabItem)
@@ -1476,6 +1349,7 @@ namespace One.Control.Controls.Dragablz
         {
             e.CanExecute = FindOwner(e.Parameter, e.OriginalSource) != null;
         }
+
         private static void CloseItemClassHandler(object sender, ExecutedRoutedEventArgs e)
         {
             var owner = FindOwner(e.Parameter, e.OriginalSource);

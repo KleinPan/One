@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using One.Toolbox.Interfaces;
 using One.Toolbox.Views;
 
+using Wpf.Ui;
+
 namespace One.Toolbox.Services;
 
 /// <summary> Managed host of the application. </summary>

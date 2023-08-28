@@ -1,30 +1,22 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// Provides a little help for sizing the header panel in the tab control
-    /// </summary>
+    /// <summary> Provides a little help for sizing the header panel in the tab control </summary>
     public class TabablzHeaderSizeConverter : IMultiValueConverter
     {
         public Orientation Orientation { get; set; }
 
-        /// <summary>
-        /// The first value should be the total size available size, typically the parent control size.
-        /// The second value should be from <see cref="DragablzItemsControl.ItemsPresenterWidthProperty"/> or (height equivalent)
-        /// All additional values should be siblings sizes (width or height) which will affect (reduce) the available size.
-        /// </summary>
-        /// <param name="values"></param>
-        /// <param name="targetType"></param>
-        /// <param name="parameter"></param>
-        /// <param name="culture"></param>
-        /// <returns></returns>
+        /// <summary> The first value should be the total size available size, typically the parent control size. The second value should be from <see cref="DragablzItemsControl.ItemsPresenterWidthProperty"/> or (height equivalent) All additional values should be siblings sizes (width or height) which will affect (reduce) the available size. </summary>
+        /// <param name="values">     </param>
+        /// <param name="targetType"> </param>
+        /// <param name="parameter">  </param>
+        /// <param name="culture">    </param>
+        /// <returns> </returns>
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values == null) throw new ArgumentNullException("values");

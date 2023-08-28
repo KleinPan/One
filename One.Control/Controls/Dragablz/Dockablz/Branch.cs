@@ -60,10 +60,8 @@ namespace One.Control.Controls.Dragablz.Dockablz
             set { SetValue(SecondItemLengthProperty, value); }
         }
 
-        /// <summary>
-        /// Gets the proportional size of the first item, between 0 and 1, where 1 would represent the entire size of the branch.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets the proportional size of the first item, between 0 and 1, where 1 would represent the entire size of the branch. </summary>
+        /// <returns> </returns>
         public double GetFirstProportion()
         {
             return (1 / (FirstItemLength.Value + SecondItemLength.Value)) * FirstItemLength.Value;

@@ -4,8 +4,7 @@ using One.Toolbox.Interfaces;
 using One.Toolbox.ViewModels;
 using One.Toolbox.Views.Pages;
 
-using Wpf.Ui.Controls.Navigation;
-using Wpf.Ui.Services;
+using Wpf.Ui;
 
 namespace One.Toolbox.Views
 {
@@ -13,9 +12,9 @@ namespace One.Toolbox.Views
     public partial class MainWindow : IWindow
     {
         public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService,
-        IServiceProvider serviceProvider, ISnackbarService snackbarService, Wpf.Ui.Contracts.IContentDialogService contentDialogService)
+        IServiceProvider serviceProvider, ISnackbarService snackbarService, IContentDialogService contentDialogService)
         {
-            Wpf.Ui.Appearance.Watcher.Watch(this);
+            Wpf.Ui.Appearance.SystemThemeWatcher.Watch(this);
 
             DataContext = ViewModel = viewModel;
 
@@ -38,16 +37,15 @@ namespace One.Toolbox.Views
 
         private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (sender is not Wpf.Ui.Controls.Navigation.NavigationView navigationView)
+            if (sender is not NavigationView navigationView)
                 return;
 
             NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
-
             var targetVM = navigationView.SelectedItem?.TargetPageType.Name;
-            if (targetVM!= "DashboardPage")
+            if (targetVM != "DashboardPage")
             {
                 Analytics.TrackEvent($"{targetVM} clicked.");
             }

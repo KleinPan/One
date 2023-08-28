@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
-    /// <summary>
-    /// Provides information about where a tab control is withing a layout structure.
-    /// </summary>
+    /// <summary> Provides information about where a tab control is withing a layout structure. </summary>
     public class LocationReport
     {
         private readonly TabablzControl _tabablzControl;
@@ -43,17 +39,13 @@ namespace One.Control.Controls.Dragablz.Dockablz
             get { return _rootLayout; }
         }
 
-        /// <summary>
-        /// Gets the parent branch if this is a leaf. If the <see cref="TabablzControl"/> is directly under the <see cref="RootLayout"/> will be <c>null</c>.
-        /// </summary>
+        /// <summary> Gets the parent branch if this is a leaf. If the <see cref="TabablzControl"/> is directly under the <see cref="RootLayout"/> will be <c> null </c>. </summary>
         public Branch ParentBranch
         {
             get { return _parentBranch; }
         }
 
-        /// <summary>
-        /// Idicates if this is a leaf in a branch. <c>True</c> if <see cref="ParentBranch"/> is not null.
-        /// </summary>
+        /// <summary> Idicates if this is a leaf in a branch. <c> True </c> if <see cref="ParentBranch"/> is not null. </summary>
         public bool IsLeaf
         {
             get { return _isLeaf; }

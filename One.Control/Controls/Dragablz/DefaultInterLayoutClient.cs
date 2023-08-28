@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Runtime.ConstrainedExecution;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// Provides a simple implementation of <see cref="IInterLayoutClient"/>, but only really useful if
-    /// <see cref="TabItem"/> instances are specified in XAML.  If you are binding via ItemsSource then
-    /// you most likely want to create your own implementation of <see cref="IInterLayoutClient"/>.
-    /// </summary>
+    /// <summary> Provides a simple implementation of <see cref="IInterLayoutClient"/>, but only really useful if <see cref="TabItem"/> instances are specified in XAML. If you are binding via ItemsSource then you most likely want to create your own implementation of <see cref="IInterLayoutClient"/>. </summary>
     public class DefaultInterLayoutClient : IInterLayoutClient
     {
         public INewTabHost<UIElement> GetNewHost(object partition, TabablzControl source)

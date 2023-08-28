@@ -1,10 +1,11 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz
 {
@@ -33,12 +34,14 @@ namespace One.Control.Controls.Dragablz
                     _setLocation = (item, coord) => item.SetCurrentValue(DragablzItem.XProperty, coord);
                     _canvasDependencyProperty = Canvas.LeftProperty;
                     break;
+
                 case Orientation.Vertical:
                     _getDesiredSize = item => item.DesiredSize.Height;
                     _getLocation = item => item.Y;
                     _setLocation = (item, coord) => item.SetCurrentValue(DragablzItem.YProperty, coord);
                     _canvasDependencyProperty = Canvas.TopProperty;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException("orientation");
             }
@@ -82,7 +85,7 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-        #endregion
+        #endregion LocationInfo
 
         public virtual Orientation Orientation
         {
@@ -131,11 +134,9 @@ namespace One.Control.Controls.Dragablz
             }
         }
 
-
         public virtual void OrganiseOnMouseDownWithin(DragablzItemsControl requestor, Size measureBounds,
             List<DragablzItem> siblingItems, DragablzItem dragablzItem)
         {
-
         }
 
         private IDictionary<DragablzItem, LocationInfo> _siblingItemLocationOnDragStart;

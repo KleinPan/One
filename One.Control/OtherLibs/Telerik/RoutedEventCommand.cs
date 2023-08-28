@@ -8,6 +8,7 @@ namespace One.Control.OtherLibs.Telerik
     {
         private RoutedEvent routedEvent;
         private bool closeAllEvent;
+
         internal RoutedEventCommand(RoutedEvent targetRoutedEvent, bool closeAll)
         {
             this.routedEvent = targetRoutedEvent;
@@ -55,16 +56,12 @@ namespace One.Control.OtherLibs.Telerik
 
         private static IInputElement GetFocusedElement()
         {
-
             return Keyboard.FocusedElement;
-
         }
 
         private static bool IsValid(IInputElement e)
         {
-
             return e is UIElement || e is ContentElement || e is UIElement3D;
-
         }
     }
 }

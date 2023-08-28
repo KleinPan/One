@@ -1,5 +1,6 @@
-﻿using System;
-using System.CodeDom;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,6 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
-using One.Control.Controls.Dragablz.Core;
-using One.Control.Controls.Dragablz.Dockablz;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
@@ -98,20 +97,16 @@ namespace One.Control.Controls.Dragablz.Dockablz
             _floatingItems.SetBinding(ItemsControl.ItemContainerStyleSelectorProperty, floatingItemContainerStyleSelectorBinding);
         }
 
-        /// <summary>
-        /// Helper method to get all the currently loaded layouts.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Helper method to get all the currently loaded layouts. </summary>
+        /// <returns> </returns>
         public static IEnumerable<Layout> GetLoadedInstances()
         {
             return LoadedLayouts.ToList();
         }
 
-        /// <summary>
-        /// Finds the location of a tab control withing a layout.
-        /// </summary>
-        /// <param name="tabablzControl"></param>
-        /// <returns></returns>
+        /// <summary> Finds the location of a tab control withing a layout. </summary>
+        /// <param name="tabablzControl"> </param>
+        /// <returns> </returns>
         public static LocationReport Find(TabablzControl tabablzControl)
         {
             if (tabablzControl == null) throw new ArgumentNullException("tabablzControl");
@@ -119,43 +114,37 @@ namespace One.Control.Controls.Dragablz.Dockablz
             return Finder.Find(tabablzControl);
         }
 
-        /// <summary>
-        /// Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>.
-        /// </summary>
-        /// <para></para>
-        /// <param name="tabablzControl">Tab control to be split.</param>
-        /// <param name="orientation">Direction of split.</param>
-        /// <param name="makeSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
-        /// <remarks>The tab control to be split must be hosted in a layout control.</remarks>
+        /// <summary> Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>. </summary>
+        /// <para> </para>
+        /// <param name="tabablzControl"> Tab control to be split. </param>
+        /// <param name="orientation">    Direction of split. </param>
+        /// <param name="makeSecond">     Set to <c> true </c> to make the current tab control push into the right hand or bottom of the split. </param>
+        /// <remarks> The tab control to be split must be hosted in a layout control. </remarks>
         public static BranchResult Branch(TabablzControl tabablzControl, Orientation orientation, bool makeSecond)
         {
             return Branch(tabablzControl, orientation, makeSecond, .5);
         }
 
-        /// <summary>
-        /// Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>.
-        /// </summary>
-        /// <para></para>
-        /// <param name="tabablzControl">Tab control to be split.</param>
-        /// <param name="orientation">Direction of split.</param>
-        /// <param name="makeSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
-        /// <param name="firstItemProportion">Sets the proportion of the first tab control, with 0.5 being 50% of available space.</param>
-        /// <remarks>The tab control to be split must be hosted in a layout control.  <see cref="Layout.BranchTemplate" /> should be set (typically via XAML).</remarks>
+        /// <summary> Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>. </summary>
+        /// <para> </para>
+        /// <param name="tabablzControl">      Tab control to be split. </param>
+        /// <param name="orientation">         Direction of split. </param>
+        /// <param name="makeSecond">          Set to <c> true </c> to make the current tab control push into the right hand or bottom of the split. </param>
+        /// <param name="firstItemProportion"> Sets the proportion of the first tab control, with 0.5 being 50% of available space. </param>
+        /// <remarks> The tab control to be split must be hosted in a layout control. <see cref="Layout.BranchTemplate"/> should be set (typically via XAML). </remarks>
         public static BranchResult Branch(TabablzControl tabablzControl, Orientation orientation, bool makeSecond, double firstItemProportion)
         {
             return Branch(tabablzControl, null, orientation, makeSecond, firstItemProportion);
         }
 
-        /// <summary>
-        /// Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>.
-        /// </summary>
-        /// <para></para>
-        /// <param name="tabablzControl">Tab control to be split.</param>
-        /// <param name="newSiblingTabablzControl">New sibling tab control (otherwise <see cref="Layout.BranchTemplate"/> will be used).</param>
-        /// <param name="orientation">Direction of split.</param>
-        /// <param name="makeCurrentSecond">Set to <c>true</c> to make the current tab control push into the right hand or bottom of the split.</param>
-        /// <param name="firstItemProportion">Sets the proportion of the first tab control, with 0.5 being 50% of available space.</param>
-        /// <remarks>The tab control to be split must be hosted in a layout control. </remarks>
+        /// <summary> Creates a split in a layout, at the location of a specified <see cref="TabablzControl"/>. </summary>
+        /// <para> </para>
+        /// <param name="tabablzControl">           Tab control to be split. </param>
+        /// <param name="newSiblingTabablzControl"> New sibling tab control (otherwise <see cref="Layout.BranchTemplate"/> will be used). </param>
+        /// <param name="orientation">              Direction of split. </param>
+        /// <param name="makeCurrentSecond">        Set to <c> true </c> to make the current tab control push into the right hand or bottom of the split. </param>
+        /// <param name="firstItemProportion">      Sets the proportion of the first tab control, with 0.5 being 50% of available space. </param>
+        /// <remarks> The tab control to be split must be hosted in a layout control. </remarks>
         public static BranchResult Branch(TabablzControl tabablzControl, TabablzControl newSiblingTabablzControl, Orientation orientation, bool makeCurrentSecond,
             double firstItemProportion)
         {
@@ -194,10 +183,7 @@ namespace One.Control.Controls.Dragablz.Dockablz
             return branchResult;
         }
 
-        /// <summary>
-        /// Use in conjuction with the <see cref="InterTabController.Partition"/> on a <see cref="TabablzControl"/>
-        /// to isolate drag and drop spaces/control instances.
-        /// </summary>
+        /// <summary> Use in conjuction with the <see cref="InterTabController.Partition"/> on a <see cref="TabablzControl"/> to isolate drag and drop spaces/control instances. </summary>
         public string Partition { get; set; }
 
         public static readonly DependencyProperty InterLayoutClientProperty = DependencyProperty.Register(
@@ -252,24 +238,18 @@ namespace One.Control.Controls.Dragablz.Dockablz
             set { SetValue(IsFloatDropZoneEnabledProperty, value); }
         }
 
-        /// <summary>
-        /// Defines a margin for the container which hosts all floating items.
-        /// </summary>
+        /// <summary> Defines a margin for the container which hosts all floating items. </summary>
         public static readonly DependencyProperty FloatingItemsContainerMarginProperty = DependencyProperty.Register(
             "FloatingItemsContainerMargin", typeof(Thickness), typeof(Layout), new PropertyMetadata(default(Thickness)));
 
-        /// <summary>
-        /// Defines a margin for the container which hosts all floating items.
-        /// </summary>
+        /// <summary> Defines a margin for the container which hosts all floating items. </summary>
         public Thickness FloatingItemsContainerMargin
         {
             get { return (Thickness)GetValue(FloatingItemsContainerMarginProperty); }
             set { SetValue(FloatingItemsContainerMarginProperty, value); }
         }
 
-        /// <summary>
-        /// Floating items, such as tool/MDI windows, which will sit above the <see cref="Content"/>.
-        /// </summary>
+        /// <summary> Floating items, such as tool/MDI windows, which will sit above the <see cref="Content"/>. </summary>
         public ItemCollection FloatingItems
         {
             get { return _floatingItems.Items; }
@@ -278,9 +258,7 @@ namespace One.Control.Controls.Dragablz.Dockablz
         public static readonly DependencyProperty FloatingItemsSourceProperty = DependencyProperty.Register(
             "FloatingItemsSource", typeof(IEnumerable), typeof(Layout), new PropertyMetadata(default(IEnumerable)));
 
-        /// <summary>
-        /// Floating items, such as tool/MDI windows, which will sit above the <see cref="Content"/>.
-        /// </summary>
+        /// <summary> Floating items, such as tool/MDI windows, which will sit above the <see cref="Content"/>. </summary>
         public IEnumerable FloatingItemsSource
         {
             get { return (IEnumerable)GetValue(FloatingItemsSourceProperty); }
@@ -290,10 +268,7 @@ namespace One.Control.Controls.Dragablz.Dockablz
         public static readonly DependencyProperty FloatingItemsControlStyleProperty = DependencyProperty.Register(
             "FloatingItemsControlStyle", typeof(Style), typeof(Layout), new PropertyMetadata((Style)null));
 
-        /// <summary>
-        /// The style to be applied to the <see cref="DragablzItemsControl"/> which is used to display floating items.
-        /// In most scenarios it should be OK to leave this to that applied by the default style.
-        /// </summary>
+        /// <summary> The style to be applied to the <see cref="DragablzItemsControl"/> which is used to display floating items. In most scenarios it should be OK to leave this to that applied by the default style. </summary>
         public Style FloatingItemsControlStyle
         {
             get { return (Style)GetValue(FloatingItemsControlStyleProperty); }
@@ -381,28 +356,22 @@ namespace One.Control.Controls.Dragablz.Dockablz
                 "IsTopLeftItem", typeof(bool), typeof(Layout),
                 new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        /// Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
-        /// </summary>
+        /// <summary> Indicates if an item/tab control within a layout is contained at the top most and left most branch item. </summary>
         public static readonly DependencyProperty IsTopLeftItemProperty = IsTopLeftItemPropertyKey.DependencyProperty;
 
-        /// <summary>
-        /// Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
-        /// </summary>
+        /// <summary> Indicates if an item/tab control within a layout is contained at the top most and left most branch item. </summary>
         private static void SetIsTopLeftItem(DependencyObject element, bool value)
         {
             element.SetValue(IsTopLeftItemPropertyKey, value);
         }
 
-        /// <summary>
-        /// Indicates if an item/tab control within a layout is contained at the top most and left most branch item.
-        /// </summary>
+        /// <summary> Indicates if an item/tab control within a layout is contained at the top most and left most branch item. </summary>
         public static bool GetIsTopLeftItem(DependencyObject element)
         {
             return (bool)element.GetValue(IsTopLeftItemProperty);
         }
 
-        /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
+        /// <summary> When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>. </summary>
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -616,7 +585,6 @@ namespace One.Control.Controls.Dragablz.Dockablz
 
                 isSecondLineageWhenOwnerIsBranch = ancestoryStack.Contains(branch.SecondContentPresenter);
                 return branch;
-
             } while (node != null);
 
             return null;

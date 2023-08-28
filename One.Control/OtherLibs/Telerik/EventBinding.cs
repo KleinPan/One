@@ -1,48 +1,32 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using System.Reflection;
-using System;
 
 namespace One.Control.OtherLibs.Telerik
 {
-    /// <summary>
-    /// Represents a binding between an event and a command. The command is potentially a <see cref="RoutedCommand"/>. 
-    /// </summary>
+    /// <summary> Represents a binding between an event and a command. The command is potentially a <see cref="RoutedCommand"/>. </summary>
     public class EventBinding : Freezable, ICommandSource
     {
-
-        /// <summary>
-        /// Identifies the CommandParameter dependency property.
-        /// </summary>
+        /// <summary> Identifies the CommandParameter dependency property. </summary>
         public static readonly DependencyProperty CommandParameterProperty = InputBinding.CommandParameterProperty.AddOwner(typeof(EventBinding));
 
-        /// <summary>
-        /// Identifies the Command dependency property.
-        /// </summary>
+        /// <summary> Identifies the Command dependency property. </summary>
         public static readonly DependencyProperty CommandProperty = InputBinding.CommandProperty.AddOwner(typeof(EventBinding));
 
-        /// <summary>
-        /// Identifies the CommandTarget dependency property.
-        /// </summary>
+        /// <summary> Identifies the CommandTarget dependency property. </summary>
         public static readonly DependencyProperty CommandTargetProperty = InputBinding.CommandTargetProperty.AddOwner(typeof(EventBinding));
 
-
-        /// <summary>
-        /// Identifies the RaiseOnHandledEvents dependency property.
-        /// </summary>
+        /// <summary> Identifies the RaiseOnHandledEvents dependency property. </summary>
         public static readonly DependencyProperty RaiseOnHandledEventsProperty =
             DependencyProperty.Register("RaiseOnHandledEvents", typeof(bool), typeof(EventBinding), new System.Windows.PropertyMetadata(false, OnRaiseOnHandledEventsChanged));
 
-        /// <summary>
-        /// Identifies the EventName dependency property.
-        /// </summary>
+        /// <summary> Identifies the EventName dependency property. </summary>
         public static readonly DependencyProperty EventNameProperty =
             DependencyProperty.Register("EventName", typeof(string), typeof(EventBinding), new System.Windows.PropertyMetadata(string.Empty, OnEventNameChanged));
 
-        /// <summary>
-        /// Identifies the PassEventArgsToCommand property.
-        /// </summary>
+        /// <summary> Identifies the PassEventArgsToCommand property. </summary>
         public static readonly DependencyProperty PassEventArgsToCommandProperty =
             DependencyProperty.Register("PassEventArgsToCommand", typeof(bool), typeof(EventBinding), new PropertyMetadata(false));
 
@@ -52,10 +36,8 @@ namespace One.Control.OtherLibs.Telerik
         private RoutedEvent routedEvent;
         private UIElement visual;
 
-        /// <summary>
-        /// Gets or sets the name of the event that will open the context menu.
-        /// </summary>
-        /// <value>The name of the event.</value>
+        /// <summary> Gets or sets the name of the event that will open the context menu. </summary>
+        /// <value> The name of the event. </value>
         public string EventName
         {
             get
@@ -68,10 +50,7 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        /// Gets or sets whether <see cref="EventBinding"/> will raise the <see cref="Command"/> on handled routed events.
-        /// The default value is false. This is a dependency property.
-        /// </summary>
+        /// <summary> Gets or sets whether <see cref="EventBinding"/> will raise the <see cref="Command"/> on handled routed events. The default value is false. This is a dependency property. </summary>
         public bool RaiseOnHandledEvents
         {
             get
@@ -84,9 +63,7 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        ///  Gets or sets the <see cref="System.Windows.Input.ICommand" /> associated with this input binding.
-        /// </summary>
+        /// <summary> Gets or sets the <see cref="System.Windows.Input.ICommand"/> associated with this input binding. </summary>
 
         [Localizability(LocalizationCategory.NeverLocalize)]
         [TypeConverter(typeof(CommandConverter))]
@@ -102,9 +79,7 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        /// Gets or sets the command-specific data for a particular command.
-        /// </summary>
+        /// <summary> Gets or sets the command-specific data for a particular command. </summary>
         public object CommandParameter
         {
             get
@@ -117,9 +92,7 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        /// Gets or sets the target element of the command.
-        /// </summary>
+        /// <summary> Gets or sets the target element of the command. </summary>
         public IInputElement CommandTarget
         {
             get
@@ -132,10 +105,7 @@ namespace One.Control.OtherLibs.Telerik
             }
         }
 
-        /// <summary>
-        /// Gets or sets the value indicating if the event arguments will be passed to the command. If you specify
-        /// CommandParameter this value is ignored.
-        /// </summary>
+        /// <summary> Gets or sets the value indicating if the event arguments will be passed to the command. If you specify CommandParameter this value is ignored. </summary>
         public bool PassEventArgsToCommand
         {
             get
@@ -155,16 +125,12 @@ namespace One.Control.OtherLibs.Telerik
             this.AttachHandler(source);
         }
 
-
-        /// <summary>
-        /// Creates an instance of an <see cref="EventBinding"/>.
-        /// </summary>
-        /// <returns>A new instance of an <see cref="EventBinding"/>.</returns>
+        /// <summary> Creates an instance of an <see cref="EventBinding"/>. </summary>
+        /// <returns> A new instance of an <see cref="EventBinding"/>. </returns>
         protected override Freezable CreateInstanceCore()
         {
             return new EventBinding();
         }
-
 
         private static void OnEventNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -185,7 +151,6 @@ namespace One.Control.OtherLibs.Telerik
         {
             if (element != null)
             {
-
                 if (this.routedEvent != null)
                 {
                     element.RemoveHandler(this.routedEvent, new RoutedEventHandler(this.RoutedEventFired));
@@ -198,7 +163,6 @@ namespace One.Control.OtherLibs.Telerik
                 }
             }
         }
-
 
         private void AttachHandler(UIElement element)
         {

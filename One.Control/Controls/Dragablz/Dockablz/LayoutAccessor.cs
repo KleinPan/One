@@ -1,13 +1,12 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
-    /// <summary>
-    /// Provides information about the <see cref="Layout"/> instance.
-    /// </summary>
+    /// <summary> Provides information about the <see cref="Layout"/> instance. </summary>
     public class LayoutAccessor
     {
         private readonly Layout _layout;
@@ -37,26 +36,19 @@ namespace One.Control.Controls.Dragablz.Dockablz
             get { return _layout.FloatingDragablzItems(); }
         }
 
-        /// <summary>
-        /// <see cref="BranchAccessor"/> and <see cref="TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
-        /// </summary>
+        /// <summary> <see cref="BranchAccessor"/> and <see cref="TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control. </summary>
         public BranchAccessor BranchAccessor
         {
             get { return _branchAccessor; }
         }
 
-        /// <summary>
-        /// <see cref="BranchAccessor"/> and <see cref="TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control.
-        /// </summary>
+        /// <summary> <see cref="BranchAccessor"/> and <see cref="TabablzControl"/> are mutually exclusive, according to whether the layout has been split, or just contains a tab control. </summary>
         public TabablzControl TabablzControl
         {
             get { return _tabablzControl; }
         }
 
-        /// <summary>
-        /// Visits the content of the layout, according to its content type.  No more than one of the provided <see cref="Action"/>
-        /// callbacks will be called.
-        /// </summary>
+        /// <summary> Visits the content of the layout, according to its content type. No more than one of the provided <see cref="Action"/> callbacks will be called. </summary>
         public LayoutAccessor Visit(
             Action<BranchAccessor> branchVisitor = null,
             Action<TabablzControl> tabablzControlVisitor = null,
@@ -86,10 +78,8 @@ namespace One.Control.Controls.Dragablz.Dockablz
             return this;
         }
 
-        /// <summary>
-        /// Gets all the Tabablz controls in a Layout, regardless of location.
-        /// </summary>
-        /// <returns></returns>
+        /// <summary> Gets all the Tabablz controls in a Layout, regardless of location. </summary>
+        /// <returns> </returns>
         public IEnumerable<TabablzControl> TabablzControls()
         {
             var tabablzControls = new List<TabablzControl>();

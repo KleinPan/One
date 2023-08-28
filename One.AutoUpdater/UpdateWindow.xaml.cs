@@ -1,5 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using One.AutoUpdater.Models;
+using One.AutoUpdater.Utilities;
+
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -9,9 +11,6 @@ using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
-
-using One.AutoUpdater.Models;
-using One.AutoUpdater.Utilities;
 
 //xcopy $(ProjectDir)Resources $(OutDir) /Y
 namespace One.AutoUpdater
@@ -45,7 +44,7 @@ namespace One.AutoUpdater
             btn_Update.Click += Btn_Update_Click;
             Closing += MainWindow_Closing;
 
-            txbTip.Text = $@"有新版本{args.CurrentVersion}可用，当前使用版本为{ args.InstalledVersion}";
+            txbTip.Text = $@"有新版本{args.CurrentVersion}可用，当前使用版本为{args.InstalledVersion}";
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -187,7 +186,6 @@ namespace One.AutoUpdater
 
                 if (extension.Equals(".zip", StringComparison.OrdinalIgnoreCase))
                 {
-
                     string executablePath = Process.GetCurrentProcess().MainModule.FileName;
                     string extractionPath = Path.GetDirectoryName(executablePath);
 
@@ -207,10 +205,6 @@ namespace One.AutoUpdater
 
                     string installerPath4 = Path.Combine(extractionPath, "ZipExtractor.runtimeconfig.dev.json");
                     File.WriteAllBytes(installerPath4, Properties.Resources.ZipExtractor_runtimeconfig_dev);
-                 
-
-
-
 
                     if (!string.IsNullOrEmpty(AutoUpdater.InstallationPath) &&
                         Directory.Exists(AutoUpdater.InstallationPath))
@@ -220,8 +214,6 @@ namespace One.AutoUpdater
                     //总长度 5  0 被启动的程序自己路径  1 压缩包目录（包括文件名）  2 解压目录  3 可执行文件路径 4 启动参数
                     //StringBuilder arguments = new StringBuilder($"\"{tempPath}\" \"{extractionPath}\" \"{executablePath}\"");
                     StringBuilder arguments = new StringBuilder($"\"{tempPath}\" \"{extractionPath}\" \"{executablePath}\"");
-
-
 
                     string[] args = Environment.GetCommandLineArgs();
                     for (int i = 1; i < args.Length; i++)
@@ -240,10 +232,7 @@ namespace One.AutoUpdater
                         FileName = installerPath,
                         UseShellExecute = false,
                         Arguments = arguments.ToString(),
-
                     };
-
-
                 }
 
                 #endregion zip

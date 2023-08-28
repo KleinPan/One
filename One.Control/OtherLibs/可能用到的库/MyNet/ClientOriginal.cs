@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace EsspClassLibrary.MyNet
@@ -14,27 +11,27 @@ namespace EsspClassLibrary.MyNet
         #region 变量
 
         public Socket sckClient = null;
-        /// <summary>
-        /// 原始字节数据
-        /// </summary>
-        public byte[] ReceiveBuf = new byte[1024];
- 
-        private byte[] SendBuf = new byte[1024 ];
 
-        /// <summary>接收数据存储区</summary>
+        /// <summary> 原始字节数据 </summary>
+        public byte[] ReceiveBuf = new byte[1024];
+
+        private byte[] SendBuf = new byte[1024];
+
+        /// <summary> 接收数据存储区 </summary>
         public string DataReceived = "";
 
-        /// <summary>发送数据存储区</summary>
+        /// <summary> 发送数据存储区 </summary>
         public string DataSend = "";
 
         public string Tip = "连接失败！";
 
         public Socket sendSocket = null;
+
         #endregion 变量
 
-        /// <summary>初始化作为客户端并连接</summary>
-        /// <param name="ip">  </param>
-        /// <param name="port"></param>
+        /// <summary> 初始化作为客户端并连接 </summary>
+        /// <param name="ip">   </param>
+        /// <param name="port"> </param>
         public bool InitAsClient(string ip, int port)
         {
             try
@@ -56,15 +53,14 @@ namespace EsspClassLibrary.MyNet
                 return false;
             }
         }
-        /// <summary>初始化作为客户端并连接</summary>
-        /// <param name="ip">  </param>
-        /// <param name="port"></param>
+
+        /// <summary> 初始化作为客户端并连接 </summary>
+        /// <param name="ip">   </param>
+        /// <param name="port"> </param>
         public bool InitAsClient(IPAddress ip, int port)
         {
             try
             {
-               
-
                 IPEndPoint iep = new IPEndPoint(ip, port);
 
                 //创建客户端套接字
@@ -81,8 +77,8 @@ namespace EsspClassLibrary.MyNet
             }
         }
 
-        /// <summary>断开当前客户端连接</summary>
-        /// <returns></returns>
+        /// <summary> 断开当前客户端连接 </summary>
+        /// <returns> </returns>
         public bool UnInitAsClient()
         {
             try
@@ -98,8 +94,8 @@ namespace EsspClassLibrary.MyNet
             }
         }
 
-        /// <summary>连接服务器回调函数</summary>
-        /// <param name="ar"></param>
+        /// <summary> 连接服务器回调函数 </summary>
+        /// <param name="ar"> </param>
         private void ConnectCallback(IAsyncResult ar)
         {
             try
@@ -122,8 +118,7 @@ namespace EsspClassLibrary.MyNet
             try
             {
                 //接收数据
-                sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None , new AsyncCallback(ReceiveCallback), sckClient);
-           
+                sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
             }
             catch (Exception e)
             {
@@ -145,8 +140,8 @@ namespace EsspClassLibrary.MyNet
 
         private bool bFirst = false;
 
-        /// <summary>接收数据回调函数</summary>
-        /// <param name="ar"></param>
+        /// <summary> 接收数据回调函数 </summary>
+        /// <param name="ar"> </param>
         private void ReceiveCallback(IAsyncResult ar)
         {
             Socket sckReceive = (Socket)ar.AsyncState;
@@ -170,17 +165,12 @@ namespace EsspClassLibrary.MyNet
                 bFirst = true;
             }
 
-      
             //再次接收数据
             sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
-        
-
-           
-
         }
 
-        /// <summary>需要在外部重写对消息格式 最后需要加上SendData(string data)</summary>
-        /// <param name="mes"></param>
+        /// <summary> 需要在外部重写对消息格式 最后需要加上SendData(string data) </summary>
+        /// <param name="mes"> </param>
         public virtual void ReceiveAndSend(string mes)
         {
         }

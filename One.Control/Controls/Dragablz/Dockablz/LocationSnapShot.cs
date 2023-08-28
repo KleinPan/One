@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
-    /// <summary>
-    /// Initially needed to restore MDI dragablz items styles after a max then restore,
-    /// as the trigger which binds the item width to the canvas width sets the  Width back to the default
-    /// (e.g double.NaN) when the trigger is unset.  so we need to re-apply sizes manually
-    /// </summary>
+    /// <summary> Initially needed to restore MDI dragablz items styles after a max then restore, as the trigger which binds the item width to the canvas width sets the Width back to the default (e.g double.NaN) when the trigger is unset. so we need to re-apply sizes manually </summary>
     internal class LocationSnapShot
     {
         private readonly double _width;

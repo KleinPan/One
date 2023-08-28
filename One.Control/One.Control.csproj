@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
 	<PackageTags>C#,.Net Core,WPF</PackageTags>
     <UseWPF>true</UseWPF>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.4.0</Version>
+    <Version>3.5.0</Version>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Description>A control library ,Contain som useful controls and methods...</Description>
+	<PackageReleaseNotes>Update DotNet version to 7.0</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

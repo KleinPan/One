@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace One.Control.Controls.Dragablz.Core
-{  
-    /// <summary>
-   /// Non-client hit test values, HT*
-   /// </summary>
+﻿namespace One.Control.Controls.Dragablz.Core
+{
+    /// <summary> Non-client hit test values, HT* </summary>
     internal enum HitTest
     {
         HT_ERROR = -2,

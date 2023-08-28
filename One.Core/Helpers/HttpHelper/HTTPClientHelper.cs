@@ -1,4 +1,6 @@
-﻿using System;
+﻿using One.Core.ExtensionMethods;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -6,13 +8,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using One.Core.ExtensionMethods;
-
 namespace One.Core.Helper.HttpHelper
 {
-    /// <summary>
-    /// 主要用于get post请求
-    /// </summary>
+    /// <summary> 主要用于get post请求 </summary>
     public class HTTPClientHelper
     {
         private static readonly HttpClient HttpClient;
@@ -64,12 +62,10 @@ namespace One.Core.Helper.HttpHelper
             return HttpPostRequestAsync(Url, paramArray, ContentType: "application/x-www-form-urlencoded");
         }
 
-        /// <summary>
-        /// 123
-        /// </summary>
-        /// <param name="Url"></param>
-        /// <param name="jsonstr">234</param>
-        /// <returns></returns>
+        /// <summary> 123 </summary>
+        /// <param name="Url">     </param>
+        /// <param name="jsonstr"> 234 </param>
+        /// <returns> </returns>
         public static object HttpPostJsonRequestAsync(string Url, string jsonstr)
         {
             try
@@ -101,13 +97,16 @@ namespace One.Core.Helper.HttpHelper
             }
         }
 
-        /// <summary>
-        /// 异步POST请求
-        /// </summary>
-        /// <param name="Url">234</param>
-        /// <param name="paramArray">324</param>
-        /// <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&amp;间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
-        /// <returns></returns>
+        /// <summary> 异步POST请求 </summary>
+        /// <param name="Url">         234 </param>
+        /// <param name="paramArray">  324 </param>
+        /// <param name="ContentType">
+        /// <para> POST请求的两种编码格式:  </para>
+        /// "application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&amp;间隔；
+        /// <para> "multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。 </para>
+        /// <para> 除了这两个编码格式，还有"application/json"也经常使用。 </para>
+        /// </param>
+        /// <returns> </returns>
         public static string HttpPostRequestAsync(string Url, Dictionary<string, string> paramArray, string ContentType = "application/x-www-form-urlencoded")
         {
             string result = "";
@@ -150,13 +149,7 @@ namespace One.Core.Helper.HttpHelper
             return result;
         }
 
-        /// <summary>
-        /// 异步POST请求
-        /// </summary>
-        /// <param name="Url">234</param>
-        /// <param name="paramArray">324</param>
-        /// <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&（&amp;）用间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param>
-        /// <returns></returns>
+        /// <summary> 异步POST请求 </summary> <param name="Url">234</param> <param name="paramArray">324</param> <param name="ContentType"><para>POST请求的两种编码格式:</para>"application/x-www-urlencoded"是浏览器默认的编码格式,用于键值对参数,参数之间用&（&amp;）用间隔；<para>"multipart/form-data"常用于文件等二进制，也可用于键值对参数，最后连接成一串字符传输(参考Java OK HTTP)。</para><para>除了这两个编码格式，还有"application/json"也经常使用。</para></param> <returns></returns>
         private static Task<HttpResponseMessage> HttpPostRequestAsync(string Url, string jsonStr, string ContentType = "application/x-www-form-urlencoded")//"application/x-www-form-urlencoded"
         {
             var postData = jsonStr;

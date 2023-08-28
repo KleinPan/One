@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Control.Controls.Dragablz.Dockablz
 {
@@ -18,17 +16,13 @@ namespace One.Control.Controls.Dragablz.Dockablz
             _tabablzControl = tabablzControl;
         }
 
-        /// <summary>
-        /// The new branch.
-        /// </summary>
+        /// <summary> The new branch. </summary>
         public Branch Branch
         {
             get { return _branch; }
         }
 
-        /// <summary>
-        /// The new tab control.
-        /// </summary>
+        /// <summary> The new tab control. </summary>
         public TabablzControl TabablzControl
         {
             get { return _tabablzControl; }

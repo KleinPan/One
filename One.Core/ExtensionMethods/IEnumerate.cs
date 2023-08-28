@@ -26,13 +26,12 @@ namespace One.Core.ExtensionMethods
                 }
             }
         }
-        /// <summary>
-        /// 获取指定筛选条件下对象的Index
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="collection"></param>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
+
+        /// <summary> 获取指定筛选条件下对象的Index </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> </param>
+        /// <param name="predicate">  </param>
+        /// <returns> </returns>
         public static int FindIndex<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
         {
             int i = 0;

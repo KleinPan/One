@@ -1,8 +1,9 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Dockablz;
+
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using One.Control.Controls.Dragablz.Dockablz;
 
 namespace One.Control.Controls.Dragablz.Core
 {

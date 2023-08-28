@@ -1,36 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
+﻿using Microsoft.Win32;
+
 using One.AutoUpdater.Interfaces;
-using Microsoft.Win32;
+
+using System;
+using System.Globalization;
 
 namespace One.AutoUpdater.Utilities
 {
-    /// <summary>
-    /// Provides a mechanism for storing AutoUpdater state between sessions based on storing data on the Windows Registry.
-    /// </summary>
+    /// <summary> Provides a mechanism for storing AutoUpdater state between sessions based on storing data on the Windows Registry. </summary>
     public class RegistryPersistenceProvider : IPersistenceProvider
     {
-        /// <summary>
-        /// Gets/sets the path for the Windows Registry key that will contain the data.
-        /// </summary>
+        /// <summary> Gets/sets the path for the Windows Registry key that will contain the data. </summary>
         public string RegistryLocation { get; }
 
         private const string RemindLaterValueName = "RemindLaterAt";
 
         private const string SkippedVersionValueName = "SkippedVersion";
 
-        /// <summary>
-        /// Initializes a new instance of the RegistryPersistenceProvider class indicating the path for the Windows registry key to use for storing the data.
-        /// </summary>
-        /// <param name="registryLocation"></param>
+        /// <summary> Initializes a new instance of the RegistryPersistenceProvider class indicating the path for the Windows registry key to use for storing the data. </summary>
+        /// <param name="registryLocation"> </param>
         public RegistryPersistenceProvider(string registryLocation)
         {
             RegistryLocation = registryLocation;
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public Version GetSkippedVersion()
         {
             try
@@ -53,8 +47,7 @@ namespace One.AutoUpdater.Utilities
             return null;
         }
 
-
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public DateTime? GetRemindLater()
         {
             using (RegistryKey updateKey = Registry.CurrentUser.OpenSubKey(RegistryLocation))
@@ -71,7 +64,7 @@ namespace One.AutoUpdater.Utilities
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void SetSkippedVersion(Version version)
         {
             using (RegistryKey autoUpdaterKey = Registry.CurrentUser.CreateSubKey(RegistryLocation))
@@ -80,7 +73,7 @@ namespace One.AutoUpdater.Utilities
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void SetRemindLater(DateTime? remindLaterAt)
         {
             using (RegistryKey autoUpdaterKey = Registry.CurrentUser.CreateSubKey(RegistryLocation))

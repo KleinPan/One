@@ -1,10 +1,9 @@
-﻿using System;
+﻿using One.Core.Helpers;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-
-using One.Core.Helper;
-using One.Core.Helpers;
 
 namespace One.Core.ExtensionMethods
 {

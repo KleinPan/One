@@ -31,6 +31,5 @@ namespace One.Control.Controls.Dragablz.Dockablz
             get { return (bool)GetValue(IsOfferedProperty); }
             internal set { SetValue(IsOfferedPropertyKey, value); }
         }
-
     }
 }

@@ -5,8 +5,6 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Net.Sockets;
 
-using Wpf.Ui.Controls.Navigation;
-
 namespace One.Toolbox.ViewModels
 {
     public partial class NetworkViewModel : BaseViewModel, INavigationAware
@@ -106,7 +104,7 @@ namespace One.Toolbox.ViewModels
         }
 
         [RelayCommand]
-        void Listen()
+        private void Listen()
         {
             int port;
             if (int.TryParse(InputPort, out port))

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// Helper class to create view models, particularly for tool/MDI windows.
-    /// </summary>
+    /// <summary> Helper class to create view models, particularly for tool/MDI windows. </summary>
     public class HeaderedItemViewModel : INotifyPropertyChanged
     {
         private bool _isSelected;
@@ -37,7 +30,6 @@ namespace One.Control.Controls.Dragablz
                 _header = value;
 
                 OnPropertyChanged();
-
             }
         }
 
@@ -50,7 +42,6 @@ namespace One.Control.Controls.Dragablz
                 _content = value;
 
                 OnPropertyChanged();
-
             }
         }
 
@@ -63,7 +54,6 @@ namespace One.Control.Controls.Dragablz
                 _isSelected = value;
 
                 OnPropertyChanged();
-
             }
         }
 

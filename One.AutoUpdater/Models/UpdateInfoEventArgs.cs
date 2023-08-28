@@ -76,7 +76,10 @@ namespace One.AutoUpdater.Models
         }
     }
 
-    /// <summary> Mandatory class to fetch the XML values related to Mandatory field. <para>强制类，以获取与强制字段相关的XML值。</para></summary>
+    /// <summary>
+    /// Mandatory class to fetch the XML values related to Mandatory field.
+    /// <para> 强制类，以获取与强制字段相关的XML值。 </para>
+    /// </summary>
     public class Mandatory
     {
         /// <summary> Value of the Mandatory field. </summary>

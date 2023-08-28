@@ -1,7 +1,6 @@
 ﻿using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Model;
-using One.Toolbox.Models.Serialport;
 using One.Toolbox.Tools;
 using One.Toolbox.Views;
 
@@ -10,10 +9,6 @@ using System.IO.Ports;
 using System.Management;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
-
-using Wpf.Ui.Controls.Navigation;
-
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace One.Toolbox.ViewModels.Serialport
 {

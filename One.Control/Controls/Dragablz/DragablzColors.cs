@@ -1,21 +1,18 @@
-﻿using System;
+﻿using One.Control.Controls.Dragablz.Core;
+
+using System;
 using System.Windows;
 using System.Windows.Media;
-using One.Control.Controls.Dragablz.Core;
 
 namespace One.Control.Controls.Dragablz
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <remarks>
-    /// In supporting .Net 4.0 we don't have access to SystemParameters.WindowGlassBrush, and even then
-    /// the opacity is not provided, so this class wraps up a few issues around here.
-    /// </remarks>
+    /// <summary> </summary>
+    /// <remarks> In supporting .Net 4.0 we don't have access to SystemParameters.WindowGlassBrush, and even then the opacity is not provided, so this class wraps up a few issues around here. </remarks>
     public static class DragablzColors
     {
         //TODO listen to changes from the OS to provide updates
         public static Color WindowBaseColor = Color.FromRgb(217, 217, 217);
+
         public static Brush WindowGlassBrush = GetWindowGlassBrush();
         public static Brush WindowGlassBalancedBrush = GetBalancedWindowGlassBrush();
         public static Brush WindowInactiveBrush = GetWindowInactiveBrush();
@@ -28,7 +25,6 @@ namespace One.Control.Controls.Dragablz
 
             return new SolidColorBrush(frameColor);
         }
-
 
         private static Brush GetBalancedWindowGlassBrush()
         {
@@ -69,6 +65,5 @@ namespace One.Control.Controls.Dragablz
             var buff = channel1 + (channel2 - channel1) * channel2Percentage / 100D;
             return Math.Min((byte)Math.Round(buff), (byte)255);
         }
-
     }
 }

@@ -4,10 +4,7 @@ using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
 
-using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
-using Wpf.Ui.Controls.IconElements;
-using Wpf.Ui.Controls.Navigation;
+using Wpf.Ui;
 
 namespace One.Toolbox.ViewModels;
 

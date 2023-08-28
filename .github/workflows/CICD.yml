@@ -86,7 +86,7 @@ jobs:
       #- name: 'Echo download path'
       #  run: echo ${{steps.download.outputs.download-path}}
       - run: dotnet tool update -g docfx
-      - run: docfx docfx_project/docfx.json
+      - run: docfx docs/docfx_project/docfx.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -45,7 +45,7 @@
         ]
       }
     ],
-    "output": "_site",
+    "output": "../_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [

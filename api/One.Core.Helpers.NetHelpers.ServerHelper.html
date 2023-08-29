@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Server
+      <title>Class ServerHelper
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Server
+      <meta name="title" content="Class ServerHelper
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=EsspClassLibrary_MyNet_Server.md&amp;value=---%0Auid%3A%20EsspClassLibrary.MyNet.Server%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_NetHelpers_ServerHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.NetHelpers.ServerHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
   </head>
 
   <script type="module">
@@ -73,25 +73,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EsspClassLibrary.MyNet.Server">
+        <article data-uid="One.Core.Helpers.NetHelpers.ServerHelper">
 
 
 
-  <h1 id="EsspClassLibrary_MyNet_Server" data-uid="EsspClassLibrary.MyNet.Server" class="text-break">
-    Class Server
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Helpers_NetHelpers_ServerHelper" data-uid="One.Core.Helpers.NetHelpers.ServerHelper" class="text-break">
+    Class ServerHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EsspClassLibrary.html">EsspClassLibrary</a>.<a class="xref" href="EsspClassLibrary.MyNet.html">MyNet</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>One.Control.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a>.<a class="xref" href="One.Core.Helpers.NetHelpers.html">NetHelpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Server</code></pre>
+    <pre><code class="lang-csharp hljs">public class ServerHelper : BaseHelper</code></pre>
   </div>
 
 
@@ -101,7 +101,8 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">Server</span></div>
+      <div><a class="xref" href="One.Core.Helpers.BaseHelper.html">BaseHelper</a></div>
+      <div><span class="xref">ServerHelper</span></div>
     </dd>
   </dl>
 
@@ -110,6 +111,9 @@
   <dl class="typelist derived">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="One.Core.Helpers.BaseHelper.html#One_Core_Helpers_BaseHelper_WriteLog_System_String_">BaseHelper.WriteLog(string)</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -138,14 +142,49 @@
 
 
 
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="One_Core_Helpers_NetHelpers_ServerHelper__ctor_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.#ctor*"></a>
+
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper__ctor_System_Action_System_String__" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.#ctor(System.Action{System.String})">
+  ServerHelper(Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServerHelper(Action&lt;string&gt; logAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="fields">Fields
 </h2>
 
 
 
-  <h3 id="EsspClassLibrary_MyNet_Server_DataReceived" data-uid="EsspClassLibrary.MyNet.Server.DataReceived">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_DataReceived" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.DataReceived">
   DataReceived
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>接收数据存储区</p>
@@ -174,16 +213,16 @@
 
 
 
-  <h3 id="EsspClassLibrary_MyNet_Server_listConnection" data-uid="EsspClassLibrary.MyNet.Server.listConnection">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_listConnection" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.listConnection">
   listConnection
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;Socket&gt; listConnection</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Socket&gt; listConnection</code></pre>
   </div>
 
 
@@ -191,7 +230,7 @@
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets.socket">Socket</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets.socket">Socket</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -204,9 +243,9 @@
 
 
 
-  <h3 id="EsspClassLibrary_MyNet_Server_sckSend" data-uid="EsspClassLibrary.MyNet.Server.sckSend">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_sckSend" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.sckSend">
   sckSend
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -237,11 +276,11 @@
 </h2>
 
 
-  <a id="EsspClassLibrary_MyNet_Server_InitAsServer_" data-uid="EsspClassLibrary.MyNet.Server.InitAsServer*"></a>
+  <a id="One_Core_Helpers_NetHelpers_ServerHelper_InitAsServer_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.InitAsServer*"></a>
 
-  <h3 id="EsspClassLibrary_MyNet_Server_InitAsServer_System_String_System_Int32_" data-uid="EsspClassLibrary.MyNet.Server.InitAsServer(System.String,System.Int32)">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_InitAsServer_System_String_System_Int32_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.InitAsServer(System.String,System.Int32)">
   InitAsServer(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>初始化作为服务器并启动</p>
@@ -276,11 +315,11 @@
 
 
 
-  <a id="EsspClassLibrary_MyNet_Server_ReceiveAndSend_" data-uid="EsspClassLibrary.MyNet.Server.ReceiveAndSend*"></a>
+  <a id="One_Core_Helpers_NetHelpers_ServerHelper_ReceiveAndSend_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.ReceiveAndSend*"></a>
 
-  <h3 id="EsspClassLibrary_MyNet_Server_ReceiveAndSend_System_String_" data-uid="EsspClassLibrary.MyNet.Server.ReceiveAndSend(System.String)">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_ReceiveAndSend_System_String_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.ReceiveAndSend(System.String)">
   ReceiveAndSend(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>需要在外部重写对消息格式 最后需要加上SendData(string data)</p>
@@ -308,11 +347,11 @@
 
 
 
-  <a id="EsspClassLibrary_MyNet_Server_SendData_" data-uid="EsspClassLibrary.MyNet.Server.SendData*"></a>
+  <a id="One_Core_Helpers_NetHelpers_ServerHelper_SendData_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.SendData*"></a>
 
-  <h3 id="EsspClassLibrary_MyNet_Server_SendData_System_String_" data-uid="EsspClassLibrary.MyNet.Server.SendData(System.String)">
+  <h3 id="One_Core_Helpers_NetHelpers_ServerHelper_SendData_System_String_" data-uid="One.Core.Helpers.NetHelpers.ServerHelper.SendData(System.String)">
   SendData(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>发送数据</p>
@@ -344,7 +383,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Control/OtherLibs/可能用到的库/MyNet/Server.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ServerHelper.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
         

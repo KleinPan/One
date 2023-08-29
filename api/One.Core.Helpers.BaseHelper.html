@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class DragablzColors
+      <title>Class BaseHelper
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class DragablzColors
+      <meta name="title" content="Class BaseHelper
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Control_Controls_Dragablz_DragablzColors.md&amp;value=---%0Auid%3A%20One.Control.Controls.Dragablz.DragablzColors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_BaseHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.BaseHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
   </head>
 
   <script type="module">
@@ -73,25 +73,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Control.Controls.Dragablz.DragablzColors">
+        <article data-uid="One.Core.Helpers.BaseHelper">
 
 
 
-  <h1 id="One_Control_Controls_Dragablz_DragablzColors" data-uid="One.Control.Controls.Dragablz.DragablzColors" class="text-break">
-    Class DragablzColors
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Helpers_BaseHelper" data-uid="One.Core.Helpers.BaseHelper" class="text-break">
+    Class BaseHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/BaseHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Control.html">Control</a>.<a class="xref" href="One.Control.Controls.html">Controls</a>.<a class="xref" href="One.Control.Controls.Dragablz.html">Dragablz</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>One.Control.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>帮助类的基类</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class DragablzColors</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseHelper</code></pre>
   </div>
 
 
@@ -101,11 +102,20 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">DragablzColors</span></div>
+      <div><span class="xref">BaseHelper</span></div>
     </dd>
   </dl>
 
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="One.Core.Helpers.IOHelper.html">IOHelper</a></div>
+      <div><a class="xref" href="One.Core.Helpers.NetHelpers.ClientHelper.html">ClientHelper</a></div>
+      <div><a class="xref" href="One.Core.Helpers.NetHelpers.ServerHelper.html">ServerHelper</a></div>
+      <div><a class="xref" href="One.Core.Helpers.ProcessHelper.html">ProcessHelper</a></div>
+    </dd>
+  </dl>
 
   <dl class="typelist derived">
     <dt>Inherited Members</dt>
@@ -136,34 +146,29 @@
 
 
 
-  <h2 id="One_Control_Controls_Dragablz_DragablzColors_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>In supporting .Net 4.0 we don't have access to SystemParameters.WindowGlassBrush, and even then the opacity is not provided, so this class wraps up a few issues around here.</p>
-</div>
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="constructors">Constructors
 </h2>
 
 
+  <a id="One_Core_Helpers_BaseHelper__ctor_" data-uid="One.Core.Helpers.BaseHelper.#ctor*"></a>
 
-  <h3 id="One_Control_Controls_Dragablz_DragablzColors_WindowBaseColor" data-uid="One.Control.Controls.Dragablz.DragablzColors.WindowBaseColor">
-  WindowBaseColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_BaseHelper__ctor_System_Action_System_String__" data-uid="One.Core.Helpers.BaseHelper.#ctor(System.Action{System.String})">
+  BaseHelper(Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/BaseHelper.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Color WindowBaseColor</code></pre>
+    <pre><code class="lang-csharp hljs">public BaseHelper(Action&lt;string&gt; logAction = null)</code></pre>
   </div>
 
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.color">Color</a></dt>
+    <dt><code>logAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -176,86 +181,35 @@
 
 
 
-  <h3 id="One_Control_Controls_Dragablz_DragablzColors_WindowGlassBalancedBrush" data-uid="One.Control.Controls.Dragablz.DragablzColors.WindowGlassBalancedBrush">
-  WindowGlassBalancedBrush
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L17"><i class="bi bi-code-slash"></i></a>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="One_Core_Helpers_BaseHelper_WriteLog_" data-uid="One.Core.Helpers.BaseHelper.WriteLog*"></a>
+
+  <h3 id="One_Core_Helpers_BaseHelper_WriteLog_System_String_" data-uid="One.Core.Helpers.BaseHelper.WriteLog(System.String)">
+  WriteLog(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/BaseHelper.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>基类实现的打印log</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Brush WindowGlassBalancedBrush</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void WriteLog(string msg)</code></pre>
   </div>
 
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.brush">Brush</a></dt>
+    <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
 
 
-
-
-
-
-
-
-
-  <h3 id="One_Control_Controls_Dragablz_DragablzColors_WindowGlassBrush" data-uid="One.Control.Controls.Dragablz.DragablzColors.WindowGlassBrush">
-  WindowGlassBrush
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L16"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Brush WindowGlassBrush</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.brush">Brush</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="One_Control_Controls_Dragablz_DragablzColors_WindowInactiveBrush" data-uid="One.Control.Controls.Dragablz.DragablzColors.WindowInactiveBrush">
-  WindowInactiveBrush
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L18"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Brush WindowInactiveBrush</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.brush">Brush</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -269,7 +223,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DragablzColors.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/BaseHelper.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
         

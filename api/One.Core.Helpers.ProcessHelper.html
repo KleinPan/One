@@ -91,7 +91,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ProcessHelper</code></pre>
+    <pre><code class="lang-csharp hljs">public class ProcessHelper : BaseHelper</code></pre>
   </div>
 
 
@@ -101,6 +101,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="One.Core.Helpers.BaseHelper.html">BaseHelper</a></div>
       <div><span class="xref">ProcessHelper</span></div>
     </dd>
   </dl>
@@ -110,6 +111,9 @@
   <dl class="typelist derived">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="One.Core.Helpers.BaseHelper.html#One_Core_Helpers_BaseHelper_WriteLog_System_String_">BaseHelper.WriteLog(string)</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -245,7 +249,7 @@
 
   <h3 id="One_Core_Helpers_ProcessHelper_KillProcessByID_System_Int32_" data-uid="One.Core.Helpers.ProcessHelper.KillProcessByID(System.Int32)">
   KillProcessByID(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -276,7 +280,7 @@
 
   <h3 id="One_Core_Helpers_ProcessHelper_KillProcessByName_System_String_" data-uid="One.Core.Helpers.ProcessHelper.KillProcessByName(System.String)">
   KillProcessByName(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L184"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -307,7 +311,7 @@
 
   <h3 id="One_Core_Helpers_ProcessHelper_RunExe_System_String_System_String_System_String_" data-uid="One.Core.Helpers.ProcessHelper.RunExe(System.String,System.String,System.String)">
   RunExe(string, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -342,7 +346,7 @@
 
   <h3 id="One_Core_Helpers_ProcessHelper_RunExeAndReadResult_System_String_System_String_System_String_System_String__" data-uid="One.Core.Helpers.ProcessHelper.RunExeAndReadResult(System.String,System.String,System.String,System.String@)">
   RunExeAndReadResult(string, string, string, out string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -384,7 +388,7 @@
 
   <h3 id="One_Core_Helpers_ProcessHelper_RunExeAndReadResultWithTimeLimit_System_String_System_String_System_String_System_String__System_Int32_" data-uid="One.Core.Helpers.ProcessHelper.RunExeAndReadResultWithTimeLimit(System.String,System.String,System.String,System.String@,System.Int32)">
   RunExeAndReadResultWithTimeLimit(string, string, string, out string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>读输出流，3秒内要做完，不然杀进程</p>
@@ -414,37 +418,6 @@
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="One_Core_Helpers_ProcessHelper_ShowMessage_" data-uid="One.Core.Helpers.ProcessHelper.ShowMessage*"></a>
-
-  <h3 id="One_Core_Helpers_ProcessHelper_ShowMessage_System_Object_" data-uid="One.Core.Helpers.ProcessHelper.ShowMessage(System.Object)">
-  ShowMessage(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ProcessHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ShowMessage(object strMsg)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>strMsg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
-  </dl>
-
 
 
 

@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class DefaultInterLayoutClient
+      <title>Class BindableObject
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class DefaultInterLayoutClient
+      <meta name="title" content="Class BindableObject
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Control_Controls_Dragablz_DefaultInterLayoutClient.md&amp;value=---%0Auid%3A%20One.Control.Controls.Dragablz.DefaultInterLayoutClient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Base_BindableObject.md&amp;value=---%0Auid%3A%20One.Core.Base.BindableObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
   </head>
 
   <script type="module">
@@ -73,26 +73,27 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Control.Controls.Dragablz.DefaultInterLayoutClient">
+        <article data-uid="One.Core.Base.BindableObject">
 
 
 
-  <h1 id="One_Control_Controls_Dragablz_DefaultInterLayoutClient" data-uid="One.Control.Controls.Dragablz.DefaultInterLayoutClient" class="text-break">
-    Class DefaultInterLayoutClient
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DefaultInterLayoutClient.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Base_BindableObject" data-uid="One.Core.Base.BindableObject" class="text-break">
+    Class BindableObject
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Base/BindableObject.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Control.html">Control</a>.<a class="xref" href="One.Control.Controls.html">Controls</a>.<a class="xref" href="One.Control.Controls.Dragablz.html">Dragablz</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>One.Control.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Base.html">Base</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Provides a simple implementation of <a class="xref" href="One.Control.Controls.Dragablz.IInterLayoutClient.html">IInterLayoutClient</a>, but only really useful if <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.tabitem">TabItem</a> instances are specified in XAML. If you are binding via ItemsSource then you most likely want to create your own implementation of <a class="xref" href="One.Control.Controls.Dragablz.IInterLayoutClient.html">IInterLayoutClient</a>.</p>
+  <div class="markdown summary"><p>带通知的Object基类</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DefaultInterLayoutClient : IInterLayoutClient</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class BindableObject : INotifyPropertyChanged</code></pre>
   </div>
 
 
@@ -102,14 +103,14 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">DefaultInterLayoutClient</span></div>
+      <div><span class="xref">BindableObject</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="One.Control.Controls.Dragablz.IInterLayoutClient.html">IInterLayoutClient</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
     </dd>
   </dl>
 
@@ -149,34 +150,23 @@
 </h2>
 
 
-  <a id="One_Control_Controls_Dragablz_DefaultInterLayoutClient_GetNewHost_" data-uid="One.Control.Controls.Dragablz.DefaultInterLayoutClient.GetNewHost*"></a>
+  <a id="One_Core_Base_BindableObject_OnPropertyChanged_" data-uid="One.Core.Base.BindableObject.OnPropertyChanged*"></a>
 
-  <h3 id="One_Control_Controls_Dragablz_DefaultInterLayoutClient_GetNewHost_System_Object_One_Control_Controls_Dragablz_TabablzControl_" data-uid="One.Control.Controls.Dragablz.DefaultInterLayoutClient.GetNewHost(System.Object,One.Control.Controls.Dragablz.TabablzControl)">
-  GetNewHost(object, TabablzControl)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DefaultInterLayoutClient.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Base_BindableObject_OnPropertyChanged_System_String_" data-uid="One.Core.Base.BindableObject.OnPropertyChanged(System.String)">
+  OnPropertyChanged(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Base/BindableObject.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Provide a new host control and tab into which will be placed into a newly created layout branch.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public INewTabHost&lt;UIElement&gt; GetNewHost(object partition, TabablzControl source)</code></pre>
+    <pre><code class="lang-csharp hljs">protected void OnPropertyChanged(string propertyName)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>partition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd><p>Provides the partition where the drag operation was initiated.</p>
-</dd>
-    <dt><code>source</code> <a class="xref" href="One.Control.Controls.Dragablz.TabablzControl.html">TabablzControl</a></dt>
-    <dd><p>The source control where a dragging operation was initiated.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="One.Control.Controls.Dragablz.INewTabHost-1.html">INewTabHost</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>&gt;</dt>
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -191,10 +181,86 @@
 
 
 
+  <a id="One_Core_Base_BindableObject_SetProperty_" data-uid="One.Core.Base.BindableObject.SetProperty*"></a>
+
+  <h3 id="One_Core_Base_BindableObject_SetProperty__1___0____0_System_String_" data-uid="One.Core.Base.BindableObject.SetProperty``1(``0@,``0,System.String)">
+  SetProperty&lt;T&gt;(ref T, T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Base/BindableObject.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetProperty&lt;T&gt;(ref T item, T value, string propertyName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="One_Core_Base_BindableObject_PropertyChanged" data-uid="One.Core.Base.BindableObject.PropertyChanged">
+  PropertyChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Base/BindableObject.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a property value changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event PropertyChangedEventHandler PropertyChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler">PropertyChangedEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/Dragablz/DefaultInterLayoutClient.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Base/BindableObject.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         

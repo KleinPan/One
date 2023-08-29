@@ -1,12 +1,12 @@
-﻿using System;
+﻿using One.Core.Helpers;
+
+using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Windows;
 
-namespace EsspClassLibrary.MyNet
+namespace One.Core.Helpers.NetHelpers
 {
-    public class ClientOriginal
+    public class ClientHelper : BaseHelper
     {
         #region 变量
 
@@ -17,41 +17,15 @@ namespace EsspClassLibrary.MyNet
 
         private byte[] SendBuf = new byte[1024];
 
-        /// <summary> 接收数据存储区 </summary>
-        public string DataReceived = "";
-
         /// <summary> 发送数据存储区 </summary>
         public string DataSend = "";
-
-        public string Tip = "连接失败！";
 
         public Socket sendSocket = null;
 
         #endregion 变量
 
-        /// <summary> 初始化作为客户端并连接 </summary>
-        /// <param name="ip">   </param>
-        /// <param name="port"> </param>
-        public bool InitAsClient(string ip, int port)
+        public ClientHelper(Action<string> logAction) : base(logAction)
         {
-            try
-            {
-                IPAddress myIp = IPAddress.Parse(ip.Trim());
-
-                IPEndPoint iep = new IPEndPoint(myIp, port);
-
-                //创建客户端套接字
-                sckClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-                //连接服务器
-                sckClient.BeginConnect(iep, new AsyncCallback(ConnectCallback), sckClient);
-
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         /// <summary> 初始化作为客户端并连接 </summary>
@@ -104,12 +78,10 @@ namespace EsspClassLibrary.MyNet
                 sckConnect.EndConnect(ar);
                 //连接成功提示
                 sendSocket = sckConnect;
-
-                Tip = "连接成功！";
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                WriteLog(e.ToString());
             }
             //清空接收数据缓冲区
             //Array.Clear(ReceiveBuf, 0, 256);
@@ -119,10 +91,11 @@ namespace EsspClassLibrary.MyNet
             {
                 //接收数据
                 sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
+                //int a = sckClient.Receive(ReceiveBuf);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                WriteLog(e.ToString());
             }
         }
 
@@ -134,11 +107,26 @@ namespace EsspClassLibrary.MyNet
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                WriteLog(ex.ToString());
             }
         }
 
-        private bool bFirst = false;
+        public byte[] Receive()
+        {
+            try
+            {
+                Array.Clear(ReceiveBuf, 0, ReceiveBuf.Length);
+
+                int count = sckClient.Receive(ReceiveBuf);
+                Console.WriteLine("接收数据长度为：" + count);
+                return ReceiveBuf;
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+                return null;
+            }
+        }
 
         /// <summary> 接收数据回调函数 </summary>
         /// <param name="ar"> </param>
@@ -147,32 +135,23 @@ namespace EsspClassLibrary.MyNet
             Socket sckReceive = (Socket)ar.AsyncState;
             int revLength = sckReceive.EndReceive(ar);
 
-            Console.WriteLine(revLength);
+            Console.WriteLine("接收数据长度为：" + revLength);
             //sendSocket = sckReceive.EndAccept(ar);
 
             //把接收到的数据转成字符串显示到界面
+            //string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, revLength);
 
-            string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, revLength);
-
-            DataReceived = strReceive;
-
-            if (bFirst)
-            {
-                ReceiveAndSend(DataReceived);
-            }
-            else
-            {
-                bFirst = true;
-            }
+            ReceiveAndSend(ReceiveBuf);
 
             //再次接收数据
             sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
         }
 
-        /// <summary> 需要在外部重写对消息格式 最后需要加上SendData(string data) </summary>
+        /// <summary> 需要在外部重写 </summary>
         /// <param name="mes"> </param>
-        public virtual void ReceiveAndSend(string mes)
+        public virtual void ReceiveAndSend(byte[] mes)
         {
+            sckClient.Send(mes);
         }
     }
 }

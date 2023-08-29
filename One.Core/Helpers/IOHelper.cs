@@ -6,13 +6,13 @@ using System.Security.Cryptography;
 
 namespace One.Core.Helpers
 {
-    public class IOHelper
+    public class IOHelper : BaseHelper
     {
         public static IOHelper Instance = new Lazy<IOHelper>(() => new IOHelper()).Value;
 
         private JsonSerializerSettings jsonSerializerSettings;
 
-        public IOHelper()
+        public IOHelper(Action<string> logAction = null) : base(logAction)
         {
             jsonSerializerSettings = new JsonSerializerSettings()
             {

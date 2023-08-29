@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using One.Core.Helpers;
+
+using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Windows;
 
-namespace EsspClassLibrary.MyNet
+namespace One.Core.Helpers.NetHelpers
 {
-    public class Server
+    public class ServerHelper : BaseHelper
     {
         #region 变量
 
@@ -16,7 +17,7 @@ namespace EsspClassLibrary.MyNet
 
         public Socket sckSend = null;
 
-        public ObservableCollection<Socket> listConnection = new ObservableCollection<Socket>();
+        public List<Socket> listConnection = new List<Socket>();
 
         /// <summary> 接收缓冲区 </summary>
         private byte[] ReceiveBuf = new byte[1024 * 10];
@@ -28,6 +29,10 @@ namespace EsspClassLibrary.MyNet
         public string DataReceived = "";
 
         #endregion 变量
+
+        public ServerHelper(Action<string> logAction) : base(logAction)
+        {
+        }
 
         /// <summary> 初始化作为服务器并启动 </summary>
         /// <param name="ip">   </param>
@@ -79,10 +84,7 @@ namespace EsspClassLibrary.MyNet
 
                 Console.WriteLine(sckAccept.RemoteEndPoint);
                 //收集连接对
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    listConnection.Add(sckAccept);
-                }), null);
+                listConnection.Add(sckAccept);
 
                 sckSend = sckAccept;//接收和发送用的是一个套接字（连接）
                 SendData("Connected!");
@@ -98,9 +100,7 @@ namespace EsspClassLibrary.MyNet
             }
             catch (Exception e)
             {
-                //string s = e.Message.Replace("\r\n", "\t");
-                //tsslShow.Text = s + "服务器关闭！";
-                MessageBox.Show(e.Message);
+                WriteLog(e.ToString());
             }
         }
 
@@ -124,7 +124,7 @@ namespace EsspClassLibrary.MyNet
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                WriteLog(e.ToString());
             }
         }
 
@@ -137,7 +137,7 @@ namespace EsspClassLibrary.MyNet
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                WriteLog(ex.ToString());
             }
         }
 

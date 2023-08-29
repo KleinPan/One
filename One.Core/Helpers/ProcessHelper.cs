@@ -5,19 +5,14 @@ using System.Threading.Tasks;
 
 namespace One.Core.Helpers
 {
-    public class ProcessHelper
+    public class ProcessHelper : BaseHelper
     {
         public Action<object> logAction;
         public Process process;
 
-        public ProcessHelper(Action<object> LogDelegate)
+        public ProcessHelper(Action<object> LogDelegate) : base(LogDelegate)
         {
             logAction = LogDelegate;
-        }
-
-        public void ShowMessage(object strMsg)
-        {
-            logAction?.Invoke(strMsg);
         }
 
         public void RunExe(string exeWorkDirectory, string exeName, string parmams)
@@ -27,7 +22,7 @@ namespace One.Core.Helpers
                 process = new Process();
             }
 
-            ShowMessage("Excutdir:" + exeWorkDirectory + exeName + ",Param: " + parmams);
+            WriteLog("Excutdir:" + exeWorkDirectory + exeName + ",Param: " + parmams);
             process.StartInfo.WorkingDirectory = exeWorkDirectory;
             process.StartInfo.FileName = exeWorkDirectory + exeName;
             process.StartInfo.Arguments = parmams;
@@ -50,7 +45,7 @@ namespace One.Core.Helpers
                 process = new Process();
             }
             res = "";
-            ShowMessage("Excutdir:" + exeWorkDirectory + exeName + ",Param: " + parmams);
+            WriteLog("Excutdir:" + exeWorkDirectory + exeName + ",Param: " + parmams);
             process.StartInfo.WorkingDirectory = exeWorkDirectory;
             process.StartInfo.FileName = exeWorkDirectory + exeName;
             process.StartInfo.Arguments = parmams;
@@ -64,19 +59,19 @@ namespace One.Core.Helpers
             while (!process.HasExited)
             {
                 commandLineString = process.StandardOutput.ReadLine();
-                ShowMessage(commandLineString);
+                WriteLog(commandLineString);
                 res += commandLineString;
             }
 
             commandLineString = process.StandardOutput.ReadToEnd();
             res += commandLineString;
-            ShowMessage("ReadToEnd = " + commandLineString);
+            WriteLog("ReadToEnd = " + commandLineString);
             commandLineString = process.StandardError.ReadToEnd();
             res += commandLineString;
-            ShowMessage("StandardError = " + commandLineString + ".");
+            WriteLog("StandardError = " + commandLineString + ".");
 
             process.WaitForExit(1000);
-            ShowMessage("ExecCMD ... exit code is ..." + process.ExitCode.ToString());
+            WriteLog("ExecCMD ... exit code is ..." + process.ExitCode.ToString());
             return process.ExitCode == 0;
         }
 
@@ -89,12 +84,12 @@ namespace One.Core.Helpers
         /// <returns> </returns>
         public bool RunExeAndReadResultWithTimeLimit(string exeWorkDirectory, string exeName, string parmams, out string res, int second = 3)
         {
-            ShowMessage("RunExeAndReadResultWithTimeLimit");
+            WriteLog("RunExeAndReadResultWithTimeLimit");
             string commandLineString = "";
 
             res = "";
             process = new Process();
-            ShowMessage("WorkingDirectory:" + exeWorkDirectory + ",FileName:" + exeName + ",Param: " + parmams);
+            WriteLog("WorkingDirectory:" + exeWorkDirectory + ",FileName:" + exeName + ",Param: " + parmams);
             process.StartInfo.WorkingDirectory = exeWorkDirectory;
             process.StartInfo.FileName = exeName;
             process.StartInfo.Arguments = parmams;
@@ -105,9 +100,9 @@ namespace One.Core.Helpers
             process.StartInfo.CreateNoWindow = true;
             process.ErrorDataReceived += new DataReceivedEventHandler((sender, e) =>
             {
-                ShowMessage("ERROR Start");
-                ShowMessage($"ErrorDataReceived={e.Data}");
-                ShowMessage("ERROR End");
+                WriteLog("ERROR Start");
+                WriteLog($"ErrorDataReceived={e.Data}");
+                WriteLog("ERROR End");
             });
 
             process.Start();
@@ -149,12 +144,12 @@ namespace One.Core.Helpers
 
                     res += commandLineString;
 
-                    ShowMessage($"Process ReadLine={res}");
+                    WriteLog($"Process ReadLine={res}");
                 }
 
                 commandLineString = process.StandardOutput.ReadToEnd();
                 res += commandLineString;
-                ShowMessage($"Read End={res}");
+                WriteLog($"Read End={res}");
                 process.StandardOutput.Close();
                 Debug.WriteLine($"Process ID = {process.Id} StandardOutput.Close()");
 

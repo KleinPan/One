@@ -1,0 +1,911 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AutoUpdater
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AutoUpdater
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_AutoUpdater_AutoUpdater.md&amp;value=---%0Auid%3A%20One.AutoUpdater.AutoUpdater%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="One.AutoUpdater.AutoUpdater">
+
+
+
+  <h1 id="One_AutoUpdater_AutoUpdater" data-uid="One.AutoUpdater.AutoUpdater" class="text-break">
+    Class AutoUpdater
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.AutoUpdater.html">AutoUpdater</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.AutoUpdater.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>通过设置一些静态字段并执行其Start方法，可以自动更新应用程序的主类。</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AutoUpdater</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AutoUpdater</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_AppCastURL" data-uid="One.AutoUpdater.AutoUpdater.AppCastURL">
+  AppCastURL
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>包含有关应用程序最新版本信息的xml文件的URL。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string AppCastURL</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_AppTitle" data-uid="One.AutoUpdater.AutoUpdater.AppTitle">
+  AppTitle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the Application Title shown in Update dialog. Although AutoUpdater.NET will get it automatically, you can set this property if you like to give custom Title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string AppTitle</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_BasicAuthDownload" data-uid="One.AutoUpdater.AutoUpdater.BasicAuthDownload">
+  BasicAuthDownload
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Basic Authentication credentials required to download the file.设置下载文件所需的基本身份验证凭据。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAuthentication BasicAuthDownload</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.Interfaces.IAuthentication.html">IAuthentication</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_BasicAuthXML" data-uid="One.AutoUpdater.AutoUpdater.BasicAuthXML">
+  BasicAuthXML
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Basic Authentication credentials required to download the XML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAuthentication BasicAuthXML</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.Interfaces.IAuthentication.html">IAuthentication</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_DownloadPath" data-uid="One.AutoUpdater.AutoUpdater.DownloadPath">
+  DownloadPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set it to folder path where you want to download the update file. If not provided then it defaults to Temp folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DownloadPath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_FtpCredentials" data-uid="One.AutoUpdater.AutoUpdater.FtpCredentials">
+  FtpCredentials
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Login/password/domain for FTP-request</p>
+<p> FTP请求的登录名/密码/域 </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkCredential FtpCredentials</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.networkcredential">NetworkCredential</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_HttpUserAgent" data-uid="One.AutoUpdater.AutoUpdater.HttpUserAgent">
+  HttpUserAgent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the User-Agent string to be used for HTTP web requests.</p>
+<p> 设置用于HTTP Web请求的User-Agent字符串。 </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpUserAgent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_InstallationPath" data-uid="One.AutoUpdater.AutoUpdater.InstallationPath">
+  InstallationPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>如果您将zip文件用作更新文件，则可以将此值设置为应用程序的安装路径。仅当您的安装目录与可执行路径不同时才需要这样做。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string InstallationPath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_Mandatory" data-uid="One.AutoUpdater.AutoUpdater.Mandatory">
+  Mandatory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set this to true if you want to ignore previously assigned Remind Later and Skip settings. It will also hide Remind Later and Skip buttons.
+如果要忽略先前分配的“以后提醒”和“跳过”设置，请将其设置为true。它还将隐藏“稍后提醒”和“跳过”按钮。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Mandatory</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_PersistenceProvider" data-uid="One.AutoUpdater.AutoUpdater.PersistenceProvider">
+  PersistenceProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set this to an instance implementing the IPersistenceProvider interface for using a data storage method different from the default Windows Registry based one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPersistenceProvider PersistenceProvider</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.Interfaces.IPersistenceProvider.html">IPersistenceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_Proxy" data-uid="One.AutoUpdater.AutoUpdater.Proxy">
+  Proxy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set Proxy server to use for all the web requests in AutoUpdater.NET.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IWebProxy Proxy</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.iwebproxy">IWebProxy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ReportErrors" data-uid="One.AutoUpdater.AutoUpdater.ReportErrors">
+  ReportErrors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>AutoUpdater.NET will report errors if this is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReportErrors</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_RunUpdateAsAdmin" data-uid="One.AutoUpdater.AutoUpdater.RunUpdateAsAdmin">
+  RunUpdateAsAdmin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>如果您的应用程序不需要管理员权限来替换旧版本，请将其设置为false。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RunUpdateAsAdmin</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ShowRemindLaterButton" data-uid="One.AutoUpdater.AutoUpdater.ShowRemindLaterButton">
+  ShowRemindLaterButton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If this is true users can see the Remind Later button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShowRemindLaterButton</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ShowSkipButton" data-uid="One.AutoUpdater.AutoUpdater.ShowSkipButton">
+  ShowSkipButton
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If this is true users can see the skip button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ShowSkipButton</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="One_AutoUpdater_AutoUpdater_DownloadUpdate_" data-uid="One.AutoUpdater.AutoUpdater.DownloadUpdate*"></a>
+
+  <h3 id="One_AutoUpdater_AutoUpdater_DownloadUpdate_One_AutoUpdater_Models_UpdateInfoEventArgs_" data-uid="One.AutoUpdater.AutoUpdater.DownloadUpdate(One.AutoUpdater.Models.UpdateInfoEventArgs)">
+  DownloadUpdate(UpdateInfoEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the Download window that download the update and execute the installer when download completes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DownloadUpdate(UpdateInfoEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="One.AutoUpdater.Models.UpdateInfoEventArgs.html">UpdateInfoEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_AutoUpdater_AutoUpdater_ShowUpdateForm_" data-uid="One.AutoUpdater.AutoUpdater.ShowUpdateForm*"></a>
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ShowUpdateForm_One_AutoUpdater_Models_UpdateInfoEventArgs_" data-uid="One.AutoUpdater.AutoUpdater.ShowUpdateForm(One.AutoUpdater.Models.UpdateInfoEventArgs)">
+  ShowUpdateForm(UpdateInfoEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows standard update dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ShowUpdateForm(UpdateInfoEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="One.AutoUpdater.Models.UpdateInfoEventArgs.html">UpdateInfoEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_AutoUpdater_AutoUpdater_Start_" data-uid="One.AutoUpdater.AutoUpdater.Start*"></a>
+
+  <h3 id="One_AutoUpdater_AutoUpdater_Start_System_Reflection_Assembly_" data-uid="One.AutoUpdater.AutoUpdater.Start(System.Reflection.Assembly)">
+  Start(Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Start(Assembly myAssembly = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>myAssembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_AutoUpdater_AutoUpdater_Start_" data-uid="One.AutoUpdater.AutoUpdater.Start*"></a>
+
+  <h3 id="One_AutoUpdater_AutoUpdater_Start_System_String_System_Net_NetworkCredential_System_Reflection_Assembly_" data-uid="One.AutoUpdater.AutoUpdater.Start(System.String,System.Net.NetworkCredential,System.Reflection.Assembly)">
+  Start(string, NetworkCredential, Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Start(string appCast, NetworkCredential ftpCredentials, Assembly myAssembly = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appCast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ftpCredentials</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.networkcredential">NetworkCredential</a></dt>
+    <dd></dd>
+    <dt><code>myAssembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_AutoUpdater_AutoUpdater_Start_" data-uid="One.AutoUpdater.AutoUpdater.Start*"></a>
+
+  <h3 id="One_AutoUpdater_AutoUpdater_Start_System_String_System_Reflection_Assembly_" data-uid="One.AutoUpdater.AutoUpdater.Start(System.String,System.Reflection.Assembly)">
+  Start(string, Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Start checking for new version of application and display a dialog to the user if update is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Start(string updateURL, Assembly myAssembly = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>updateURL</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>URL of the xml file that contains information about latest version of the application.</p>
+</dd>
+    <dt><code>myAssembly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a></dt>
+    <dd><p>Assembly to use for version checking.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ApplicationExitEvent" data-uid="One.AutoUpdater.AutoUpdater.ApplicationExitEvent">
+  ApplicationExitEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An event that developers can use to exit the application gracefully.</p>
+<p> 正常退出应用程序的事件。如果此项注册了自定义事件，则不会执行默认流程。 </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event AutoUpdater.ApplicationExitEventHandler ApplicationExitEvent</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.AutoUpdater.html">AutoUpdater</a>.<a class="xref" href="One.AutoUpdater.AutoUpdater.ApplicationExitEventHandler.html">ApplicationExitEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_CheckForUpdateEvent" data-uid="One.AutoUpdater.AutoUpdater.CheckForUpdateEvent">
+  CheckForUpdateEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An event that clients can use to be notified whenever the update is checked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event AutoUpdater.CheckForUpdateEventHandler CheckForUpdateEvent</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.AutoUpdater.html">AutoUpdater</a>.<a class="xref" href="One.AutoUpdater.AutoUpdater.CheckForUpdateEventHandler.html">CheckForUpdateEventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="One_AutoUpdater_AutoUpdater_ParseUpdateInfoEvent" data-uid="One.AutoUpdater.AutoUpdater.ParseUpdateInfoEvent">
+  ParseUpdateInfoEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An event that clients can use to be notified whenever the AppCast file needs parsing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event AutoUpdater.ParseUpdateInfoHandler ParseUpdateInfoEvent</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.AutoUpdater.AutoUpdater.html">AutoUpdater</a>.<a class="xref" href="One.AutoUpdater.AutoUpdater.ParseUpdateInfoHandler.html">ParseUpdateInfoHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/KleinPan/One/blob/master/One.AutoUpdater/AutoUpdater.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

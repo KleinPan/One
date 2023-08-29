@@ -1,0 +1,549 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RSAHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RSAHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_EncryptionHelpers_RSAHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.EncryptionHelpers.RSAHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper">
+
+
+
+  <h1 id="One_Core_Helpers_EncryptionHelpers_RSAHelper" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper" class="text-break">
+    Class RSAHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a>.<a class="xref" href="One.Core.Helpers.EncryptionHelpers.html">EncryptionHelpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RSAHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RSAHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_DecryptByPrivate_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.DecryptByPrivate*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_DecryptByPrivate_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.DecryptByPrivate(System.String,System.String)">
+  DecryptByPrivate(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>通过私钥解密，分段解密</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DecryptByPrivate(string privateKeyPath, string strDecryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>privateKeyPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>strDecryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublic_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublic*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublic_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublic(System.String,System.String)">
+  EncrytByPublic(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>使用公钥加密，分段加密</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string EncrytByPublic(string publicKeyPath, string strEncryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>publicKeyPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>strEncryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublic2_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublic2*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublic2_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublic2(System.String,System.String)">
+  EncrytByPublic2(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>使用公钥加密，分段加密</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string EncrytByPublic2(string publicKeyContent, string strEncryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>publicKeyContent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>strEncryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublicForOppoMes_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublicForOppoMes*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_EncrytByPublicForOppoMes_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.EncrytByPublicForOppoMes(System.String,System.String)">
+  EncrytByPublicForOppoMes(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>使用公钥加密，分段加密,加密后做特殊处理,预计为网络传输要求</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string EncrytByPublicForOppoMes(string publicKeyContent, string strEncryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>publicKeyContent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>strEncryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_GeneratePublicAndPrivateKeyInfo_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.GeneratePublicAndPrivateKeyInfo*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_GeneratePublicAndPrivateKeyInfo" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.GeneratePublicAndPrivateKeyInfo">
+  GeneratePublicAndPrivateKeyInfo()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>生成公钥和私钥对</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GeneratePublicAndPrivateKeyInfo()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_PrivateKeyEncrypt_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.PrivateKeyEncrypt*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_PrivateKeyEncrypt_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.PrivateKeyEncrypt(System.String,System.String)">
+  PrivateKeyEncrypt(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>用私钥给数据进行RSA加密</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string PrivateKeyEncrypt(string xmlPrivateKey, string strEncryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlPrivateKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>私钥(XML格式字符串)</p>
+</dd>
+    <dt><code>strEncryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>要加密的数据</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>加密后的数据</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_PublicKeyDecrypt_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.PublicKeyDecrypt*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_PublicKeyDecrypt_System_String_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.PublicKeyDecrypt(System.String,System.String)">
+  PublicKeyDecrypt(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>用公钥给数据进行RSA解密</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string PublicKeyDecrypt(string xmlPublicKey, string strDecryptString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlPublicKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>公钥(XML格式字符串)</p>
+</dd>
+    <dt><code>strDecryptString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>要解密数据</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>解密后的数据</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_RSAPrivateKeyJava2DotNet_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.RSAPrivateKeyJava2DotNet*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_RSAPrivateKeyJava2DotNet_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.RSAPrivateKeyJava2DotNet(System.String)">
+  RSAPrivateKeyJava2DotNet(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>RSA私钥格式转换，java-&gt;.net</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string RSAPrivateKeyJava2DotNet(string privateKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>privateKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>java生成的RSA私钥</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_RSAPublicKeyJava2DotNet_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.RSAPublicKeyJava2DotNet*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_RSAPublicKeyJava2DotNet_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.RSAPublicKeyJava2DotNet(System.String)">
+  RSAPublicKeyJava2DotNet(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>RSA公钥格式转换，java-&gt;.net</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string RSAPublicKeyJava2DotNet(string publicKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>publicKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>java生成的公钥</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_EncryptionHelpers_RSAHelper_ReadFile_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.ReadFile*"></a>
+
+  <h3 id="One_Core_Helpers_EncryptionHelpers_RSAHelper_ReadFile_System_String_" data-uid="One.Core.Helpers.EncryptionHelpers.RSAHelper.ReadFile(System.String)">
+  ReadFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>读取文件</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReadFile(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/EncryptionHelpers/RSAHelper.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

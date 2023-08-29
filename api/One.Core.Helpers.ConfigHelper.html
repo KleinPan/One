@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ConfigHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ConfigHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_ConfigHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.ConfigHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="One.Core.Helpers.ConfigHelper">
+
+
+
+  <h1 id="One_Core_Helpers_ConfigHelper" data-uid="One.Core.Helpers.ConfigHelper" class="text-break">
+    Class ConfigHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ConfigHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ConfigHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="One_Core_Helpers_ConfigHelper_GetCommonConfig_" data-uid="One.Core.Helpers.ConfigHelper.GetCommonConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_GetCommonConfig_System_Object_System_Collections_Generic_List_One_Core_Models_Configs_CommonConfigM__" data-uid="One.Core.Helpers.ConfigHelper.GetCommonConfig(System.Object,System.Collections.Generic.List{One.Core.Models.Configs.CommonConfigM})">
+  GetCommonConfig(object, List&lt;CommonConfigM&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>读取通用配置</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetCommonConfig(object obj, List&lt;CommonConfigM&gt; CommonConfigList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>CommonConfigList</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.CommonConfigM.html">CommonConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_GetTestItemConfig_" data-uid="One.Core.Helpers.ConfigHelper.GetTestItemConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_GetTestItemConfig_System_Object_System_Collections_Generic_List_One_Core_Models_Configs_TestSecquenceConfigM__" data-uid="One.Core.Helpers.ConfigHelper.GetTestItemConfig(System.Object,System.Collections.Generic.List{One.Core.Models.Configs.TestSecquenceConfigM})">
+  GetTestItemConfig(object, List&lt;TestSecquenceConfigM&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>读取测试项配置</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetTestItemConfig(object obj, List&lt;TestSecquenceConfigM&gt; CommonConfigList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>CommonConfigList</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.TestSecquenceConfigM.html">TestSecquenceConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_ReadAllConfig_" data-uid="One.Core.Helpers.ConfigHelper.ReadAllConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_ReadAllConfig_System_String_" data-uid="One.Core.Helpers.ConfigHelper.ReadAllConfig(System.String)">
+  ReadAllConfig(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AllConfig ReadAllConfig(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="One.Core.Models.Configs.AllConfig.html">AllConfig</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_SaveAllConfig_" data-uid="One.Core.Helpers.ConfigHelper.SaveAllConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_SaveAllConfig_One_Core_Models_Configs_AllConfig_System_String_" data-uid="One.Core.Helpers.ConfigHelper.SaveAllConfig(One.Core.Models.Configs.AllConfig,System.String)">
+  SaveAllConfig(AllConfig, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SaveAllConfig(AllConfig allConfig, string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>allConfig</code> <a class="xref" href="One.Core.Models.Configs.AllConfig.html">AllConfig</a></dt>
+    <dd></dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_SaveCommonConfig_" data-uid="One.Core.Helpers.ConfigHelper.SaveCommonConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_SaveCommonConfig__1___0_" data-uid="One.Core.Helpers.ConfigHelper.SaveCommonConfig``1(``0)">
+  SaveCommonConfig&lt;T1&gt;(T1)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>保存通用配置</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;CommonConfigM&gt; SaveCommonConfig&lt;T1&gt;(T1 commonSetting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commonSetting</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.CommonConfigM.html">CommonConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_SaveTestSecquenceConfig_" data-uid="One.Core.Helpers.ConfigHelper.SaveTestSecquenceConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_SaveTestSecquenceConfig__2___1_" data-uid="One.Core.Helpers.ConfigHelper.SaveTestSecquenceConfig``2(``1)">
+  SaveTestSecquenceConfig&lt;T, T2&gt;(T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>导出测试项配置</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;TestSecquenceConfigM&gt; SaveTestSecquenceConfig&lt;T, T2&gt;(T2 testItemSetting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>testItemSetting</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.TestSecquenceConfigM.html">TestSecquenceConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>测试项父类</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>测试项配置父类</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_UpdateCommonConfig_" data-uid="One.Core.Helpers.ConfigHelper.UpdateCommonConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_UpdateCommonConfig_System_Collections_Generic_List_One_Core_Models_Configs_CommonConfigM__System_Collections_Generic_List_One_Core_Models_Configs_CommonConfigM__" data-uid="One.Core.Helpers.ConfigHelper.UpdateCommonConfig(System.Collections.Generic.List{One.Core.Models.Configs.CommonConfigM},System.Collections.Generic.List{One.Core.Models.Configs.CommonConfigM})">
+  UpdateCommonConfig(List&lt;CommonConfigM&gt;, List&lt;CommonConfigM&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>更新通用测试项内容</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;CommonConfigM&gt; UpdateCommonConfig(List&lt;CommonConfigM&gt; old, List&lt;CommonConfigM&gt; newModel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>old</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.CommonConfigM.html">CommonConfigM</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>newModel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.CommonConfigM.html">CommonConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.CommonConfigM.html">CommonConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="One_Core_Helpers_ConfigHelper_UpdateTestSecquenceConfig_" data-uid="One.Core.Helpers.ConfigHelper.UpdateTestSecquenceConfig*"></a>
+
+  <h3 id="One_Core_Helpers_ConfigHelper_UpdateTestSecquenceConfig_System_Collections_Generic_List_One_Core_Models_Configs_TestSecquenceConfigM__System_Collections_Generic_List_One_Core_Models_Configs_TestSecquenceConfigM__" data-uid="One.Core.Helpers.ConfigHelper.UpdateTestSecquenceConfig(System.Collections.Generic.List{One.Core.Models.Configs.TestSecquenceConfigM},System.Collections.Generic.List{One.Core.Models.Configs.TestSecquenceConfigM})">
+  UpdateTestSecquenceConfig(List&lt;TestSecquenceConfigM&gt;, List&lt;TestSecquenceConfigM&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>更新已有的测试序列</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;TestSecquenceConfigM&gt; UpdateTestSecquenceConfig(List&lt;TestSecquenceConfigM&gt; TestSecquences, List&lt;TestSecquenceConfigM&gt; AllSupportTestSecquences)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TestSecquences</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.TestSecquenceConfigM.html">TestSecquenceConfigM</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>AllSupportTestSecquences</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.TestSecquenceConfigM.html">TestSecquenceConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="One.Core.Models.Configs.TestSecquenceConfigM.html">TestSecquenceConfigM</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/ConfigHelper.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

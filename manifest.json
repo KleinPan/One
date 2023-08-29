@@ -1,0 +1,2272 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/One/One/docs/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EsspClassLibrary.MyNet.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EsspClassLibrary.MyNet.Client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EsspClassLibrary.MyNet.ClientOriginal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EsspClassLibrary.MyNet.ClientOriginal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EsspClassLibrary.MyNet.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EsspClassLibrary.MyNet.Server.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EsspClassLibrary.MyNet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EsspClassLibrary.MyNet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.AutoUpdater.ApplicationExitEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.AutoUpdater.ApplicationExitEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.AutoUpdater.CheckForUpdateEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.AutoUpdater.CheckForUpdateEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.AutoUpdater.ParseUpdateInfoHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.AutoUpdater.ParseUpdateInfoHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.AutoUpdater.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.AutoUpdater.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Interfaces.IAuthentication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Interfaces.IAuthentication.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Interfaces.IPersistenceProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Interfaces.IPersistenceProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Models.CheckSum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Models.CheckSum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Models.Mandatory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Models.Mandatory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Models.ParseUpdateInfoEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Models.ParseUpdateInfoEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Models.UpdateInfoEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Models.UpdateInfoEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.UpdateWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.UpdateWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Utilities.MyWebClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Utilities.MyWebClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Utilities.RegistryPersistenceProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Utilities.RegistryPersistenceProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.Utilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.AutoUpdater.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.AutoUpdater.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.AttachDP.GridAttach.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.AttachDP.GridAttach.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.AttachDP.SelectedItemsAttach.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.AttachDP.SelectedItemsAttach.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.AttachDP.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.AttachDP.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Behaviors.DataGridBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Behaviors.DataGridBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Behaviors.ListBoxBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Behaviors.ListBoxBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Behaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Behaviors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Command.ActionCommand-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Command.ActionCommand-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Command.DelegateCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Command.DelegateCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Command.EventToCommandBehaviorMin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Command.EventToCommandBehaviorMin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Command.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Command.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Buttons.AssistButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Buttons.AssistButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Buttons.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Buttons.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.AddLocationHint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.AddLocationHint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.CanvasOrganiser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.CanvasOrganiser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Core.WindowSizingMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Core.WindowSizingMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DefaultInterLayoutClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DefaultInterLayoutClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DefaultInterTabClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DefaultInterTabClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Branch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Branch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchAccessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.BranchResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.ClosingFloatingItemCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.ClosingFloatingItemCallback.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.CouldBeHeaderedStyleSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.CouldBeHeaderedStyleSelector.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.DropZone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.DropZone.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.DropZoneLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.DropZoneLocation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.FloatRequestedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.FloatRequestedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.FloatRequestedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.FloatRequestedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Layout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.Layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LayoutAccessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LocationReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LocationReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LocationReportException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.LocationReportException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Dockablz.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Dockablz.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzColors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzColors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragCompletedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragCompletedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragCompletedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragCompletedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragDeltaEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragDeltaEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragDeltaEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragDeltaEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragStartedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragStartedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzDragStartedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzDragStartedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzItemEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzItemEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzItemEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzItemEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzItemsControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzItemsControl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.DragablzWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.DragablzWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.EmptyHeaderSizingHint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.EmptyHeaderSizingHint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.HeaderedDragablzItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.HeaderedDragablzItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.HeaderedItemViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.HeaderedItemViewModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.HorizontalOrganiser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.HorizontalOrganiser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.HorizontalPositionMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.HorizontalPositionMonitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.IInterLayoutClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.IInterLayoutClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.IInterTabClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.IInterTabClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.IItemsOrganiser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.IItemsOrganiser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.IManualInterTabClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.IManualInterTabClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.INewTabHost-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.INewTabHost-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.InterTabController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.InterTabController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.ItemActionCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.ItemActionCallback.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.ItemActionCallbackArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.ItemActionCallbackArgs-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.LocationChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.LocationChangedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.MoveItemRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.MoveItemRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.NewTabHost-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.NewTabHost-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.OrderChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.OrderChangedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.PositionMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.PositionMonitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.BranchItemState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.BranchItemState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.BranchState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.BranchState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.LayoutWindowState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.LayoutWindowState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.TabSetState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.TabSetState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.WindowsStateSaver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.WindowsStateSaver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Savablz.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Savablz.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.SizeGrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.SizeGrip.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.StackOrganiser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.StackOrganiser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.StackPositionMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.StackPositionMonitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.TabEmptiedResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.TabEmptiedResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.TabablzControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.TabablzControl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.TabablzHeaderSizeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.TabablzHeaderSizeConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.TabablzItemStyleSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.TabablzItemStyleSelector.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.BrushToRadialGradientBrushConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.BrushToRadialGradientBrushConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.MaterialDesignAssist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.MaterialDesignAssist.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.Ripple.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.Ripple.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.RippleAssist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.RippleAssist.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.SystemCommandIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.SystemCommandIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.SystemCommandType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.SystemCommandType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Themes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Themes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.Trapezoid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.Trapezoid.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.VerticalOrganiser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.VerticalOrganiser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.VerticalPositionMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.VerticalPositionMonitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Dragablz.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Dragablz.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.MessageBox.PopUpMessageBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.MessageBox.PopUpMessageBox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.MessageBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.MessageBox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.ProgressRing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.ProgressRing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.BoolToColorConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.BoolToColorConverters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.BoolToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.BoolToVisibilityConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.BoolToVisibilityConverterInverse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.BoolToVisibilityConverterInverse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.BooleanAndToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.BooleanAndToVisibilityConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.CalculatorConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.CalculatorConverters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.EqualityToBooleanConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.EqualityToBooleanConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.EqualityToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.EqualityToVisibilityConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.IntToBoolConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.IntToBoolConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.IntToColorConverts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.IntToColorConverts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.IntToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.IntToVisibilityConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.MultiParamterConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.MultiParamterConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.NullToVisibilityConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.NullToVisibilityConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.ShowDefaultCloseButtonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.ShowDefaultCloseButtonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Converters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.EnumConverters.EnumBindingSourceExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.EnumConverters.EnumBindingSourceExtension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.EnumConverters.EnumDescriptionTypeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.EnumConverters.EnumDescriptionTypeConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.EnumConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.EnumConverters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.ExtentionMethods.ItemControlExtentionMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.ExtentionMethods.ItemControlExtentionMethods.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.ExtentionMethods.MultiStyleExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.ExtentionMethods.MultiStyleExtension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.ExtentionMethods.StyleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.ExtentionMethods.StyleExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.ExtentionMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.ExtentionMethods.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.AssemblyHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.AssemblyHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.FileSelectHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.FileSelectHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.ImageHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.ImageHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.MyVisualTreeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.MyVisualTreeHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.Win32Helper.POINT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.Win32Helper.POINT.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.Win32Helper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.Win32Helper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Helpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.EventBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.EventBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.EventBindingCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.EventBindingCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.EventToCommandBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.EventToCommandBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.RadRoutedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.RadRoutedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.RadRoutedEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.RadRoutedEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.OtherLibs.Telerik.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.OtherLibs.Telerik.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Utilities.BindingProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Utilities.BindingProxy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Utilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Attributes.CustomerAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Attributes.CustomerAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Attributes.CustomerSettingAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Attributes.CustomerSettingAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Attributes.DescriptionAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Attributes.DescriptionAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Attributes.ExportAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Attributes.ExportAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Attributes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.BaseClass.BindableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.BaseClass.BindableObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.BaseClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.BaseClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForArray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForArray.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForByte.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForByte.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForDateTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForEnum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForEnumerate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.ExtensionMethodsForString.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.ExtensionMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.ExtensionMethods.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.CusHttpServerHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.HTTPClientHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.HTTPClientHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.HttpClientExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpServerHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.HttpServerHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.StreamExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.StreamExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helper.HttpHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helper.HttpHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.AssemblyHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.AssemblyHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.Computer.WindowsAPIKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.Computer.WindowsAPIKeys.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.Computer.WindowsAPIType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.Computer.WindowsAPIType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.Computer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.Computer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.ConfigHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.ConfigHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DataProcessHelpers.ByteHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DataProcessHelpers.ByteHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DataProcessHelpers.NumberHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DataProcessHelpers.NumberHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DataProcessHelpers.RegexHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DataProcessHelpers.RegexHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DataProcessHelpers.StringHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DataProcessHelpers.StringHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DataProcessHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DataProcessHelpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.DatetimeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.DatetimeHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.EncryptionHelpers.AES256Helper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.EncryptionHelpers.AES256Helper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.EncryptionHelpers.Md5Helper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.EncryptionHelpers.RSAHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.EncryptionHelpers.RSAHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.EncryptionHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.EncryptionHelpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.FileHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.FileHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HTMLHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HTMLHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HardwareEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HardwareEnum.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HardwareInfoHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HardwareInfoHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.IOHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.IOHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.IPConvertHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.NetHelpers.IPConvertHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.NetHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.NetHelpers.NetHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.NetWorkInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.NetHelpers.NetWorkInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.NetHelpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.PathHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.PathHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.ProcessHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.ProcessHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.ReflectionHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.ReflectionHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.ServiceHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.ServiceHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.ZipHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.ZipHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.AllConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.AllConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.BasicConfigInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.BasicConfigInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.CommonConfigM.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.CommonConfigM.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.ConfigFileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.ConfigFileInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.TestSecquenceConfigM.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.TestSecquenceConfigM.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Models.Configs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Models.Configs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Protect.SystemInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Protect.SystemInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Protect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Protect.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZipExtractor.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZipExtractor.App.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZipExtractor.MainWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZipExtractor.MainWindow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZipExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZipExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

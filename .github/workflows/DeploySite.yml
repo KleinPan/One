@@ -18,7 +18,7 @@ jobs:
     runs-on: windows-latest
     #runs-on: self-hosted
     env: 
-      OutDir: d:\a\
+      OutDir: d:\output\
     #将在 check-bats-version 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。
     steps:
 
@@ -36,14 +36,14 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.z
+          dotnet-version: 7.0.400
 
 
       - name: Update docfx
         run: dotnet tool update -g docfx
 
       - name: Generte Site
-        run: docfx docfx_project/docfx.json
+        run: docfx docs/docfx_project/docfx.json
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

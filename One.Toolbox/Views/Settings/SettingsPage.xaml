@@ -1,0 +1,259 @@
+﻿<Page
+    x:Class="One.Toolbox.Views.Settings.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:EnumConverters="clr-namespace:One.Control.EnumConverters;assembly=One.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:test="clr-namespace:Wpf.Ui.Appearance;assembly=Wpf.Ui"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
+    Title="SettingsPage"
+    d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
+
+    <StackPanel Margin="10">
+
+        <ui:TextBlock
+            Margin="0,0,0,8"
+            FontTypography="BodyStrong"
+            Text="Appearance &amp; behavior" />
+        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon Color24}">
+            <ui:CardControl.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ui:TextBlock
+                        Grid.Row="0"
+                        FontTypography="Body"
+                        Text="App theme" />
+                    <ui:TextBlock
+                        Grid.Row="1"
+                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
+                        Text="Select which app theme to display" />
+                </Grid>
+            </ui:CardControl.Header>
+            <ComboBox
+                Grid.Column="1"
+                MinWidth="200"
+                ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=test:ApplicationTheme}}"
+                SelectedItem="{Binding CurrentTheme}" />
+        </ui:CardControl>
+
+        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon LocalLanguage24}">
+            <ui:CardControl.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ui:TextBlock
+                        Grid.Row="0"
+                        FontTypography="Body"
+                        Text="Language" />
+                    <ui:TextBlock
+                        Grid.Row="1"
+                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
+                        Text="Select which app language to display" />
+                </Grid>
+            </ui:CardControl.Header>
+            <ComboBox
+                Grid.Column="1"
+                MinWidth="200"
+                SelectedIndex="0"
+                SelectedValue="{Binding CurrentLanguage}">
+                <ComboBoxItem Content="zh-CN" />
+                <ComboBoxItem Content="en-US" />
+            </ComboBox>
+        </ui:CardControl>
+
+        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon LocalLanguage24}">
+            <ui:CardControl.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ui:TextBlock
+                        Grid.Row="0"
+                        FontTypography="Body"
+                        Text="Auto Update" />
+                    <ui:TextBlock
+                        Grid.Row="1"
+                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
+                        Text="{DynamicResource AboutAutoUpdate}" />
+                </Grid>
+            </ui:CardControl.Header>
+            <CheckBox IsChecked="{Binding AutoUpdate}" />
+        </ui:CardControl>
+
+        <ui:TextBlock
+            Margin="0,24,0,8"
+            FontTypography="BodyStrong"
+            Text="About" />
+        <ui:CardExpander ContentPadding="0" Icon="{ui:ImageIcon '/Resources/Icon.png', Width=38, Height=35}">
+
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Orientation="Horizontal">
+                        <ui:TextBlock FontTypography="Body" Text="One.Toolbox" />
+                        <ui:TextBlock
+                            Margin="10,0"
+                            FontTypography="Body"
+                            Text="{DynamicResource AboutSubTitle}" />
+
+                    </StackPanel>
+
+                    <ui:TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
+                        Text="© 2023 pwb.co | pwb &amp; One Contributors" />
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Margin="0,0,16,0"
+                        VerticalAlignment="Center"
+                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
+                        Text="{Binding AppVersion, Mode=OneWay}" />
+                </Grid>
+            </ui:CardExpander.Header>
+            <StackPanel>
+                <Grid Margin="16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="To clone this repository" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
+                        Text="git clone https://github.com/KleinPan/One" />
+                </Grid>
+                <ui:Anchor
+                    Margin="0"
+                    Padding="16"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0,1,0,0"
+                    CornerRadius="0"
+                    NavigateUri="https://github.com/KleinPan/One/issues/new/choose">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="File a bug or request a new sample" />
+                        <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
+                    </Grid>
+                </ui:Anchor>
+                <ui:Anchor
+                    Margin="0"
+                    Padding="16"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent"
+                    BorderThickness="0,1,0,1"
+                    CornerRadius="0"
+                    NavigateUri="https://kleinpan.github.io/One/">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Check out the docs" />
+                        <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
+                    </Grid>
+                </ui:Anchor>
+                <TextBlock Margin="16" Text="{Binding AppVersion, Mode=OneWay}" />
+            </StackPanel>
+        </ui:CardExpander>
+        <StackPanel Margin="42">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock
+                Margin="10,20,0,0"
+                HorizontalAlignment="Left"
+                FontSize="15"
+                Text="{DynamicResource AboutDiscriptionMain}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                Margin="10,10,10,0"
+                FontSize="15"
+                Text="{DynamicResource AboutDiscriptionMore}"
+                TextWrapping="Wrap" />
+
+
+            <Button
+                Name="CheckUpdateButton"
+                Width="auto"
+                HorizontalAlignment="Center"
+                Click="CheckUpdateButton_Click"
+                Content="{DynamicResource AboutLoadingUpdate}"
+                IsEnabled="False" />
+
+            <TextBlock
+                Margin="10,20,0,0"
+                FontSize="15"
+                Text="{DynamicResource AboutDevelopers}" />
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="15"
+                Text="{DynamicResource AboutQQGroup}" />
+            <TextBlock
+                Margin="10,20,0,0"
+                FontSize="15"
+                Text="{DynamicResource AboutTranslator}" />
+
+            <TextBlock
+                Margin="10,20,0,0"
+                HorizontalAlignment="Center"
+                FontSize="15"
+                Text="{DynamicResource AboutGitHubText}" />
+            <Button
+                Name="OpenSourceButton"
+                Width="auto"
+                HorizontalAlignment="Center"
+                Click="OpenSourceButton_Click"
+                Content="{DynamicResource AboutGitHubButton}" />
+
+            <TextBlock
+                Margin="10,20,0,0"
+                HorizontalAlignment="Center"
+                FontSize="15"
+                Text="{DynamicResource AboutFeedBack}" />
+            <Button
+                Name="newissueButton"
+                Width="auto"
+                HorizontalAlignment="Center"
+                Click="NewissueButton_Click"
+                Content="{DynamicResource AboutFeedBackButton}" />
+
+
+        </StackPanel>
+    </StackPanel>
+</Page>

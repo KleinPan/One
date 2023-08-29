@@ -3,7 +3,7 @@
 using System.Diagnostics;
 using System.Windows.Navigation;
 
-namespace One.Toolbox.Views.Pages;
+namespace One.Toolbox.Views.Settings;
 
 /// <summary> Interaction logic for SettingsPage.xaml </summary>
 public partial class SettingsPage : INavigableView<ViewModels.SettingsViewModel>

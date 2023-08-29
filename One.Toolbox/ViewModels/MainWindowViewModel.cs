@@ -67,7 +67,7 @@ public partial class MainWindowViewModel : BaseViewModel
                 {
                     Content = "Settings",
                     Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
-                    TargetPageType = typeof(Views.Pages.SettingsPage)
+                    TargetPageType = typeof(Views.Settings.SettingsPage)
                 }
             };
 

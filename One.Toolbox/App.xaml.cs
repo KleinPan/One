@@ -58,7 +58,7 @@ namespace One.Toolbox
                 services.AddScoped<Views.Pages.StringConvertPage>();
                 services.AddScoped<ViewModels.StringConvertViewModel>();
 
-                services.AddScoped<Views.Pages.SettingsPage>();
+                services.AddScoped<Views.Settings.SettingsPage>();
                 services.AddScoped<ViewModels.SettingsViewModel>();
 
                 services.AddScoped<Views.Serialport.SerialportPage>();

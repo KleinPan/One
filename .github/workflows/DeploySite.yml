@@ -9,13 +9,11 @@ on:
   push:
     branches:
       - master # Default release branch
-    tags:        
-      - v*
 
 #将 learn-github-actions 工作流中运行的所有作业组合在一起。
 jobs:
   job_id-publish:
-    name: Publish to nuget
+    name: Deploy Site Job
     #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
     runs-on: windows-latest
     #runs-on: self-hosted

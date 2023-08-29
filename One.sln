@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{6F59255C-FE63-401C-9EBE-51ABD09418F3}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\CICD.yml = .github\workflows\CICD.yml
+		.github\workflows\DeploySite.yml = .github\workflows\DeploySite.yml
 		README.md = README.md
 		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
 	EndProjectSection

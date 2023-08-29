@@ -38,7 +38,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.100
+          dotnet-version: 7.0.400
       
       # Publish 1
       - name: Publish One.Core
@@ -85,19 +85,6 @@ jobs:
       #
       #- name: 'Echo download path'
       #  run: echo ${{steps.download.outputs.download-path}}
-
-
-      - name: Update Pages1
-        run: dotnet tool update -g docfx
-
-      - name: Update Pages2
-        run: docfx docs/docfx_project/docfx.json
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir: docs/_site
 
       - name: Zip the Build
         uses: thedoctor0/zip-release@0.7.1

@@ -1,0 +1,54 @@
+#可选 - 工作流的名称，它将显示在 GitHub 存储库的“操作”选项卡中。
+name: Publish to nuget.org
+
+#可选 - 从工作流生成的工作流运行的名称，该名称将显示在存储库的“操作”选项卡上的工作流运行列表中。
+run-name: ${{ github.actor }} is publish to nuget.org
+
+#指定此工作流程的触发器。 此示例使用 push 事件，因此每当有人将更改推送到存储库或合并拉取请求时都会触发工作流运行。
+on:
+  push:
+    branches:
+      - master # Default release branch
+    tags:        
+      - v*
+
+#将 learn-github-actions 工作流中运行的所有作业组合在一起。
+jobs:
+  job_id-publish:
+    name: Publish to nuget
+    #将作业配置为在最新版本的 Ubuntu Linux 运行器上运行。 这意味着该作业将在 GitHub 托管的新虚拟机上执行。
+    runs-on: windows-latest
+    #runs-on: self-hosted
+    env: 
+      OutDir: d:\output\
+    #将在 check-bats-version 作业中运行的所有步骤组合在一起。 此部分下嵌套的每项都是一个单独的操作或 shell 脚本。
+    steps:
+
+      - name: Echo
+        run : |
+            echo ${{env.OutDir}}
+            echo ${{github.ref}}
+
+        #uses 关键字指定此步骤将运行 actions/checkout 操作的 v3。 
+        #这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
+      - uses: actions/checkout@v3
+
+      # Required for a specific dotnet version that doesn't come with ubuntu-latest / windows-latest
+      # Visit bit.ly/2synnZl to see the list of SDKs that are pre-installed with ubuntu-latest / windows-latest
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.400
+
+
+      - name: Update docfx
+        run: dotnet tool update -g docfx
+
+      - name: Generte Site
+        run: docfx docs/docfx_project/docfx.json
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: docs/_site

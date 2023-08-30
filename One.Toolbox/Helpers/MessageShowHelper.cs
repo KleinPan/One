@@ -1,17 +1,15 @@
-﻿using Wpf.Ui;
-
-namespace One.Toolbox.Helpers
+﻿namespace One.Toolbox.Helpers
 {
     internal class MessageShowHelper
     {
-        private static readonly ISnackbarService _snackbarService;
-        private static int _snackbarTimeout = 2000;
+        //private static readonly ISnackbarService _snackbarService;
+        //private static int _snackbarTimeout = 2000;
 
-        private static ControlAppearance _snackbarAppearance = ControlAppearance.Secondary;
+        //private static ControlAppearance _snackbarAppearance = ControlAppearance.Secondary;
 
         static MessageShowHelper()
         {
-            _snackbarService = App.GetService<ISnackbarService>();
+            //_snackbarService = App.GetService<ISnackbarService>();
             //_snackbarService.Timeout = _snackbarTimeout;
         }
 
@@ -21,7 +19,7 @@ namespace One.Toolbox.Helpers
 
             App.Current.Dispatcher.Invoke(() =>
             {
-                _snackbarService.Show("Error", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
+                // _snackbarService.Show("Error", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
             });
         }
 
@@ -31,7 +29,7 @@ namespace One.Toolbox.Helpers
 
             App.Current.Dispatcher.Invoke(() =>
             {
-                _snackbarService.Show("Info", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
+                //_snackbarService.Show("Info", message, _snackbarAppearance, new SymbolIcon(SymbolRegular.Fluent24), TimeSpan.FromSeconds(_snackbarTimeout));
             });
         }
     }

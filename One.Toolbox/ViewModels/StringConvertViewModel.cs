@@ -12,7 +12,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace One.Toolbox.ViewModels
 {
-    public partial class StringConvertViewModel : BaseViewModel, INavigationAware
+    public partial class StringConvertViewModel : BaseViewModel
     {
         public ObservableCollection<string> ConverterTaskList { get; set; } = new ObservableCollection<string>();
 
@@ -353,7 +353,7 @@ namespace One.Toolbox.ViewModels
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             //textBlock.Foreground = System.Windows.Media.Brushes.Gray;
-            textBlock.Foreground = Wpf.Ui.Appearance.ApplicationAccentColorManager.SecondaryAccentBrush; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
+            //textBlock.Foreground = Wpf.Ui.Appearance.ApplicationAccentColorManager.SecondaryAccentBrush; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
             innerGrid.Children.Add(textBlock);
             Grid.SetRow(textBlock, 1);
 

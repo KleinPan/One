@@ -7,7 +7,7 @@ using System.Windows.Input;
 namespace One.Toolbox.Views.Serialport
 {
     /// <summary> SerialportPage.xaml 的交互逻辑 </summary>
-    public partial class SerialportPage : INavigableView<ViewModels.Serialport.SerialportViewModel>
+    public partial class SerialportPage  
     {
         public ViewModels.Serialport.SerialportViewModel ViewModel { get; }
 

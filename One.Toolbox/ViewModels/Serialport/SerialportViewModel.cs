@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Serialport
 {
-    public partial class SerialportViewModel : BaseViewModel, INavigationAware
+    public partial class SerialportViewModel : BaseViewModel
     {
         #region SerialPortSetting
 

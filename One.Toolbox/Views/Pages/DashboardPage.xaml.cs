@@ -4,7 +4,7 @@ using One.Toolbox.ViewModels;
 
 namespace One.Toolbox.Views.Pages;
 
-public partial class DashboardPage : INavigableView<DashboardViewModel>
+public partial class DashboardPage 
 {
     public DashboardViewModel ViewModel { get; }
 

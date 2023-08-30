@@ -1,7 +1,7 @@
 ﻿namespace One.Toolbox.Views.Pages
 {
     /// <summary> 编码转换工具页面 </summary>
-    public partial class StringConvertPage : INavigableView<ViewModels.StringConvertViewModel>
+    public partial class StringConvertPage  
     {
         public ViewModels.StringConvertViewModel ViewModel { get; }
 

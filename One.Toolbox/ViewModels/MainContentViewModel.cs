@@ -1,6 +1,6 @@
 ﻿namespace One.Toolbox.ViewModels
 {
-    public partial class MainContentViewModel : BaseViewModel, INavigationAware
+    public partial class MainContentViewModel : BaseViewModel
     {
     }
 }

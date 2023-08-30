@@ -4,16 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     Title="Dashboard Page"
     d:DataContext="{d:DesignInstance viewmodels:DashboardViewModel,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="650"
     d:DesignWidth="800"
-    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
-    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     mc:Ignorable="d">
 
     <Grid Margin="42">
@@ -96,26 +92,28 @@
                 FontWeight="DemiBold"
                 Text="One.Core" />
 
-            <ui:Hyperlink
-                Margin="8,8,0,0"
+
+            <!--<Hyperlink
+                Margin="8,0,0,0"
                 Padding="4"
                 Content="Documentation"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
 
-            <ui:Hyperlink
+
+            <Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="GitHub"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
 
-            <ui:Hyperlink
+            <Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="NuGet"
                 NavigateUri="https://www.nuget.org/packages/One.Core/"
-                ToolTip="https://www.nuget.org/packages/One.Core/" />
+                ToolTip="https://www.nuget.org/packages/One.Core/" />-->
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,24,0,0">
             <TextBlock
@@ -123,26 +121,26 @@
                 FontWeight="DemiBold"
                 Text="One.Control" />
 
-            <ui:Hyperlink
+            <!--<Hyperlink
                 Margin="8,8,0,0"
                 Padding="4"
                 Content="Documentation"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
 
-            <ui:Hyperlink
+            <Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="GitHub"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
 
-            <ui:Hyperlink
+            <Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="NuGet"
                 NavigateUri="https://www.nuget.org/packages/One.Control/"
-                ToolTip="https://www.nuget.org/packages/One.Control/" />
+                ToolTip="https://www.nuget.org/packages/One.Control/" />-->
         </StackPanel>
 
         <StackPanel Grid.Row="3" Margin="0,24,0,0">
@@ -150,19 +148,19 @@
                 FontSize="18"
                 FontWeight="DemiBold"
                 Text="One.Toolbox" />
-            <ui:Hyperlink
+            <!--<Hyperlink
                 Margin="8,8,0,0"
                 Padding="4"
                 Content="Documentation"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
 
-            <ui:Hyperlink
+            <Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="GitHub"
                 NavigateUri="https://github.com/KleinPan/One.Toolbox"
-                ToolTip="https://github.com/KleinPan/One.Toolbox" />
+                ToolTip="https://github.com/KleinPan/One.Toolbox" />-->
         </StackPanel>
         <StackPanel
             Grid.Row="4"

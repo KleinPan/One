@@ -4,8 +4,6 @@ using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
 
-using Wpf.Ui;
-
 namespace One.Toolbox.ViewModels;
 
 public partial class MainWindowViewModel : BaseViewModel
@@ -19,14 +17,18 @@ public partial class MainWindowViewModel : BaseViewModel
     [ObservableProperty]
     private ObservableCollection<object> _navigationItems = new();
 
-    [ObservableProperty]
-    private ObservableCollection<MenuItem> _trayMenuItems = new();
+    //[ObservableProperty]
+    //private ObservableCollection<MenuItem> _trayMenuItems = new();
 
-    public MainWindowViewModel(INavigationService navigationService)
+    public MainWindowViewModel()
     {
-        if (!isInitialized)
-            InitializeViewModel();
+        
     }
+    //public MainWindowViewModel(INavigationService navigationService)
+    //{
+    //    if (!isInitialized)
+    //        InitializeViewModel();
+    //}
 
     private new void InitializeViewModel()
     {
@@ -34,41 +36,41 @@ public partial class MainWindowViewModel : BaseViewModel
 
         NavigationItems = new ObservableCollection<object>
         {
-            new NavigationViewItem()
-            {
-                Content = "Home",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.Home16 },
-                TargetPageType = typeof(Views.Pages.DashboardPage)
-            },
+            //new NavigationViewItem()
+            //{
+            //    Content = "Home",
+            //    Icon = new SymbolIcon { Symbol = SymbolRegular.Home16 },
+            //    TargetPageType = typeof(Views.Pages.DashboardPage)
+            //},
 
-            new NavigationViewItem()
-            {
-               Content = "Text",
-               Icon = new SymbolIcon { Symbol = SymbolRegular. TextNumberFormat20},
-               TargetPageType = typeof(Views.Pages.StringConvertPage),
-            },
-            new NavigationViewItem()
-                {
-                    Content = "Com",
-                    Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort16 },
-                    TargetPageType = typeof(Views.Serialport.SerialportPage),
-                },
-            new NavigationViewItem()
-             {
-                Content = "Net",
-                Icon = new SymbolIcon { Symbol = SymbolRegular.NetworkCheck20},
-                TargetPageType = typeof(Views.Pages.NetworklPage),
-             },
+            //new NavigationViewItem()
+            //{
+            //   Content = "Text",
+            //   Icon = new SymbolIcon { Symbol = SymbolRegular. TextNumberFormat20},
+            //   TargetPageType = typeof(Views.Pages.StringConvertPage),
+            //},
+            //new NavigationViewItem()
+            //    {
+            //        Content = "Com",
+            //        Icon = new SymbolIcon { Symbol = SymbolRegular.SerialPort16 },
+            //        TargetPageType = typeof(Views.Serialport.SerialportPage),
+            //    },
+            //new NavigationViewItem()
+            // {
+            //    Content = "Net",
+            //    Icon = new SymbolIcon { Symbol = SymbolRegular.NetworkCheck20},
+            //    TargetPageType = typeof(Views.Pages.NetworklPage),
+            // },
         };
 
         NavigationFooter = new ObservableCollection<object>
             {
-                new NavigationViewItem()
-                {
-                    Content = "Settings",
-                    Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
-                    TargetPageType = typeof(Views.Settings.SettingsPage)
-                }
+                //new NavigationViewItem()
+                //{
+                //    Content = "Settings",
+                //    Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
+                //    TargetPageType = typeof(Views.Settings.SettingsPage)
+                //}
             };
 
         //win11 有问题

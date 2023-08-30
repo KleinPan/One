@@ -2,5 +2,3 @@
 global using CommunityToolkit.Mvvm.Input;
 
 global using System.Windows;
-
-global using Wpf.Ui.Controls;

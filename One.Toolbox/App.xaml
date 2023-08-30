@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Converters="clr-namespace:One.Toolbox.Converters"
     xmlns:oc="clr-namespace:One.Control.Converters;assembly=One.Control"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     DispatcherUnhandledException="OnDispatcherUnhandledException"
     Exit="OnExit"
     Startup="OnStartup">
@@ -12,11 +11,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-cn.xaml" />
-                <ui:ThemesDictionary Theme="Light" />
-                <ui:ControlsDictionary />
+
+
             </ResourceDictionary.MergedDictionaries>
 
-            <Converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+
             <Converters:boolNot x:Key="boolNotConverter" />
 
             <Converters:boolConnected x:Key="boolConnected" />

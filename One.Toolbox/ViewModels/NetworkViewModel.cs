@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace One.Toolbox.ViewModels
 {
-    public partial class NetworkViewModel : BaseViewModel, INavigationAware
+    public partial class NetworkViewModel : BaseViewModel
     {
         [ObservableProperty]
         private CommunProtocalType selectCommunProtocalType;

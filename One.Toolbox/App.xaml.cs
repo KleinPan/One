@@ -14,8 +14,6 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
 
-using Wpf.Ui;
-
 namespace One.Toolbox
 {
     /// <summary> App.xaml 的交互逻辑 </summary>
@@ -31,18 +29,18 @@ namespace One.Toolbox
                 services.AddHostedService<ApplicationHostService>();
 
                 // Page resolver service
-                services.AddSingleton<IPageService, PageService>();
+                //services.AddSingleton<IPageService, PageService>();
 
                 // Theme manipulation
-                services.AddSingleton<IThemeService, ThemeService>();
+                //services.AddSingleton<IThemeService, ThemeService>();
 
                 // TaskBar manipulation
-                services.AddSingleton<ITaskBarService, TaskBarService>();
-                services.AddSingleton<IContentDialogService, ContentDialogService>();
+                //services.AddSingleton<ITaskBarService, TaskBarService>();
+                //services.AddSingleton<IContentDialogService, ContentDialogService>();
                 // Service containing navigation, same as INavigationWindow... but without window
-                services.AddSingleton<INavigationService, NavigationService>();
+                //services.AddSingleton<INavigationService, NavigationService>();
 
-                services.AddSingleton<ISnackbarService, SnackbarService>();
+                //services.AddSingleton<ISnackbarService, SnackbarService>();
 
                 // Main window with navigation
                 services.AddScoped<IWindow, Views.MainWindow>();
@@ -85,8 +83,7 @@ namespace One.Toolbox
         {
             await _host.StartAsync();
 
-            //Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
-            //var CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
+            
             var countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
             AppCenter.SetCountryCode(countryCode);
 

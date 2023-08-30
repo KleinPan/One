@@ -8,18 +8,24 @@ using One.Toolbox.Models.Dashboard;
 
 using RestSharp;
 
-using Wpf.Ui;
-
 namespace One.Toolbox.ViewModels;
 
 public partial class DashboardViewModel : BaseViewModel
 {
-    private readonly INavigationService _navigationService;
+    //private readonly INavigationService _navigationService;
 
-    public DashboardViewModel(INavigationService navigationService)
+    //public DashboardViewModel(INavigationService navigationService)
+    //{
+    //    _navigationService = navigationService;
+
+    //}
+
+    public DashboardViewModel()
     {
-        _navigationService = navigationService;
+    }
 
+    void InitData()
+    {
         Task.Run(async () =>
         {
             var a = await GetEveryDayYiyan();

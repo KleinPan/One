@@ -6,7 +6,7 @@ using System.Windows.Navigation;
 namespace One.Toolbox.Views.Settings;
 
 /// <summary> Interaction logic for SettingsPage.xaml </summary>
-public partial class SettingsPage : INavigableView<ViewModels.SettingsViewModel>
+public partial class SettingsPage  
 {
     public ViewModels.SettingsViewModel ViewModel { get; }
 

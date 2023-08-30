@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using One.Toolbox.Interfaces;
 using One.Toolbox.Views;
 
-using Wpf.Ui;
+ 
 
 namespace One.Toolbox.Services;
 
@@ -13,8 +13,7 @@ namespace One.Toolbox.Services;
 public class ApplicationHostService : IHostedService
 {
     private readonly IServiceProvider _serviceProvider;
-    private INavigationWindow _navigationWindow;
-
+  
     public ApplicationHostService(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;

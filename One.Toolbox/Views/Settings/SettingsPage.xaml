@@ -5,64 +5,46 @@
     xmlns:EnumConverters="clr-namespace:One.Control.EnumConverters;assembly=One.Control"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:test="clr-namespace:Wpf.Ui.Appearance;assembly=Wpf.Ui"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    
+  
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     Title="SettingsPage"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    
     Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <StackPanel Margin="10">
+        <Grid Margin="0,0,0,12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-        <ui:TextBlock
-            Margin="0,0,0,8"
-            FontTypography="BodyStrong"
-            Text="Appearance &amp; behavior" />
-        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon Color24}">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ui:TextBlock
-                        Grid.Row="0"
-                        FontTypography="Body"
-                        Text="App theme" />
-                    <ui:TextBlock
-                        Grid.Row="1"
-                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
-                        Text="Select which app theme to display" />
-                </Grid>
-            </ui:CardControl.Header>
+                <TextBlock Grid.Row="0" Text="App theme" />
+                <TextBlock Grid.Row="1" Text="Select which app theme to display" />
+            </Grid>
+
             <ComboBox
                 Grid.Column="1"
                 MinWidth="200"
-                ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=test:ApplicationTheme}}"
                 SelectedItem="{Binding CurrentTheme}" />
-        </ui:CardControl>
+            <!--  ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=test:ApplicationTheme}}"  -->
+        </Grid>
+        <Grid Margin="0,0,0,12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon LocalLanguage24}">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ui:TextBlock
-                        Grid.Row="0"
-                        FontTypography="Body"
-                        Text="Language" />
-                    <ui:TextBlock
-                        Grid.Row="1"
-                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
-                        Text="Select which app language to display" />
-                </Grid>
-            </ui:CardControl.Header>
+                <TextBlock Grid.Row="0" Text="Language" />
+                <TextBlock Grid.Row="1" Text="Select which app language to display" />
+            </Grid>
+
             <ComboBox
                 Grid.Column="1"
                 MinWidth="200"
@@ -71,33 +53,26 @@
                 <ComboBoxItem Content="zh-CN" />
                 <ComboBoxItem Content="en-US" />
             </ComboBox>
-        </ui:CardControl>
+        </Grid>
 
-        <ui:CardControl Margin="0,0,0,12" Icon="{ui:SymbolIcon LocalLanguage24}">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ui:TextBlock
-                        Grid.Row="0"
-                        FontTypography="Body"
-                        Text="Auto Update" />
-                    <ui:TextBlock
-                        Grid.Row="1"
-                        Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{DynamicResource AboutAutoUpdate}" />
-                </Grid>
-            </ui:CardControl.Header>
+        <Grid Margin="0,0,0,12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Auto Update" />
+                <TextBlock Grid.Row="1" Text="{DynamicResource AboutAutoUpdate}" />
+            </Grid>
+
             <CheckBox IsChecked="{Binding AutoUpdate}" />
-        </ui:CardControl>
+        </Grid>
 
-        <ui:TextBlock
-            Margin="0,24,0,8"
-            FontTypography="BodyStrong"
-            Text="About" />
-        <ui:CardExpander ContentPadding="0" Icon="{ui:ImageIcon '/Resources/Icon.png', Width=38, Height=35}">
+
+
+
+        <!--<ui:CardExpander ContentPadding="0" Icon="{ui:ImageIcon '/Resources/Icon.png', Width=38, Height=35}">
 
             <ui:CardExpander.Header>
                 <Grid>
@@ -186,7 +161,7 @@
                 </ui:Anchor>
                 <TextBlock Margin="16" Text="{Binding AppVersion, Mode=OneWay}" />
             </StackPanel>
-        </ui:CardExpander>
+        </ui:CardExpander>-->
         <StackPanel Margin="42">
             <StackPanel.Resources>
                 <Style TargetType="TextBlock">

@@ -4,13 +4,18 @@ using One.Toolbox.Interfaces;
 using One.Toolbox.ViewModels;
 using One.Toolbox.Views.Pages;
 
-using Wpf.Ui;
-
 namespace One.Toolbox.Views
 {
     /// <summary> MainWindow.xaml 的交互逻辑 </summary>
     public partial class MainWindow : IWindow
     {
+
+
+        public MainWindow()
+        {
+            
+        }
+        /*
         public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService,
         IServiceProvider serviceProvider, ISnackbarService snackbarService, IContentDialogService contentDialogService)
         {
@@ -76,5 +81,6 @@ namespace One.Toolbox.Views
 
             _isUserClosedPane = true;
         }
+        */
     }
 }

@@ -9,6 +9,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-cn.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/Resources/Style/Hyperlink.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Converters:boolNot x:Key="boolNotConverter" />

@@ -24,6 +24,11 @@ public partial class DashboardViewModel : BaseViewModel
     {
     }
 
+    public override void OnNavigatedEnter()
+    {
+        base.OnNavigatedEnter();
+        InitData();
+    }
     void InitData()
     {
         Task.Run(async () =>

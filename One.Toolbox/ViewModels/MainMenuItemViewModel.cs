@@ -31,6 +31,7 @@ namespace One.Toolbox.ViewModels
         {
             //Content = App.GetService< Type.GetType(nameof(targetPageType)) >();
             Dock = Dock.Top;
+            
         }
 
         public override string ToString()

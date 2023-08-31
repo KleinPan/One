@@ -44,6 +44,7 @@ public partial class MainWindowViewModel : BaseViewModel
         NavigationItems = new ObservableCollection<MainMenuItemViewModel>();
 
         //https://fontawesome.com/search?p=3&o=r&m=free
+        //https://awesome-inc.github.io/FontAwesome.Sharp/#wpf
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Home",

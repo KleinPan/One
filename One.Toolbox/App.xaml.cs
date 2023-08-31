@@ -1,11 +1,7 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-using One.Toolbox.Services;
 
 using System.Globalization;
 using System.Windows.Threading;
@@ -38,7 +34,6 @@ namespace One.Toolbox
             var services = new ServiceCollection();
 
             // App Host
-            services.AddHostedService<ApplicationHostService>();
 
             // Views and ViewModels
             //services.AddTransient<Views.MainWindow>();

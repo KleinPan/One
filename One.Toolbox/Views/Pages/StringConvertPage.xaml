@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:StringConvertViewModel}"
@@ -114,6 +115,8 @@
                     Command="{Binding ShowIndexEventCommand}"
                     CommandParameter="{Binding ElementName=wrapPanel}"
                     Content="{DynamicResource ShowIndex}" />
+
+                <hc:NumericUpDown Style="{StaticResource NumericUpDownPlus}" Value="{Binding EveryLineCount}" />
             </StackPanel>
 
             <TextBlock
@@ -128,7 +131,8 @@
                 Grid.Column="1"
                 Margin="2"
                 Padding="10,8,5,7"
-                VerticalAlignment="Stretch"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Top"
                 AcceptsReturn="True"
                 FontFamily="Consolas"
                 IsReadOnly="true"

@@ -1,6 +1,7 @@
 ﻿using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
@@ -32,6 +33,9 @@ namespace One.Toolbox.ViewModels
 
         [ObservableProperty]
         private double lineHeight;
+
+        [ObservableProperty]
+        private int everyLineCount = 36;
 
         public StringConvertViewModel()
         {
@@ -292,8 +296,6 @@ namespace One.Toolbox.ViewModels
             }
         }
 
-        private int chahacterCount = 49;
-
         private void GenerateBox(object element, int count)
         {
             WrapPanel wrapPanel = (WrapPanel)element;
@@ -301,7 +303,7 @@ namespace One.Toolbox.ViewModels
 
             for (int i = 0; i < count; i++)
             {
-                bool isFirstLine = i < chahacterCount ? true : false;
+                bool isFirstLine = i < EveryLineCount ? true : false;
 
                 GenTarget(wrapPanel, isFirstLine, i);
             }
@@ -319,7 +321,7 @@ namespace One.Toolbox.ViewModels
             innerGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
             innerGrid.RowDefinitions.Add(new RowDefinition());
 
-            double marginWidth = 1.55;
+            double marginWidth = 1.4;
             double marginUp, marginDown = 0;
             if (isFirstRow)
             {
@@ -332,23 +334,23 @@ namespace One.Toolbox.ViewModels
 
             //每行数量
 
-            int index = realIndex % chahacterCount;
+            int index = realIndex % EveryLineCount;
             if (index == 0)
             {
                 //border.BorderBrush = System.Windows.Media.Brushes.Red;
-                border.Margin = new System.Windows.Thickness(13, marginUp, marginWidth, marginDown);
+                border.Margin = new System.Windows.Thickness(10, marginUp, marginWidth, marginDown);
             }
-            else if (index == chahacterCount)
+            else if (index == EveryLineCount)
             {
-                //border.BorderBrush = System.Windows.Media.Brushes.Blue;
                 border.Margin = new System.Windows.Thickness(1, marginUp, 0, marginDown);
             }
             else
             {
+                //border.BorderBrush = System.Windows.Media.Brushes.Blue;
                 border.Margin = new System.Windows.Thickness(marginWidth, marginUp, marginWidth, marginDown);
             }
 
-            innerGrid.Width = 18;
+            innerGrid.Width = 15;
             innerGrid.Height = 20;
 
             TextBlock textBlock = new TextBlock();
@@ -357,7 +359,9 @@ namespace One.Toolbox.ViewModels
             textBlock.VerticalAlignment = VerticalAlignment.Top;
             textBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             //textBlock.Foreground = System.Windows.Media.Brushes.Gray;
-            //textBlock.Foreground = Wpf.Ui.Appearance.ApplicationAccentColorManager.SecondaryAccentBrush; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
+
+            System.Windows.Media.Brush ss = HandyControl.Tools.ResourceHelper.GetResource<System.Windows.Media.Brush>(HandyControl.Data.ResourceToken.InfoBrush);
+            textBlock.Foreground = ss; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
             innerGrid.Children.Add(textBlock);
             Grid.SetRow(textBlock, 1);
 

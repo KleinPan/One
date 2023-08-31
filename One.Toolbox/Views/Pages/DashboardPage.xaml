@@ -97,8 +97,8 @@
                 <uc:Hyperlink
                     Padding="4"
                     Content="Documentation"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
+                    NavigateUri="https://kleinpan.github.io/One/api/index.html"
+                    ToolTip="https://kleinpan.github.io/One/api/index.html" />
                 <uc:Hyperlink
                     Padding="4"
                     Content="GitHub"
@@ -119,8 +119,8 @@
 
                 <uc:Hyperlink
                     Content="Documentation"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
+                    NavigateUri="https://kleinpan.github.io/One/api/index.html"
+                    ToolTip="https://kleinpan.github.io/One/api/index.html" />
 
                 <uc:Hyperlink
                     Content="GitHub"

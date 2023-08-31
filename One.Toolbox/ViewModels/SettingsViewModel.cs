@@ -1,5 +1,9 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
+using HandyControl.Data;
+
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace One.Toolbox.ViewModels;
 
 public partial class SettingsViewModel : BaseViewModel
@@ -7,8 +11,8 @@ public partial class SettingsViewModel : BaseViewModel
     [ObservableProperty]
     private string _appVersion = String.Empty;
 
-    //[ObservableProperty]
-    //private Wpf.Ui.Appearance.ApplicationTheme currentTheme = Wpf.Ui.Appearance.ApplicationTheme.Unknown;
+    [ObservableProperty]
+    private SkinType skinType = SkinType.Default;
 
     [ObservableProperty]
     private string currentLanguage = "zh-CN";
@@ -60,8 +64,24 @@ public partial class SettingsViewModel : BaseViewModel
         CurrentLanguage = value;
     }
 
-    //partial void OnCurrentThemeChanged(ApplicationTheme value)
-    //{
-    //    Wpf.Ui.Appearance.ApplicationThemeManager.Apply(value);
-    //}
+    partial void OnSkinTypeChanged(SkinType skin)
+    {
+        var skins0 = App.Current.Resources.MergedDictionaries[0];
+        skins0.MergedDictionaries.Clear();
+        skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(skin));
+        skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+
+        var skins1 = App.Current.Resources.MergedDictionaries[1];
+        skins1.MergedDictionaries.Clear();
+        skins1.MergedDictionaries.Add(new ResourceDictionary
+        {
+            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+        });
+        skins1.MergedDictionaries.Add(new ResourceDictionary
+        {
+            Source = new Uri("pack://application:,,,/One.Toolbox;component/Resources/Themes/Theme.xaml")
+        });
+
+        App.Current.MainWindow?.OnApplyTemplate();
+    }
 }

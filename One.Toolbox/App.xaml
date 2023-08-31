@@ -13,7 +13,8 @@
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
 
-                <ResourceDictionary Source="pack://application:,,,/Resources/Style/Hyperlink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Resources/Themes/Styles/Hyperlink.xaml" />
+                <ResourceDictionary Source="Resources/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Converters:boolNot x:Key="boolNotConverter" />

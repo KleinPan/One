@@ -48,7 +48,6 @@
                     IsOptimalParagraphEnabled="False"
                     TextAlignment="Left" />
                 <behaviors:Interaction.Triggers>
-
                     <behaviors:EventTrigger EventName="Loaded">
                         <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
                     </behaviors:EventTrigger>
@@ -59,8 +58,11 @@
         <!--  发送数据区  -->
         <Grid Grid.Row="1">
             <Grid.Resources>
-                <Style x:Key="ClickButton" TargetType="Button">
-                    <Setter Property="Margin" Value="2" />
+                <Style
+                    x:Key="ClickButton"
+                    BasedOn="{StaticResource ButtonBaseStyle}"
+                    TargetType="Button">
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
                 </Style>
             </Grid.Resources>
             <Grid.RowDefinitions>
@@ -90,7 +92,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel.Resources>
-                        <Style TargetType="CheckBox">
+                        <Style BasedOn="{StaticResource CheckBoxBaseStyle}" TargetType="CheckBox">
                             <Setter Property="HorizontalAlignment" Value="Left" />
                             <Setter Property="MinWidth" Value="50" />
                             <Setter Property="Margin" Value="2,0" />
@@ -134,23 +136,22 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
 
-                    <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
                 <Button
                     Grid.Row="1"
+                    Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}"
                     Margin="2,1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
                     Command="{Binding OpenClosePortCommand}">
                     <Button.Content>
-                        <WrapPanel>
+                        <StackPanel>
                             <TextBlock Text="{Binding OpenCloseButtonContent}" />
                             <TextBlock Text="{DynamicResource OpenPort_port}" />
-                        </WrapPanel>
+                        </StackPanel>
                     </Button.Content>
                 </Button>
 
@@ -158,7 +159,7 @@
                     Name="toSendDataTextBox"
                     Grid.Column="1"
                     Margin="0,1"
-                    VerticalAlignment="Stretch"
+                    VerticalContentAlignment="Top"
                     AcceptsReturn="True"
                     FontFamily="Consolas"
                     Text="{Binding DataToSend}"
@@ -167,11 +168,11 @@
                 <Button
                     Name="sendDataButton"
                     Grid.Column="2"
-                    Margin="2,1,0,1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
+                    Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}"
+                    Margin="2,1"
                     Command="{Binding SendDataCommand}"
                     Content="{DynamicResource SendDataButton}"
+                    Style="{StaticResource ButtonPrimary}"
                     ToolTip="{DynamicResource SendDataButtonTip}" />
             </Grid>
         </Grid>

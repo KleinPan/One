@@ -116,7 +116,10 @@
                     CommandParameter="{Binding ElementName=wrapPanel}"
                     Content="{DynamicResource ShowIndex}" />
 
-                <hc:NumericUpDown Style="{StaticResource NumericUpDownPlus}" Value="{Binding EveryLineCount}" />
+                <hc:NumericUpDown
+                    Margin="2"
+                    Style="{StaticResource NumericUpDownPlus}"
+                    Value="{Binding EveryLineCount}" />
             </StackPanel>
 
             <TextBlock

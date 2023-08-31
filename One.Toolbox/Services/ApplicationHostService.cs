@@ -2,10 +2,7 @@
 
 using Microsoft.Extensions.Hosting;
 
-using One.Toolbox.Interfaces;
 using One.Toolbox.Views;
-
- 
 
 namespace One.Toolbox.Services;
 
@@ -13,7 +10,7 @@ namespace One.Toolbox.Services;
 public class ApplicationHostService : IHostedService
 {
     private readonly IServiceProvider _serviceProvider;
-  
+
     public ApplicationHostService(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
@@ -40,8 +37,9 @@ public class ApplicationHostService : IHostedService
 
         if (!Application.Current.Windows.OfType<MainWindow>().Any())
         {
-            var mainWindow = _serviceProvider.GetService(typeof(IWindow)) as IWindow;
-            mainWindow?.Show();
+            //var mainWindow = App.GetService<MainWindow>();
+
+            //mainWindow?.Show();
         }
 
         await Task.CompletedTask;

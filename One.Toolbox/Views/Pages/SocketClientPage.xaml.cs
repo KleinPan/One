@@ -4,7 +4,7 @@ namespace One.Toolbox.Views.Pages
 {
     /// <summary> SocketClientPage.xaml 的交互逻辑 </summary>
     [PropertyChanged.AddINotifyPropertyChangedInterface]
-    public partial class SocketClientPage : Page
+    public partial class SocketClientPage
     {
         public SocketClientPage()
         {

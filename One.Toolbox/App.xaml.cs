@@ -5,108 +5,93 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using One.Toolbox.Interfaces;
-using One.Toolbox.Models;
 using One.Toolbox.Services;
 
 using System.Globalization;
-using System.IO;
-using System.Reflection;
 using System.Windows.Threading;
 
 namespace One.Toolbox
 {
     /// <summary> App.xaml 的交互逻辑 </summary>
-    public partial class App
+    public partial class App : Application
     {
-        // The.NET Generic Host provides dependency injection, configuration, logging, and other services. https://docs.microsoft.com/dotnet/core/extensions/generic-host https://docs.microsoft.com/dotnet/core/extensions/dependency-injection https://docs.microsoft.com/dotnet/core/extensions/configuration https://docs.microsoft.com/dotnet/core/extensions/logging
-        private static readonly IHost _host = Host
-            .CreateDefaultBuilder()
-            .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
-            .ConfigureServices((context, services) =>
-            {
-                // App Host
-                services.AddHostedService<ApplicationHostService>();
+        /// <summary> Gets the current <see cref="App"/> instance in use </summary>
+        public new static App Current => (App)Application.Current;
 
-                // Page resolver service
-                //services.AddSingleton<IPageService, PageService>();
+        /// <summary> Gets the <see cref="IServiceProvider"/> instance to resolve application services. </summary>
+        public IServiceProvider Services { get; }
 
-                // Theme manipulation
-                //services.AddSingleton<IThemeService, ThemeService>();
-
-                // TaskBar manipulation
-                //services.AddSingleton<ITaskBarService, TaskBarService>();
-                //services.AddSingleton<IContentDialogService, ContentDialogService>();
-                // Service containing navigation, same as INavigationWindow... but without window
-                //services.AddSingleton<INavigationService, NavigationService>();
-
-                //services.AddSingleton<ISnackbarService, SnackbarService>();
-
-                // Main window with navigation
-                services.AddScoped<IWindow, Views.MainWindow>();
-                services.AddScoped<ViewModels.MainWindowViewModel>();
-
-                // Views and ViewModels
-                services.AddScoped<Views.Pages.MainContentPage>();
-                services.AddScoped<ViewModels.MainContentViewModel>();
-
-                services.AddScoped<Views.Pages.DashboardPage>();
-                services.AddScoped<ViewModels.DashboardViewModel>();
-
-                services.AddScoped<Views.Pages.StringConvertPage>();
-                services.AddScoped<ViewModels.StringConvertViewModel>();
-
-                services.AddScoped<Views.Settings.SettingsPage>();
-                services.AddScoped<ViewModels.SettingsViewModel>();
-
-                services.AddScoped<Views.Serialport.SerialportPage>();
-                services.AddScoped<ViewModels.Serialport.SerialportViewModel>();
-
-                services.AddScoped<Views.Pages.NetworklPage>();
-                services.AddScoped<ViewModels.NetworkViewModel>();
-
-                // Configuration
-                services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
-            }).Build();
-
-        /// <summary> Gets registered service. </summary>
-        /// <typeparam name="T"> Type of the service to get. </typeparam>
-        /// <returns> Instance of the service or <see langword="null"/>. </returns>
-        public static T GetService<T>()
-            where T : class
+        public App()
         {
-            return _host.Services.GetService(typeof(T)) as T;
+            Services = ConfigureServices();
+            this.InitializeComponent();
+
+            //AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
+
+            InitDataColelection();
         }
 
-        /// <summary> Occurs when the application is loading. </summary>
-        private async void OnStartup(object sender, StartupEventArgs e)
+        /// <summary> Configures the services for the application. </summary>
+        private static IServiceProvider ConfigureServices()
         {
-            await _host.StartAsync();
+            var services = new ServiceCollection();
 
-            
+            // App Host
+            services.AddHostedService<ApplicationHostService>();
+
+            // Views and ViewModels
+            //services.AddTransient<Views.MainWindow>();
+            services.AddTransient<ViewModels.MainWindowViewModel>();
+
+            //services.AddTransient<Views.Pages.DashboardPage>();
+            services.AddTransient<ViewModels.DashboardViewModel>();
+
+            //services.AddTransient<Views.Pages.StringConvertPage>();
+            services.AddTransient<ViewModels.StringConvertViewModel>();
+
+            //services.AddTransient<Views.Settings.SettingsPage>();
+            services.AddTransient<ViewModels.SettingsViewModel>();
+
+            //services.AddTransient<Views.Serialport.SerialportPage>();
+            services.AddTransient<ViewModels.Serialport.SerialportViewModel>();
+
+            //services.AddTransient<Views.Pages.NetworklPage>();
+            services.AddTransient<ViewModels.NetworkViewModel>();
+
+            return services.BuildServiceProvider();
+        }
+
+        private void InitDataColelection()
+        {
             var countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
             AppCenter.SetCountryCode(countryCode);
-
-#if DEBUG
-#else
-
-#endif
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
-            Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
 
             AppCenter.Start("fc53b46a-1bc7-4f67-8382-2f96c799223f",
                typeof(Analytics), typeof(Crashes));
         }
 
-        /// <summary> Occurs when the application is closing. </summary>
-        private async void OnExit(object sender, ExitEventArgs e)
-        {
-            await _host.StopAsync();
+        // App Host
 
-            _host.Dispose();
+        // Page resolver service
+        //services.AddSingleton<IPageService, PageService>();
 
-            Environment.Exit(0);
-        }
+        // Theme manipulation
+        //services.AddSingleton<IThemeService, ThemeService>();
+
+        // TaskBar manipulation
+        //services.AddSingleton<ITaskBarService, TaskBarService>();
+        //services.AddSingleton<IContentDialogService, ContentDialogService>();
+        // Service containing navigation, same as INavigationWindow... but without window
+        //services.AddSingleton<INavigationService, NavigationService>();
+
+        //services.AddSingleton<ISnackbarService, SnackbarService>();
+
+        // Main window with navigation
+
+        // Configuration
+
+        #region Exception
 
         /// <summary> Occurs when an exception is thrown by an application but not handled. </summary>
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -137,6 +122,9 @@ namespace One.Toolbox
                 Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");
                 return;
             }
+
+            Tools.MessageBox.Show($"{exception.Message}\r\nexit!");
+            return;
             if (Tools.Global.setting.language == "zh-CN")
                 Tools.MessageBox.Show("恭喜你触发了一个BUG！\r\n" +
                     "如果条件允许，请点击“Send Report”来上报这个BUG\r\n" +
@@ -152,5 +140,7 @@ namespace One.Toolbox
                 return;
             }
         }
+
+        #endregion Exception
     }
 }

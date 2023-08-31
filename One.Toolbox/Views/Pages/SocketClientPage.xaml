@@ -1,4 +1,4 @@
-﻿<Page
+﻿<UserControl
     x:Class="One.Toolbox.Views.Pages.SocketClientPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,14 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:One.Toolbox.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="SocketClientPage"
     d:DesignHeight="440"
     d:DesignWidth="400"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
-    <Page.Resources>
+    <UserControl.Resources>
         <converters:boolConnected x:Key="boolConnectedConverter" />
-    </Page.Resources>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -115,4 +114,4 @@
             Click="SendButton_Click"
             Content="{DynamicResource NetSendDataButton}" />
     </Grid>
-</Page>
+</UserControl>

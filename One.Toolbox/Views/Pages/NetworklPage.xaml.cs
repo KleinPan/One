@@ -1,15 +1,18 @@
-﻿namespace One.Toolbox.Views.Pages
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using One.Toolbox.ViewModels;
+
+namespace One.Toolbox.Views.Pages
 {
-    public partial class NetworklPage 
+    public partial class NetworklPage
     {
         public ViewModels.NetworkViewModel ViewModel { get; }
-        public NetworklPage(ViewModels.NetworkViewModel viewModel)
+
+        public NetworklPage()
         {
-            DataContext = ViewModel = viewModel;
+            DataContext = ViewModel = App.Current.Services.GetService<NetworkViewModel>();
 
             InitializeComponent();
         }
-
-     
     }
 }

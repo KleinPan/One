@@ -7,14 +7,14 @@
         protected bool isInitialized = false;
 
         /// <summary> 进入当前页面 </summary>
-        public virtual void OnNavigatedTo()
+        public virtual void OnNavigatedEnter()
         {
             if (!isInitialized)
                 InitializeViewModel();
         }
 
         /// <summary> 从当前页面离开 </summary>
-        public virtual void OnNavigatedFrom()
+        public virtual void OnNavigatedLeave()
         {
         }
 

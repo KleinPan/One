@@ -33,6 +33,10 @@ namespace One.Toolbox.ViewModels
         [ObservableProperty]
         private double lineHeight;
 
+        public StringConvertViewModel()
+        {
+        }
+
         public override void InitializeViewModel()
         {
             foreach (var i in converters)
@@ -41,14 +45,14 @@ namespace One.Toolbox.ViewModels
             base.InitializeViewModel();
         }
 
-        public override void OnNavigatedFrom()
+        public override void OnNavigatedLeave()
         {
-            base.OnNavigatedFrom();
+            base.OnNavigatedLeave();
         }
 
-        public override void OnNavigatedTo()
+        public override void OnNavigatedEnter()
         {
-            base.OnNavigatedTo();
+            base.OnNavigatedEnter();
             ConfigHelper.Instance.Load();
         }
 
@@ -235,7 +239,7 @@ namespace One.Toolbox.ViewModels
 
         public static string Unicode2String(string source)
         {
-            return new Regex(@"\\u([0-9a-fA-F]{4})", RegexOptions.IgnoreCase | RegexOptions.Compiled).Replace(source, x => System.Convert.ToChar(System.Convert.ToUInt16(x.Result("$1"), 16)).ToString());
+            return new Regex(@"\\u([0-9a-fA-F]{4})", RegexOptions.IgnoreCase | RegexOptions.Compiled).Replace(source, x => System.Convert.ToChar(System.Convert.ToUInt16(x.Result("1"), 16)).ToString());
         }
 
         #endregion Helpers

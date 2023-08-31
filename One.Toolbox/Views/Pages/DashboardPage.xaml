@@ -1,11 +1,10 @@
-<Page
+<UserControl
     x:Class="One.Toolbox.Views.Pages.DashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-    Title="Dashboard Page"
     d:DataContext="{d:DesignInstance viewmodels:DashboardViewModel,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="650"
@@ -92,14 +91,12 @@
                 FontWeight="DemiBold"
                 Text="One.Core" />
 
-
             <!--<Hyperlink
                 Margin="8,0,0,0"
                 Padding="4"
                 Content="Documentation"
                 NavigateUri="https://github.com/KleinPan/One"
                 ToolTip="https://github.com/KleinPan/One" />
-
 
             <Hyperlink
                 Margin="8,0,0,0"
@@ -177,4 +174,4 @@
         </StackPanel>
         <!--<Button Command="{Binding TestCommand}" Content="Test" />-->
     </Grid>
-</Page>
+</UserControl>

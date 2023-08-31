@@ -1,4 +1,4 @@
-﻿<Page
+﻿<UserControl
     x:Class="One.Toolbox.Views.Pages.NetworklPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,12 +9,11 @@
     xmlns:local="clr-namespace:One.Toolbox.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-    Title="TcpLocalPage"
     d:DataContext="{d:DesignInstance Type=viewmodels:NetworkViewModel}"
     mc:Ignorable="d">
-    <Page.Resources>
+    <UserControl.Resources>
         <convert:CommonProtoclShowConverter x:Key="CommonProtoclShowConverter" />
-    </Page.Resources>
+    </UserControl.Resources>
     <Grid Name="MainGrid">
 
         <Grid.ColumnDefinitions>
@@ -180,4 +179,4 @@
                 IsEnabled="{Binding IsConnected}" />
         </Grid>
     </Grid>
-</Page>
+</UserControl>

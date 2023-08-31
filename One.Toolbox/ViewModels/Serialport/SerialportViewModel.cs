@@ -61,16 +61,16 @@ namespace One.Toolbox.ViewModels.Serialport
 
         #endregion 界面显示
 
-        public override void OnNavigatedFrom()
+        public override void OnNavigatedLeave()
         {
-            base.OnNavigatedFrom();
+            base.OnNavigatedLeave();
 
             SaveSetting();
         }
 
-        public override void OnNavigatedTo()
+        public override void OnNavigatedEnter()
         {
-            base.OnNavigatedTo();
+            base.OnNavigatedEnter();
             LoadSetting();
         }
 

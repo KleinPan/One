@@ -69,4 +69,8 @@
     <Resource Include="Resources\pexels-johannes-plenio-1103970.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

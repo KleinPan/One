@@ -4,17 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Converters="clr-namespace:One.Toolbox.Converters"
     xmlns:oc="clr-namespace:One.Control.Converters;assembly=One.Control"
-    DispatcherUnhandledException="OnDispatcherUnhandledException"
-    Exit="OnExit"
-    Startup="OnStartup">
+    StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-cn.xaml" />
-
-
             </ResourceDictionary.MergedDictionaries>
-
 
             <Converters:boolNot x:Key="boolNotConverter" />
 

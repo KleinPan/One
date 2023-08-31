@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using One.Toolbox.ViewModels;
+
+using System.Net;
 using System.Net.Sockets;
 using System.Windows.Controls;
 
@@ -6,7 +8,7 @@ namespace One.Toolbox.Views.Pages
 {
     /// <summary> UdpLocalPage.xaml 的交互逻辑 </summary>
     [PropertyChanged.AddINotifyPropertyChangedInterface]
-    public partial class UdpLocalPage : Page
+    public partial class UdpLocalPage
     {
         public UdpLocalPage()
         {

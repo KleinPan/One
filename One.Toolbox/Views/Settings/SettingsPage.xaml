@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myuc="clr-namespace:One.Toolbox.MyUserControl"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
     d:DesignHeight="450"
@@ -14,93 +15,32 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="10">
-            <Border Margin="0,0,0,10" Style="{StaticResource BorderTipPrimary}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
 
-                        <TextBlock
-                            Grid.Row="0"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource TextBlockDefaultBold}"
-                            Text="App theme" />
-                        <TextBlock
-                            Grid.Row="1"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource TextBlockDefaultSecLight}"
-                            Text="Select which app theme to display" />
-                    </Grid>
 
-                    <ComboBox
-                        Grid.Column="1"
-                        MinWidth="200"
-                        ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=hc:SkinType}}"
-                        SelectedItem="{Binding SkinType}" />
-                </Grid>
-            </Border>
-            <Border Margin="0,0,0,10" Style="{StaticResource BorderTipPrimary}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+            <myuc:SettingItem Header="App theme" SubHeader="Select which app theme to display">
+                <ComboBox
+                    Grid.Column="1"
+                    MinWidth="200"
+                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=hc:SkinType}}"
+                    SelectedItem="{Binding SkinType}" />
+            </myuc:SettingItem>
 
-                        <TextBlock
-                            Grid.Row="0"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource TextBlockDefaultBold}"
-                            Text="Language" />
-                        <TextBlock
-                            Grid.Row="1"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource TextBlockDefaultSecLight}"
-                            Text="Select which app language to display" />
-                    </Grid>
+            <myuc:SettingItem Header="Language" SubHeader="Select which app language to display">
+                <ComboBox
+                    Grid.Column="1"
+                    MinWidth="200"
+                    SelectedIndex="0"
+                    SelectedValue="{Binding CurrentLanguage}">
+                    <ComboBoxItem Content="zh-CN" />
+                    <ComboBoxItem Content="en-US" />
+                </ComboBox>
+            </myuc:SettingItem>
 
-                    <ComboBox
-                        Grid.Column="1"
-                        MinWidth="200"
-                        SelectedIndex="0"
-                        SelectedValue="{Binding CurrentLanguage}">
-                        <ComboBoxItem Content="zh-CN" />
-                        <ComboBoxItem Content="en-US" />
-                    </ComboBox>
-                </Grid>
-            </Border>
+            <myuc:SettingItem Header="Auto Update" SubHeader="{DynamicResource AboutAutoUpdate}">
+                <CheckBox IsChecked="{Binding AutoUpdate}" />
+            </myuc:SettingItem>
 
-            <Border Margin="0,0,0,10" Style="{StaticResource BorderTipPrimary}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Grid.Row="0" Text="Auto Update" />
-                        <TextBlock Grid.Row="1" Text="{DynamicResource AboutAutoUpdate}" />
-                    </Grid>
-
-                    <CheckBox HorizontalAlignment="Right" IsChecked="{Binding AutoUpdate}" />
-                </Grid>
-
-            </Border>
-
+            <myuc:SettingItem Header="test" SubHeader="subtest" />
 
             <!--<ui:CardExpander ContentPadding="0" Icon="{ui:ImageIcon '/Resources/Icon.png', Width=38, Height=35}">
 

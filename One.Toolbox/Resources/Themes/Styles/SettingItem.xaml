@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="clr-namespace:One.Toolbox.MyUserControl">
+    <Style TargetType="uc:SettingItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="uc:SettingItem">
+                    <Border Margin="0,0,0,10" Style="{StaticResource BorderTipInfo}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type uc:SettingItem}}, Path=Header}" />
+
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Foreground="Gray"
+                                    Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type uc:SettingItem}}, Path=SubHeader}" />
+                            </Grid>
+                            <ContentPresenter
+                                x:Name="contentTest"
+                                Grid.Column="1"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

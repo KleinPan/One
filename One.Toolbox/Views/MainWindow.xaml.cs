@@ -1,8 +1,15 @@
+using HandyControl.Tools;
+using HandyControl.Tools.Extension;
+
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.ViewModels;
+using One.Toolbox.Views.Settings;
 
+using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace One.Toolbox.Views
 {
@@ -11,9 +18,12 @@ namespace One.Toolbox.Views
     {
         public MainWindow()
         {
-            InitializeComponent();
             this.DataContext = App.Current.Services.GetService<MainWindowViewModel>();
             //ResizeAndRelocate();
+
+            NonClientAreaContent = new NonClientAreaContent();
+
+            InitializeComponent();
         }
 
         private void ResizeAndRelocate()
@@ -31,72 +41,59 @@ namespace One.Toolbox.Views
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        /*
-        public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService,
-        IServiceProvider serviceProvider, ISnackbarService snackbarService, IContentDialogService contentDialogService)
+        private GridLength _columnDefinitionWidth;
+
+        private void OnLeftMainContentShiftOut(object sender, RoutedEventArgs e)
         {
-            Wpf.Ui.Appearance.SystemThemeWatcher.Watch(this);
+            ButtonShiftOut.Collapse();
+            GridSplitter.IsEnabled = false;
 
-            DataContext = ViewModel = viewModel;
+            double targetValue = -ColumnDefinitionLeft.MaxWidth;
+            _columnDefinitionWidth = ColumnDefinitionLeft.Width;
 
-            InitializeComponent();
+            DoubleAnimation animation = AnimationHelper.CreateAnimation(targetValue, milliseconds: 100);
+            animation.FillBehavior = FillBehavior.Stop;
+            animation.Completed += OnAnimationCompleted;
+            LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
 
-            //snackbarService.SetSnackbarPresenter(SnackbarPresenter);
-            //isnackbarService.SetSnackbarControl(SnackbarPresenter);
-            snackbarService.SetSnackbarPresenter(SnackbarPresenter);
-            navigationService.SetNavigationControl(NavigationView);
-            contentDialogService.SetContentPresenter(RootContentDialog);
-
-            NavigationView.SetServiceProvider(serviceProvider);
-            NavigationView.Loaded += (_, _) => NavigationView.Navigate(typeof(DashboardPage));
-        }
-
-        public MainWindowViewModel ViewModel { get; }
-
-        private bool _isUserClosedPane;
-        private bool _isPaneOpenedOrClosedFromCode;
-
-        private void OnNavigationSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            if (sender is not NavigationView navigationView)
-                return;
-
-            NavigationView.HeaderVisibility = navigationView.SelectedItem?.TargetPageType != typeof(DashboardPage)
-                ? Visibility.Visible
-                : Visibility.Collapsed;
-
-            var targetVM = navigationView.SelectedItem?.TargetPageType.Name;
-            if (targetVM != "DashboardPage")
+            void OnAnimationCompleted(object _, EventArgs args)
             {
-                Analytics.TrackEvent($"{targetVM} clicked.");
+                animation.Completed -= OnAnimationCompleted;
+                LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
+
+                Grid.SetColumn(MainContent, 0);
+                Grid.SetColumnSpan(MainContent, 2);
+
+                ColumnDefinitionLeft.MinWidth = 0;
+                ColumnDefinitionLeft.Width = new GridLength();
+                ButtonShiftIn.Show();
             }
         }
 
-        private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        private void OnLeftMainContentShiftIn(object sender, RoutedEventArgs e)
         {
-            if (_isUserClosedPane)
-                return;
+            ButtonShiftIn.Collapse();
+            GridSplitter.IsEnabled = true;
 
-            _isPaneOpenedOrClosedFromCode = true;
-            NavigationView.IsPaneOpen = !(e.NewSize.Width <= 1200);
-            _isPaneOpenedOrClosedFromCode = false;
+            double targetValue = ColumnDefinitionLeft.Width.Value;
+
+            DoubleAnimation animation = AnimationHelper.CreateAnimation(targetValue, milliseconds: 100);
+            animation.FillBehavior = FillBehavior.Stop;
+            animation.Completed += OnAnimationCompleted;
+            LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
+
+            void OnAnimationCompleted(object _, EventArgs args)
+            {
+                animation.Completed -= OnAnimationCompleted;
+                LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
+
+                Grid.SetColumn(MainContent, 1);
+                Grid.SetColumnSpan(MainContent, 1);
+
+                ColumnDefinitionLeft.MinWidth = 60;
+                ColumnDefinitionLeft.Width = _columnDefinitionWidth;
+                ButtonShiftOut.Show();
+            }
         }
-
-        private void NavigationView_OnPaneOpened(NavigationView sender, RoutedEventArgs args)
-        {
-            if (_isPaneOpenedOrClosedFromCode)
-                return;
-
-            _isUserClosedPane = false;
-        }
-
-        private void NavigationView_OnPaneClosed(NavigationView sender, RoutedEventArgs args)
-        {
-            if (_isPaneOpenedOrClosedFromCode)
-                return;
-
-            _isUserClosedPane = true;
-        }
-        */
     }
 }

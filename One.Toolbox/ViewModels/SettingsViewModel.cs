@@ -20,13 +20,16 @@ public partial class SettingsViewModel : BaseViewModel
     [ObservableProperty]
     private bool autoUpdate = true;
 
+    public SettingsViewModel()
+    {
+        InitializeViewModel();
+    }
+
     public override void InitializeViewModel()
     {
         //Tools.Global.LoadSetting();
 
-        //CurrentTheme = Wpf.Ui.Appearance.ApplicationThemeManager.GetAppTheme();
-
-        AppVersion = $"{GetAssemblyVersion()}";
+        AppVersion = $"v{GetAssemblyVersion()}";
 
         base.InitializeViewModel();
     }

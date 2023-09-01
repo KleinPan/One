@@ -13,7 +13,7 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer>
-        <Grid Margin="42">
+        <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -91,7 +91,7 @@
                 <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
 
-            <Button Command="{Binding TestCommand}" Content="Test" />
+            <Button Command="{Binding TestCommand}" Content="Test" Visibility="Collapsed" />
         </Grid>
     </ScrollViewer>
 </UserControl>

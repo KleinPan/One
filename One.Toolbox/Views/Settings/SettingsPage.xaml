@@ -7,26 +7,18 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myuc="clr-namespace:One.Toolbox.MyUserControl"
-    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-    d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
+    xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
+    d:DataContext="{d:DesignInstance Type=vms:SettingsViewModel}"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="10">
 
             <myuc:SettingItem Header="App theme" SubHeader="Select which app theme to display">
-                <ComboBox
-                    Grid.Column="1"
-                    MinWidth="200"
-                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=hc:SkinType}}"
-                    SelectedItem="{Binding SkinType}" />
+                <ComboBox Grid.Column="1" MinWidth="200" ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=hc:SkinType}}" SelectedItem="{Binding SkinType}" />
             </myuc:SettingItem>
 
             <myuc:SettingItem Header="Language" SubHeader="Select which app language to display">
-                <ComboBox
-                    Grid.Column="1"
-                    MinWidth="200"
-                    SelectedIndex="0"
-                    SelectedValue="{Binding CurrentLanguage}">
+                <ComboBox Grid.Column="1" MinWidth="200" SelectedIndex="0" SelectedValue="{Binding CurrentLanguage}">
                     <ComboBoxItem Content="zh-CN" />
                     <ComboBoxItem Content="en-US" />
                 </ComboBox>
@@ -55,10 +47,7 @@
                 Content="{DynamicResource AboutLoadingUpdate}"
                 IsEnabled="False" />
 
-            <myuc:Hyperlink
-                HorizontalAlignment="Center"
-                Content="{DynamicResource AboutFeedBackButton}"
-                NavigateUri="https://github.com/KleinPan/One/issues/new" />
+            <myuc:Hyperlink HorizontalAlignment="Center" Content="{DynamicResource AboutFeedBackButton}" NavigateUri="https://github.com/KleinPan/One/issues/new" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

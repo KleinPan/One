@@ -9,13 +9,9 @@
     xmlns:myuc="clr-namespace:One.Toolbox.MyUserControl"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    Loaded="Page_Loaded"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="10">
-
 
             <myuc:SettingItem Header="App theme" SubHeader="Select which app theme to display">
                 <ComboBox
@@ -40,164 +36,29 @@
                 <CheckBox IsChecked="{Binding AutoUpdate}" />
             </myuc:SettingItem>
 
-            <myuc:SettingItem Header="test" SubHeader="subtest" />
+            <myuc:SettingItem SubHeader="subtest" />
 
-            <!--<ui:CardExpander ContentPadding="0" Icon="{ui:ImageIcon '/Resources/Icon.png', Width=38, Height=35}">
-
-        <ui:CardExpander.Header>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <StackPanel
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Orientation="Horizontal">
-                    <ui:TextBlock FontTypography="Body" Text="One.Toolbox" />
-                    <ui:TextBlock
-                        Margin="10,0"
-                        FontTypography="Body"
-                        Text="{DynamicResource AboutSubTitle}" />
+            <Border Style="{StaticResource BorderTipSuccess}">
+                <StackPanel>
+                    <TextBlock FontSize="15" Text="About" />
+                    <TextBlock Margin="5" Text="{DynamicResource AboutDiscriptionMain}" />
+                    <TextBlock Margin="5" Text="{DynamicResource AboutDevelopers}" />
+                    <TextBlock Margin="5" Text="{DynamicResource AboutQQGroup}" />
+                    <TextBlock Margin="5" Text="{DynamicResource AboutTranslator}" />
                 </StackPanel>
+            </Border>
+            <Button
+                Name="CheckUpdateButton"
+                Width="auto"
+                Margin="10"
+                HorizontalAlignment="Center"
+                Content="{DynamicResource AboutLoadingUpdate}"
+                IsEnabled="False" />
 
-                <ui:TextBlock
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
-                    Text="© 2023 pwb.co | pwb &amp; One Contributors" />
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="1"
-                    Margin="0,0,16,0"
-                    VerticalAlignment="Center"
-                    Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"
-                    Text="{Binding AppVersion, Mode=OneWay}" />
-            </Grid>
-        </ui:CardExpander.Header>
-        <StackPanel>
-            <Grid Margin="16">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="To clone this repository" />
-                <TextBlock
-                    Grid.Column="1"
-                    Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                    Text="git clone https://github.com/KleinPan/One" />
-            </Grid>
-            <ui:Anchor
-                Margin="0"
-                Padding="16"
-                HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Stretch"
-                Background="Transparent"
-                BorderThickness="0,1,0,0"
-                CornerRadius="0"
-                NavigateUri="https://github.com/KleinPan/One/issues/new/choose">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="File a bug or request a new sample" />
-                    <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
-                </Grid>
-            </ui:Anchor>
-            <ui:Anchor
-                Margin="0"
-                Padding="16"
-                HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Stretch"
-                Background="Transparent"
-                BorderThickness="0,1,0,1"
-                CornerRadius="0"
-                NavigateUri="https://kleinpan.github.io/One/">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Check out the docs" />
-                    <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
-                </Grid>
-            </ui:Anchor>
-            <TextBlock Margin="16" Text="{Binding AppVersion, Mode=OneWay}" />
-        </StackPanel>
-    </ui:CardExpander>-->
-            <StackPanel Margin="42">
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="HorizontalAlignment" Value="Left" />
-                    </Style>
-                </StackPanel.Resources>
-
-                <TextBlock
-                    Margin="10,20,0,0"
-                    HorizontalAlignment="Left"
-                    FontSize="15"
-                    Text="{DynamicResource AboutDiscriptionMain}"
-                    TextWrapping="Wrap" />
-
-                <TextBlock
-                    Margin="10,10,10,0"
-                    FontSize="15"
-                    Text="{DynamicResource AboutDiscriptionMore}"
-                    TextWrapping="Wrap" />
-
-                <Button
-                    Name="CheckUpdateButton"
-                    Width="auto"
-                    HorizontalAlignment="Center"
-                    Click="CheckUpdateButton_Click"
-                    Content="{DynamicResource AboutLoadingUpdate}"
-                    IsEnabled="False" />
-
-                <TextBlock
-                    Margin="10,20,0,0"
-                    FontSize="15"
-                    Text="{DynamicResource AboutDevelopers}" />
-                <TextBlock
-                    Margin="10,0,0,0"
-                    FontSize="15"
-                    Text="{DynamicResource AboutQQGroup}" />
-                <TextBlock
-                    Margin="10,20,0,0"
-                    FontSize="15"
-                    Text="{DynamicResource AboutTranslator}" />
-
-                <TextBlock
-                    Margin="10,20,0,0"
-                    HorizontalAlignment="Center"
-                    FontSize="15"
-                    Text="{DynamicResource AboutGitHubText}" />
-                <Button
-                    Name="OpenSourceButton"
-                    Width="auto"
-                    HorizontalAlignment="Center"
-                    Click="OpenSourceButton_Click"
-                    Content="{DynamicResource AboutGitHubButton}" />
-
-
-                <TextBlock
-                    Margin="10,20,0,0"
-                    HorizontalAlignment="Center"
-                    FontSize="15"
-                    Text="{DynamicResource AboutFeedBack}" />
-                <Button
-                    Name="newissueButton"
-                    Width="auto"
-                    HorizontalAlignment="Center"
-                    Click="NewissueButton_Click"
-                    Content="{DynamicResource AboutFeedBackButton}" />
-            </StackPanel>
+            <myuc:Hyperlink
+                HorizontalAlignment="Center"
+                Content="{DynamicResource AboutFeedBackButton}"
+                NavigateUri="https://github.com/KleinPan/One/issues/new" />
         </StackPanel>
     </ScrollViewer>
-
 </UserControl>

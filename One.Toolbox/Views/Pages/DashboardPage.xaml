@@ -142,11 +142,10 @@
                     Content="Documentation"
                     NavigateUri="https://github.com/KleinPan/One"
                     ToolTip="https://github.com/KleinPan/One" />
-
                 <uc:Hyperlink
                     Content="GitHub"
-                    NavigateUri="https://github.com/KleinPan/One.Toolbox"
-                    ToolTip="https://github.com/KleinPan/One.Toolbox" />
+                    NavigateUri="https://github.com/KleinPan/One"
+                    ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
             <StackPanel
                 Grid.Row="1"

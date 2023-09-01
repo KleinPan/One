@@ -72,13 +72,13 @@
     <system:String x:Key="LuaCreateFail">Create file failed, please check.</system:String>
     <system:String x:Key="AboutCard">About</system:String>
     <system:String x:Key="AboutSubTitle">Debug with your own script!</system:String>
-    <system:String x:Key="AboutDiscriptionMain">One.Toolbox是一款串口调试工具，工具连接可靠，断线后可自动重连，同时右侧具有快捷发送区的功能。</system:String>
-    <system:String x:Key="AboutDiscriptionMore">本工具除了具有与其他同类工具，所包含的数据收发功能外，还添加了Lua运行环境。用户可自行使用Lua，完成几乎所有可以想象到的自动化操作，大大提高了串口工具的可用性。</system:String>
+    <system:String x:Key="AboutDiscriptionMain">One.Toolbox is a small software that contains a collection of tools such as character conversion, serial debugging, and network debugging.</system:String>
+
     <system:String x:Key="AboutAutoUpdate">Auto update</system:String>
     <system:String x:Key="AboutLoadingUpdate">Checking update</system:String>
     <system:String x:Key="AboutDevelopers">developers: pwb</system:String>
     <system:String x:Key="AboutTranslator">translators: chenxuuu</system:String>
-    <system:String x:Key="AboutQQGroup">QQ group: 931546484</system:String>
+    <system:String x:Key="AboutQQGroup">QQ group: 123539080</system:String>
     <system:String x:Key="AboutGitHubText">Github project page</system:String>
     <system:String x:Key="AboutGitHubButton">Open Github</system:String>
     <system:String x:Key="AboutFeedBack">Have problem?</system:String>

@@ -12,14 +12,6 @@ namespace One.Toolbox.ViewModels;
 
 public partial class DashboardViewModel : BaseViewModel
 {
-    //private readonly INavigationService _navigationService;
-
-    //public DashboardViewModel(INavigationService navigationService)
-    //{
-    //    _navigationService = navigationService;
-
-    //}
-
     public DashboardViewModel()
     {
     }
@@ -29,6 +21,7 @@ public partial class DashboardViewModel : BaseViewModel
         base.OnNavigatedEnter();
         InitData();
     }
+
     void InitData()
     {
         Task.Run(async () =>

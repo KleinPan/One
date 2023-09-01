@@ -67,13 +67,19 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <fa:IconImage
+                            <!--<fa:IconImage
                                 Grid.Row="0"
                                 Width="20"
                                 Height="20"
                                 HorizontalAlignment="Center"
                                 Foreground="{Binding ElementName=text1, Path=Foreground}"
-                                Icon="{Binding Icon}" />
+                                Icon="{Binding Icon}" />-->
+                            <Path
+                                HorizontalAlignment="Center"
+                                Data="{Binding Icon}"
+                                Fill="{Binding ElementName=text1, Path=Foreground}"
+                                Stroke="Gray"
+                                StrokeThickness="1" />
                             <TextBlock
                                 Name="text1"
                                 Grid.Row="1"

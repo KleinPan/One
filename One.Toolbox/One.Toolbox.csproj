@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -26,7 +26,6 @@
     <PackageReference Include="Autoupdater.NET.Official" Version="1.8.4" />
     <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="HandyControl" Version="3.4.0" />
     <PackageReference Include="LibUsbDotNet" Version="3.0.102-alpha" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.2" />

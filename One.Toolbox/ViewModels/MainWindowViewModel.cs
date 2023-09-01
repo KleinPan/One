@@ -41,36 +41,39 @@ public partial class MainWindowViewModel : BaseViewModel
     {
         ApplicationTitle = "One.Toolbox";
 
+
+        
         NavigationItems = new ObservableCollection<MainMenuItemViewModel>();
 
-        //https://fontawesome.com/search?p=3&o=r&m=free
-        //https://awesome-inc.github.io/FontAwesome.Sharp/#wpf
+        //https://www.xicons.org/#/
+        //https://pictogrammers.com/library/mdi/
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Home",
-            Icon = FontAwesome.Sharp.IconChar.Home,
+            //Icon = FontAwesome.Sharp.IconChar.Home,
+            Icon = ResourceHelper.Dic["HomeRound"],
             TargetPageType = typeof(Views.Pages.DashboardPage),
             Content = new DashboardPage(),
-        });
+        }) ;
 
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Text",
-            Icon = FontAwesome.Sharp.IconChar.Italic,
+            Icon = ResourceHelper.Dic["TextFieldsRound"],
             TargetPageType = typeof(Views.Pages.StringConvertPage),
             Content = new StringConvertPage(),
         });
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Com",
-            Icon = FontAwesome.Sharp.IconChar.WaveSquare,
+            Icon = ResourceHelper.Dic["SerialPort20Regular"],
             TargetPageType = typeof(Views.Serialport.SerialportPage),
             Content = new SerialportPage(),
         });
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Net",
-            Icon = FontAwesome.Sharp.IconChar.NetworkWired,
+            Icon = ResourceHelper.Dic["Network"],
             TargetPageType = typeof(Views.Pages.NetworklPage),
             Content = new NetworklPage(),
         });
@@ -78,7 +81,7 @@ public partial class MainWindowViewModel : BaseViewModel
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Setting",
-            Icon = FontAwesome.Sharp.IconChar.Gears,
+            Icon = ResourceHelper.Dic["SettingsRound"],
             TargetPageType = typeof(Views.Settings.SettingsPage),
             Content = new SettingsPage(),
             Dock = System.Windows.Controls.Dock.Bottom,

@@ -35,5 +35,7 @@ namespace One.Toolbox.Helpers
             if (!File.Exists(outPath) || d)
                 File.WriteAllBytes(outPath, GetAssetsFileContent(insidePath));
         }
+
+        public static ResourceDictionary Dic = new ResourceDictionary { Source = new Uri(@"Resources/Themes/Basic/Geometries.xaml", UriKind.Relative) };
     }
 }

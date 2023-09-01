@@ -22,15 +22,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Border
-                Grid.Row="0"
-                Height="150"
-                CornerRadius="8">
+            <Border Grid.Row="0" Height="150" CornerRadius="8">
                 <Border.Background>
-                    <ImageBrush
-                        ImageSource="pack://application:,,,/Resources/pexels-johannes-plenio-1103970.jpg"
-                        RenderOptions.BitmapScalingMode="HighQuality"
-                        Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/pexels-johannes-plenio-1103970.jpg" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" />
                 </Border.Background>
                 <Border CornerRadius="8">
                     <Border.Background>
@@ -40,24 +34,10 @@
                         </RadialGradientBrush>
                     </Border.Background>
                     <Grid>
-                        <StackPanel
-                            Margin="48,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="Transparent">
-                            <TextBlock
-                                FontSize="18"
-                                Foreground="#B7FFFFFF"
-                                Text="Windows Presentation Foundation" />
-                            <TextBlock
-                                FontSize="28"
-                                FontWeight="Bold"
-                                Foreground="#FFFFFF"
-                                Text="One.Toolbox" />
-                            <TextBlock
-                                FontSize="18"
-                                Foreground="#B7FFFFFF"
-                                Text="Build Fluent experiences on Windows using WPF UI." />
+                        <StackPanel Margin="48,0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent">
+                            <TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Windows Presentation Foundation" />
+                            <TextBlock FontSize="28" FontWeight="Bold" Foreground="#FFFFFF" Text="One.Toolbox" />
+                            <TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />
                         </StackPanel>
                         <TextBlock
                             Margin="12"
@@ -70,12 +50,6 @@
                 </Border>
             </Border>
 
-            <!--<controls:GalleryNavigationPresenter
-            Grid.Row="1"
-            Margin="0,24,0,0"
-            Padding="0"
-            ItemsSource="{Binding ViewModel.NavigationCards, Mode=OneWay}" />-->
-
             <Grid Grid.Row="1" Margin="0,24,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -86,87 +60,38 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
             </Grid>
+            <StackPanel Grid.Row="1" Margin="0,24,0,0" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Name="txb1" FontSize="14" Text="{Binding Text}" />
+                <TextBlock VerticalAlignment="Center" FontSize="12" Text="--" />
 
+                <TextBlock VerticalAlignment="Center" FontSize="12" Text="{Binding Author}" />
+            </StackPanel>
             <StackPanel Grid.Row="2" Margin="0,24,0,0">
 
-                <TextBlock
-                    FontSize="18"
-                    FontWeight="DemiBold"
-                    Text="One.Core" />
+                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Core" />
 
-                <uc:Hyperlink
-                    Padding="4"
-                    Content="Documentation"
-                    NavigateUri="https://kleinpan.github.io/One/api/index.html"
-                    ToolTip="https://kleinpan.github.io/One/api/index.html" />
-                <uc:Hyperlink
-                    Padding="4"
-                    Content="GitHub"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
+                <uc:Hyperlink Padding="4" Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
+                <uc:Hyperlink Padding="4" Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
 
-                <uc:Hyperlink
-                    Padding="4"
-                    Content="NuGet"
-                    NavigateUri="https://www.nuget.org/packages/One.Core/"
-                    ToolTip="https://www.nuget.org/packages/One.Core/" />
+                <uc:Hyperlink Padding="4" Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Core/" ToolTip="https://www.nuget.org/packages/One.Core/" />
             </StackPanel>
             <StackPanel Grid.Row="3" Margin="0,24,0,0">
-                <TextBlock
-                    FontSize="18"
-                    FontWeight="DemiBold"
-                    Text="One.Control" />
+                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Control" />
 
-                <uc:Hyperlink
-                    Content="Documentation"
-                    NavigateUri="https://kleinpan.github.io/One/api/index.html"
-                    ToolTip="https://kleinpan.github.io/One/api/index.html" />
+                <uc:Hyperlink Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
 
-                <uc:Hyperlink
-                    Content="GitHub"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
+                <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
 
-                <uc:Hyperlink
-                    Content="NuGet"
-                    NavigateUri="https://www.nuget.org/packages/One.Control/"
-                    ToolTip="https://www.nuget.org/packages/One.Control/" />
+                <uc:Hyperlink Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Control/" ToolTip="https://www.nuget.org/packages/One.Control/" />
             </StackPanel>
 
             <StackPanel Grid.Row="4" Margin="0,24,0,0">
-                <TextBlock
-                    FontSize="18"
-                    FontWeight="DemiBold"
-                    Text="One.Toolbox" />
-                <uc:Hyperlink
-                    Content="Documentation"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
-                <uc:Hyperlink
-                    Content="GitHub"
-                    NavigateUri="https://github.com/KleinPan/One"
-                    ToolTip="https://github.com/KleinPan/One" />
+                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Toolbox" />
+                <uc:Hyperlink Content="Documentation" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
+                <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
-            <StackPanel
-                Grid.Row="1"
-                Margin="0,24,0,0"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-                <TextBlock
-                    Name="txb1"
-                    FontSize="14"
-                    Text="{Binding Text}" />
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    Text="--" />
 
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    Text="{Binding Author}" />
-            </StackPanel>
-            <!--<Button Command="{Binding TestCommand}" Content="Test" />-->
+            <Button Command="{Binding TestCommand}" Content="Test" />
         </Grid>
     </ScrollViewer>
 </UserControl>

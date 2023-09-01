@@ -1,5 +1,8 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
+using HandyControl.Controls;
+using HandyControl.Data;
+
 using Newtonsoft.Json;
 
 using One.Core.Helpers;
@@ -7,6 +10,8 @@ using One.Toolbox.Helpers;
 using One.Toolbox.Models.Dashboard;
 
 using RestSharp;
+
+using System.Diagnostics;
 
 namespace One.Toolbox.ViewModels;
 
@@ -38,7 +43,31 @@ public partial class DashboardViewModel : BaseViewModel
 
             if (a.NeedUpdate)
             {
-                MessageShowHelper.ShowInfoMessage($"New Version => {a.Version}!\r\nDownloadURL => {a.DownloadURL} ");
+                App.Current.Dispatcher.Invoke(() =>
+                {
+                    HandyControl.Controls.Growl.Ask(new GrowlInfo
+                    {
+                        Message = $"New version v{a.Version} released,update it!",
+                        CancelStr = ResourceHelper.FindStringResource("LuaCancel"),
+                        ActionBeforeClose = isConfirmed =>
+                        {
+                            if (isConfirmed)
+                            {
+                                ProcessStartInfo sInfo = new(new Uri(a.DownloadURL).AbsoluteUri)
+                                {
+                                    UseShellExecute = true
+                                };
+                                Process.Start(sInfo);
+                            }
+                            else
+                            {
+                                Growl.Info("那下次吧!😥");
+                            }
+
+                            return true;
+                        },
+                    });
+                });
             }
         });
     }
@@ -52,9 +81,7 @@ public partial class DashboardViewModel : BaseViewModel
     [RelayCommand]
     private async void Test()
     {
-        //string aa = @"D:\Program Files\Oray\SunLogin\SunloginClient\SunloginClient.exe";
-        //Process.Start(aa);
-        //HardwareHelper.SearchPortByLocation(DeviceType.ComPort, "PCIROOT(0)#PCI(1400)#USBROOT(0)#USB(10)", x => x.Count > 2);
+        MessageShowHelper.ShowInfoMessage("123");
     }
 
     private static async Task<YiyanAPI> GetEveryDayYiyan()

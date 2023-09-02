@@ -1,6 +1,5 @@
 <Application
-    x:Class="One.Toolbox.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    x:Class="One.Toolbox.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Converters="clr-namespace:One.Toolbox.Converters"
     xmlns:oc="clr-namespace:One.Control.Converters;assembly=One.Control"

@@ -1,7 +1,6 @@
 ﻿using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;

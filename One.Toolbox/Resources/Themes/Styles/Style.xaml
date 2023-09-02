@@ -164,13 +164,9 @@
                         <hc:ScrollViewer
                             Name="PART_ScrollViewer"
                             Padding="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="Left"
-                            VerticalContentAlignment="Top"
-                            CanContentScroll="True"
+                            HorizontalContentAlignment="Left" VerticalContentAlignment="Top" CanContentScroll="True"
                             Content="{Binding TextArea, RelativeSource={RelativeSource TemplatedParent}}"
-                            Focusable="False"
-                            HorizontalScrollBarVisibility="Auto"
-                            IsInertiaEnabled="True"
+                            Focusable="False" HorizontalScrollBarVisibility="Auto" IsInertiaEnabled="True"
                             VerticalScrollBarVisibility="Auto" />
                     </Border>
                     <ControlTemplate.Triggers>

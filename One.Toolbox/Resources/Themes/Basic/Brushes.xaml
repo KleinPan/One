@@ -4,18 +4,11 @@
         <ResourceDictionary Source="Geometries.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
-
     <DrawingBrush
-        x:Key="MainContentForegroundDrawingBrush"
-        o:Freeze="True"
+        x:Key="MainContentForegroundDrawingBrush" o:Freeze="True"
         RenderOptions.CacheInvalidationThresholdMaximum="2.0"
-        RenderOptions.CacheInvalidationThresholdMinimum="0.5"
-        RenderOptions.CachingHint="Cache"
-        Stretch="None"
-        TileMode="Tile"
-        Viewport="0,0,16,16"
-        ViewportUnits="Absolute">
+        RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CachingHint="Cache"
+        Stretch="None" TileMode="Tile" Viewport="0,0,16,16" ViewportUnits="Absolute">
         <DrawingBrush.Drawing>
             <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
                 <GeometryDrawing.Geometry>

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     Title="{Binding ApplicationTitle, Mode=OneWay}"
-    Width="800" Height="600"
+    Width="1024" Height="600"
     d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
     d:DesignHeight="600" d:DesignWidth="800" WindowStartupLocation="CenterScreen" mc:Ignorable="d">
 

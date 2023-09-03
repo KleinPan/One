@@ -1,7 +1,9 @@
 ﻿using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -32,9 +34,6 @@ namespace One.Toolbox.ViewModels
 
         [ObservableProperty]
         private double lineHeight;
-
-        [ObservableProperty]
-        private int everyLineCount = 36;
 
         public StringConvertViewModel()
         {
@@ -252,18 +251,23 @@ namespace One.Toolbox.ViewModels
         private WrapPanel wrapPanel;
 
         [RelayCommand]
-        private void ShowIndexEvent(object obj)
+        void InitUI(object obj)
+        {
+            wrapPanel = (WrapPanel)obj;
+        }
+
+        [RelayCommand]
+        private void ShowIndexEvent()
         {
             try
             {
                 if (string.IsNullOrEmpty(InputString)) { return; }
+                OutputString = "";
 
-                wrapPanel = (WrapPanel)obj;
-                if (wrapPanel == null) { return; }
+                wrapPanel.Visibility = Visibility.Visible;
 
                 var input = InputString.Trim();
-                OutputString = "";
-                LineHeight = 43.0;
+
                 //归一
                 if (input.Contains(' '))
                 {
@@ -272,7 +276,7 @@ namespace One.Toolbox.ViewModels
 
                 int len1 = input.Length;
 
-                int test = 0;
+                List<string> showList = new List<string>();
                 for (int i = 0; i < len1; i += 2)
                 {
                     if (i > input.Length)
@@ -281,13 +285,12 @@ namespace One.Toolbox.ViewModels
                     }
                     string single = "";
 
-                    single = input[i].ToString() + input[i + 1].ToString() + " ";
+                    single = input[i].ToString() + input[i + 1].ToString();
 
-                    OutputString += single;
+                    showList.Add(single);
                 }
-                OutputString = OutputString.TrimEnd();
 
-                GenerateBox(wrapPanel, len1 / 2);
+                GenerateBox(wrapPanel, showList);
             }
             catch (Exception ex)
             {
@@ -295,88 +298,64 @@ namespace One.Toolbox.ViewModels
             }
         }
 
-        private void GenerateBox(object element, int count)
+        private void GenerateBox(object element, List<string> strings)
         {
             WrapPanel wrapPanel = (WrapPanel)element;
             wrapPanel.Children.Clear();
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < strings.Count; i++)
             {
-                bool isFirstLine = i < EveryLineCount ? true : false;
+                Border border = new Border();
 
-                GenTarget(wrapPanel, isFirstLine, i);
-            }
-        }
-
-        private void GenTarget(WrapPanel wrapPanel, bool isFirstRow, int realIndex)
-        {
-            Border border = new Border();
-
-            border.BorderThickness = new Thickness(1);
-            //border.BorderBrush = System.Windows.Media.Brushes.Black;
-
-            Grid innerGrid = new Grid();
-
-            innerGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-            innerGrid.RowDefinitions.Add(new RowDefinition());
-
-            double marginWidth = 1.4;
-            double marginUp, marginDown = 0;
-            if (isFirstRow)
-            {
-                marginUp = 28;
-            }
-            else
-            {
-                marginUp = 21;
-            }
-
-            //每行数量
-
-            int index = realIndex % EveryLineCount;
-            if (index == 0)
-            {
-                //border.BorderBrush = System.Windows.Media.Brushes.Red;
-                border.Margin = new System.Windows.Thickness(10, marginUp, marginWidth, marginDown);
-            }
-            else if (index == EveryLineCount)
-            {
-                border.Margin = new System.Windows.Thickness(1, marginUp, 0, marginDown);
-            }
-            else
-            {
+                //border.BorderThickness = new Thickness(1);
                 //border.BorderBrush = System.Windows.Media.Brushes.Blue;
-                border.Margin = new System.Windows.Thickness(marginWidth, marginUp, marginWidth, marginDown);
+
+                Grid innerGrid = new Grid();
+
+                innerGrid.RowDefinitions.Add(new RowDefinition());
+                innerGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
+                innerGrid.RowDefinitions.Add(new RowDefinition());
+
+                border.Margin = new System.Windows.Thickness(5, 5, 0, 5);
+
+                innerGrid.Width = 20;
+
+                TextBlock txbChar = new TextBlock();
+                txbChar.FontSize = 15;
+                txbChar.Margin = new System.Windows.Thickness(0, 0, 0, 1);
+                txbChar.VerticalAlignment = VerticalAlignment.Bottom;
+                txbChar.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                //txbChar.Background = System.Windows.Media.Brushes.Cyan;
+                txbChar.Text = strings[i].ToString();
+
+                innerGrid.Children.Add(txbChar);
+                Grid.SetRow(txbChar, 0);
+
+                Line line = new();
+                line.X1 = 1;
+                line.Y1 = 0;
+                line.X2 = 15;
+                line.Y2 = 0;
+                line.Stroke = System.Windows.Media.Brushes.Black;
+                line.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+
+                innerGrid.Children.Add(line);
+                Grid.SetRow(line, 1);
+
+                TextBlock txbIndex = new TextBlock();
+                txbIndex.Text = i.ToString();
+                txbIndex.Margin = new System.Windows.Thickness(0, 1, 0, 0);
+                txbIndex.VerticalAlignment = VerticalAlignment.Top;
+                txbIndex.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                System.Windows.Media.Brush ss = HandyControl.Tools.ResourceHelper.GetResource<System.Windows.Media.Brush>(HandyControl.Data.ResourceToken.InfoBrush);
+                txbIndex.Foreground = ss;
+                innerGrid.Children.Add(txbIndex);
+                Grid.SetRow(txbIndex, 2);
+
+                border.Child = innerGrid;
+
+                wrapPanel.Children.Add(border);
             }
-
-            innerGrid.Width = 15;
-            innerGrid.Height = 20;
-
-            TextBlock textBlock = new TextBlock();
-            textBlock.Text = realIndex.ToString();
-            textBlock.Margin = new System.Windows.Thickness(0, 0, 0, 0);
-            textBlock.VerticalAlignment = VerticalAlignment.Top;
-            textBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            //textBlock.Foreground = System.Windows.Media.Brushes.Gray;
-
-            System.Windows.Media.Brush ss = HandyControl.Tools.ResourceHelper.GetResource<System.Windows.Media.Brush>(HandyControl.Data.ResourceToken.InfoBrush);
-            textBlock.Foreground = ss; //Wpf.Ui.Appearance.Accent.SecondaryAccentBrush;
-            innerGrid.Children.Add(textBlock);
-            Grid.SetRow(textBlock, 1);
-
-            Line line = new();
-            line.X1 = 2;
-            line.Y1 = 0;
-            line.X2 = 16;
-            line.Y2 = 0;
-            line.Stroke = System.Windows.Media.Brushes.Black;
-
-            innerGrid.Children.Add(line);
-            Grid.SetRow(line, 0);
-
-            border.Child = innerGrid;
-
-            wrapPanel.Children.Add(border);
         }
 
         #endregion ShowIndex

@@ -17,12 +17,15 @@
             <ColumnDefinition MinWidth="200" />
         </Grid.ColumnDefinitions>
         <Button
-            x:Name="ButtonShiftOut" Margin="0,26,-16,0" Padding="8,8,0,8" HorizontalAlignment="Right"
+            x:Name="ButtonLeft" Margin="0,26,-16,0" Padding="8,8,0,8" HorizontalAlignment="Right"
             VerticalAlignment="Top"
             hc:IconElement.Geometry="{StaticResource LeftGeometry}"
             Click="OnLeftMainContentShiftOut"
             Style="{StaticResource ButtonIconCircular}" />
-        <ContentControl x:Name="MainContent" Grid.Column="1" Margin="16,10,16,10" Content="{Binding CurrentMenuItem.Content}" />
+        <Border x:Name="MainContent" Grid.Column="1" Margin="14,10,14,10">
+            <ContentControl Content="{Binding CurrentMenuItem.Content}" />
+        </Border>
+
         <Border x:Name="LeftMainContent">
             <ListBox
                 Margin="5,10,0,10"
@@ -88,7 +91,7 @@
             x:Name="GridSplitter" Grid.Column="0" Width="4" Margin="0,10,0,10"
             HorizontalAlignment="Right" Background="Transparent" />
         <Button
-            x:Name="ButtonShiftIn" Grid.Column="0" Margin="-12,26,0,0" Padding="8,8,0,8"
+            x:Name="ButtonRight" Grid.Column="0" Margin="-14,26,0,0" Padding="8,8,0,8"
             HorizontalAlignment="Left" VerticalAlignment="Top"
             hc:IconElement.Geometry="{StaticResource RightGeometry}"
             Click="OnLeftMainContentShiftIn"

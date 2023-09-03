@@ -38,10 +38,10 @@ namespace One.Toolbox.Models.Serialport
 
     public class SerialportParams
     {
-        public int BaudRate { get; set; }
-        public int Parity { get; set; }
-        public int DataBits { get; set; }
-        public int StopBits { get; set; }
+        public int BaudRate { get; set; } = 115200;
+        public int Parity { get; set; } = 0;
+        public int DataBits { get; set; } = 8;
+        public int StopBits { get; set; } = 1;
 
         /// <summary> Request To Send 请求发送 </summary>
         public bool RtsEnable { get; set; }

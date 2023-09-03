@@ -1,8 +1,11 @@
-﻿using One.Toolbox.Component;
+﻿using One.Core.ExtensionMethods;
+using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Model;
 using One.Toolbox.Tools;
 using One.Toolbox.Views;
+
+using Org.BouncyCastle.Ocsp;
 
 using System.Collections.ObjectModel;
 using System.IO.Ports;
@@ -22,7 +25,7 @@ namespace One.Toolbox.ViewModels.Serialport
         private string selectedPortName;
 
         [ObservableProperty]
-        private List<string> baudRateList = new List<string>();
+        private ObservableCollection<string> baudRateList = new ObservableCollection<string>();
 
         [ObservableProperty]
         private string selectedBaudRate;
@@ -58,6 +61,9 @@ namespace One.Toolbox.ViewModels.Serialport
 
         [ObservableProperty]
         private bool isOpen = false;
+
+        [ObservableProperty]
+        private string logTip = "右键打开Log目录";
 
         #endregion 界面显示
 
@@ -118,7 +124,7 @@ namespace One.Toolbox.ViewModels.Serialport
                 data = realData,
             });
 
-            NLogger.WithProperty("SlotHeader", RandomHeader).Info(realData);
+            WriteInfoLog(realData);
         }
 
         private void SerialPortHelper_UartDataSent(object? sender, EventArgs e)
@@ -142,7 +148,7 @@ namespace One.Toolbox.ViewModels.Serialport
                 data = realData,
             });
 
-            NLogger.WithProperty("SlotHeader", RandomHeader).Info(realData);
+            WriteInfoLog(realData);
         }
 
         private bool refreshLock = false;
@@ -299,18 +305,6 @@ namespace One.Toolbox.ViewModels.Serialport
 
         #endregion Command
 
-        #region Help
-
-        public string RandomHeader { get; set; }
-
-        private void GenerateRandomHeader()
-        {
-            Random random = new Random();
-            RandomHeader = random.Next(0, 100000).ToString();
-        }
-
-        #endregion Help
-
         /// <summary> 是否正在打开端口 </summary>
         private bool isOpeningPort = false;
 
@@ -325,9 +319,9 @@ namespace One.Toolbox.ViewModels.Serialport
                 string[] ports;//获取所有串口列表
                 try
                 {
-                    NLogger.Debug($"GetPortNames");
+                    WriteTraceLog($"GetPortNames");
                     ports = SerialPort.GetPortNames();
-                    NLogger.Debug($"GetPortNames{ports.Length}");
+                    WriteTraceLog($"GetPortNames{ports.Length}");
                 }
                 catch (Exception e)
                 {
@@ -356,11 +350,11 @@ namespace One.Toolbox.ViewModels.Serialport
                         try
                         {
                             forcusClosePort = false;//不再强制关闭串口
-                            NLogger.Debug($"SetName");
+                            WriteTraceLog($"SetName");
                             serialPortHelper.SetName(port);
 
                             serialportUISetting.SerialportParams.BaudRate = int.Parse(SelectedBaudRate);
-                            NLogger.Debug($"Open");
+                            WriteTraceLog($"Open");
 
                             serialPortHelper.Open(serialportUISetting);
 
@@ -421,6 +415,8 @@ namespace One.Toolbox.ViewModels.Serialport
             }
         }
 
+        #region Setting
+
         public void SaveSetting()
         {
             if (serialportUISetting == null)
@@ -440,5 +436,26 @@ namespace One.Toolbox.ViewModels.Serialport
 
             SerialportUISetting.SerialportParams = ConfigHelper.Instance.AllConfig.SerialportParams;
         }
+
+        #endregion Setting
+
+        #region Log
+
+        public string RandomHeader { get; set; }
+
+        private void GenerateRandomHeader()
+        {
+            Random random = new Random();
+            RandomHeader = random.Next(0, 100000).ToString();
+
+            LogTip = "右键打开Log目录,前缀-> " + RandomHeader;
+        }
+
+        public override void WriteInfoLog(string msg)
+        {
+            NLogger.WithProperty("Random", RandomHeader).Info(msg);
+        }
+
+        #endregion Log
     }
 }

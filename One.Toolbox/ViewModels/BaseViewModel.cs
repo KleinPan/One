@@ -22,5 +22,20 @@
         {
             isInitialized = true;
         }
+
+        public virtual void WriteTraceLog(string msg)
+        {
+            NLogger.Debug(msg);
+        }
+
+        public virtual void WriteDebugLog(string msg)
+        {
+            NLogger.Debug(msg);
+        }
+
+        public virtual void WriteInfoLog(string msg)
+        {
+            NLogger.Info(msg);
+        }
     }
 }

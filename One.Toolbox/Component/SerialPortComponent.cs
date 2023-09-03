@@ -54,11 +54,11 @@ namespace One.Toolbox.Component
         /// <summary> 刷新串口对象 </summary>
         private void refreshSerialDevice()
         {
-            NLogger.Info($"[refreshSerialDevice]start");
+            WriteTraceLog($"[refreshSerialDevice]start");
 
             try
             {
-                NLogger.Info($"[refreshSerialDevice]lastPortBaseStream.Dispose");
+                WriteTraceLog($"[refreshSerialDevice]lastPortBaseStream.Dispose");
                 Task.Run(() =>//这行代码会卡住，我扔task里还卡吗？
                 {
                     try
@@ -75,7 +75,7 @@ namespace One.Toolbox.Component
             }
             try
             {
-                NLogger.Info($"[refreshSerialDevice]BaseStream.Dispose");
+                WriteTraceLog($"[refreshSerialDevice]BaseStream.Dispose");
                 Task.Run(() =>//这行代码会卡住，我扔task里还卡吗？
                 {
                     try
@@ -90,7 +90,7 @@ namespace One.Toolbox.Component
                 NLogger.Error($"[refreshSerialDevice]BaseStream.Dispose error:{e.Message}");
                 Console.WriteLine($"serial.BaseStream.Dispose error:{e.Message}");
             }
-            NLogger.Info($"[refreshSerialDevice]Dispose");
+            WriteTraceLog($"[refreshSerialDevice]Dispose");
             Task.Run(() =>//我服了
             {
                 try
@@ -99,7 +99,7 @@ namespace One.Toolbox.Component
                 }
                 catch { }
             });
-            NLogger.Info($"[refreshSerialDevice]new");
+            WriteTraceLog($"[refreshSerialDevice]new");
             lock (useless)//存起来
                 useless.Add(serialPort);
             serialPort = new SerialPort();
@@ -111,7 +111,7 @@ namespace One.Toolbox.Component
             //serialPort.StopBits = (StopBits)Tools.Global.setting.stopBit;
             //serialPort.RtsEnable = Rts;
             //serialPort.DtrEnable = Dtr;
-            NLogger.Info($"[refreshSerialDevice]done");
+            WriteTraceLog($"[refreshSerialDevice]done");
         }
 
         /// <summary> 获取串口设备COM名 </summary>
@@ -139,7 +139,7 @@ namespace One.Toolbox.Component
         public void Open(SerialportSettingViewModel serialportParams)
         {
             string temp = serialPort.PortName;
-            NLogger.Info($"[UartOpen]refreshSerialDevice");
+            WriteTraceLog($"[UartOpen]refreshSerialDevice");
             refreshSerialDevice();
             serialPort.PortName = temp;
 
@@ -152,20 +152,20 @@ namespace One.Toolbox.Component
             serialPort.RtsEnable = SerialportSetting.SerialportParams.RtsEnable;
             serialPort.DtrEnable = SerialportSetting.SerialportParams.DtrEnable;
 
-            NLogger.Info($"[UartOpen]open");
+            WriteTraceLog($"[UartOpen]open");
             serialPort.Open();
             lastPortBaseStream = serialPort.BaseStream;
-            NLogger.Info($"[UartOpen]done");
+            WriteTraceLog($"[UartOpen]done");
         }
 
         /// <summary> 关闭串口 </summary>
         public void Close()
         {
-            NLogger.Info($"[UartClose]refreshSerialDevice");
+            WriteTraceLog($"[UartClose]refreshSerialDevice");
             refreshSerialDevice();
-            NLogger.Info($"[UartClose]Close");
+            WriteTraceLog($"[UartClose]Close");
             serialPort.Close();
-            NLogger.Info($"[UartClose]done");
+            WriteTraceLog($"[UartClose]done");
         }
 
         /// <summary> 发送数据 </summary>

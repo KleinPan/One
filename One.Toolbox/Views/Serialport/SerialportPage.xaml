@@ -7,59 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
     d:DataContext="{d:DesignInstance Type=viewmodels:SerialportViewModel}"
-    mc:Ignorable="d">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="7*" />
-        </Grid.ColumnDefinitions>
-
-        <!--  收发数据显示  -->
-        <Grid Name="aaa" Background="Transparent">
+    d:Height="548" d:Width="930" mc:Ignorable="d">
+    <Border Margin="2" Padding="0" Style="{StaticResource BorderRegion}">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="11*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
 
-            <FlowDocumentScrollViewer
-                Name="uartDataFlowDocument"
-                Height="{Binding ElementName=aaa, Path=ActualHeight}"
-                BorderBrush="#FF009400" BorderThickness="0" MinZoom="50" VerticalScrollBarVisibility="Visible">
-                <!--  更改段落间距  -->
-                <FlowDocumentScrollViewer.Resources>
-                    <Style TargetType="{x:Type Paragraph}">
-                        <Setter Property="Margin" Value="0" />
+            <!--  收发数据显示  -->
+            <Border Margin="0,0,0,-35">
+
+                <FlowDocumentScrollViewer
+                    Name="uartDataFlowDocument"
+                    Height="{Binding ElementName=aaa, Path=ActualHeight}"
+                    BorderBrush="#FF009400" BorderThickness="0" MaxZoom="150" MinZoom="100"
+                    Style="{StaticResource FlowDocumentScrollViewerBaseStyle}"
+                    VerticalScrollBarVisibility="Visible">
+                    <!--  更改段落间距  -->
+                    <FlowDocumentScrollViewer.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0" />
+                        </Style>
+                    </FlowDocumentScrollViewer.Resources>
+                    <!--  更改段落间距END  -->
+                    <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="Loaded">
+                            <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+                </FlowDocumentScrollViewer>
+            </Border>
+
+            <!--  发送数据区  -->
+            <Grid Grid.Row="1">
+                <Grid.Resources>
+                    <Style x:Key="ClickButton" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
+                        <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
                     </Style>
-                </FlowDocumentScrollViewer.Resources>
-                <!--  更改段落间距END  -->
-                <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="Loaded">
-                        <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-            </FlowDocumentScrollViewer>
-        </Grid>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
 
-        <!--  发送数据区  -->
-        <Grid Grid.Row="1">
-            <Grid.Resources>
-                <Style x:Key="ClickButton" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
-                    <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
-                </Style>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="2*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="2" Orientation="Horizontal">
                     <Button Name="clearLogButton" Command="{Binding ClearLogCommand}" Content="{DynamicResource ClearLog}" Style="{StaticResource ClickButton}" />
                     <Button
                         Margin="2"
@@ -72,14 +72,15 @@
                         Command="{Binding SaveLogCommand}"
                         Content="{DynamicResource SaveLog}"
                         MouseRightButtonUp="LogButton_MouseRightButtonUp"
-                        Style="{StaticResource ClickButton}" />
+                        Style="{StaticResource ClickButton}"
+                        ToolTip="{Binding LogTip}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Margin="2,0" Orientation="Horizontal">
                     <StackPanel.Resources>
                         <Style BasedOn="{StaticResource CheckBoxBaseStyle}" TargetType="CheckBox">
                             <Setter Property="HorizontalAlignment" Value="Left" />
                             <Setter Property="MinWidth" Value="50" />
-                            <Setter Property="Margin" Value="2,0" />
+                            <Setter Property="Margin" Value="0,0,2,0" />
                         </Style>
                     </StackPanel.Resources>
 
@@ -93,45 +94,44 @@
 
                     <CheckBox Name="ExtraEnterCheckBox" Content="{DynamicResource AddExtraEnter}" IsChecked="{Binding SerialportUISetting.WithExtraEnter}" ToolTip="{DynamicResource AddExtraEnterTip}" />
                 </StackPanel>
-            </StackPanel>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
 
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="auto" />
-                </Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="1" Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}" Margin="2,1" Command="{Binding OpenClosePortCommand}">
-                    <Button.Content>
-                        <StackPanel>
-                            <TextBlock Text="{Binding OpenCloseButtonContent}" />
-                            <TextBlock Text="{DynamicResource OpenPort_port}" />
-                        </StackPanel>
-                    </Button.Content>
-                </Button>
+                    <Button Grid.Row="1" Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}" Margin="2,1" Command="{Binding OpenClosePortCommand}">
+                        <Button.Content>
+                            <StackPanel>
+                                <TextBlock Text="{Binding OpenCloseButtonContent}" />
+                                <TextBlock Text="{DynamicResource OpenPort_port}" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
 
-                <TextBox
-                    Name="toSendDataTextBox" Grid.Column="1" Margin="0,1" VerticalContentAlignment="Top"
-                    AcceptsReturn="True" FontFamily="Consolas"
-                    Text="{Binding DataToSend}"
-                    TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
-                <Button
-                    Name="sendDataButton" Grid.Column="2"
-                    Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}"
-                    Margin="2,1"
-                    Command="{Binding SendDataCommand}"
-                    Content="{DynamicResource SendDataButton}"
-                    Style="{StaticResource ButtonPrimary}"
-                    ToolTip="{DynamicResource SendDataButtonTip}" />
+                    <TextBox
+                        Name="toSendDataTextBox" Grid.Column="1" Margin="0,1" VerticalContentAlignment="Top"
+                        AcceptsReturn="True" FontFamily="Consolas"
+                        Text="{Binding DataToSend}"
+                        TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                    <Button
+                        Name="sendDataButton" Grid.Column="2"
+                        Height="{Binding ElementName=toSendDataTextBox, Path=ActualHeight}"
+                        Margin="2,1"
+                        Command="{Binding SendDataCommand}"
+                        Content="{DynamicResource SendDataButton}"
+                        Style="{StaticResource ButtonPrimary}"
+                        ToolTip="{DynamicResource SendDataButtonTip}" />
+                </Grid>
             </Grid>
-        </Grid>
 
-        <!--  底部状态栏  -->
-        <DockPanel Grid.Row="2" Grid.ColumnSpan="3">
-            <StatusBar Padding="0" DockPanel.Dock="Bottom">
+            <!--  底部状态栏  -->
+
+            <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
                 <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid>
@@ -139,7 +139,7 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
@@ -170,11 +170,7 @@
                 </StatusBarItem>
                 <Separator Grid.Column="2" />
                 <StatusBarItem Grid.Column="3">
-                    <ComboBox
-                        Name="serialPortsListComboBox" MinWidth="150" MaxWidth="500"
-                        IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}"
-                        ItemsSource="{Binding PortNameList}"
-                        SelectedItem="{Binding SelectedPortName}" />
+                    <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
                 </StatusBarItem>
                 <Separator Grid.Column="4" />
                 <StatusBarItem Grid.Column="5">
@@ -183,10 +179,10 @@
                 <Separator Grid.Column="6" />
                 <StatusBarItem Grid.Column="7">
                     <ComboBox
-                        Name="baudRateComboBox" Width="150"
+                        Name="baudRateComboBox" IsEditable="True"
                         IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}"
                         ItemsSource="{Binding BaudRateList}"
-                        SelectedItem="{Binding SelectedBaudRate}" />
+                        Text="{Binding SelectedBaudRate}" />
                 </StatusBarItem>
                 <Separator Grid.Column="8" />
                 <StatusBarItem Grid.Column="9">
@@ -213,63 +209,63 @@
                     <TextBlock Text="{Binding ReceivedCount}" ToolTip="{DynamicResource ClearCountTip}" />
                 </StatusBarItem>
             </StatusBar>
-        </DockPanel>
 
-        <!--  中间改变分割大小的东西  -->
-        <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            <!--  中间改变分割大小的东西  -->
+            <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
 
-        <!--  右侧脚本、快捷发送  -->
-        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="3*" />
+            <!--  右侧脚本、快捷发送  -->
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="3*" />
 
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Margin="5,0" HorizontalAlignment="Left" Text="{DynamicResource QuickSendId}" />
-                    <TextBlock Grid.Column="1" Margin="-50,0,0,0" HorizontalAlignment="Center" Text="{DynamicResource QuickSendContent}" />
-                    <TextBlock Grid.Column="3" Margin="12,0" HorizontalAlignment="Right" Text="{DynamicResource QuickSendHex}" />
-                </Grid>
-                <ItemsControl Name="toSendList" ItemsSource="{Binding ToSendListItems}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="0,3,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="50" />
-                                </Grid.ColumnDefinitions>
-                                <Grid Margin="1" Background="#F6F6F6" Cursor="Cross" Tag="{Binding}" />
-                                <TextBlock
-                                    Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                    Text="{Binding Id}"
-                                    ToolTip="{DynamicResource QuickSendIdTip}" />
-                                <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding Text}" />
-                                <Button
-                                    Grid.Column="2" Margin="5"
-                                    Content="{Binding Commit}"
-                                    MouseRightButtonDown="Button_MouseRightButtonDown"
-                                    ToolTip="{DynamicResource QuickSendButtonTip}" />
-                                <CheckBox Grid.Column="3" Margin="0" HorizontalAlignment="Center" IsChecked="{Binding Hex}" />
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <Grid Margin="0,10,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Margin="3" HorizontalAlignment="Center" Command="{Binding AddQuickSendItemCommand}" Content="{DynamicResource QuickSendAdd}" />
-                    <Button
-                        Name="deleteSendListButton" Grid.Column="1" Margin="3" HorizontalAlignment="Center"
-                        Content="{DynamicResource QuickSendRemoveLast}" />
-                </Grid>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+                        <TextBlock Grid.Column="0" Margin="5,0" HorizontalAlignment="Left" Text="{DynamicResource QuickSendId}" />
+                        <TextBlock Grid.Column="1" Margin="-50,0,0,0" HorizontalAlignment="Center" Text="{DynamicResource QuickSendContent}" />
+                        <TextBlock Grid.Column="3" Margin="12,0" HorizontalAlignment="Right" Text="{DynamicResource QuickSendHex}" />
+                    </Grid>
+                    <ItemsControl Name="toSendList" ItemsSource="{Binding ToSendListItems}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,3,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="50" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Margin="1" Background="#F6F6F6" Cursor="Cross" Tag="{Binding}" />
+                                    <TextBlock
+                                        Grid.Column="0" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        Text="{Binding Id}"
+                                        ToolTip="{DynamicResource QuickSendIdTip}" />
+                                    <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" Text="{Binding Text}" />
+                                    <Button
+                                        Grid.Column="2" Margin="5"
+                                        Content="{Binding Commit}"
+                                        MouseRightButtonDown="Button_MouseRightButtonDown"
+                                        ToolTip="{DynamicResource QuickSendButtonTip}" />
+                                    <CheckBox Grid.Column="3" Margin="0" HorizontalAlignment="Center" IsChecked="{Binding Hex}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Margin="3" HorizontalAlignment="Center" Command="{Binding AddQuickSendItemCommand}" Content="{DynamicResource QuickSendAdd}" />
+                        <Button
+                            Name="deleteSendListButton" Grid.Column="1" Margin="3" HorizontalAlignment="Center"
+                            Content="{DynamicResource QuickSendRemoveLast}" />
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
 </UserControl>

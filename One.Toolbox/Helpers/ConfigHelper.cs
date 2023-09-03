@@ -34,6 +34,7 @@ namespace One.Toolbox.Helpers
             }
             catch (Exception)
             {
+                AllConfig = new AllConfigModel();
             }
         }
     }

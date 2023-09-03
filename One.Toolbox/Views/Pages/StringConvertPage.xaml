@@ -108,7 +108,6 @@
                     </b:Interaction.Triggers>
                 </WrapPanel>
             </Border>
-
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="2" />
     </Grid>

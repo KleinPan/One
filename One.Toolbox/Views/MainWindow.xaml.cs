@@ -45,7 +45,7 @@ namespace One.Toolbox.Views
 
         private void OnLeftMainContentShiftOut(object sender, RoutedEventArgs e)
         {
-            ButtonShiftOut.Collapse();
+            ButtonLeft.Collapse();
             GridSplitter.IsEnabled = false;
 
             double targetValue = -ColumnDefinitionLeft.MaxWidth;
@@ -66,13 +66,13 @@ namespace One.Toolbox.Views
 
                 ColumnDefinitionLeft.MinWidth = 0;
                 ColumnDefinitionLeft.Width = new GridLength();
-                ButtonShiftIn.Show();
+                ButtonRight.Show();
             }
         }
 
         private void OnLeftMainContentShiftIn(object sender, RoutedEventArgs e)
         {
-            ButtonShiftIn.Collapse();
+            ButtonRight.Collapse();
             GridSplitter.IsEnabled = true;
 
             double targetValue = ColumnDefinitionLeft.Width.Value;
@@ -92,7 +92,7 @@ namespace One.Toolbox.Views
 
                 ColumnDefinitionLeft.MinWidth = 60;
                 ColumnDefinitionLeft.Width = _columnDefinitionWidth;
-                ButtonShiftOut.Show();
+                ButtonLeft.Show();
             }
         }
     }

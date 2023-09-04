@@ -1,4 +1,5 @@
-﻿using One.Toolbox.Models.Serialport;
+﻿using One.Toolbox.Model;
+using One.Toolbox.Models.Serialport;
 
 namespace One.Toolbox.ViewModels.Serialport
 {
@@ -27,6 +28,8 @@ namespace One.Toolbox.ViewModels.Serialport
 
         public SerialportParams SerialportParams { get; set; } = new SerialportParams();
 
+        public List<ToSendData> QuickSendList { get; set; } = new List<ToSendData>();
+
         public SerialportSettingViewModel()
         {
             //SerialportParams = new SerialportParams();
@@ -43,6 +46,7 @@ namespace One.Toolbox.ViewModels.Serialport
             serialportSettingModel.MaxLength = MaxLength;
             serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
             serialportSettingModel.LagAutoClear = LagAutoClear;
+            serialportSettingModel.QuickSendList = QuickSendList;
 
             return serialportSettingModel;
         }

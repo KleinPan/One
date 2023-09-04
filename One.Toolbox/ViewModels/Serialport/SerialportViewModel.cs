@@ -43,7 +43,8 @@ namespace One.Toolbox.ViewModels.Serialport
         private SerialPortComponent serialPortHelper { get; set; }
         private FlowDocumentComponent flowDocumentHelper { get; set; }
 
-        public ObservableCollection<ToSendData> ToSendListItems { get; set; } = new ObservableCollection<ToSendData>();
+        /// <summary> 快捷发送列表 </summary>
+        public ObservableCollection<ToSendData> QuickSendList { get; set; } = new ObservableCollection<ToSendData>();
 
         #region 界面显示
 
@@ -261,8 +262,10 @@ namespace One.Toolbox.ViewModels.Serialport
         [RelayCommand]
         private void AddQuickSendItem()
         {
-            ToSendListItems.Add(new ToSendData() { Id = ToSendListItems.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
+            QuickSendList.Add(new ToSendData() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
         }
+
+        private bool forcusClosePort = true;
 
         [RelayCommand]
         private void OpenClosePort()
@@ -307,8 +310,6 @@ namespace One.Toolbox.ViewModels.Serialport
 
         /// <summary> 是否正在打开端口 </summary>
         private bool isOpeningPort = false;
-
-        private bool forcusClosePort = true;
 
         private void OpenPort()
         {
@@ -435,6 +436,9 @@ namespace One.Toolbox.ViewModels.Serialport
             SerialportUISetting = ConfigHelper.Instance.AllConfig.SerialportSetting.ToVM();
 
             SerialportUISetting.SerialportParams = ConfigHelper.Instance.AllConfig.SerialportParams;
+
+            QuickSendList.Clear();
+            QuickSendList.AddRange(SerialportUISetting.QuickSendList);
         }
 
         #endregion Setting

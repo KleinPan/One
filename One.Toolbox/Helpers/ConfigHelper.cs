@@ -10,7 +10,7 @@ namespace One.Toolbox.Helpers
 
         public string AppPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
 
-        public const string Config = "config.json";
+        public const string Config = "Setting.json";
         public AllConfigModel AllConfig { get; set; } = new AllConfigModel();
 
         public ConfigHelper()
@@ -34,8 +34,29 @@ namespace One.Toolbox.Helpers
             }
             catch (Exception)
             {
-                AllConfig = new AllConfigModel();
+                InitDefaultData();
             }
+        }
+
+        void InitDefaultData()
+        {
+            AllConfig = new AllConfigModel();
+
+            AllConfig.SerialportSetting.QuickSendList.Add(new Model.ToSendData()
+            {
+                Id = 0,
+                Commit = "发送",
+                Hex = false,
+                Text = "Hello?",
+            });
+
+            AllConfig.SerialportSetting.QuickSendList.Add(new Model.ToSendData()
+            {
+                Id = 1,
+                Commit = "Hex发送",
+                Hex = true,
+                Text = "01 02 03 04",
+            });
         }
     }
 }

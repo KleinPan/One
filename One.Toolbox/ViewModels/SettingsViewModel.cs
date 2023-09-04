@@ -29,7 +29,7 @@ public partial class SettingsViewModel : BaseViewModel
     {
         //Tools.Global.LoadSetting();
 
-        AppVersion = $"v{GetAssemblyVersion()}";
+        AppVersion = $"v{GetAssemblyVersion()} .NET 7.0";
 
         base.InitializeViewModel();
     }

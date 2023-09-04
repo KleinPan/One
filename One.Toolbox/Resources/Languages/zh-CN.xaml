@@ -67,14 +67,13 @@
     <system:String x:Key="LuaNoName">请输入文件名！</system:String>
     <system:String x:Key="LuaExist">该文件已存在！</system:String>
     <system:String x:Key="LuaCreateFail">新建失败，请检查！</system:String>
+
     <system:String x:Key="AboutCard">关于</system:String>
     <system:String x:Key="AboutSubTitle">能跑Lua脚本的串口调试工具</system:String>
     <system:String x:Key="AboutDiscriptionMain">One.Toolbox是一款包含字符转换，串口调试工具，网络调试工具等工具集合的小软件。</system:String>
-
     <system:String x:Key="AboutAutoUpdate">开启软件后，自动检查是否需要更新</system:String>
     <system:String x:Key="AboutLoadingUpdate">更新数据加载中</system:String>
     <system:String x:Key="AboutDevelopers">开发者：pwb</system:String>
-    <system:String x:Key="AboutTranslator">简体中文为原版语言</system:String>
     <system:String x:Key="AboutQQGroup">交流群：123539080</system:String>
     <system:String x:Key="AboutGitHubText">开源项目，欢迎star</system:String>
     <system:String x:Key="AboutGitHubButton">前往GitHub查看</system:String>
@@ -82,6 +81,7 @@
     <system:String x:Key="AboutFeedBackButton">提交建议或上报Bug</system:String>
     <system:String x:Key="AboutThanksProjects">感谢以下项目：</system:String>
     <system:String x:Key="AboutVersion">软件版本</system:String>
+
     <system:String x:Key="InputDialogConfirm">确定</system:String>
     <system:String x:Key="InputDialogCancel">取消</system:String>
     <system:String x:Key="InputDialogTitle">提示</system:String>

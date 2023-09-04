@@ -36,14 +36,11 @@
                     <TextBlock Margin="5" Text="{DynamicResource AboutDiscriptionMain}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutDevelopers}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutQQGroup}" />
-                    <TextBlock Margin="5" Text="{DynamicResource AboutTranslator}" />
+
                 </StackPanel>
             </Border>
             <Button
-                Name="CheckUpdateButton"
-                Width="auto"
-                Margin="10"
-                HorizontalAlignment="Center"
+                Name="CheckUpdateButton" Width="auto" Margin="10" HorizontalAlignment="Center"
                 Content="{DynamicResource AboutLoadingUpdate}"
                 IsEnabled="False" />
 

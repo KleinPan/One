@@ -9,7 +9,8 @@
     Title="{Binding ApplicationTitle, Mode=OneWay}"
     Width="1024" Height="600"
     d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
-    d:DesignHeight="600" d:DesignWidth="800" WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+    d:DesignHeight="600" d:DesignWidth="800" Icon="/Resources/icon.png" WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
 
     <Grid>
         <Grid.ColumnDefinitions>

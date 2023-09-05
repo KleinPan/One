@@ -3,7 +3,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="uc:Hyperlink">
-                    <ContentPresenter />
+                    <!--<ContentPresenter />-->
+                    <TextBlock Text="{TemplateBinding Content}">
+                        <TextBlock.TextDecorations>Underline</TextBlock.TextDecorations>
+                    </TextBlock>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -12,6 +15,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Margin" Value="0,5,0,0" />
         <Setter Property="Foreground" Value="DeepSkyBlue" />
+        <Setter Property="TextBlock.TextDecorations" Value="Strikethrough" />
         <Setter Property="Cursor" Value="Help" />
     </Style>
 </ResourceDictionary>

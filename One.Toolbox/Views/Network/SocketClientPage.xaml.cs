@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace One.Toolbox.Views.Pages
+namespace One.Toolbox.Views.Network
 {
     /// <summary> SocketClientPage.xaml 的交互逻辑 </summary>
     [PropertyChanged.AddINotifyPropertyChangedInterface]

@@ -52,7 +52,7 @@ namespace One.Toolbox
             services.AddTransient<ViewModels.Serialport.SerialportViewModel>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddTransient<ViewModels.NetworkViewModel>();
+            services.AddTransient<ViewModels.Network.NetworkViewModel>();
 
             return services.BuildServiceProvider();
         }

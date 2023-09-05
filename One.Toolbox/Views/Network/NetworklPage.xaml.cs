@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Network;
 
-namespace One.Toolbox.Views.Pages
+namespace One.Toolbox.Views.Network
 {
     public partial class NetworklPage
     {
-        public ViewModels.NetworkViewModel ViewModel { get; }
+        public ViewModels.Network.NetworkViewModel ViewModel { get; }
 
         public NetworklPage()
         {

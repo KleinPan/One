@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Net.Sockets;
 
-namespace One.Toolbox.ViewModels
+namespace One.Toolbox.ViewModels.Network
 {
     public partial class NetworkViewModel : BaseViewModel
     {

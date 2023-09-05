@@ -1,6 +1,7 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
 using One.Toolbox.Helpers;
+using One.Toolbox.Views.Network;
 using One.Toolbox.Views.Pages;
 using One.Toolbox.Views.Serialport;
 using One.Toolbox.Views.Settings;
@@ -74,7 +75,7 @@ public partial class MainWindowViewModel : BaseViewModel
         {
             Header = "Net",
             Icon = ResourceHelper.Dic["Network"],
-            TargetPageType = typeof(Views.Pages.NetworklPage),
+            TargetPageType = typeof(Views.Network.NetworklPage),
             Content = new NetworklPage(),
         });
 

@@ -286,7 +286,7 @@ namespace One.Toolbox.Component
                     //    $"{Global.GetEncoding().GetString(e.data)}\r\n" +
                     //    $"HEX:{Tools.Global.Byte2Hex(e.data, " ")}");
 
-                    NLogger.Info($"[{e.time}]{(e as DataShowRaw).title}\r\n" + $"e.data\r\n");
+                    NLogger.Info($"[{e.time}]{(e as DataShowRaw).title}\r\n" + $"{e.data}\r\n");
                 }
 
                 if (DataQueue.Count > 100)

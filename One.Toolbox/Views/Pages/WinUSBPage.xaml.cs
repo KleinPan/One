@@ -2,6 +2,7 @@
 using LibUsbDotNet.LibUsb;
 using LibUsbDotNet.Main;
 
+using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
@@ -207,7 +208,7 @@ namespace One.Toolbox.Views.Pages
             var device = (DeviceInfo)UsbListComboBox.SelectedItem;
             var epw = (WriteEndpointID)((int)WriteEndpointID.Ep01 + UsbOutComboBox.SelectedIndex);
             var epr = (ReadEndpointID)((int)ReadEndpointID.Ep01 + UsbInComboBox.SelectedIndex);
-            byte[] buff = HexMode ? ByteHelper.HexToByte(toSendDataTextBox.Text) :
+            byte[] buff = HexMode ? StringHelper.HexStringToBytes(toSendDataTextBox.Text) :
                     Tools.Global.GetEncoding().GetBytes(toSendDataTextBox.Text);
             await Task.Run(() =>
             {

@@ -1,9 +1,12 @@
-﻿using One.Toolbox.Enums;
+﻿using One.Core.Helpers.DataProcessHelpers;
+using One.Toolbox.Component;
+using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
 using System.Net;
 using System.Net.Sockets;
+using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Network
 {
@@ -15,8 +18,11 @@ namespace One.Toolbox.ViewModels.Network
         //收到消息的事件
         public event EventHandler<byte[]> DataRecived;
 
-        public bool IsConnected { get; set; } = false;
-        public bool HexMode { get; set; } = false;
+        [ObservableProperty]
+        private bool isConnected = false;
+
+        [ObservableProperty]
+        private bool hexMode = false;
 
         [ObservableProperty]
         private ObservableCollection<string> ipList = new ObservableCollection<string>();
@@ -26,9 +32,6 @@ namespace One.Toolbox.ViewModels.Network
 
         [ObservableProperty]
         private string inputPort;
-
-        //[ObservableProperty]
-        //private string inputIP;
 
         public override void InitializeViewModel()
         {
@@ -52,6 +55,20 @@ namespace One.Toolbox.ViewModels.Network
         [ObservableProperty]
         private string dataToSend;
 
+        #region InitUI
+
+        private FlowDocumentComponent flowDocumentHelper { get; set; }
+
+        [RelayCommand]
+        private void InitFlowDocumentControl(object obj)
+        {
+            var args = obj as System.Windows.RoutedEventArgs;
+            var control = args.OriginalSource as FlowDocumentScrollViewer;
+            flowDocumentHelper = new FlowDocumentComponent(control);
+        }
+
+        #endregion InitUI
+
         #region Command
 
         [RelayCommand]
@@ -63,7 +80,7 @@ namespace One.Toolbox.ViewModels.Network
 
                     if (socketNow != null)
                     {
-                        byte[] buff = HexMode ? ByteHelper.HexToByte(DataToSend) :
+                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
                             Tools.Global.GetEncoding().GetBytes(DataToSend);
                         Send(buff);
                     }
@@ -74,7 +91,7 @@ namespace One.Toolbox.ViewModels.Network
 
                     if (Server != null)
                     {
-                        byte[] buff = HexMode ? ByteHelper.HexToByte(dataToSend) : Tools.Global.GetEncoding().GetBytes(dataToSend);
+                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) : Tools.Global.GetEncoding().GetBytes(DataToSend);
                         Broadcast(buff);
                     }
 
@@ -179,6 +196,24 @@ namespace One.Toolbox.ViewModels.Network
                 color = send ? Brushes.DarkRed : Brushes.DarkGreen,
             });
             */
+
+            string realData = "";
+            if (HexMode)
+            {
+                realData = StringHelper.BytesToHexString(data);
+            }
+            else
+            {
+                realData = System.Text.Encoding.UTF8.GetString(data);
+            }
+
+            flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
+            {
+                data = realData,
+                send = send,
+            });
+
+            WriteInfoLog(realData);
         }
 
         /// <summary> 获取客户端的名字 </summary>
@@ -418,7 +453,7 @@ namespace One.Toolbox.ViewModels.Network
             }
             catch (Exception ex)
             {
-                ShowData($"❗ Server information error {ex.Message}");
+                MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
                 Changeable = true;
                 return;
             }

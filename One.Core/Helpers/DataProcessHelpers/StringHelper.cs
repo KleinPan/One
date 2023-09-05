@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Org.BouncyCastle.Utilities.Encoders;
+
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace One.Core.Helpers.DataProcessHelpers
 {
@@ -43,19 +48,69 @@ namespace One.Core.Helpers.DataProcessHelpers
         /// <returns> </returns>
         public static byte[] HexStringToBytes(string HexValue, bool isReverse = false)
         {
-            HexValue = HexValue.Replace(" ", "");
-            List<byte> bytedatas = new List<byte>();
-            while (HexValue.Length > 0)
+            if (true)
             {
-                string strtmp = HexValue.Length == 1 ? HexValue : HexValue.Substring(0, 2);
+                HexValue = HexValue.Replace(" ", "");
+                List<byte> bytedatas = new List<byte>();
+                while (HexValue.Length > 0)
+                {
+                    string strtmp = HexValue.Length == 1 ? HexValue : HexValue.Substring(0, 2);
+                    if (isReverse)
+                    {
+                        strtmp = ReverseString(strtmp);
+                    }
+                    bytedatas.Add(Convert.ToByte(Convert.ToUInt32(strtmp, 16)));
+                    HexValue = HexValue.Length == 1 ? "" : HexValue.Substring(2);
+                }
+                return bytedatas.ToArray();
+            }
+            else
+            {
+                HexValue = Regex.Replace(HexValue, "[^0-9A-Fa-f]", "");
+                if (HexValue.Length % 2 != 0)
+                    HexValue = HexValue.Remove(HexValue.Length - 1, 1);
+                if (HexValue.Length <= 0) return new byte[0];
+                byte[] vBytes = new byte[HexValue.Length / 2];
+                for (int i = 0; i < HexValue.Length; i += 2)
+                    if (!byte.TryParse(HexValue.Substring(i, 2), NumberStyles.HexNumber, null, out vBytes[i / 2]))
+                        vBytes[i / 2] = 0;
+                return vBytes;
+            }
+        }
+
+        public static string BytesToHexString(byte[] strASCII, bool isReverse = false, string separator = " ")
+        {
+            if (strASCII == null) return "";
+            if (true)
+            {
+                byte[] tempData = strASCII;
                 if (isReverse)
                 {
-                    strtmp = ReverseString(strtmp);
+                    tempData = strASCII.Reverse().ToArray();
+                    return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
                 }
-                bytedatas.Add(Convert.ToByte(Convert.ToUInt32(strtmp, 16)));
-                HexValue = HexValue.Length == 1 ? "" : HexValue.Substring(2);
+                else
+                {
+                }
+
+                return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
             }
-            return bytedatas.ToArray();
+            else
+            {
+                StringBuilder sbHex = new StringBuilder();
+
+                foreach (byte chr in strASCII)
+                {
+                    string str = String.Format("{0:X2}", Convert.ToInt32(chr));
+                    if (isReverse)
+                    {
+                        str = ReverseString(str);
+                    }
+                    sbHex.Append(str);
+                    sbHex.Append(separator ?? string.Empty);
+                }
+                return sbHex.ToString();
+            }
         }
 
         /// <summary> 每两个反转 </summary>
@@ -80,28 +135,11 @@ namespace One.Core.Helpers.DataProcessHelpers
             return Reversebytedatas.ToArray();
         }
 
-        public static string BytesToHexString(byte[] strASCII, bool isReverse = false, string separator = null)
-        {
-            StringBuilder sbHex = new StringBuilder();
-
-            foreach (byte chr in strASCII)
-            {
-                string str = String.Format("{0:X2}", Convert.ToInt32(chr));
-                if (isReverse)
-                {
-                    str = ReverseString(str);
-                }
-                sbHex.Append(str);
-                sbHex.Append(separator ?? string.Empty);
-            }
-            return sbHex.ToString();
-        }
-
         #endregion HexString-Bytes
 
-        #region HexString-String
+        #region HexString-RealString
 
-        public static string ConvertHexToString(string HexValue, string separator = null)
+        public static string ConvertHexStringToRealString(string HexValue, string separator = null)
         {
             HexValue = string.IsNullOrEmpty(separator) ? HexValue : HexValue.Replace(string.Empty, separator);
             StringBuilder sbStrValue = new StringBuilder();
@@ -113,7 +151,7 @@ namespace One.Core.Helpers.DataProcessHelpers
             return sbStrValue.ToString();
         }
 
-        public static string ConvertStringToHex(string strASCII, string separator = null)
+        public static string ConvertRealStringToHexString(string strASCII, string separator = null)
         {
             StringBuilder sbHex = new StringBuilder();
             foreach (char chr in strASCII)
@@ -124,7 +162,7 @@ namespace One.Core.Helpers.DataProcessHelpers
             return sbHex.ToString();
         }
 
-        #endregion HexString-String
+        #endregion HexString-RealString
 
         public static List<string> ConvertStringToList(string baseString, char splitChar)
         {

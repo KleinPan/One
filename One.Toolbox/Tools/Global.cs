@@ -227,69 +227,6 @@ namespace One.Toolbox.Tools
 
         private static byte[][] symbols = null;
 
-        /// <summary> byte转string（可读） </summary>
-        /// <param name="vBytes"> </param>
-        /// <returns> </returns>
-        public static string Byte2Readable(byte[] vBytes, int len = -1)
-        {
-            if (len == -1)
-                len = vBytes.Length;
-            if (vBytes == null)//fix
-                return "";
-            //没开这个功能/非utf8就别搞了
-            if (!setting.EnableSymbol || setting.encoding != 65001)
-                return Helpers.ByteHelper.ByteToString(vBytes, len);
-            //初始化一下这个数组
-            if (symbols == null)
-            {
-                symbols = new byte[32][];
-                string[] tc = { "␀", "␁", "␂", "␃", "␄", "␅", "␆", "␇", "␈", "␉", "␊", "␋", "␌", "␍",
-                    "␎", "␏", "␐", "␑", "␒", "␓", "␔", "␕", "␖", "␗", "␘", "␙", "␚", "␛", "␜", "␝", "␞", "␟" };
-                for (int i = 0; i < 32; i++)
-                    symbols[i] = Encoding.GetEncoding(65001).GetBytes(tc[i]);
-            }
-            var tb = new List<byte>();
-            for (int i = 0; i < len; i++)
-            {
-                switch (vBytes[i])
-                {
-                    case 0x0d:
-                        //遇到成对出现
-                        if (i < len - 1 && vBytes[i + 1] == 0x0a)
-                        {
-                            tb.AddRange(symbols[0x0d]);
-                            tb.AddRange(symbols[0x0a]);
-                            tb.Add(0x0d);
-                            tb.Add(0x0a);
-                            i++;
-                        }
-                        else
-                        {
-                            tb.AddRange(symbols[0x0d]);
-                            tb.Add(vBytes[i]);
-                        }
-                        break;
-
-                    case 0x0a:
-                    case 0x09://tab字符
-                        tb.AddRange(symbols[vBytes[i]]);
-                        tb.Add(vBytes[i]);
-                        break;
-
-                    default:
-                        //普通的字符
-                        if (vBytes[i] <= 0x1f)
-                            tb.AddRange(symbols[vBytes[i]]);
-                        else if (vBytes[i] == 0x7f)//del
-                            tb.AddRange(b_del);
-                        else
-                            tb.Add(vBytes[i]);
-                        break;
-                }
-            }
-            return GetEncoding().GetString(tb.ToArray());
-        }
-
         /// <summary> 更换语言文件 </summary>
         /// <param name="languagefileName"> </param>
         public static void LoadLanguageFile(string languagefileName)

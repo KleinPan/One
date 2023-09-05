@@ -1,11 +1,10 @@
 ﻿using One.Core.ExtensionMethods;
+using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Model;
 using One.Toolbox.Tools;
 using One.Toolbox.Views;
-
-using Org.BouncyCastle.Ocsp;
 
 using System.Collections.ObjectModel;
 using System.IO.Ports;
@@ -41,7 +40,6 @@ namespace One.Toolbox.ViewModels.Serialport
         private byte[] toSendData = null;//待发送的数据
 
         private SerialPortComponent serialPortHelper { get; set; }
-        private FlowDocumentComponent flowDocumentHelper { get; set; }
 
         /// <summary> 快捷发送列表 </summary>
         public ObservableCollection<ToSendData> QuickSendList { get; set; } = new ObservableCollection<ToSendData>();
@@ -107,36 +105,22 @@ namespace One.Toolbox.ViewModels.Serialport
             var data = sender as byte[];
             ReceivedCount += data.Length;
 
-            var temp = ByteHelper.ByteToHexString(data);
-
-            string realData;
-            if (SerialportUISetting.HexShow)
-            {
-                realData = temp;
-            }
-            else
-            {
-                realData = System.Text.Encoding.UTF8.GetString(data);
-            }
-
-            flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
-            {
-                send = false,
-                data = realData,
-            });
-
-            WriteInfoLog(realData);
+            ShowData(data, false, SerialportUISetting.HexShow);
         }
 
         private void SerialPortHelper_UartDataSent(object? sender, EventArgs e)
         {
             var data = sender as byte[];
+            SentCount += data.Length;
+            ShowData(data, true, SerialportUISetting.HexSend);
+        }
 
-            string realData = "";
-
-            if (SerialportUISetting.HexSend)
+        private void ShowData(byte[] data, bool send, bool hexMode)
+        {
+            string realData;
+            if (hexMode)
             {
-                realData = ByteHelper.ByteToHexString(data);
+                realData = StringHelper.BytesToHexString(data);
             }
             else
             {
@@ -145,7 +129,7 @@ namespace One.Toolbox.ViewModels.Serialport
 
             flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
             {
-                send = true,
+                send = send,
                 data = realData,
             });
 
@@ -153,6 +137,20 @@ namespace One.Toolbox.ViewModels.Serialport
         }
 
         private bool refreshLock = false;
+
+        #region InitUI
+
+        private FlowDocumentComponent flowDocumentHelper { get; set; }
+
+        [RelayCommand]
+        private void InitFlowDocumentControl(object obj)
+        {
+            var args = obj as System.Windows.RoutedEventArgs;
+            var control = args.OriginalSource as FlowDocumentScrollViewer;
+            flowDocumentHelper = new FlowDocumentComponent(control);
+        }
+
+        #endregion InitUI
 
         #region Command
 
@@ -170,14 +168,6 @@ namespace One.Toolbox.ViewModels.Serialport
             settingWindow.Show();
 
             SaveSetting();
-        }
-
-        [RelayCommand]
-        private void InitFlowDocumentControl(object obj)
-        {
-            var args = obj as System.Windows.RoutedEventArgs;
-            var control = args.OriginalSource as FlowDocumentScrollViewer;
-            flowDocumentHelper = new FlowDocumentComponent(control);
         }
 
         /// <summary> 刷新设备列表 </summary>
@@ -395,7 +385,8 @@ namespace One.Toolbox.ViewModels.Serialport
 
                 try
                 {
-                    dataConvert = SerialportUISetting.HexSend ? ByteHelper.HexToByte(ByteHelper.ByteToString(data)) : data;
+                    //dataConvert = SerialportUISetting.HexSend ? ByteHelper.HexToByte(ByteHelper.ByteToString(data)) : data;
+                    dataConvert = SerialportUISetting.HexSend ? StringHelper.HexStringToBytes(StringHelper.BytesToHexString(data)) : data;
 
                     if (SerialportUISetting.WithExtraEnter)
                     {
@@ -405,8 +396,6 @@ namespace One.Toolbox.ViewModels.Serialport
                         dataConvert = temp.ToArray();
                     }
                     serialPortHelper.SendData(dataConvert);
-
-                    SentCount += dataConvert.Length;
                 }
                 catch (Exception ex)
                 {

@@ -5759,38 +5759,38 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.BytesToHexString
   nameWithType: StringHelper.BytesToHexString
-- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString(System.String,System.String)
-  name: ConvertHexToString(string, string)
-  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertHexToString_System_String_System_String_
-  commentId: M:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString(System.String,System.String)
-  name.vb: ConvertHexToString(String, String)
-  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString(string, string)
-  fullName.vb: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString(String, String)
-  nameWithType: StringHelper.ConvertHexToString(string, string)
-  nameWithType.vb: StringHelper.ConvertHexToString(String, String)
-- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString*
-  name: ConvertHexToString
-  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertHexToString_
-  commentId: Overload:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString
+- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString(System.String,System.String)
+  name: ConvertHexStringToRealString(string, string)
+  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertHexStringToRealString_System_String_System_String_
+  commentId: M:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString(System.String,System.String)
+  name.vb: ConvertHexStringToRealString(String, String)
+  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString(string, string)
+  fullName.vb: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString(String, String)
+  nameWithType: StringHelper.ConvertHexStringToRealString(string, string)
+  nameWithType.vb: StringHelper.ConvertHexStringToRealString(String, String)
+- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString*
+  name: ConvertHexStringToRealString
+  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertHexStringToRealString_
+  commentId: Overload:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString
   isSpec: "True"
-  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexToString
-  nameWithType: StringHelper.ConvertHexToString
-- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex(System.String,System.String)
-  name: ConvertStringToHex(string, string)
-  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertStringToHex_System_String_System_String_
-  commentId: M:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex(System.String,System.String)
-  name.vb: ConvertStringToHex(String, String)
-  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex(string, string)
-  fullName.vb: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex(String, String)
-  nameWithType: StringHelper.ConvertStringToHex(string, string)
-  nameWithType.vb: StringHelper.ConvertStringToHex(String, String)
-- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex*
-  name: ConvertStringToHex
-  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertStringToHex_
-  commentId: Overload:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex
+  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertHexStringToRealString
+  nameWithType: StringHelper.ConvertHexStringToRealString
+- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString(System.String,System.String)
+  name: ConvertRealStringToHexString(string, string)
+  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertRealStringToHexString_System_String_System_String_
+  commentId: M:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString(System.String,System.String)
+  name.vb: ConvertRealStringToHexString(String, String)
+  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString(string, string)
+  fullName.vb: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString(String, String)
+  nameWithType: StringHelper.ConvertRealStringToHexString(string, string)
+  nameWithType.vb: StringHelper.ConvertRealStringToHexString(String, String)
+- uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString*
+  name: ConvertRealStringToHexString
+  href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertRealStringToHexString_
+  commentId: Overload:One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString
   isSpec: "True"
-  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToHex
-  nameWithType: StringHelper.ConvertStringToHex
+  fullName: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertRealStringToHexString
+  nameWithType: StringHelper.ConvertRealStringToHexString
 - uid: One.Core.Helpers.DataProcessHelpers.StringHelper.ConvertStringToList(System.String,System.Char)
   name: ConvertStringToList(string, char)
   href: api/One.Core.Helpers.DataProcessHelpers.StringHelper.html#One_Core_Helpers_DataProcessHelpers_StringHelper_ConvertStringToList_System_String_System_Char_

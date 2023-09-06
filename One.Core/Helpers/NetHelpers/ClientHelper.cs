@@ -1,6 +1,5 @@
-﻿using One.Core.Helpers;
-
-using System;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 
@@ -10,19 +9,19 @@ namespace One.Core.Helpers.NetHelpers
     {
         #region 变量
 
-        public Socket sckClient = null;
+        private Socket sckClient = null;
 
         /// <summary> 原始字节数据 </summary>
-        public byte[] ReceiveBuf = new byte[1024];
-
-        private byte[] SendBuf = new byte[1024];
+        private byte[] receiveBuffer = new byte[1024];
 
         /// <summary> 发送数据存储区 </summary>
         public string DataSend = "";
 
-        public Socket sendSocket = null;
+        private Socket sendSocket = null;
 
         #endregion 变量
+
+        public Action<byte[]> ReceiveAction;
 
         public ClientHelper(Action<string> logAction) : base(logAction)
         {
@@ -51,6 +50,42 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
+        /// <summary> 连接服务器回调函数 </summary>
+        /// <param name="ar"> </param>
+        private void ConnectCallback(IAsyncResult ar)
+        {
+            try
+            {
+                Socket sckConnect = (Socket)ar.AsyncState;
+                sckConnect.EndConnect(ar);
+                //连接成功提示
+                sendSocket = sckConnect;
+
+                //int revLength = sckReceive.EndReceive(ar);
+            }
+            catch (Exception e)
+            {
+                WriteLog(e.ToString());
+            }
+            //清空接收数据缓冲区
+            //Array.Clear(ReceiveBuf, 0, 256);
+            Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
+
+            try
+            {
+                //接收数据
+                sckClient.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
+                //int a = sckClient.Receive(ReceiveBuf);
+
+                //ReceiveAction?.Invoke(receiveBuffer.Take(revLength).ToArray());
+                //ReceiveAction?.Invoke(receiveBuffer);
+            }
+            catch (Exception e)
+            {
+                WriteLog(e.ToString());
+            }
+        }
+
         /// <summary> 断开当前客户端连接 </summary>
         /// <returns> </returns>
         public bool UnInitAsClient()
@@ -68,37 +103,6 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
-        /// <summary> 连接服务器回调函数 </summary>
-        /// <param name="ar"> </param>
-        private void ConnectCallback(IAsyncResult ar)
-        {
-            try
-            {
-                Socket sckConnect = (Socket)ar.AsyncState;
-                sckConnect.EndConnect(ar);
-                //连接成功提示
-                sendSocket = sckConnect;
-            }
-            catch (Exception e)
-            {
-                WriteLog(e.ToString());
-            }
-            //清空接收数据缓冲区
-            //Array.Clear(ReceiveBuf, 0, 256);
-            Array.Clear(ReceiveBuf, 0, ReceiveBuf.Length);
-
-            try
-            {
-                //接收数据
-                sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
-                //int a = sckClient.Receive(ReceiveBuf);
-            }
-            catch (Exception e)
-            {
-                WriteLog(e.ToString());
-            }
-        }
-
         private void EndConnectCallback(IAsyncResult ar)
         {
             try
@@ -111,15 +115,28 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
+        public void SendData(byte[] data)
+        {
+            try
+            {
+                int count = sckClient.Send(data);
+                Console.WriteLine("发送数据长度为：" + count);
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+            }
+        }
+
         public byte[] Receive()
         {
             try
             {
-                Array.Clear(ReceiveBuf, 0, ReceiveBuf.Length);
+                Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
 
-                int count = sckClient.Receive(ReceiveBuf);
+                int count = sckClient.Receive(receiveBuffer);
                 Console.WriteLine("接收数据长度为：" + count);
-                return ReceiveBuf;
+                return receiveBuffer;
             }
             catch (Exception ex)
             {
@@ -136,22 +153,11 @@ namespace One.Core.Helpers.NetHelpers
             int revLength = sckReceive.EndReceive(ar);
 
             Console.WriteLine("接收数据长度为：" + revLength);
-            //sendSocket = sckReceive.EndAccept(ar);
-
-            //把接收到的数据转成字符串显示到界面
-            //string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, revLength);
-
-            ReceiveAndSend(ReceiveBuf);
 
             //再次接收数据
-            sckClient.BeginReceive(ReceiveBuf, 0, ReceiveBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
-        }
+            sckClient.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
 
-        /// <summary> 需要在外部重写 </summary>
-        /// <param name="mes"> </param>
-        public virtual void ReceiveAndSend(byte[] mes)
-        {
-            sckClient.Send(mes);
+            ReceiveAction?.Invoke(receiveBuffer.Take(revLength).ToArray());
         }
     }
 }

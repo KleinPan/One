@@ -104,7 +104,7 @@
             </StackPanel>
             <StackPanel Name="socket" Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
 
-                <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
                 <Button Name="DisconnectButton" Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
             </StackPanel>
             <Grid Grid.Row="3">
@@ -136,7 +136,7 @@
                 Name="SendDataButton" Grid.Row="4" Margin="2" HorizontalAlignment="Right"
                 Command="{Binding SendDataCommand}"
                 Content="{DynamicResource NetSendDataButton}"
-                IsEnabled="{Binding IsConnected}" />
+                IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
         </Grid>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using One.Core.Helpers.DataProcessHelpers;
+using One.Core.Helpers.NetHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
@@ -33,6 +34,8 @@ namespace One.Toolbox.ViewModels.Network
         [ObservableProperty]
         private string inputPort;
 
+        private ClientHelper ClientHelper;
+
         public override void InitializeViewModel()
         {
             if (isInitialized)
@@ -41,7 +44,7 @@ namespace One.Toolbox.ViewModels.Network
             RefreshIp();
             //绑定
 
-            InputPort = "8088";
+            InputPort = "2333";
 
             //收到消息，显示日志
             DataRecived += (name, data) =>
@@ -49,7 +52,14 @@ namespace One.Toolbox.ViewModels.Network
                 ShowData($" → receive ({(string)name})", data);
             };
 
+            ClientHelper = new ClientHelper(WriteDebugLog);
+            ClientHelper.ReceiveAction += ShowClientReceiveAction;
             base.InitializeViewModel();
+        }
+
+        private void ShowClientReceiveAction(byte[] data)
+        {
+            ShowData("", data, false);
         }
 
         [ObservableProperty]
@@ -70,43 +80,6 @@ namespace One.Toolbox.ViewModels.Network
         #endregion InitUI
 
         #region Command
-
-        [RelayCommand]
-        private void SendData()
-        {
-            switch (SelectCommunProtocalType)
-            {
-                case CommunProtocalType.TCP客户端:
-
-                    if (socketNow != null)
-                    {
-                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
-                            Tools.Global.GetEncoding().GetBytes(DataToSend);
-                        Send(buff);
-                    }
-
-                    break;
-
-                case CommunProtocalType.TCP服务端:
-
-                    if (Server != null)
-                    {
-                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) : Tools.Global.GetEncoding().GetBytes(DataToSend);
-                        Broadcast(buff);
-                    }
-
-                    break;
-
-                case CommunProtocalType.UDP客户端:
-                    break;
-
-                case CommunProtocalType.UDP服务端:
-                    break;
-
-                default:
-                    break;
-            }
-        }
 
         [RelayCommand]
         private void StopListen()
@@ -137,6 +110,10 @@ namespace One.Toolbox.ViewModels.Network
             }
         }
 
+        #endregion Command
+
+        #region 通用功能
+
         /// <summary> 刷新本机ip列表 </summary>
         [RelayCommand]
         private void RefreshIp()
@@ -161,7 +138,121 @@ namespace One.Toolbox.ViewModels.Network
             temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
         }
 
-        #endregion Command
+        [RelayCommand]
+        private void SocketConnect()
+        {
+            if (!Changeable)
+                return;
+            IPEndPoint ipe = null;
+            Socket s = null;
+            try
+            {
+                Changeable = false;
+                IPAddress ip = null;
+                try
+                {
+                    ip = IPAddress.Parse(SelectedIP);
+                }
+                catch
+                {
+                    var hostEntry = Dns.GetHostEntry(SelectedIP);
+                    ip = hostEntry.AddressList[0];
+                }
+                ipe = new IPEndPoint(ip, int.Parse(InputPort));
+
+                switch (SelectCommunProtocalType)
+                {
+                    case CommunProtocalType.TCP客户端:
+
+                        //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                       
+                        ClientHelper.InitAsClient(ip, int.Parse(InputPort));
+                        break;
+
+                    case CommunProtocalType.TCP服务端:
+                        break;
+
+                    case CommunProtocalType.UDP客户端:
+
+                        s = new Socket(ipe.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
+                        break;
+
+                    case CommunProtocalType.UDP服务端:
+                        break;
+
+                    default:
+                        break;
+                }
+
+                IsConnected = true;
+            }
+            catch (Exception ex)
+            {
+                MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
+                Changeable = true;
+                return;
+            }
+            ShowData("Connecting......");
+        }
+
+        [RelayCommand]
+        private void SocketDisconnect()
+        {
+            if (socketNow != null)
+            {
+                try
+                {
+                    socketNow.Close();
+                    socketNow.Dispose();
+                }
+                catch { }
+                socketNow = null;
+                IsConnected = false;
+                Changeable = true;
+                ShowData("❌ Server disconnected");
+            }
+        }
+
+        [RelayCommand]
+        private void SendData()
+        {
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP客户端:
+
+                    {
+                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
+                          Tools.Global.GetEncoding().GetBytes(DataToSend);
+
+                        ShowData("", buff, true);
+                        ClientHelper.SendData(buff);
+                    }
+
+                    break;
+
+                case CommunProtocalType.TCP服务端:
+
+                    if (Server != null)
+                    {
+                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) : Tools.Global.GetEncoding().GetBytes(DataToSend);
+                        Broadcast(buff);
+                    }
+
+                    break;
+
+                case CommunProtocalType.UDP客户端:
+                    break;
+
+                case CommunProtocalType.UDP服务端:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        #endregion 通用功能
 
         private bool Broadcast(byte[] buff)
         {
@@ -188,15 +279,10 @@ namespace One.Toolbox.ViewModels.Network
 
         private void ShowData(string title, byte[] data = null, bool send = false)
         {
-            /*
-            Tools.Logger.ShowDataRaw(new Tools.DataShowRaw
+            if (data == null)
             {
-                title = $"🛰 local tcp server: {title}",
-                data = data ?? new byte[0],
-                color = send ? Brushes.DarkRed : Brushes.DarkGreen,
-            });
-            */
-
+                return;
+            }
             string realData = "";
             if (HexMode)
             {
@@ -404,107 +490,6 @@ namespace One.Toolbox.ViewModels.Network
                 }
             }
             catch { }
-        }
-
-        [RelayCommand]
-        private void SocketConnect()
-        {
-            if (!Changeable)
-                return;
-            IPEndPoint ipe = null;
-            Socket s = null;
-            try
-            {
-                Changeable = false;
-                IPAddress ip = null;
-                try
-                {
-                    ip = IPAddress.Parse(SelectedIP);
-                }
-                catch
-                {
-                    var hostEntry = Dns.GetHostEntry(SelectedIP);
-                    ip = hostEntry.AddressList[0];
-                }
-                ipe = new IPEndPoint(ip, int.Parse(InputPort));
-
-                switch (SelectCommunProtocalType)
-                {
-                    case CommunProtocalType.TCP客户端:
-
-                        s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                        break;
-
-                    case CommunProtocalType.TCP服务端:
-                        break;
-
-                    case CommunProtocalType.UDP客户端:
-
-                        s = new Socket(ipe.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
-                        break;
-
-                    case CommunProtocalType.UDP服务端:
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
-                Changeable = true;
-                return;
-            }
-            ShowData("📢 Connecting......");
-            try
-            {
-                s.BeginConnect(ipe, new AsyncCallback((r) =>
-                {
-                    var s = (Socket)r.AsyncState;
-                    if (s.Connected)
-                    {
-                        socketNow = s;
-                        IsConnected = true;
-                        ShowData("✔ Server connected");
-                    }
-                    else
-                    {
-                        Changeable = true;
-                        ShowData("❗ Server connect failed");
-                        return;
-                    }
-
-                    StateObject so = new StateObject();
-                    so.workSocket = s;
-                    s.BeginReceive(so.buffer, 0, StateObject.BUFFER_SIZE, 0, new AsyncCallback(Read_Callback), so);
-                }), s);
-            }
-            catch (Exception ex)
-            {
-                ShowData($"❗ Server connect error {ex.Message}");
-                Changeable = true;
-                return;
-            }
-        }
-
-        [RelayCommand]
-        private void SocketDisconnect()
-        {
-            if (socketNow != null)
-            {
-                try
-                {
-                    socketNow.Close();
-                    socketNow.Dispose();
-                }
-                catch { }
-                socketNow = null;
-                IsConnected = false;
-                Changeable = true;
-                ShowData("❌ Server disconnected");
-            }
         }
 
         private bool Send(byte[] buff)

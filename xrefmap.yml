@@ -6769,25 +6769,24 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.ClientHelper.InitAsClient
   nameWithType: ClientHelper.InitAsClient
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.Receive
-  name: Receive()
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_Receive
-  commentId: M:One.Core.Helpers.NetHelpers.ClientHelper.Receive
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.Receive()
-  nameWithType: ClientHelper.Receive()
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.Receive*
-  name: Receive
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_Receive_
-  commentId: Overload:One.Core.Helpers.NetHelpers.ClientHelper.Receive
-  isSpec: "True"
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.Receive
-  nameWithType: ClientHelper.Receive
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.OnConnected
+  name: OnConnected
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_OnConnected
+  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.OnConnected
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.OnConnected
+  nameWithType: ClientHelper.OnConnected
 - uid: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
   name: ReceiveAction
   href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAction
   commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
   fullName: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
   nameWithType: ClientHelper.ReceiveAction
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.SendAction
+  name: SendAction
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_SendAction
+  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.SendAction
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.SendAction
+  nameWithType: ClientHelper.SendAction
 - uid: One.Core.Helpers.NetHelpers.ClientHelper.SendData(System.Byte[])
   name: SendData(byte[])
   href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_SendData_System_Byte___
@@ -6817,6 +6816,18 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.ClientHelper.UnInitAsClient
   nameWithType: ClientHelper.UnInitAsClient
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.WaitTime
+  name: WaitTime
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_WaitTime
+  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.WaitTime
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.WaitTime
+  nameWithType: ClientHelper.WaitTime
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.cancellationToken
+  name: cancellationToken
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_cancellationToken
+  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.cancellationToken
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.cancellationToken
+  nameWithType: ClientHelper.cancellationToken
 - uid: One.Core.Helpers.NetHelpers.IPConvertHelper
   name: IPConvertHelper
   href: api/One.Core.Helpers.NetHelpers.IPConvertHelper.html

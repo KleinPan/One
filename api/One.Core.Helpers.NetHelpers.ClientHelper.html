@@ -90,7 +90,7 @@
 
   <h1 id="One_Core_Helpers_NetHelpers_ClientHelper" data-uid="One.Core.Helpers.NetHelpers.ClientHelper" class="text-break">
     Class ClientHelper
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -161,7 +161,7 @@
 
   <h3 id="One_Core_Helpers_NetHelpers_ClientHelper__ctor_System_Action_System_String__" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.#ctor(System.Action{System.String})">
   ClientHelper(Action&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -195,7 +195,7 @@
 
   <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_DataSend" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.DataSend">
   DataSend
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>发送数据存储区</p>
@@ -224,47 +224,16 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_ReceiveBuf" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.ReceiveBuf">
-  ReceiveBuf
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L16"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>原始字节数据</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] ReceiveBuf</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_sckClient" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.sckClient">
-  sckClient
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAction" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction">
+  ReceiveAction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Socket sckClient</code></pre>
+    <pre><code class="lang-csharp hljs">public Action&lt;byte[]&gt; ReceiveAction</code></pre>
   </div>
 
 
@@ -272,37 +241,7 @@
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets.socket">Socket</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_sendSocket" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.sendSocket">
-  sendSocket
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L23"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Socket sendSocket</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets.socket">Socket</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -322,7 +261,7 @@
 
   <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_InitAsClient_System_Net_IPAddress_System_Int32_" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.InitAsClient(System.Net.IPAddress,System.Int32)">
   InitAsClient(IPAddress, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>初始化作为客户端并连接</p>
@@ -361,7 +300,7 @@
 
   <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_Receive" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.Receive">
   Receive()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -388,24 +327,23 @@
 
 
 
-  <a id="One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAndSend_" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend*"></a>
+  <a id="One_Core_Helpers_NetHelpers_ClientHelper_SendData_" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.SendData*"></a>
 
-  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAndSend_System_Byte___" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend(System.Byte[])">
-  ReceiveAndSend(byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_SendData_System_Byte___" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.SendData(System.Byte[])">
+  SendData(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>需要在外部重写</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void ReceiveAndSend(byte[] mes)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SendData(byte[] data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>mes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
     <dd></dd>
   </dl>
 
@@ -424,7 +362,7 @@
 
   <h3 id="One_Core_Helpers_NetHelpers_ClientHelper_UnInitAsClient" data-uid="One.Core.Helpers.NetHelpers.ClientHelper.UnInitAsClient">
   UnInitAsClient()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>断开当前客户端连接</p>
@@ -456,7 +394,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/ClientHelper.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
         

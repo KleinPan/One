@@ -6782,28 +6782,28 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.ClientHelper.Receive
   nameWithType: ClientHelper.Receive
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend(System.Byte[])
-  name: ReceiveAndSend(byte[])
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAndSend_System_Byte___
-  commentId: M:One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend(System.Byte[])
-  name.vb: ReceiveAndSend(Byte())
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend(byte[])
-  fullName.vb: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend(Byte())
-  nameWithType: ClientHelper.ReceiveAndSend(byte[])
-  nameWithType.vb: ClientHelper.ReceiveAndSend(Byte())
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend*
-  name: ReceiveAndSend
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAndSend_
-  commentId: Overload:One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
+  name: ReceiveAction
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_ReceiveAction
+  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAction
+  nameWithType: ClientHelper.ReceiveAction
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.SendData(System.Byte[])
+  name: SendData(byte[])
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_SendData_System_Byte___
+  commentId: M:One.Core.Helpers.NetHelpers.ClientHelper.SendData(System.Byte[])
+  name.vb: SendData(Byte())
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.SendData(byte[])
+  fullName.vb: One.Core.Helpers.NetHelpers.ClientHelper.SendData(Byte())
+  nameWithType: ClientHelper.SendData(byte[])
+  nameWithType.vb: ClientHelper.SendData(Byte())
+- uid: One.Core.Helpers.NetHelpers.ClientHelper.SendData*
+  name: SendData
+  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_SendData_
+  commentId: Overload:One.Core.Helpers.NetHelpers.ClientHelper.SendData
   isSpec: "True"
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveAndSend
-  nameWithType: ClientHelper.ReceiveAndSend
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveBuf
-  name: ReceiveBuf
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_ReceiveBuf
-  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.ReceiveBuf
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.ReceiveBuf
-  nameWithType: ClientHelper.ReceiveBuf
+  fullName: One.Core.Helpers.NetHelpers.ClientHelper.SendData
+  nameWithType: ClientHelper.SendData
 - uid: One.Core.Helpers.NetHelpers.ClientHelper.UnInitAsClient
   name: UnInitAsClient()
   href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_UnInitAsClient
@@ -6817,18 +6817,6 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.ClientHelper.UnInitAsClient
   nameWithType: ClientHelper.UnInitAsClient
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.sckClient
-  name: sckClient
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_sckClient
-  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.sckClient
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.sckClient
-  nameWithType: ClientHelper.sckClient
-- uid: One.Core.Helpers.NetHelpers.ClientHelper.sendSocket
-  name: sendSocket
-  href: api/One.Core.Helpers.NetHelpers.ClientHelper.html#One_Core_Helpers_NetHelpers_ClientHelper_sendSocket
-  commentId: F:One.Core.Helpers.NetHelpers.ClientHelper.sendSocket
-  fullName: One.Core.Helpers.NetHelpers.ClientHelper.sendSocket
-  nameWithType: ClientHelper.sendSocket
 - uid: One.Core.Helpers.NetHelpers.IPConvertHelper
   name: IPConvertHelper
   href: api/One.Core.Helpers.NetHelpers.IPConvertHelper.html

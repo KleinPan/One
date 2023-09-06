@@ -1,15 +1,28 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Ocsp;
+using Org.BouncyCastle.Bcpg;
+
+using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace One.Core.Helpers.NetHelpers
 {
+    /// <summary>
+    /// 使用新版本微软推荐的异步套接字开发
+    /// <para> https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/socket-services#create-a-socket-client </para>
+    /// <para> https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.socket?view=net-7.0 </para>
+    /// </summary>
     public class ClientHelper : BaseHelper
     {
         #region 变量
 
-        private Socket sckClient = null;
+        private Socket socket = null;
 
         /// <summary> 原始字节数据 </summary>
         private byte[] receiveBuffer = new byte[1024];
@@ -17,11 +30,18 @@ namespace One.Core.Helpers.NetHelpers
         /// <summary> 发送数据存储区 </summary>
         public string DataSend = "";
 
-        private Socket sendSocket = null;
-
         #endregion 变量
 
+        //private Socket sendSocket = null;
         public Action<byte[]> ReceiveAction;
+
+        public Action<byte[]> SendAction;
+        public Action OnConnected;
+
+        public CancellationToken cancellationToken = default;
+
+        /// <summary> 暂时不起作用 </summary>
+        public int WaitTime = 100;
 
         public ClientHelper(Action<string> logAction) : base(logAction)
         {
@@ -34,72 +54,86 @@ namespace One.Core.Helpers.NetHelpers
         {
             try
             {
-                IPEndPoint iep = new IPEndPoint(ip, port);
+                IPEndPoint ipEndPoint = new IPEndPoint(ip, port);
 
-                //创建客户端套接字
-                sckClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
 
-                //连接服务器
-                sckClient.BeginConnect(iep, new AsyncCallback(ConnectCallback), sckClient);
+                SocketAsyncEventArgs e = new SocketAsyncEventArgs();
+                e.RemoteEndPoint = ipEndPoint;
+                e.UserToken = socket;
+                e.Completed += new EventHandler<SocketAsyncEventArgs>(ConnectComplete);
+                e.SetBuffer(System.Text.Encoding.UTF8.GetBytes("Client connect succeed!"));
+
+                var willRaiseEvent = socket.ConnectAsync(e);
+
+                if (!willRaiseEvent)//暂时没发现有什么用
+                {
+                    ConnectEvent(e);
+                }
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                WriteLog(ex.ToString());
                 return false;
             }
         }
 
-        /// <summary> 连接服务器回调函数 </summary>
-        /// <param name="ar"> </param>
-        private void ConnectCallback(IAsyncResult ar)
+        /// <summary> 连接成功事件 </summary>
+        /// <param name="sender"> </param>
+        /// <param name="e">      </param>
+        private void ConnectComplete(object sender, SocketAsyncEventArgs e)
+        {
+            //这里设置buffer已经晚了，所以提前设置进去
+
+            try
+            {
+                var addressFamily = e.ConnectSocket.AddressFamily.ToString();
+                var a = e.ConnectSocket.LocalEndPoint.ToString();
+                WriteLog(addressFamily + " " + a);
+
+                OnConnected?.Invoke();
+
+                //连接成功再启动接受函数
+                Receive();
+            }
+            catch (Exception ex)
+            {
+                WriteLog($"连接失败 => {ex.ToString()}");
+
+                throw;
+            }
+        }
+
+        private void ConnectEvent(SocketAsyncEventArgs args)
         {
             try
             {
-                Socket sckConnect = (Socket)ar.AsyncState;
-                sckConnect.EndConnect(ar);
-                //连接成功提示
-                sendSocket = sckConnect;
-
-                //int revLength = sckReceive.EndReceive(ar);
+                if (args.SocketError == SocketError.Success)
+                {
+                }
+                else
+                {
+                }
             }
-            catch (Exception e)
+            finally
             {
-                WriteLog(e.ToString());
-            }
-            //清空接收数据缓冲区
-            //Array.Clear(ReceiveBuf, 0, 256);
-            Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
-
-            try
-            {
-                //接收数据
-                sckClient.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
-                //int a = sckClient.Receive(ReceiveBuf);
-
-                //ReceiveAction?.Invoke(receiveBuffer.Take(revLength).ToArray());
-                //ReceiveAction?.Invoke(receiveBuffer);
-            }
-            catch (Exception e)
-            {
-                WriteLog(e.ToString());
+                args.Dispose();
             }
         }
 
         /// <summary> 断开当前客户端连接 </summary>
         /// <returns> </returns>
-        public bool UnInitAsClient()
+        public void UnInitAsClient()
         {
             try
             {
-                //连接服务器
-                sckClient.BeginDisconnect(true, new AsyncCallback(EndConnectCallback), sckClient);
-
-                return true;
+                socket.Shutdown(SocketShutdown.Both);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                WriteLog(ex.ToString());
             }
         }
 
@@ -107,7 +141,7 @@ namespace One.Core.Helpers.NetHelpers
         {
             try
             {
-                sckClient.EndDisconnect(ar);
+                socket.EndDisconnect(ar);
             }
             catch (Exception ex)
             {
@@ -115,12 +149,18 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
-        public void SendData(byte[] data)
+        public async void SendData(byte[] data)
         {
             try
             {
-                int count = sckClient.Send(data);
-                Console.WriteLine("发送数据长度为：" + count);
+                // int count = sckClient.Send(data);
+                //Console.WriteLine("发送数据长度为：" + count);
+
+                int bytesSent = 0;
+                while (bytesSent < data.Length)
+                {
+                    bytesSent += await socket.SendAsync(data.AsMemory(bytesSent), SocketFlags.None);
+                }
             }
             catch (Exception ex)
             {
@@ -128,36 +168,30 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
-        public byte[] Receive()
+        /// <summary> 循环接受缓冲区数据 </summary>
+        private async void Receive()
         {
             try
             {
-                Array.Clear(receiveBuffer, 0, receiveBuffer.Length);
+                while (true)
+                {
+                    byte[] responseBytes = new byte[1024];
+                    int bytesReceived = await socket.ReceiveAsync(responseBytes, SocketFlags.None, cancellationToken);
 
-                int count = sckClient.Receive(receiveBuffer);
-                Console.WriteLine("接收数据长度为：" + count);
-                return receiveBuffer;
+                    // Receiving 0 bytes means EOF has been reached
+                    //if (bytesReceived == 0) break;
+
+                    if (bytesReceived > 0)
+                    {
+                        ReceiveAction?.Invoke(responseBytes.Take(bytesReceived).ToArray());
+                    }
+                    //Thread.Sleep(WaitTime);
+                }
             }
             catch (Exception ex)
             {
                 WriteLog(ex.ToString());
-                return null;
             }
-        }
-
-        /// <summary> 接收数据回调函数 </summary>
-        /// <param name="ar"> </param>
-        private void ReceiveCallback(IAsyncResult ar)
-        {
-            Socket sckReceive = (Socket)ar.AsyncState;
-            int revLength = sckReceive.EndReceive(ar);
-
-            Console.WriteLine("接收数据长度为：" + revLength);
-
-            //再次接收数据
-            sckClient.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), sckClient);
-
-            ReceiveAction?.Invoke(receiveBuffer.Take(revLength).ToArray());
         }
     }
 }

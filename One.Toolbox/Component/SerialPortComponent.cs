@@ -228,6 +228,7 @@ namespace One.Toolbox.Component
                 }
                 //Tools.Global.setting.ReceivedCount += result.Count;
                 if (result.Count > 0)
+                {
                     try
                     {
                         var r = result.ToArray();
@@ -235,7 +236,9 @@ namespace One.Toolbox.Component
 
                         //LuaApis.SendChannelsReceived("uart", r);
                     }
-                    catch { }
+                    catch
+                    { }
+                }
             }
         }
     }

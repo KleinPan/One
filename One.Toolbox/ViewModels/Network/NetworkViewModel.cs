@@ -135,7 +135,7 @@ namespace One.Toolbox.ViewModels.Network
             }
             catch { }
             //去重
-            temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
+            temp.Distinct().Reverse().ToList().ForEach(ip => IpList.Add(ip));
         }
 
         [RelayCommand]
@@ -166,7 +166,6 @@ namespace One.Toolbox.ViewModels.Network
 
                         //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-                       
                         ClientHelper.InitAsClient(ip, int.Parse(InputPort));
                         break;
 
@@ -199,6 +198,31 @@ namespace One.Toolbox.ViewModels.Network
         [RelayCommand]
         private void SocketDisconnect()
         {
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP客户端:
+                    {
+                        ClientHelper.UnInitAsClient();
+                    }
+
+                    break;
+
+                case CommunProtocalType.TCP服务端:
+                    break;
+
+                case CommunProtocalType.UDP客户端:
+                    break;
+
+                case CommunProtocalType.UDP服务端:
+                    break;
+
+                default:
+                    break;
+            }
+
+            IsConnected = false;
+            Changeable = true;
+
             if (socketNow != null)
             {
                 try
@@ -425,7 +449,7 @@ namespace One.Toolbox.ViewModels.Network
 
         #region Soket
 
-        //是否可更改服务器信息
+        //是否可以进行操作，例如连接或者断开
         public bool Changeable { get; set; } = true;
 
         //暂存一个对象

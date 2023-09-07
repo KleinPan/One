@@ -86,76 +86,12 @@ namespace One.Toolbox.Component
                 var uartList = new List<DataShowCommon>();
 
                 DateTime uartSentTime = DateTime.MinValue;
-                //var uartSentList = new List<string>();
+
                 DateTime uartReceivedTime = DateTime.MinValue;
-                //var uartReceivedList = new List<byte>();
 
                 for (int i = 0; i < logList.Count; i++)
                 {
-
                     rawList.Add(logList[i]);
-                     
-                    /*
-                    if (logList[i] as DataShowCommon != null)
-                    {
-                        // rawList.Add(new DataShowCommon(logList[i] as DataShowCommon));
-                        rawList.Add(logList[i]);
-                    }
-                    else
-                    {
-                        //串口数据收发分一下，后续可以合并数据
-                        var d = logList[i] as DataShowCommon;
-
-                        DataShowCommon sentData = null;
-                        DataShowCommon receivedData = null;
-
-                        if (d.send != null)
-                        {
-                            var innerSend = (bool)d.send;
-                            if (innerSend)
-                            {
-                                uartSentTime = d.time;
-                                // sentData = new DataUart(d.data, d.time, true);
-                                sentData = new DataShowCommon()
-                                {
-                                    time = uartSentTime,
-                                    data= d.data,
-                                    send = true
-                                };
-                            }
-                            else
-                            {
-                                uartReceivedTime = d.time;
-                                //receivedData = new DataUart(d.data, d.time, false);
-                                receivedData = new DataShowCommon()
-                                {
-                                    time = uartSentTime,
-                                    data = d.data,
-                                    send = false
-                                };
-                            }
-                        }
-
-                        //包的时间顺序要对
-                        if (sentData == null && receivedData != null)
-                            uartList.Add(receivedData);
-                        else if (sentData != null && receivedData == null)
-                            uartList.Add(sentData);
-                        else if (sentData != null && receivedData != null)
-                        {
-                            if (uartSentTime < uartReceivedTime)
-                            {
-                                uartList.Add(sentData);
-                                uartList.Add(receivedData);
-                            }
-                            else
-                            {
-                                uartList.Add(receivedData);
-                                uartList.Add(sentData);
-                            }
-                        }
-                    }
-                    */
                 }
 
                 //显示数据
@@ -176,7 +112,7 @@ namespace One.Toolbox.Component
                     //禁止选中
                     FlowDocumentScrollViewer.IsEnabled = false;
                     for (int i = 0; i < rawList.Count; i++)
-                        DataShowRaw(rawList[i]);
+                        ShowDataToUI(rawList[i]);
                     //for (int i = 0; i < uartList.Count; i++)
                     //    addUartLog(uartList[i]);
                     if (!LockLog)//如果允许拉到最下面
@@ -202,27 +138,32 @@ namespace One.Toolbox.Component
             }
         }
 
-        private void DataShowRaw(DataShowCommon dataRaw)
+        private void ShowDataToUI(DataShowCommon dataRaw)
         {
             Paragraph p = new Paragraph(new Run(""));
             Span text = new Span(new Run(dataRaw.TimeToString()));
+
             text.Foreground = Brushes.DarkSlateGray;
             p.Inlines.Add(text);
-            text = new Span(new Run(dataRaw.title));
-            text.Foreground = Brushes.Black;
-            text.FontWeight = FontWeights.Bold;
-            p.Inlines.Add(text);
-            FlowDocumentScrollViewer.Document.Blocks.Add(p);
 
-            if (dataRaw.data != null)//有数据时才显示信息
+            if (!string.IsNullOrEmpty(dataRaw.Prefix))
+            {
+                text = new Span(new Run(dataRaw.Prefix));
+                text.Foreground = dataRaw.PrefixColor;
+                text.FontWeight = FontWeights.Bold;
+                p.Inlines.Add(text);
+            }
+            //FlowDocumentScrollViewer.Document.Blocks.Add(p);
+
+            if (dataRaw.Message != null)//有数据时才显示信息
             {
                 //主要显示数据
-                p = new Paragraph(new Run(""));
-                text = new Span(new Run(dataRaw.data));
-                text.Foreground = dataRaw.color;
+                //p = new Paragraph(new Run(""));
+                text = new Span(new Run(dataRaw.Message));
+
+                text.Foreground = dataRaw.MessageColor;
                 text.FontSize = 15;
                 p.Inlines.Add(text);
-                FlowDocumentScrollViewer.Document.Blocks.Add(p);
 
                 //同时显示模式时，才显示小字hex
                 /*
@@ -235,68 +176,7 @@ namespace One.Toolbox.Component
                 }
                 */
             }
-        }
-
-        /// <summary> 添加串口日志数据 </summary>
-        /// <param name="data"> 数据 </param>
-        /// <param name="send"> true为发送，false为接收 </param>
-        private void addUartLog(DataUart d)
-        {
-            var temp = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.Timeout;
-            if (temp >= 0)
-            {
-                Paragraph p = new Paragraph(new Run(""));
-
-                Span text = new Span(new Run(d.time));
-                text.Foreground = Brushes.DarkSlateGray;
-                p.Inlines.Add(text);
-
-                text = new Span(new Run(d.title));
-                text.Foreground = Brushes.Black;
-                text.FontWeight = FontWeights.Bold;
-                p.Inlines.Add(text);
-
-                //主要显示数据
-                text = new Span(new Run(d.data));
-                text.Foreground = d.color;
-                text.FontSize = 15;
-                p.Inlines.Add(text);
-
-                //同时显示模式时，才显示小字hex
-                if (d.hex != null)
-                    p.Margin = new Thickness(0, 0, 0, 8);
-                FlowDocumentScrollViewer.Document.Blocks.Add(p);
-
-                //同时显示模式时，才显示小字hex
-                if (d.hex != null)
-                {
-                    p = new Paragraph(new Run(d.hex));
-                    p.Foreground = d.hexColor;
-                    p.Margin = new Thickness(0, 0, 0, 8);
-                    FlowDocumentScrollViewer.Document.Blocks.Add(p);
-                }
-            }
-            else//不分包
-            {
-                if (FlowDocumentScrollViewer.Document.Blocks.LastBlock == null ||
-                   FlowDocumentScrollViewer.Document.Blocks.LastBlock.GetType() != typeof(Paragraph))
-                    FlowDocumentScrollViewer.Document.Blocks.Add(new Paragraph(new Run("")));
-
-                //待显示的数据
-                string s;
-                if (Global.setting.showHexFormat == 2 && d.hex != null)
-                    s = d.hex;
-                else
-                    s = d.data;
-                Span text = new Span(new Run(s));
-                text.FontSize = 15;
-                text.Foreground = d.color;
-                (FlowDocumentScrollViewer.Document.Blocks.LastBlock as Paragraph).Inlines.Add(text);
-            }
-
-            if (!LockLog)//如果允许拉到最下面
-                sv.ScrollToBottom();
-            FlowDocumentScrollViewer.IsSelectionEnabled = true;
+            FlowDocumentScrollViewer.Document.Blocks.Add(p);
         }
 
         /// <summary> 添加一个日志数据到缓冲区 </summary>
@@ -312,7 +192,7 @@ namespace One.Toolbox.Component
                     //    $"{Global.GetEncoding().GetString(e.data)}\r\n" +
                     //    $"HEX:{Tools.Global.Byte2Hex(e.data, " ")}");
 
-                    NLogger.Info($"[{e.time}]{(e as DataShowCommon).title}\r\n" + $"{e.data}\r\n");
+                    NLogger.Info($"[{e.CurrentTime}]{(e as DataShowCommon).Prefix}\r\n" + $"{e.Message}\r\n");
                 }
 
                 if (DataQueue.Count > 100)
@@ -320,7 +200,7 @@ namespace One.Toolbox.Component
                     DataQueue.Clear();
                     DataQueue.Add(new DataShowCommon
                     {
-                        title = packsTooMuch
+                        Prefix = packsTooMuch
                     });
                     //延时0.5秒，防止卡住ui线程
                     Thread.Sleep(500);

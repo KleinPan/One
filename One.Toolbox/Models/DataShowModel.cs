@@ -24,19 +24,26 @@ namespace One.Toolbox.Models
 
     internal class DataShowCommon
     {
-        public DateTime time { get; set; } = DateTime.Now;
-        public string title;
-        public string data;
+        public DateTime CurrentTime { get; set; } = DateTime.Now;
 
-        public bool? send;
-        public SolidColorBrush color;
+        /// <summary> 消息前缀 </summary>
+        public string Prefix;
+
+        public string Message;
+
+        public bool? Send;
+        public SolidColorBrush PrefixColor;
+        public SolidColorBrush MessageColor;
+
+        public DataShowCommon()
+        {
+            PrefixColor = Brushes.Black;
+            MessageColor = Brushes.Black;
+        }
 
         public string TimeToString()
         {
-           return time.ToString("[yyyy/MM/dd HH:mm:ss.fff]");
+            return CurrentTime.ToString("[yyyy/MM/dd HH:mm:ss.fff]");
         }
-
-
-
     }
 }

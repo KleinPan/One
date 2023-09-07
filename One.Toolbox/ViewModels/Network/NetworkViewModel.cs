@@ -16,9 +16,6 @@ namespace One.Toolbox.ViewModels.Network
         [ObservableProperty]
         private CommunProtocalType selectCommunProtocalType;
 
-        //收到消息的事件
-        public event EventHandler<byte[]> DataRecived;
-
         [ObservableProperty]
         private bool isConnected = false;
 
@@ -47,14 +44,8 @@ namespace One.Toolbox.ViewModels.Network
 
             InputPort = "2333";
 
-            //收到消息，显示日志
-            DataRecived += (name, data) =>
-            {
-                ShowData($" → receive ({(string)name})", data);
-            };
-
             asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
-            asyncTCPClient.ReceiveAction += ShowReceiveAction; 
+            asyncTCPClient.ReceiveAction += ShowReceiveAction;
             asyncTCPClient.SendAction += ShowSendMessage;
             asyncTCPClient.OnConnected += ShowInfoAction;
 
@@ -70,17 +61,19 @@ namespace One.Toolbox.ViewModels.Network
         {
             ShowData("", data, false);
         }
-        private void ShowSendMessage (byte[] data)
+
+        private void ShowSendMessage(byte[] data)
         {
             ShowData("", data, true);
         }
+
         private void ShowInfoAction(byte[] data)
         {
             var msg = System.Text.Encoding.UTF8.GetString(data);
 
             flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
             {
-                title = msg,
+                Prefix = msg,
             });
 
             WriteInfoLog(msg);
@@ -110,9 +103,7 @@ namespace One.Toolbox.ViewModels.Network
         {
             try
             {
-                StopServer();
                 IsConnected = false;
-                ShowData($"🚫 server closed");
             }
             catch { }
         }
@@ -120,19 +111,6 @@ namespace One.Toolbox.ViewModels.Network
         [RelayCommand]
         private void Listen()
         {
-            //int port;
-            //if (int.TryParse(InputPort, out port))
-            //{
-            //    try
-            //    {
-            //        IsConnected = StartServer(SelectedIP, port);
-            //    }
-            //    catch (Exception err)
-            //    {
-            //        Tools.MessageBox.Show(err.Message);
-            //    }
-            //}
-
             IPAddress ip = null;
             try
             {
@@ -140,8 +118,8 @@ namespace One.Toolbox.ViewModels.Network
             }
             catch
             {
-                var hostEntry = Dns.GetHostEntry(SelectedIP);
-                ip = hostEntry.AddressList[0];
+                MessageShowHelper.ShowErrorMessage("Ip 解析失败！");
+                return;
             }
 
             asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
@@ -278,8 +256,7 @@ namespace One.Toolbox.ViewModels.Network
         [RelayCommand]
         private void SendData()
         {
-
-            if (DataToSend==null)
+            if (DataToSend == null)
             {
                 return;
             }
@@ -293,9 +270,6 @@ namespace One.Toolbox.ViewModels.Network
             {
                 case CommunProtocalType.TCP客户端:
                     {
-                       
-
-                       
                         asyncTCPClient.SendData(buff);
                     }
 
@@ -304,7 +278,6 @@ namespace One.Toolbox.ViewModels.Network
                 case CommunProtocalType.TCP服务端:
                     {
                         asyncTCPServer.SendDataToAll(buff);
-
                     }
                     break;
 
@@ -320,29 +293,6 @@ namespace One.Toolbox.ViewModels.Network
         }
 
         #endregion 通用功能
-
-        private bool Broadcast(byte[] buff)
-        {
-            try
-            {
-                lock (Clients)
-                {
-                    foreach (var c in Clients)
-                        try
-                        {
-                            c.Send(buff);
-                        }
-                        catch { }
-                }
-                ShowData($"💥 broadcast", buff, true);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ShowData($"❗ broadcast error {ex.Message}");
-                return false;
-            }
-        }
 
         private void ShowData(string title, byte[] data = null, bool send = false)
         {
@@ -362,8 +312,8 @@ namespace One.Toolbox.ViewModels.Network
 
             flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
             {
-                data = realData,
-                send = send,
+                Message = realData,
+                Send = send,
             });
 
             WriteInfoLog(realData);
@@ -385,202 +335,10 @@ namespace One.Toolbox.ViewModels.Network
         private TcpListener Server = null;
         private List<Socket> Clients = new List<Socket>();
 
-        public void Read_Callback(IAsyncResult ar)
-        {
-            StateObject so = (StateObject)ar.AsyncState;
-            Socket s = so.workSocket;
-            try
-            {
-                var name = GetClientName(s);
-                int read = s.EndReceive(ar);
-
-                if (read > 0)
-                {
-                    var buff = new byte[read];
-                    for (int i = 0; i < buff.Length; i++)
-                        buff[i] = so.buffer[i];
-                    DataRecived?.Invoke(name, buff);
-                    s.BeginReceive(so.buffer, 0, StateObject.BUFFER_SIZE, 0,
-                                             new AsyncCallback(Read_Callback), so);
-                }
-            }
-            catch//断了？
-            {
-                try
-                {
-                    var name = GetClientName(s);
-                    lock (Clients)
-                        Clients.Remove(s);
-                    try
-                    {
-                        s.Close();
-                        s.Dispose();
-                    }
-                    catch { }
-                    ShowData($"☠ {name}");
-                }
-                catch { }
-            }
-        }
-
-        /// <summary> 开始监听服务器 </summary>
-        /// <param name="ip">   </param>
-        /// <param name="port"> </param>
-        /// <returns> </returns>
-        private bool StartServer(string ip, int port)
-        {
-            if (Server != null)
-                return false;
-            IPAddress localAddr = IPAddress.Parse(ip);
-            Server = new TcpListener(localAddr, port);
-            Server.Start();
-            var isV6 = ip.Contains(":");
-            ShowData($"🛰 {(isV6 ? "[" : "")}{ip}{(isV6 ? "]" : "")}:{port}");
-            AsyncCallback newConnectionCb = null;
-            newConnectionCb = new AsyncCallback((ar) =>
-            {
-                TcpListener listener = (TcpListener)ar.AsyncState;
-                try
-                {
-                    Socket client = listener.EndAcceptSocket(ar);//必须有这一句，不然新的请求没反应
-                    ShowData($"😀 {GetClientName(client)}");
-                    lock (Clients)
-                        Clients.Add(client);//加到列表里
-
-                    //客户端数据接收回调
-                    StateObject so = new StateObject();
-                    so.workSocket = client;
-                    client.BeginReceive(so.buffer, 0, StateObject.BUFFER_SIZE, 0, new AsyncCallback(Read_Callback), so);
-
-                    //恢复服务端的回调函数，方便下次接收
-                    Server.BeginAcceptSocket(newConnectionCb, Server);
-                }
-                catch { }
-            });
-            try
-            {
-                Server.BeginAcceptSocket(newConnectionCb, Server);
-            }
-            catch (Exception ex)
-            {
-                ShowData($"❗ Server create error {ex.Message}");
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary> 关闭服务器，断开所有连接 </summary>
-        private void StopServer()
-        {
-            lock (Clients)
-            {
-                foreach (var c in Clients)
-                    try
-                    {
-                        var name = GetClientName(c);
-                        c.Close();
-                        c.Dispose();
-                        ShowData($"☠ {name}");
-                    }
-                    catch { }
-                Clients.Clear();
-            }
-            Server?.Stop();
-            Server = null;
-        }
-
-        #region Soket
-
         //是否可以进行操作，例如连接或者断开
         public bool Changeable { get; set; } = true;
 
         //暂存一个对象
         private Socket socketNow = null;
-
-        private void SocketLoaded()
-        {
-            //收到消息显示
-            DataRecived += (_, buff) =>
-            {
-                ShowData($" → receive", buff);
-            };
-
-            //适配一下通用通道
-            /*
-            LuaApis.SendChannelsRegister("socket-client", (data, _) =>
-            {
-                if (socketNow != null && data != null)
-                {
-                    return Send(data);
-                }
-                else
-                    return false;
-            });
-            //通用通道收到消息
-            DataRecived += (_, data) =>
-            {
-                LuaApis.SendChannelsReceived("socket-client", data);
-            };
-            */
-        }
-
-        public void SocketRead_Callback(IAsyncResult ar)
-        {
-            StateObject so = (StateObject)ar.AsyncState;
-            Socket s = so.workSocket;
-            try
-            {
-                int read = s.EndReceive(ar);
-
-                if (read > 0)
-                {
-                    var buff = new byte[read];
-                    for (int i = 0; i < buff.Length; i++)
-                        buff[i] = so.buffer[i];
-                    DataRecived?.Invoke(null, buff);
-                    s.BeginReceive(so.buffer, 0, StateObject.BUFFER_SIZE, 0,
-                                             new AsyncCallback(SocketRead_Callback), so);
-                }
-                else//断了？
-                {
-                    try
-                    {
-                        s.Close();
-                        s.Dispose();
-                    }
-                    catch { }
-                    socketNow = null;
-                    IsConnected = false;
-                    Changeable = true;
-                    ShowData("❌ Server disconnected");
-                }
-            }
-            catch { }
-        }
-
-        private bool Send(byte[] buff)
-        {
-            try
-            {
-                socketNow.Send(buff);
-                ShowData($" ← send", buff, true);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ShowData($"❗ Send data error {ex.Message}");
-                return false;
-            }
-        }
-
-        public class StateObject
-        {
-            public Socket workSocket = null;
-            public const int BUFFER_SIZE = 2048;
-            public byte[] buffer = new byte[BUFFER_SIZE];
-        }
-
-        #endregion Soket
     }
 }

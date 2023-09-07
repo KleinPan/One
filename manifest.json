@@ -1185,10 +1185,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helpers.NetHelpers.ClientHelper.yml",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.AsyncTCPClient.yml",
       "output": {
         ".html": {
-          "relative_path": "api/One.Core.Helpers.NetHelpers.ClientHelper.html"
+          "relative_path": "api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.NetHelpers.AsyncTCPServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html"
         }
       },
       "version": ""
@@ -1219,16 +1229,6 @@
       "output": {
         ".html": {
           "relative_path": "api/One.Core.Helpers.NetHelpers.NetWorkInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helpers.NetHelpers.ServerHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helpers.NetHelpers.ServerHelper.html"
         }
       },
       "version": ""

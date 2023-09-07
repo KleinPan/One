@@ -21,122 +21,121 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid>
-
-            <FlowDocumentScrollViewer
-                Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MinZoom="50"
-                VerticalScrollBarVisibility="Visible">
-                <!--  更改段落间距  -->
-                <FlowDocumentScrollViewer.Resources>
-                    <Style TargetType="{x:Type Paragraph}">
-                        <Setter Property="Margin" Value="0" />
-                    </Style>
-                </FlowDocumentScrollViewer.Resources>
-                <!--  更改段落间距END  -->
-                <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="Loaded">
-                        <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-            </FlowDocumentScrollViewer>
-        </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-
+        <Border Margin="1,0">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock Margin="2" VerticalAlignment="Center" FontSize="15">
-                    协议类型:
-                </TextBlock>
-                <ComboBox
-                    Grid.Column="1" Margin="5,0"
-                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:CommunProtocalType}}"
-                    SelectedIndex="0"
-                    SelectedItem="{Binding SelectCommunProtocalType}" />
+
+                <FlowDocumentScrollViewer
+                    Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MinZoom="50"
+                    Style="{StaticResource FlowDocumentScrollViewerBaseStyle}"
+                    VerticalScrollBarVisibility="Visible">
+                    <!--  更改段落间距  -->
+                    <FlowDocumentScrollViewer.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0" />
+                        </Style>
+                    </FlowDocumentScrollViewer.Resources>
+                    <!--  更改段落间距END  -->
+                    <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="Loaded">
+                            <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+                </FlowDocumentScrollViewer>
             </Grid>
-            <Grid Grid.Row="1">
-                <StackPanel Orientation="Horizontal">
+        </Border>
+
+        <Border Grid.Column="1" Margin="5,0" Style="{StaticResource BorderRegion}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+
                     <ComboBox
-                        Name="IpListComboBox" Width="300" Margin="2" hc:InfoElement.Title="IP列表"
-                        hc:InfoElement.TitlePlacement="Left" IsEditable="True"
+                        Grid.Column="1" hc:InfoElement.Title="协议类型" hc:InfoElement.TitlePlacement="Left"
+                        ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:CommunProtocalType}}"
+                        SelectedIndex="0"
+                        SelectedItem="{Binding SelectCommunProtocalType}"
+                        Style="{StaticResource ComboBoxExtend}" />
+                </Grid>
+                <DockPanel Grid.Row="1" Margin="0,5" LastChildFill="True">
+
+
+                    <TextBox
+                        x:Name="IpPortTextBox" Grid.Column="1" Width="80" Margin="5,0"
+                        hc:InfoElement.Title="Port" hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Right"
+                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
+                        Style="{StaticResource TextBoxExtend}"
+                        Text="{Binding InputPort}" />
+
+                    <Button Grid.Column="2" Command="{Binding RefreshIpCommand}" Content="{DynamicResource RefreshIpList}" IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+
+                    <ComboBox
+                        Name="IpListComboBox" Margin="5,0" HorizontalAlignment="Stretch" hc:InfoElement.Title="IP列表"
+                        hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Left" IsEditable="True"
                         IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
                         ItemsSource="{Binding IpList}"
                         SelectedIndex="0"
                         Style="{StaticResource ComboBoxExtend}"
                         Text="{Binding SelectedIP}" />
-
-                    <TextBox
-                        x:Name="IpPortTextBox" Grid.Column="1" Width="100" Margin="2"
-                        hc:InfoElement.Title="Port" hc:InfoElement.TitlePlacement="Left"
-                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
-                        Style="{StaticResource TextBoxExtend}"
-                        Text="{Binding InputPort}" />
+                </DockPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP服务端}">
 
                     <Button
-                        Grid.Column="2" Margin="2"
-                        Command="{Binding RefreshIpCommand}"
-                        Content="{DynamicResource RefreshIpList}"
-                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+                        x:Name="StopListenButton" Grid.Row="1"
+                        Command="{Binding StopListenCommand}"
+                        Content="{DynamicResource StopListen}"
+                        Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <Button
+                        x:Name="ListenButton" Grid.Row="1"
+                        Command="{Binding ListenCommand}"
+                        Content="{DynamicResource StartListen}"
+                        Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
                 </StackPanel>
-            </Grid>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP服务端}">
+                <StackPanel Name="socket" Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
+
+                    <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+                    <Button Name="DisconnectButton" Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                </StackPanel>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Text="{DynamicResource ToSendDataTextBlock}" />
+                    <CheckBox
+                        Grid.Column="1" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Content="Hex"
+                        IsChecked="{Binding HexMode}" />
+
+                    <TextBox
+                        Name="toSendDataTextBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="2"
+                        VerticalAlignment="Stretch" VerticalContentAlignment="Top" AcceptsReturn="True"
+                        FontFamily="Consolas"
+                        Text="{Binding DataToSend}"
+                        TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                </Grid>
 
                 <Button
-                    x:Name="StopListenButton" Grid.Row="1"
-                    Command="{Binding StopListenCommand}"
-                    Content="{DynamicResource StopListen}"
-                    Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
-                <Button
-                    x:Name="ListenButton" Grid.Row="1"
-                    Command="{Binding ListenCommand}"
-                    Content="{DynamicResource StartListen}"
-                    Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
-            </StackPanel>
-            <StackPanel Name="socket" Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
-
-                <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
-                <Button Name="DisconnectButton" Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
-            </StackPanel>
-            <Grid Grid.Row="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    Grid.Column="0" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center"
-                    Text="{DynamicResource ToSendDataTextBlock}" />
-                <CheckBox
-                    Grid.Column="1" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Content="Hex"
-                    IsChecked="{Binding HexMode}" />
-
-                <TextBox
-                    Name="toSendDataTextBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="2"
-                    VerticalAlignment="Stretch" VerticalContentAlignment="Top" AcceptsReturn="True"
-                    FontFamily="Consolas"
-                    Text="{Binding DataToSend}"
-                    TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                    Name="SendDataButton" Grid.Row="4" Margin="2" HorizontalAlignment="Right"
+                    Command="{Binding SendDataCommand}"
+                    Content="{DynamicResource NetSendDataButton}"
+                    IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
             </Grid>
+        </Border>
 
-            <Button
-                Name="SendDataButton" Grid.Row="4" Margin="2" HorizontalAlignment="Right"
-                Command="{Binding SendDataCommand}"
-                Content="{DynamicResource NetSendDataButton}"
-                IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
-        </Grid>
     </Grid>
 </UserControl>

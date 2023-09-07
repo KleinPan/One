@@ -34,7 +34,8 @@ namespace One.Toolbox.ViewModels.Network
         [ObservableProperty]
         private string inputPort;
 
-        private ClientHelper ClientHelper;
+        private AsyncTCPClient asyncTCPClient;
+        private AsyncTCPServer asyncTCPServer;
 
         public override void InitializeViewModel()
         {
@@ -52,14 +53,37 @@ namespace One.Toolbox.ViewModels.Network
                 ShowData($" → receive ({(string)name})", data);
             };
 
-            ClientHelper = new ClientHelper(WriteDebugLog);
-            ClientHelper.ReceiveAction += ShowClientReceiveAction;
+            asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
+            asyncTCPClient.ReceiveAction += ShowReceiveAction; 
+            asyncTCPClient.SendAction += ShowSendMessage;
+            asyncTCPClient.OnConnected += ShowInfoAction;
+
+            asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
+            asyncTCPServer.ReceiveAction += ShowReceiveAction;
+            asyncTCPServer.SendAction += ShowSendMessage;
+            asyncTCPServer.OnConnected += ShowInfoAction;
+
             base.InitializeViewModel();
         }
 
-        private void ShowClientReceiveAction(byte[] data)
+        private void ShowReceiveAction(byte[] data)
         {
             ShowData("", data, false);
+        }
+        private void ShowSendMessage (byte[] data)
+        {
+            ShowData("", data, true);
+        }
+        private void ShowInfoAction(byte[] data)
+        {
+            var msg = System.Text.Encoding.UTF8.GetString(data);
+
+            flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
+            {
+                title = msg,
+            });
+
+            WriteInfoLog(msg);
         }
 
         [ObservableProperty]
@@ -96,18 +120,31 @@ namespace One.Toolbox.ViewModels.Network
         [RelayCommand]
         private void Listen()
         {
-            int port;
-            if (int.TryParse(InputPort, out port))
+            //int port;
+            //if (int.TryParse(InputPort, out port))
+            //{
+            //    try
+            //    {
+            //        IsConnected = StartServer(SelectedIP, port);
+            //    }
+            //    catch (Exception err)
+            //    {
+            //        Tools.MessageBox.Show(err.Message);
+            //    }
+            //}
+
+            IPAddress ip = null;
+            try
             {
-                try
-                {
-                    IsConnected = StartServer(SelectedIP, port);
-                }
-                catch (Exception err)
-                {
-                    Tools.MessageBox.Show(err.Message);
-                }
+                ip = IPAddress.Parse(SelectedIP);
             }
+            catch
+            {
+                var hostEntry = Dns.GetHostEntry(SelectedIP);
+                ip = hostEntry.AddressList[0];
+            }
+
+            asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
         }
 
         #endregion Command
@@ -143,8 +180,7 @@ namespace One.Toolbox.ViewModels.Network
         {
             if (!Changeable)
                 return;
-            IPEndPoint ipe = null;
-            Socket s = null;
+
             try
             {
                 Changeable = false;
@@ -158,7 +194,7 @@ namespace One.Toolbox.ViewModels.Network
                     var hostEntry = Dns.GetHostEntry(SelectedIP);
                     ip = hostEntry.AddressList[0];
                 }
-                ipe = new IPEndPoint(ip, int.Parse(InputPort));
+                var ipe = new IPEndPoint(ip, int.Parse(InputPort));
 
                 switch (SelectCommunProtocalType)
                 {
@@ -166,15 +202,16 @@ namespace One.Toolbox.ViewModels.Network
 
                         //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-                        ClientHelper.InitAsClient(ip, int.Parse(InputPort));
+                        asyncTCPClient.InitAsClient(ip, int.Parse(InputPort));
                         break;
 
                     case CommunProtocalType.TCP服务端:
+
                         break;
 
                     case CommunProtocalType.UDP客户端:
 
-                        s = new Socket(ipe.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
+                        Socket s = new Socket(ipe.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
                         break;
 
                     case CommunProtocalType.UDP服务端:
@@ -202,7 +239,7 @@ namespace One.Toolbox.ViewModels.Network
             {
                 case CommunProtocalType.TCP客户端:
                     {
-                        ClientHelper.UnInitAsClient();
+                        asyncTCPClient.UnInitAsClient();
                     }
 
                     break;
@@ -241,28 +278,34 @@ namespace One.Toolbox.ViewModels.Network
         [RelayCommand]
         private void SendData()
         {
+
+            if (DataToSend==null)
+            {
+                return;
+            }
+
+            byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
+                         Tools.Global.GetEncoding().GetBytes(DataToSend);
+
+            //ShowData("", buff, true);
+
             switch (SelectCommunProtocalType)
             {
                 case CommunProtocalType.TCP客户端:
-
                     {
-                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
-                          Tools.Global.GetEncoding().GetBytes(DataToSend);
+                       
 
-                        ShowData("", buff, true);
-                        ClientHelper.SendData(buff);
+                       
+                        asyncTCPClient.SendData(buff);
                     }
 
                     break;
 
                 case CommunProtocalType.TCP服务端:
-
-                    if (Server != null)
                     {
-                        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) : Tools.Global.GetEncoding().GetBytes(DataToSend);
-                        Broadcast(buff);
-                    }
+                        asyncTCPServer.SendDataToAll(buff);
 
+                    }
                     break;
 
                 case CommunProtocalType.UDP客户端:
@@ -317,7 +360,7 @@ namespace One.Toolbox.ViewModels.Network
                 realData = System.Text.Encoding.UTF8.GetString(data);
             }
 
-            flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
+            flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
             {
                 data = realData,
                 send = send,

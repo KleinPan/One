@@ -127,7 +127,7 @@ namespace One.Toolbox.ViewModels.Serialport
                 realData = System.Text.Encoding.UTF8.GetString(data);
             }
 
-            flowDocumentHelper.DataShowAdd(new Models.DataShowPara()
+            flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
             {
                 send = send,
                 data = realData,

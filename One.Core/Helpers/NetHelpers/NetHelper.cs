@@ -197,6 +197,43 @@ namespace One.Core.Helpers.NetHelpers
 
             return online;
         }
+
+        /// <summary> 判断一个socket是否处于连接状态 </summary>
+        /// <param name="client"> </param>
+        /// <returns> </returns>
+        public static bool IsSocketConnect(Socket client)
+        {
+            if (client == null)
+            {
+                return false;
+            }
+            //先看看状态
+            if (client.Connected == false || client.RemoteEndPoint == null)
+            {
+                return false;
+            }
+            //尝试发送以非阻塞模式发送一个消息 注意这个非阻塞模式不会影响异步发送
+            bool blockingState = client.Blocking;
+            try
+            {
+                byte[] tmp = new byte[1];
+                client.Blocking = false;
+                client.Send(tmp, 1, 0);
+                return true;
+            }
+            catch (SocketException e)
+            {
+                // 产生 10035 == WSAEWOULDBLOCK 错误，说明被阻止了，但是还是连接的 这个错误是说发送缓冲区已满或者客户端的接收缓冲区已满
+                if (e.NativeErrorCode.Equals(10035))
+                    return true;
+                else
+                    return false;
+            }
+            finally
+            {
+                client.Blocking = blockingState; //恢复状态
+            }
+        }
     }
 
     public class NetWorkInfo

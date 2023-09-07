@@ -5,6 +5,7 @@ using System.Windows.Media;
 
 namespace One.Toolbox.Models
 {
+    /*
     internal class DataRaw
     {
         public string time;
@@ -42,4 +43,5 @@ namespace One.Toolbox.Models
             }
         }
     }
+    */
 }

@@ -15,7 +15,7 @@ namespace One.Toolbox.Component
         private FlowDocumentScrollViewer FlowDocumentScrollViewer { get; set; }
 
         /// <summary> 数据缓冲 </summary>
-        private List<DataShow> DataQueue = new List<DataShow>();
+        private List<DataShowCommon> DataQueue = new List<DataShowCommon>();
 
         /// <summary> 消息来的信号量 </summary>
         private EventWaitHandle waitQueue = new AutoResetEvent(false);
@@ -69,7 +69,7 @@ namespace One.Toolbox.Component
                 waitQueue.WaitOne();
                 if (Global.isMainWindowsClosed)
                     return;
-                var logList = new List<DataShow>();
+                var logList = new List<DataShowCommon>();
                 lock (DataQueue)//取数据
                 {
                     for (int i = 0; i < DataQueue.Count; i++)
@@ -82,8 +82,8 @@ namespace One.Toolbox.Component
                     continue;
 
                 //缓存处理好的数据
-                var rawList = new List<DataRaw>();
-                var uartList = new List<DataUart>();
+                var rawList = new List<DataShowCommon>();
+                var uartList = new List<DataShowCommon>();
 
                 DateTime uartSentTime = DateTime.MinValue;
                 //var uartSentList = new List<string>();
@@ -92,25 +92,48 @@ namespace One.Toolbox.Component
 
                 for (int i = 0; i < logList.Count; i++)
                 {
-                    if (logList[i] as DataShowRaw != null)
-                        rawList.Add(new DataRaw(logList[i] as DataShowRaw));
+
+                    rawList.Add(logList[i]);
+                     
+                    /*
+                    if (logList[i] as DataShowCommon != null)
+                    {
+                        // rawList.Add(new DataShowCommon(logList[i] as DataShowCommon));
+                        rawList.Add(logList[i]);
+                    }
                     else
                     {
                         //串口数据收发分一下，后续可以合并数据
-                        var d = logList[i] as DataShowPara;
+                        var d = logList[i] as DataShowCommon;
 
-                        DataUart sentData = null;
-                        DataUart receivedData = null;
+                        DataShowCommon sentData = null;
+                        DataShowCommon receivedData = null;
 
-                        if (d.send)
+                        if (d.send != null)
                         {
-                            uartSentTime = d.time;
-                            sentData = new DataUart(d.data, d.time, true);
-                        }
-                        else
-                        {
-                            uartReceivedTime = d.time;
-                            receivedData = new DataUart(d.data, d.time, false);
+                            var innerSend = (bool)d.send;
+                            if (innerSend)
+                            {
+                                uartSentTime = d.time;
+                                // sentData = new DataUart(d.data, d.time, true);
+                                sentData = new DataShowCommon()
+                                {
+                                    time = uartSentTime,
+                                    data= d.data,
+                                    send = true
+                                };
+                            }
+                            else
+                            {
+                                uartReceivedTime = d.time;
+                                //receivedData = new DataUart(d.data, d.time, false);
+                                receivedData = new DataShowCommon()
+                                {
+                                    time = uartSentTime,
+                                    data = d.data,
+                                    send = false
+                                };
+                            }
                         }
 
                         //包的时间顺序要对
@@ -132,6 +155,7 @@ namespace One.Toolbox.Component
                             }
                         }
                     }
+                    */
                 }
 
                 //显示数据
@@ -153,8 +177,8 @@ namespace One.Toolbox.Component
                     FlowDocumentScrollViewer.IsEnabled = false;
                     for (int i = 0; i < rawList.Count; i++)
                         DataShowRaw(rawList[i]);
-                    for (int i = 0; i < uartList.Count; i++)
-                        addUartLog(uartList[i]);
+                    //for (int i = 0; i < uartList.Count; i++)
+                    //    addUartLog(uartList[i]);
                     if (!LockLog)//如果允许拉到最下面
                         DoInvoke(sv.ScrollToBottom);
                     if (!FlowDocumentScrollViewer.IsMouseOver)
@@ -178,10 +202,10 @@ namespace One.Toolbox.Component
             }
         }
 
-        private void DataShowRaw(DataRaw dataRaw)
+        private void DataShowRaw(DataShowCommon dataRaw)
         {
             Paragraph p = new Paragraph(new Run(""));
-            Span text = new Span(new Run(dataRaw.time));
+            Span text = new Span(new Run(dataRaw.TimeToString()));
             text.Foreground = Brushes.DarkSlateGray;
             p.Inlines.Add(text);
             text = new Span(new Run(dataRaw.title));
@@ -201,6 +225,7 @@ namespace One.Toolbox.Component
                 FlowDocumentScrollViewer.Document.Blocks.Add(p);
 
                 //同时显示模式时，才显示小字hex
+                /*
                 if (dataRaw.hex != null)
                 {
                     p = new Paragraph(new Run(dataRaw.hex));
@@ -208,6 +233,7 @@ namespace One.Toolbox.Component
                     p.Margin = new Thickness(0, 0, 0, 8);
                     FlowDocumentScrollViewer.Document.Blocks.Add(p);
                 }
+                */
             }
         }
 
@@ -276,23 +302,23 @@ namespace One.Toolbox.Component
         /// <summary> 添加一个日志数据到缓冲区 </summary>
         /// <param name="sender"> </param>
         /// <param name="e">      </param>
-        public void DataShowAdd(DataShow e)
+        public void DataShowAdd(DataShowCommon e)
         {
             lock (DataQueue)
             {
-                if (e is DataShowRaw)
+                if (e is DataShowCommon)
                 {
                     //Logger.AddUartLogInfo($"[{e.time}]{(e as Tools.DataShowRaw).title}\r\n" +
                     //    $"{Global.GetEncoding().GetString(e.data)}\r\n" +
                     //    $"HEX:{Tools.Global.Byte2Hex(e.data, " ")}");
 
-                    NLogger.Info($"[{e.time}]{(e as DataShowRaw).title}\r\n" + $"{e.data}\r\n");
+                    NLogger.Info($"[{e.time}]{(e as DataShowCommon).title}\r\n" + $"{e.data}\r\n");
                 }
 
                 if (DataQueue.Count > 100)
                 {
                     DataQueue.Clear();
-                    DataQueue.Add(new DataShowRaw
+                    DataQueue.Add(new DataShowCommon
                     {
                         title = packsTooMuch
                     });

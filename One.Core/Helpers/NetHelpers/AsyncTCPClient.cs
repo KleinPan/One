@@ -1,15 +1,8 @@
-﻿using Org.BouncyCastle.Asn1.Ocsp;
-using Org.BouncyCastle.Bcpg;
-
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Linq;
 using System.Net;
-using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace One.Core.Helpers.NetHelpers
 {
@@ -18,7 +11,7 @@ namespace One.Core.Helpers.NetHelpers
     /// <para> https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/socket-services#create-a-socket-client </para>
     /// <para> https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.socket?view=net-7.0 </para>
     /// </summary>
-    public class ClientHelper : BaseHelper
+    public class AsyncTCPClient : BaseHelper
     {
         #region 变量
 
@@ -36,14 +29,14 @@ namespace One.Core.Helpers.NetHelpers
         public Action<byte[]> ReceiveAction;
 
         public Action<byte[]> SendAction;
-        public Action OnConnected;
+        public Action<byte[]> OnConnected;
 
         public CancellationToken cancellationToken = default;
 
         /// <summary> 暂时不起作用 </summary>
         public int WaitTime = 100;
 
-        public ClientHelper(Action<string> logAction) : base(logAction)
+        public AsyncTCPClient(Action<string> logAction) : base(logAction)
         {
         }
 
@@ -56,7 +49,7 @@ namespace One.Core.Helpers.NetHelpers
             {
                 IPEndPoint ipEndPoint = new IPEndPoint(ip, port);
 
-                socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
+                socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 SocketAsyncEventArgs e = new SocketAsyncEventArgs();
                 e.RemoteEndPoint = ipEndPoint;
@@ -68,7 +61,7 @@ namespace One.Core.Helpers.NetHelpers
 
                 if (!willRaiseEvent)//暂时没发现有什么用
                 {
-                    ConnectEvent(e);
+                    ConnectComplete(this, e);
                 }
 
                 return true;
@@ -89,37 +82,25 @@ namespace One.Core.Helpers.NetHelpers
 
             try
             {
-                var addressFamily = e.ConnectSocket.AddressFamily.ToString();
-                var a = e.ConnectSocket.LocalEndPoint.ToString();
-                WriteLog(addressFamily + " " + a);
+                //客户端自己的Socket
+                var localClientSocket = e.ConnectSocket;//连接的 Socket 对象。
+                var addressFamily = localClientSocket.AddressFamily.ToString();
+                // var a = localClientSocket.LocalEndPoint.ToString();
+                var a = $"{localClientSocket.LocalEndPoint.ToString()} connected!";
 
-                OnConnected?.Invoke();
+                var info = System.Text.Encoding.UTF8.GetBytes(a);
+                OnConnected?.Invoke(info);
+
+                WriteLog(a);
 
                 //连接成功再启动接受函数
                 Receive();
             }
             catch (Exception ex)
             {
-                WriteLog($"连接失败 => {ex.ToString()}");
+                WriteLog($"连接失败 => {ex}");
 
-                throw;
-            }
-        }
-
-        private void ConnectEvent(SocketAsyncEventArgs args)
-        {
-            try
-            {
-                if (args.SocketError == SocketError.Success)
-                {
-                }
-                else
-                {
-                }
-            }
-            finally
-            {
-                args.Dispose();
+                // throw;
             }
         }
 
@@ -161,6 +142,8 @@ namespace One.Core.Helpers.NetHelpers
                 {
                     bytesSent += await socket.SendAsync(data.AsMemory(bytesSent), SocketFlags.None);
                 }
+
+                SendAction?.Invoke(data);
             }
             catch (Exception ex)
             {
@@ -175,17 +158,17 @@ namespace One.Core.Helpers.NetHelpers
             {
                 while (true)
                 {
+                    if (!socket.Connected)
+                    {
+                        return;
+                    }
                     byte[] responseBytes = new byte[1024];
                     int bytesReceived = await socket.ReceiveAsync(responseBytes, SocketFlags.None, cancellationToken);
-
-                    // Receiving 0 bytes means EOF has been reached
-                    //if (bytesReceived == 0) break;
 
                     if (bytesReceived > 0)
                     {
                         ReceiveAction?.Invoke(responseBytes.Take(bytesReceived).ToArray());
                     }
-                    //Thread.Sleep(WaitTime);
                 }
             }
             catch (Exception ex)

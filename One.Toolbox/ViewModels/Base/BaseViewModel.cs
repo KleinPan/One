@@ -1,4 +1,4 @@
-﻿namespace One.Toolbox.ViewModels
+﻿namespace One.Toolbox.ViewModels.Base
 {
     public class BaseViewModel : ObservableObject
     {

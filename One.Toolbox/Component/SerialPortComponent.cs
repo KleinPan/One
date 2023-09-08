@@ -1,4 +1,4 @@
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Base;
 using One.Toolbox.ViewModels.Serialport;
 
 using System.IO;

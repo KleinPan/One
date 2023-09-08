@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace One.Toolbox.Component
 {
     /// <summary> 来什么显示什么，不做处理 </summary>
-    internal class FlowDocumentComponent
+    public class FlowDocumentComponent
     {
         public static readonly NLog.Logger NLogger = NLog.LogManager.GetCurrentClassLogger();
         private FlowDocumentScrollViewer FlowDocumentScrollViewer { get; set; }
@@ -138,30 +138,38 @@ namespace One.Toolbox.Component
             }
         }
 
-        private void ShowDataToUI(DataShowCommon dataRaw)
+        private void ShowDataToUI(DataShowCommon dataObj)
         {
             Paragraph p = new Paragraph(new Run(""));
-            Span text = new Span(new Run(dataRaw.TimeToString()));
+            Span text = new Span(new Run(dataObj.TimeToString()));
 
             text.Foreground = Brushes.DarkSlateGray;
             p.Inlines.Add(text);
 
-            if (!string.IsNullOrEmpty(dataRaw.Prefix))
+            if (!string.IsNullOrEmpty(dataObj.Title))
             {
-                text = new Span(new Run(dataRaw.Prefix));
-                text.Foreground = dataRaw.PrefixColor;
+                text = new Span(new Run(dataObj.Title));
+                text.Foreground = dataObj.PrefixColor;
+                text.FontWeight = FontWeights.Bold;
+                p.Inlines.Add(text);
+            }
+
+            if (!string.IsNullOrEmpty(dataObj.Prefix))
+            {
+                text = new Span(new Run(dataObj.Prefix));
+                text.Foreground = dataObj.PrefixColor;
                 text.FontWeight = FontWeights.Bold;
                 p.Inlines.Add(text);
             }
             //FlowDocumentScrollViewer.Document.Blocks.Add(p);
 
-            if (dataRaw.Message != null)//有数据时才显示信息
+            if (!string.IsNullOrEmpty(dataObj.Content) )
             {
                 //主要显示数据
                 //p = new Paragraph(new Run(""));
-                text = new Span(new Run(dataRaw.Message));
+                text = new Span(new Run(dataObj.Content));
 
-                text.Foreground = dataRaw.MessageColor;
+                text.Foreground = dataObj.MessageColor;
                 text.FontSize = 15;
                 p.Inlines.Add(text);
 
@@ -188,11 +196,9 @@ namespace One.Toolbox.Component
             {
                 if (e is DataShowCommon)
                 {
-                    //Logger.AddUartLogInfo($"[{e.time}]{(e as Tools.DataShowRaw).title}\r\n" +
-                    //    $"{Global.GetEncoding().GetString(e.data)}\r\n" +
-                    //    $"HEX:{Tools.Global.Byte2Hex(e.data, " ")}");
+                   
 
-                    NLogger.Info($"[{e.CurrentTime}]{(e as DataShowCommon).Prefix}\r\n" + $"{e.Message}\r\n");
+                    NLogger.Info($"[{e.CurrentTime}]{(e as DataShowCommon).Prefix}\r\n" + $"{e.Content}\r\n");
                 }
 
                 if (DataQueue.Count > 100)

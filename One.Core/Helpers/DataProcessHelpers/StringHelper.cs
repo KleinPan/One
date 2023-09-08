@@ -1,6 +1,4 @@
-﻿using Org.BouncyCastle.Utilities.Encoders;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -81,36 +79,66 @@ namespace One.Core.Helpers.DataProcessHelpers
         public static string BytesToHexString(byte[] strASCII, bool isReverse = false, string separator = " ")
         {
             if (strASCII == null) return "";
-            if (true)
-            {
-                byte[] tempData = strASCII;
-                if (isReverse)
-                {
-                    tempData = strASCII.Reverse().ToArray();
-                    return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
-                }
-                else
-                {
-                }
+            int version = 0;
 
-                return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
-            }
-            else
+            switch (version)
             {
-                StringBuilder sbHex = new StringBuilder();
-
-                foreach (byte chr in strASCII)
-                {
-                    string str = String.Format("{0:X2}", Convert.ToInt32(chr));
-                    if (isReverse)
+                case 0:
                     {
-                        str = ReverseString(str);
+                        byte[] tempData = strASCII;
+                        if (isReverse)
+                        {
+                            tempData = strASCII.Reverse().ToArray();
+                            return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
+                        }
+                        else
+                        {
+                        }
+
+                        return BitConverter.ToString(tempData, 0, tempData.Length).Replace("-", separator);
                     }
-                    sbHex.Append(str);
-                    sbHex.Append(separator ?? string.Empty);
-                }
-                return sbHex.ToString();
+
+                case 1:
+                    {
+                        StringBuilder sbHex = new StringBuilder();
+
+                        foreach (byte chr in strASCII)
+                        {
+                            string str = String.Format("{0:X2}", Convert.ToInt32(chr));
+                            if (isReverse)
+                            {
+                                str = ReverseString(str);
+                            }
+                            sbHex.Append(str);
+                            sbHex.Append(separator ?? string.Empty);
+                        }
+                        return sbHex.ToString();
+                    }
+                case 2:
+                    {
+                        return null;
+                    }
+                    break;
+
+                default:
+                    {
+                        // .NET 5.0 中引入的 Convert.ToHexString 方法
+                        string hexValue;
+                        if (isReverse)
+                        {
+                            hexValue = Convert.ToHexString(strASCII);
+                            Console.WriteLine(hexValue);
+                        }
+                        else
+                        {
+                            hexValue = Convert.ToHexString(strASCII).Reverse().ToString();
+                            Console.WriteLine(hexValue);
+                        }
+
+                        return hexValue;
+                    }
             }
+           
         }
 
         /// <summary> 每两个反转 </summary>

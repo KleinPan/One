@@ -164,13 +164,13 @@
                     Name="refreshPortButton" Grid.Column="0"
                     Command="{Binding RefreshPortListCommand}"
                     Content="{DynamicResource RefreshPortButton}"
-                    IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}" />
+                    IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" />
                 <StatusBarItem Grid.Column="1">
                     <TextBlock Text="{DynamicResource ShowPorts}" />
                 </StatusBarItem>
                 <Separator Grid.Column="2" />
                 <StatusBarItem Grid.Column="3">
-                    <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
+                    <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
                 </StatusBarItem>
                 <Separator Grid.Column="4" />
                 <StatusBarItem Grid.Column="5">
@@ -180,7 +180,7 @@
                 <StatusBarItem Grid.Column="7">
                     <ComboBox
                         Name="baudRateComboBox" IsEditable="True"
-                        IsEnabled="{Binding IsOpen, Converter={StaticResource boolNotConverter}}"
+                        IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
                         ItemsSource="{Binding BaudRateList}"
                         Text="{Binding SelectedBaudRate}" />
                 </StatusBarItem>

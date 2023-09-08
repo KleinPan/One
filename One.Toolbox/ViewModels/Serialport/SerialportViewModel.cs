@@ -3,8 +3,8 @@ using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Model;
-using One.Toolbox.Models;
 using One.Toolbox.Tools;
+using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views;
 
 using System.Collections.ObjectModel;
@@ -13,11 +13,10 @@ using System.IO.Ports;
 using System.Management;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace One.Toolbox.ViewModels.Serialport
 {
-    public partial class SerialportViewModel : BaseViewModel
+    public partial class SerialportViewModel : BaseShowViewModel
     {
         #region SerialPortSetting
 
@@ -108,45 +107,19 @@ namespace One.Toolbox.ViewModels.Serialport
             var data = sender as byte[];
             ReceivedCount += data.Length;
 
-            ShowData(data, false, SerialportUISetting.HexShow);
+            ShowData("", data, false, SerialportUISetting.HexShow);
         }
 
         private void SerialPortHelper_UartDataSent(object? sender, EventArgs e)
         {
-            var data = sender as byte[];
-            SentCount += data.Length;
-            ShowData(data, true, SerialportUISetting.HexSend);
-        }
-
-        private void ShowData(byte[] data, bool send, bool hexMode)
-        {
-            string realData;
-            if (hexMode)
-            {
-                realData = StringHelper.BytesToHexString(data);
-            }
-            else
-            {
-                realData = System.Text.Encoding.UTF8.GetString(data);
-            }
-
-            DataShowCommon dataShowCommon = new DataShowCommon()
-            {
-                Send = send,
-                Message = realData,
-                MessageColor = send ? Brushes.DarkRed : Brushes.DarkGreen,
-                Prefix = send ? " << " : " >> ",
-            };
-            flowDocumentHelper.DataShowAdd(dataShowCommon);
-
-            WriteInfoLog(realData);
+            var data1 = sender as byte[];
+            SentCount += data1.Length;
+            ShowData("", data: data1, send: true, SerialportUISetting.HexSend);
         }
 
         private bool refreshLock = false;
 
         #region InitUI
-
-        private FlowDocumentComponent flowDocumentHelper { get; set; }
 
         [RelayCommand]
         private void InitFlowDocumentControl(object obj)

@@ -16,9 +16,11 @@ namespace One.Toolbox.Converters
             throw new NotImplementedException();
     }
 
+
+
     /// <summary> bool为true时显示连接，否则显示断开 </summary>
     [ValueConversion(typeof(bool), typeof(bool))]
-    public class boolNot : IValueConverter
+    public class BoolReverseConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -29,28 +31,4 @@ namespace One.Toolbox.Converters
             throw new NotImplementedException();
     }
 
-    /// <summary> bool为true时显示连接，否则显示断开 </summary>
-    [ValueConversion(typeof(int), typeof(bool?))]
-    public class showHexFormat : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return value switch
-            {
-                1 => false,
-                2 => true,
-                _ => null,
-            };
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return value switch
-            {
-                false => 1,
-                true => 2,
-                _ => 0,
-            };
-        }
-    }
 }

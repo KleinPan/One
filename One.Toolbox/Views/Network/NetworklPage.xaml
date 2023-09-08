@@ -60,6 +60,7 @@
 
                     <ComboBox
                         Grid.Column="1" hc:InfoElement.Title="协议类型" hc:InfoElement.TitlePlacement="Left"
+                        IsEnabled="{Binding Changeable}"
                         ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:CommunProtocalType}}"
                         SelectedIndex="0"
                         SelectedItem="{Binding SelectCommunProtocalType}"
@@ -69,20 +70,20 @@
 
 
                     <TextBox
-                        x:Name="IpPortTextBox" Grid.Column="1" Width="80" Margin="5,0"
-                        hc:InfoElement.Title="Port" hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Right"
-                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
+                        x:Name="IpPortTextBox" Grid.Column="1" Width="80" hc:InfoElement.Title="Port"
+                        hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Right"
+                        IsEnabled="{Binding Changeable}"
                         Style="{StaticResource TextBoxExtend}"
                         Text="{Binding InputPort}" />
 
-                    <Button Grid.Column="2" Command="{Binding RefreshIpCommand}" Content="{DynamicResource RefreshIpList}" IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}" />
+                    <Button Grid.Column="2" Command="{Binding RefreshIpCommand}" Content="{DynamicResource RefreshIpList}" IsEnabled="{Binding Changeable}" />
 
                     <ComboBox
-                        Name="IpListComboBox" Margin="5,0" HorizontalAlignment="Stretch" hc:InfoElement.Title="IP列表"
+                        Margin="5,0" HorizontalAlignment="Stretch" hc:InfoElement.Title=""
                         hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Left" IsEditable="True"
-                        IsEnabled="{Binding IsConnected, Converter={StaticResource boolNotConverter}}"
+                        IsEnabled="{Binding Changeable}"
                         ItemsSource="{Binding IpList}"
-                        SelectedIndex="0"
+                        SelectedIndex="1"
                         Style="{StaticResource ComboBoxExtend}"
                         Text="{Binding SelectedIP}" />
                 </DockPanel>
@@ -92,14 +93,14 @@
                         x:Name="StopListenButton" Grid.Row="1"
                         Command="{Binding StopListenCommand}"
                         Content="{DynamicResource StopListen}"
-                        Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        Visibility="{Binding IsListening, Converter={StaticResource BoolToVisibilityConverter}}" />
                     <Button
                         x:Name="ListenButton" Grid.Row="1"
                         Command="{Binding ListenCommand}"
                         Content="{DynamicResource StartListen}"
-                        Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+                        Visibility="{Binding IsListening, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
                 </StackPanel>
-                <StackPanel Name="socket" Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
 
                     <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
                     <Button Name="DisconnectButton" Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />

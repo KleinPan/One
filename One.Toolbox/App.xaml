@@ -16,12 +16,12 @@
                 <ResourceDictionary Source="Resources/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Converters:boolNot x:Key="boolNotConverter" />
+
 
             <Converters:boolConnected x:Key="boolConnected" />
             <oc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <oc:BoolToVisibilityConverterInverse x:Key="BoolToVisibilityConverterInverse" />
-            <Converters:showHexFormat x:Key="showHexFormatConverter" />
+            <Converters:BoolReverseConverter x:Key="BoolReverseConverter" />
             <Converters:LanguageConverter x:Key="LanguageConverter" />
         </ResourceDictionary>
     </Application.Resources>

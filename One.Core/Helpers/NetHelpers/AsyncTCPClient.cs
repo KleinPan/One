@@ -17,19 +17,12 @@ namespace One.Core.Helpers.NetHelpers
 
         private Socket socket = null;
 
-        /// <summary> 原始字节数据 </summary>
-        private byte[] receiveBuffer = new byte[1024];
-
-        /// <summary> 发送数据存储区 </summary>
-        public string DataSend = "";
-
         #endregion 变量
 
-        //private Socket sendSocket = null;
         public Action<byte[]> ReceiveAction;
-
         public Action<byte[]> SendAction;
         public Action<byte[]> OnConnected;
+        public Action<byte[]> OnDisConnected;
 
         public CancellationToken cancellationToken = default;
 
@@ -43,11 +36,11 @@ namespace One.Core.Helpers.NetHelpers
         /// <summary> 初始化作为客户端并连接 </summary>
         /// <param name="ip">   </param>
         /// <param name="port"> </param>
-        public bool InitAsClient(IPAddress ip, int port)
+        public bool InitClient(IPAddress ip, int port)
         {
             try
             {
-                IPEndPoint ipEndPoint = new IPEndPoint(ip, port);
+                IPEndPoint ipEndPoint = new(ip, port);
 
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
@@ -55,7 +48,7 @@ namespace One.Core.Helpers.NetHelpers
                 e.RemoteEndPoint = ipEndPoint;
                 e.UserToken = socket;
                 e.Completed += new EventHandler<SocketAsyncEventArgs>(ConnectComplete);
-                e.SetBuffer(System.Text.Encoding.UTF8.GetBytes("Client connect succeed!"));
+                e.SetBuffer(System.Text.Encoding.UTF8.GetBytes("Hello!"));
 
                 var willRaiseEvent = socket.ConnectAsync(e);
 
@@ -82,7 +75,7 @@ namespace One.Core.Helpers.NetHelpers
 
             try
             {
-                //客户端自己的Socket
+                //客户端自己的Socket,也可以直接用最开始的socket
                 var localClientSocket = e.ConnectSocket;//连接的 Socket 对象。
                 var addressFamily = localClientSocket.AddressFamily.ToString();
                 // var a = localClientSocket.LocalEndPoint.ToString();
@@ -104,25 +97,17 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
-        /// <summary> 断开当前客户端连接 </summary>
+        /// <summary> 释放当前客户端连接 </summary>
         /// <returns> </returns>
-        public void UnInitAsClient()
+        public void ReleaseClient()
         {
             try
             {
                 socket.Shutdown(SocketShutdown.Both);
-            }
-            catch (Exception ex)
-            {
-                WriteLog(ex.ToString());
-            }
-        }
 
-        private void EndConnectCallback(IAsyncResult ar)
-        {
-            try
-            {
-                socket.EndDisconnect(ar);
+                var a = $"{socket.LocalEndPoint} disconnected!";
+                var info = System.Text.Encoding.UTF8.GetBytes(a);
+                OnDisConnected?.Invoke(info);
             }
             catch (Exception ex)
             {

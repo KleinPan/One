@@ -22,14 +22,17 @@ namespace One.Toolbox.Models
     //    public SolidColorBrush color;
     //}
 
-    internal class DataShowCommon
+    public class DataShowCommon
     {
         public DateTime CurrentTime { get; set; } = DateTime.Now;
 
         /// <summary> 消息前缀 </summary>
+        public string Title;
+
+        /// <summary> 消息前缀 </summary>
         public string Prefix;
 
-        public string Message;
+        public string Content;
 
         public bool? Send;
         public SolidColorBrush PrefixColor;

@@ -22,15 +22,6 @@ namespace One.Core.Helpers.NetHelpers
 
         public List<Socket> listConnection = new List<Socket>();
 
-        /// <summary> 接收缓冲区 </summary>
-        private byte[] ReceiveBuf = new byte[1024];
-
-        /// <summary> 发送缓冲区 </summary>
-        private byte[] SendBuf = new byte[1024];
-
-        /// <summary> 接收数据存储区 </summary>
-        public string DataReceived = "";
-
         #endregion 变量
 
         #region Action
@@ -39,6 +30,7 @@ namespace One.Core.Helpers.NetHelpers
 
         public Action<byte[]> SendAction;
         public Action<byte[]> OnConnected;
+        public Action<byte[]> OnDisConnected;
 
         public bool IsStart = false;
 
@@ -106,6 +98,8 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
+        private EventWaitHandle disconnect = new AutoResetEvent(false);
+
         private void OnAccept(object sender, SocketAsyncEventArgs args)
         {
             try
@@ -117,13 +111,17 @@ namespace One.Core.Helpers.NetHelpers
                 else
                 {
                 }
+                disconnect.Reset();
 
                 //服务端分配的Socket
                 var localServerSocket = args.AcceptSocket;
+                listConnection.Add(localServerSocket);
+
+                disconnect.Set();//其他地方可以处理了
+
                 var addressFamily = localServerSocket.RemoteEndPoint.AddressFamily.ToString();
                 var a = $"{localServerSocket.RemoteEndPoint} connected!";
 
-                listConnection.Add(localServerSocket);
                 var info = System.Text.Encoding.UTF8.GetBytes(a);
                 OnConnected?.Invoke(info);
                 WriteLog(a);
@@ -138,22 +136,31 @@ namespace One.Core.Helpers.NetHelpers
             }
         }
 
+        /// <summary> 检测链接是否断开 </summary>
         private void RefreshConnections()
         {
             Task.Run(() =>
             {
-                while (false)
+                while (true)
                 {
+                    disconnect.WaitOne();
+
                     for (int i = listConnection.Count - 1; i >= 0; i--)
                     {
                         var res = NetHelper.IsSocketConnect(listConnection[i]);
                         if (!res)
                         {
-                            listConnection.RemoveAt(i);
-                        }
+                            var addressFamily = listConnection[i].RemoteEndPoint.AddressFamily.ToString();
+                            var a = $"{listConnection[i].RemoteEndPoint} disconnected!";
 
-                        Thread.Sleep(1000 * 10);
+                            listConnection.RemoveAt(i);
+
+                            var info = System.Text.Encoding.UTF8.GetBytes(a);
+                            OnDisConnected?.Invoke(info);
+                        }
                     }
+                    Thread.Sleep(100 * 1);
+                    disconnect.Set();
                 }
             });
         }
@@ -284,11 +291,14 @@ namespace One.Core.Helpers.NetHelpers
                 SendDataOld("Connected!");
                 //Console.WriteLine("连接成功！");
                 //清空接收数据缓冲区
-                Array.Clear(ReceiveBuf, 0, 255);
+                //Array.Clear(ReceiveBuf, 0, 255);
 
+                var ReceiveBuf = new byte[1024];
                 //接收数据
-                sckSend.BeginReceive(ReceiveBuf, 0, 256, SocketFlags.None, new AsyncCallback(ServeReceivedCallback), sckSend);
+                sckSend.BeginReceive(ReceiveBuf, 0, 1024, SocketFlags.None, new AsyncCallback(ServeReceivedCallback), sckSend);
 
+                string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, 1024);
+                ReceiveAndSend(strReceive);
                 //接受连接请求
                 sckServer.BeginAccept(new AsyncCallback(ConnectedCallback), sckServer);
             }
@@ -308,13 +318,15 @@ namespace One.Core.Helpers.NetHelpers
                 int revLength = sckReceive.EndReceive(ar);
 
                 //把接收到的数据转成字符串显示到界面
-                string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, revLength);
-                DataReceived = strReceive;
+                //string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, revLength);
+                // var DataReceived = strReceive;
+                var ReceiveBuf = new byte[1024];
 
-                Console.WriteLine(DataReceived);
-                ReceiveAndSend(DataReceived);
                 //再次接收数据
-                sckReceive.BeginReceive(ReceiveBuf, 0, 256, SocketFlags.None, new AsyncCallback(ServeReceivedCallback), sckReceive);
+                sckReceive.BeginReceive(ReceiveBuf, 0, 1024, SocketFlags.None, new AsyncCallback(ServeReceivedCallback), sckReceive);
+
+                string strReceive = Encoding.UTF8.GetString(ReceiveBuf, 0, 1024);
+                ReceiveAndSend(strReceive);
             }
             catch (Exception e)
             {
@@ -339,7 +351,7 @@ namespace One.Core.Helpers.NetHelpers
         /// <param name="data"> </param>
         public void SendDataOld(string data)
         {
-            SendBuf = Encoding.UTF8.GetBytes(data);
+            var SendBuf = Encoding.UTF8.GetBytes(data);
 
             sckSend.BeginSend(SendBuf, 0, SendBuf.Length, SocketFlags.None, new AsyncCallback(SendCallback), sckSend);
         }
@@ -353,7 +365,7 @@ namespace One.Core.Helpers.NetHelpers
         }
 
         /// <summary> 需要在外部重写对消息格式 最后需要加上SendData(string data) </summary>
-        /// <param name="mes"> </param>
+        /// <param name="mes"> 收到的消息 </param>
         public virtual void ReceiveAndSend(string mes)
         {
         }

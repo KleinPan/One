@@ -3,6 +3,7 @@ using One.Core.Helpers.NetHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
+using One.Toolbox.ViewModels.Base;
 
 using System.Collections.ObjectModel;
 using System.Net;
@@ -11,13 +12,20 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Network
 {
-    public partial class NetworkViewModel : BaseViewModel
+    public partial class NetworkViewModel : BaseShowViewModel
     {
         [ObservableProperty]
         private CommunProtocalType selectCommunProtocalType;
 
         [ObservableProperty]
         private bool isConnected = false;
+
+        //是否可以进行操作，例如连接或者断开,监听或者停止监听
+        [ObservableProperty]
+        private bool changeable = true;
+
+        [ObservableProperty]
+        private bool isListening = false;
 
         [ObservableProperty]
         private bool hexMode = false;
@@ -29,7 +37,7 @@ namespace One.Toolbox.ViewModels.Network
         private string selectedIP;
 
         [ObservableProperty]
-        private string inputPort;
+        private string inputPort = "2333";
 
         private AsyncTCPClient asyncTCPClient;
         private AsyncTCPServer asyncTCPServer;
@@ -40,19 +48,18 @@ namespace One.Toolbox.ViewModels.Network
                 return;
 
             RefreshIp();
-            //绑定
-
-            InputPort = "2333";
 
             asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
             asyncTCPClient.ReceiveAction += ShowReceiveAction;
             asyncTCPClient.SendAction += ShowSendMessage;
             asyncTCPClient.OnConnected += ShowInfoAction;
+            asyncTCPClient.OnDisConnected += ShowInfoAction;
 
             asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
             asyncTCPServer.ReceiveAction += ShowReceiveAction;
             asyncTCPServer.SendAction += ShowSendMessage;
             asyncTCPServer.OnConnected += ShowInfoAction;
+            asyncTCPServer.OnDisConnected += ShowInfoAction;
 
             base.InitializeViewModel();
         }
@@ -71,20 +78,13 @@ namespace One.Toolbox.ViewModels.Network
         {
             var msg = System.Text.Encoding.UTF8.GetString(data);
 
-            flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
-            {
-                Prefix = msg,
-            });
-
-            WriteInfoLog(msg);
+            ShowData(msg, null, true);
         }
 
         [ObservableProperty]
         private string dataToSend;
 
         #region InitUI
-
-        private FlowDocumentComponent flowDocumentHelper { get; set; }
 
         [RelayCommand]
         private void InitFlowDocumentControl(object obj)
@@ -103,7 +103,8 @@ namespace One.Toolbox.ViewModels.Network
         {
             try
             {
-                IsConnected = false;
+                IsListening = false;
+                Changeable = true;
             }
             catch { }
         }
@@ -123,6 +124,9 @@ namespace One.Toolbox.ViewModels.Network
             }
 
             asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
+
+            Changeable = false;
+            IsListening = true;
         }
 
         #endregion Command
@@ -135,7 +139,8 @@ namespace One.Toolbox.ViewModels.Network
         {
             IpList.Clear();
             IpList.Add("0.0.0.0");
-            IpList.Add("::");
+            IpList.Add("127.0.0.1");
+            //IpList.Add("::");
             var temp = new List<string>();
             try
             {
@@ -143,14 +148,13 @@ namespace One.Toolbox.ViewModels.Network
                 IPAddress[] ipadrlist = Dns.GetHostAddresses(name);
                 foreach (IPAddress ipa in ipadrlist)
                 {
-                    if (ipa.AddressFamily == AddressFamily.InterNetwork ||
-                        ipa.AddressFamily == AddressFamily.InterNetworkV6)
+                    if (ipa.AddressFamily == AddressFamily.InterNetwork)//ipa.AddressFamily == AddressFamily.InterNetworkV6
                         temp.Add(ipa.ToString());
                 }
             }
             catch { }
             //去重
-            temp.Distinct().Reverse().ToList().ForEach(ip => IpList.Add(ip));
+            temp.Distinct() .ToList().ForEach(ip => IpList.Add(ip));
         }
 
         [RelayCommand]
@@ -180,7 +184,7 @@ namespace One.Toolbox.ViewModels.Network
 
                         //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-                        asyncTCPClient.InitAsClient(ip, int.Parse(InputPort));
+                        asyncTCPClient.InitClient(ip, int.Parse(InputPort));
                         break;
 
                     case CommunProtocalType.TCP服务端:
@@ -207,7 +211,6 @@ namespace One.Toolbox.ViewModels.Network
                 Changeable = true;
                 return;
             }
-            ShowData("Connecting......");
         }
 
         [RelayCommand]
@@ -217,7 +220,7 @@ namespace One.Toolbox.ViewModels.Network
             {
                 case CommunProtocalType.TCP客户端:
                     {
-                        asyncTCPClient.UnInitAsClient();
+                        asyncTCPClient.ReleaseClient();
                     }
 
                     break;
@@ -237,20 +240,6 @@ namespace One.Toolbox.ViewModels.Network
 
             IsConnected = false;
             Changeable = true;
-
-            if (socketNow != null)
-            {
-                try
-                {
-                    socketNow.Close();
-                    socketNow.Dispose();
-                }
-                catch { }
-                socketNow = null;
-                IsConnected = false;
-                Changeable = true;
-                ShowData("❌ Server disconnected");
-            }
         }
 
         [RelayCommand]
@@ -294,31 +283,6 @@ namespace One.Toolbox.ViewModels.Network
 
         #endregion 通用功能
 
-        private void ShowData(string title, byte[] data = null, bool send = false)
-        {
-            if (data == null)
-            {
-                return;
-            }
-            string realData = "";
-            if (HexMode)
-            {
-                realData = StringHelper.BytesToHexString(data);
-            }
-            else
-            {
-                realData = System.Text.Encoding.UTF8.GetString(data);
-            }
-
-            flowDocumentHelper.DataShowAdd(new Models.DataShowCommon()
-            {
-                Message = realData,
-                Send = send,
-            });
-
-            WriteInfoLog(realData);
-        }
-
         /// <summary> 获取客户端的名字 </summary>
         /// <param name="s"> </param>
         /// <returns> </returns>
@@ -331,14 +295,5 @@ namespace One.Toolbox.ViewModels.Network
             return $"{(remoteIsV6 ? "[" : "")}{remote.Address}{(remoteIsV6 ? "]" : "")}:{remote.Port} → " +
                 $"{(localIsV6 ? "[" : "")}{local.Address}{(localIsV6 ? "]" : "")}:{local.Port}";
         }
-
-        private TcpListener Server = null;
-        private List<Socket> Clients = new List<Socket>();
-
-        //是否可以进行操作，例如连接或者断开
-        public bool Changeable { get; set; } = true;
-
-        //暂存一个对象
-        private Socket socketNow = null;
     }
 }

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
     d:DataContext="{d:DesignInstance Type=viewmodels:SerialportViewModel}"
@@ -131,84 +132,51 @@
 
             <!--  底部状态栏  -->
 
-            <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
-                <StatusBar.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </ItemsPanelTemplate>
-                </StatusBar.ItemsPanel>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal">
+
+                <StackPanel.Resources>
+                    <Style BasedOn="{StaticResource TextBlockDefault}" TargetType="TextBlock">
+                        <Setter Property="Margin" Value="3,0" />
+                    </Style>
+                    <Style BasedOn="{StaticResource DividerBaseStyle}" TargetType="hc:Divider">
+                        <Setter Property="MaxHeight" Value="16" />
+                        <Setter Property="Orientation" Value="Vertical" />
+                    </Style>
+
+                    <Style BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="ComboBox">
+                        <Setter Property="Margin" Value="3,2" />
+                    </Style>
+                </StackPanel.Resources>
                 <Button
-                    Name="refreshPortButton" Grid.Column="0"
+                    Name="refreshPortButton" Margin="2,2"
                     Command="{Binding RefreshPortListCommand}"
                     Content="{DynamicResource RefreshPortButton}"
                     IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" />
-                <StatusBarItem Grid.Column="1">
-                    <TextBlock Text="{DynamicResource ShowPorts}" />
-                </StatusBarItem>
-                <Separator Grid.Column="2" />
-                <StatusBarItem Grid.Column="3">
-                    <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
-                </StatusBarItem>
-                <Separator Grid.Column="4" />
-                <StatusBarItem Grid.Column="5">
-                    <TextBlock Text="{DynamicResource ShowBaudRate}" />
-                </StatusBarItem>
-                <Separator Grid.Column="6" />
-                <StatusBarItem Grid.Column="7">
-                    <ComboBox
-                        Name="baudRateComboBox" IsEditable="True"
-                        IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
-                        ItemsSource="{Binding BaudRateList}"
-                        Text="{Binding SelectedBaudRate}" />
-                </StatusBarItem>
-                <Separator Grid.Column="8" />
-                <StatusBarItem Grid.Column="9">
-                    <TextBlock Text="{DynamicResource ShowStatus}" />
-                </StatusBarItem>
-                <Separator Grid.Column="10" />
-                <StatusBarItem Grid.Column="11">
-                    <TextBlock Name="statusTextBlock" Text="{Binding StatusTextBlockContent}" />
-                </StatusBarItem>
-                <Separator Grid.Column="12" />
-                <StatusBarItem Grid.Column="13">
-                    <TextBlock Cursor="Cross" Text="{DynamicResource SentCount}" ToolTip="{DynamicResource ClearCountTip}" />
-                </StatusBarItem>
-                <Separator Grid.Column="14" />
-                <StatusBarItem Grid.Column="15">
-                    <TextBlock Name="sentCountTextBlock" Text="{Binding SentCount}" ToolTip="{DynamicResource ClearCountTip}" />
-                </StatusBarItem>
-                <Separator Grid.Column="16" />
-                <StatusBarItem Grid.Column="17">
-                    <TextBlock Text="{DynamicResource ReceivedCount}" ToolTip="{DynamicResource ClearCountTip}" />
-                </StatusBarItem>
-                <Separator Grid.Column="18" />
-                <StatusBarItem Grid.Column="19">
-                    <TextBlock Text="{Binding ReceivedCount}" ToolTip="{DynamicResource ClearCountTip}" />
-                </StatusBarItem>
-            </StatusBar>
+
+                <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
+                <hc:Divider Grid.Column="4" />
+
+
+                <ComboBox
+                    hc:TitleElement.Title="{DynamicResource ShowBaudRate}"
+                    hc:TitleElement.TitlePlacement="Left" IsEditable="True"
+                    IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
+                    ItemsSource="{Binding BaudRateList}"
+                    Text="{Binding SelectedBaudRate}" />
+
+                <hc:Divider />
+                <TextBlock Text="{DynamicResource ShowStatus}" />
+
+                <TextBlock Text="{Binding StatusTextBlockContent}" />
+                <hc:Divider />
+                <TextBlock Cursor="Cross" Text="{DynamicResource SentCount}" ToolTip="{DynamicResource ClearCountTip}" />
+
+                <TextBlock Text="{Binding SentCount}" ToolTip="{DynamicResource ClearCountTip}" />
+                <hc:Divider />
+                <TextBlock Text="{DynamicResource ReceivedCount}" ToolTip="{DynamicResource ClearCountTip}" />
+
+                <TextBlock Text="{Binding ReceivedCount}" ToolTip="{DynamicResource ClearCountTip}" />
+            </StackPanel>
 
             <!--  中间改变分割大小的东西  -->
             <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />

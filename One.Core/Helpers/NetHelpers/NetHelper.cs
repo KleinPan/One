@@ -212,6 +212,7 @@ namespace One.Core.Helpers.NetHelpers
             {
                 return false;
             }
+            /* 这个方案不太靠谱
             //尝试发送以非阻塞模式发送一个消息 注意这个非阻塞模式不会影响异步发送
             bool blockingState = client.Blocking;
             try
@@ -233,6 +234,15 @@ namespace One.Core.Helpers.NetHelpers
             {
                 client.Blocking = blockingState; //恢复状态
             }
+            */
+
+            bool part1 = client.Poll(1000, SelectMode.SelectRead);
+            bool part2 = (client.Available == 0);
+            if (part1 && part2)
+            {
+                return false;
+            }
+            return true;
         }
     }
 

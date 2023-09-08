@@ -26,7 +26,7 @@ namespace One.Core.Helpers.NetHelpers
 
         #region Action
 
-        public Action<byte[]> ReceiveAction;
+        public Action<string, byte[]> ReceiveAction;
 
         public Action<byte[]> SendAction;
         public Action<byte[]> OnConnected;
@@ -184,9 +184,8 @@ namespace One.Core.Helpers.NetHelpers
                     {
                         var remoteEndpoint = thisSocket.RemoteEndPoint.ToString();
 
-                        var msg = System.Text.Encoding.UTF8.GetBytes(remoteEndpoint + " => ");
-                        msg = msg.AddRange(responseBytes.Take(bytesReceived).ToArray());
-                        ReceiveAction?.Invoke(msg);
+                        var msg = responseBytes.Take(bytesReceived).ToArray();
+                        ReceiveAction?.Invoke(remoteEndpoint, msg);
                     }
 
                     //Thread.Sleep(WaitTime);

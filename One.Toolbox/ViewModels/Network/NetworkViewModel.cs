@@ -56,7 +56,7 @@ namespace One.Toolbox.ViewModels.Network
             asyncTCPClient.OnDisConnected += ShowInfoAction;
 
             asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
-            asyncTCPServer.ReceiveAction += ShowReceiveAction;
+            asyncTCPServer.ReceiveAction += ShowServerReceiveAction;
             asyncTCPServer.SendAction += ShowSendMessage;
             asyncTCPServer.OnConnected += ShowInfoAction;
             asyncTCPServer.OnDisConnected += ShowInfoAction;
@@ -79,6 +79,11 @@ namespace One.Toolbox.ViewModels.Network
             var msg = System.Text.Encoding.UTF8.GetString(data);
 
             ShowData(msg, null, true);
+        }
+
+        private void ShowServerReceiveAction(string title, byte[] data)
+        {
+            ShowData(title, data, false);
         }
 
         [ObservableProperty]
@@ -154,7 +159,7 @@ namespace One.Toolbox.ViewModels.Network
             }
             catch { }
             //去重
-            temp.Distinct() .ToList().ForEach(ip => IpList.Add(ip));
+            temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
         }
 
         [RelayCommand]

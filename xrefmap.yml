@@ -6747,40 +6747,53 @@ references:
   fullName.vb: One.Core.Helpers.NetHelpers.AsyncTCPClient.New
   nameWithType: AsyncTCPClient.AsyncTCPClient
   nameWithType.vb: AsyncTCPClient.New
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.DataSend
-  name: DataSend
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_DataSend
-  commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPClient.DataSend
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.DataSend
-  nameWithType: AsyncTCPClient.DataSend
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient(System.Net.IPAddress,System.Int32)
-  name: InitAsClient(IPAddress, int)
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_InitAsClient_System_Net_IPAddress_System_Int32_
-  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient(System.Net.IPAddress,System.Int32)
-  name.vb: InitAsClient(IPAddress, Integer)
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient(System.Net.IPAddress, int)
-  fullName.vb: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient(System.Net.IPAddress, Integer)
-  nameWithType: AsyncTCPClient.InitAsClient(IPAddress, int)
-  nameWithType.vb: AsyncTCPClient.InitAsClient(IPAddress, Integer)
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient*
-  name: InitAsClient
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_InitAsClient_
-  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient(System.Net.IPAddress,System.Int32)
+  name: InitClient(IPAddress, int)
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_InitClient_System_Net_IPAddress_System_Int32_
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient(System.Net.IPAddress,System.Int32)
+  name.vb: InitClient(IPAddress, Integer)
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient(System.Net.IPAddress, int)
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient(System.Net.IPAddress, Integer)
+  nameWithType: AsyncTCPClient.InitClient(IPAddress, int)
+  nameWithType.vb: AsyncTCPClient.InitClient(IPAddress, Integer)
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient*
+  name: InitClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_InitClient_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient
   isSpec: "True"
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitAsClient
-  nameWithType: AsyncTCPClient.InitAsClient
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient
+  nameWithType: AsyncTCPClient.InitClient
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.OnConnected
   name: OnConnected
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_OnConnected
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPClient.OnConnected
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.OnConnected
   nameWithType: AsyncTCPClient.OnConnected
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.OnDisConnected
+  name: OnDisConnected
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_OnDisConnected
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPClient.OnDisConnected
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.OnDisConnected
+  nameWithType: AsyncTCPClient.OnDisConnected
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReceiveAction
   name: ReceiveAction
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_ReceiveAction
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPClient.ReceiveAction
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReceiveAction
   nameWithType: AsyncTCPClient.ReceiveAction
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient
+  name: ReleaseClient()
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_ReleaseClient
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient()
+  nameWithType: AsyncTCPClient.ReleaseClient()
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient*
+  name: ReleaseClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_ReleaseClient_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient
+  nameWithType: AsyncTCPClient.ReleaseClient
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.SendAction
   name: SendAction
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_SendAction
@@ -6803,19 +6816,6 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.SendData
   nameWithType: AsyncTCPClient.SendData
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient
-  name: UnInitAsClient()
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_UnInitAsClient
-  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient()
-  nameWithType: AsyncTCPClient.UnInitAsClient()
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient*
-  name: UnInitAsClient
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_UnInitAsClient_
-  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient
-  isSpec: "True"
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPClient.UnInitAsClient
-  nameWithType: AsyncTCPClient.UnInitAsClient
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPClient.WaitTime
   name: WaitTime
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPClient.html#One_Core_Helpers_NetHelpers_AsyncTCPClient_WaitTime
@@ -6853,12 +6853,6 @@ references:
   fullName.vb: One.Core.Helpers.NetHelpers.AsyncTCPServer.New
   nameWithType: AsyncTCPServer.AsyncTCPServer
   nameWithType.vb: AsyncTCPServer.New
-- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.DataReceived
-  name: DataReceived
-  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_DataReceived
-  commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.DataReceived
-  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.DataReceived
-  nameWithType: AsyncTCPServer.DataReceived
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.InitAsServer(System.Net.IPAddress,System.Int32)
   name: InitAsServer(IPAddress, int)
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_InitAsServer_System_Net_IPAddress_System_Int32_
@@ -6903,6 +6897,12 @@ references:
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.OnConnected
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnConnected
   nameWithType: AsyncTCPServer.OnConnected
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnDisConnected
+  name: OnDisConnected
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_OnDisConnected
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.OnDisConnected
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnDisConnected
+  nameWithType: AsyncTCPServer.OnDisConnected
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReceiveAction
   name: ReceiveAction
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_ReceiveAction

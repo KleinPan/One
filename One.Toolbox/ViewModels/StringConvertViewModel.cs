@@ -1,5 +1,6 @@
 ﻿using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
+
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
@@ -327,6 +328,7 @@ namespace One.Toolbox.ViewModels
                 txbChar.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 //txbChar.Background = System.Windows.Media.Brushes.Cyan;
                 txbChar.Text = strings[i].ToString();
+                txbChar.Foreground = HandyControl.Tools.ResourceHelper.GetResource<System.Windows.Media.Brush>(HandyControl.Data.ResourceToken.PrimaryTextBrush);
 
                 innerGrid.Children.Add(txbChar);
                 Grid.SetRow(txbChar, 0);
@@ -336,7 +338,7 @@ namespace One.Toolbox.ViewModels
                 line.Y1 = 0;
                 line.X2 = 15;
                 line.Y2 = 0;
-                line.Stroke = System.Windows.Media.Brushes.Black;
+                line.Stroke = HandyControl.Tools.ResourceHelper.GetResource<System.Windows.Media.Brush>(HandyControl.Data.ResourceToken.SecondaryTextBrush);
                 line.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
 
                 innerGrid.Children.Add(line);

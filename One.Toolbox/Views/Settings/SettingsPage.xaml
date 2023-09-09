@@ -18,7 +18,10 @@
             </myuc:SettingItem>
 
             <myuc:SettingItem Header="Language" SubHeader="Select which app language to display">
-                <ComboBox Grid.Column="1" MinWidth="200" SelectedIndex="0" SelectedValue="{Binding CurrentLanguage}">
+                <ComboBox
+                    Grid.Column="1" MinWidth="200" SelectedIndex="0"
+                    SelectedItem="{Binding CurrentLanguage}"
+                    SelectionChanged="LanguageComboBox_SelectionChanged">
                     <ComboBoxItem Content="zh-CN" />
                     <ComboBoxItem Content="en-US" />
                 </ComboBox>
@@ -36,7 +39,6 @@
                     <TextBlock Margin="5" Text="{DynamicResource AboutDiscriptionMain}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutDevelopers}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutQQGroup}" />
-
                 </StackPanel>
             </Border>
             <Button

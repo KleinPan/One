@@ -7,16 +7,23 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-cn.xaml" />
 
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-CN.xaml" />
 
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                        <ResourceDictionary Source="Resources/Themes/SkinDefault.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
 
-                <ResourceDictionary Source="Resources/Themes/Theme.xaml" />
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                        <ResourceDictionary Source="Resources/Themes/Theme.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-
-
 
             <Converters:boolConnected x:Key="boolConnected" />
             <oc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />

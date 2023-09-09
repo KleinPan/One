@@ -11,42 +11,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Network"
     d:DataContext="{d:DesignInstance Type=viewmodels:NetworkViewModel}"
-    mc:Ignorable="d">
+    d:Width="800" mc:Ignorable="d">
     <UserControl.Resources>
         <convert:CommonProtoclShowConverter x:Key="CommonProtoclShowConverter" />
     </UserControl.Resources>
-    <Grid Name="MainGrid">
+    <Border Margin="2" Padding="0" Style="{StaticResource BorderRegion}">
+        <Grid Name="MainGrid">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Border Margin="1,0">
-            <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Margin="1,0">
+                <Grid>
 
-                <FlowDocumentScrollViewer
-                    Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MinZoom="50"
-                    Style="{StaticResource FlowDocumentScrollViewerBaseStyle}"
-                    VerticalScrollBarVisibility="Visible">
-                    <!--  更改段落间距  -->
-                    <FlowDocumentScrollViewer.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0" />
-                        </Style>
-                    </FlowDocumentScrollViewer.Resources>
-                    <!--  更改段落间距END  -->
-                    <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="Loaded">
-                            <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-                </FlowDocumentScrollViewer>
-            </Grid>
-        </Border>
-
-        <Border Grid.Column="1" Margin="5,0" Style="{StaticResource BorderRegion}">
-            <Grid>
+                    <FlowDocumentScrollViewer
+                        Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MinZoom="50"
+                        Style="{StaticResource FlowDocumentScrollViewerBaseStyle}"
+                        VerticalScrollBarVisibility="Visible">
+                        <!--  更改段落间距  -->
+                        <FlowDocumentScrollViewer.Resources>
+                            <Style TargetType="{x:Type Paragraph}">
+                                <Setter Property="Margin" Value="0" />
+                            </Style>
+                        </FlowDocumentScrollViewer.Resources>
+                        <!--  更改段落间距END  -->
+                        <FlowDocument FontFamily="Consolas,Microsoft YaHei,微软雅黑" FontSize="12" IsOptimalParagraphEnabled="False" TextAlignment="Left" />
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="Loaded">
+                                <behaviors:InvokeCommandAction Command="{Binding InitFlowDocumentControlCommand}" PassEventArgsToCommand="True" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+                    </FlowDocumentScrollViewer>
+                </Grid>
+            </Border>
+            <!--  中间改变分割大小的东西  -->
+            <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+            <Grid Grid.Column="2" Margin="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
@@ -57,9 +59,10 @@
 
                 <Grid>
 
-
                     <ComboBox
-                        Grid.Column="1" hc:InfoElement.Title="协议类型" hc:InfoElement.TitlePlacement="Left"
+                        Grid.Column="1"
+                        hc:InfoElement.Title="{DynamicResource ProtocolType}"
+                        hc:InfoElement.TitlePlacement="Left"
                         IsEnabled="{Binding Changeable}"
                         ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:CommunProtocalType}}"
                         SelectedIndex="0"
@@ -67,7 +70,6 @@
                         Style="{StaticResource ComboBoxExtend}" />
                 </Grid>
                 <DockPanel Grid.Row="1" Margin="0,5" LastChildFill="True">
-
 
                     <TextBox
                         x:Name="IpPortTextBox" Grid.Column="1" Width="80" hc:InfoElement.Title="Port"
@@ -87,7 +89,7 @@
                         Style="{StaticResource ComboBoxExtend}"
                         Text="{Binding SelectedIP}" />
                 </DockPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP服务端}">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP_Server}">
 
                     <Button
                         x:Name="StopListenButton" Grid.Row="1"
@@ -100,10 +102,15 @@
                         Content="{DynamicResource StartListen}"
                         Visibility="{Binding IsListening, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
                 </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP客户端}">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP_Client}">
 
-                    <Button Name="ConnectButton" Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
-                    <Button Name="DisconnectButton" Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <Button Command="{Binding SocketConnectCommand}" Content="{DynamicResource ConnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+                    <Button Command="{Binding SocketDisconnectCommand}" Content="{DynamicResource DisconnectButton}" Visibility="{Binding IsConnected, Converter={StaticResource BoolToVisibilityConverter}}" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=UDP_Client}">
+
+                    <Button Command="{Binding ListenCommand}" Content="{DynamicResource StartListen}" Visibility="{Binding IsListening, Converter={StaticResource BoolToVisibilityConverterInverse}}" />
+                    <Button Command="{Binding StopListenCommand}" Content="{DynamicResource StopListen}" Visibility="{Binding IsListening, Converter={StaticResource BoolToVisibilityConverter}}" />
                 </StackPanel>
                 <Grid Grid.Row="3">
                     <Grid.RowDefinitions>
@@ -129,14 +136,46 @@
                         Text="{Binding DataToSend}"
                         TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                 </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Grid.Row="0" Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=TCP_Server}">
 
-                <Button
-                    Name="SendDataButton" Grid.Row="4" Margin="2" HorizontalAlignment="Right"
-                    Command="{Binding SendDataCommand}"
-                    Content="{DynamicResource NetSendDataButton}"
-                    IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                        <hc:ComboBox
+                            Margin="2,2" hc:InfoElement.Title="Remote Address" hc:InfoElement.TitlePlacement="Left"
+                            IsEditable="False"
+                            ItemsSource="{Binding RemoteIpList}"
+                            SelectedIndex="0"
+                            Text="{Binding RemoteSelectedIP}" />
+                        <Button
+                            Grid.Row="1" Grid.Column="1" Margin="2" HorizontalAlignment="Right"
+                            Command="{Binding SendDataCommand}"
+                            Content="{DynamicResource NetSendDataButton}"
+                            IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    </DockPanel>
+                    <DockPanel Grid.Row="0" Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding SelectCommunProtocalType, Converter={StaticResource CommonProtoclShowConverter}, ConverterParameter=UDP_Client}">
+                        <Button Grid.Column="1" Margin="2" Command="{Binding ClearRemoteIPListCommand}" Content="{DynamicResource Clear}" />
+                        <hc:ComboBox
+                            Margin="2,2" hc:InfoElement.Necessary="True" hc:InfoElement.Title="Remote Address"
+                            hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Left" IsEditable="True"
+                            ItemsSource="{Binding RemoteIpList}"
+                            SelectedIndex="0" ShowClearButton="True"
+                            Text="{Binding RemoteSelectedIP}" />
+                    </DockPanel>
+                    <Button
+                        Grid.Row="1" Grid.Column="1" Margin="2" HorizontalAlignment="Right"
+                        Command="{Binding SendDataCommand}"
+                        CommandParameter="ToAll"
+                        Content="{DynamicResource NetSendDataButton}"
+                        IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                </Grid>
             </Grid>
-        </Border>
-
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

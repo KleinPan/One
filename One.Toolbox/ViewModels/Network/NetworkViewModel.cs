@@ -34,13 +34,21 @@ namespace One.Toolbox.ViewModels.Network
         private ObservableCollection<string> ipList = new ObservableCollection<string>();
 
         [ObservableProperty]
+        private ObservableCollection<string> remoteIpList = new ObservableCollection<string>();
+
+        [ObservableProperty]
         private string selectedIP;
+
+        [ObservableProperty]
+        private string remoteSelectedIP;
 
         [ObservableProperty]
         private string inputPort = "2333";
 
         private AsyncTCPClient asyncTCPClient;
         private AsyncTCPServer asyncTCPServer;
+
+        private AsyncUDPClient asyncUDPClient;
 
         public override void InitializeViewModel()
         {
@@ -60,8 +68,48 @@ namespace One.Toolbox.ViewModels.Network
             asyncTCPServer.SendAction += ShowSendMessage;
             asyncTCPServer.OnConnected += ShowInfoAction;
             asyncTCPServer.OnDisConnected += ShowInfoAction;
+            asyncTCPServer.OnIpEndPointChanged += IpEndPointChangedEvent;
 
+            asyncUDPClient = new AsyncUDPClient(WriteDebugLog);
+            asyncUDPClient.ReceiveAction += ShowServerReceiveAction;
+            asyncUDPClient.SendAction += ShowSendMessage;
+            asyncUDPClient.OnConnected += ShowInfoAction;
+            asyncUDPClient.OnDisConnected += ShowInfoAction;
+            asyncUDPClient.OnIpEndPointChanged += IpEndPointChangedEvent;
             base.InitializeViewModel();
+        }
+
+        private void IpEndPointChangedEvent(IPListOperationEnum operation, string arg2)
+        {
+            switch (operation)
+            {
+                case IPListOperationEnum.Add:
+
+                    if (!RemoteIpList.Contains(arg2))
+                    {
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
+                            RemoteIpList.Add(arg2);
+                        });
+                    }
+
+                    break;
+
+                case IPListOperationEnum.Subtract:
+
+                    if (RemoteIpList.Contains(arg2))
+                    {
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
+                            RemoteIpList.Remove(arg2);
+                        });
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void ShowReceiveAction(byte[] data)
@@ -104,14 +152,9 @@ namespace One.Toolbox.ViewModels.Network
         #region Command
 
         [RelayCommand]
-        private void StopListen()
+        private void ClearRemoteIPList()
         {
-            try
-            {
-                IsListening = false;
-                Changeable = true;
-            }
-            catch { }
+            RemoteIpList.Clear();
         }
 
         [RelayCommand]
@@ -121,17 +164,74 @@ namespace One.Toolbox.ViewModels.Network
             try
             {
                 ip = IPAddress.Parse(SelectedIP);
+
+                switch (SelectCommunProtocalType)
+                {
+                    case CommunProtocalType.TCP_Client:
+                        break;
+
+                    case CommunProtocalType.TCP_Server:
+                        asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
+
+                        break;
+
+                    case CommunProtocalType.UDP_Client:
+
+                        asyncUDPClient.InitClient(ip, int.Parse(InputPort));
+                        break;
+
+                    case CommunProtocalType.Test:
+                        break;
+
+                    default:
+                        break;
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageShowHelper.ShowErrorMessage("Ip 解析失败！");
+                MessageShowHelper.ShowErrorMessage(ex.ToString());
                 return;
             }
 
-            asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
-
             Changeable = false;
             IsListening = true;
+        }
+
+        [RelayCommand]
+        private void StopListen()
+        {
+            try
+            {
+                switch (SelectCommunProtocalType)
+                {
+                    case CommunProtocalType.TCP_Client:
+                        break;
+
+                    case CommunProtocalType.TCP_Server:
+
+                        asyncTCPServer.ReleaseServer();
+                        break;
+
+                    case CommunProtocalType.UDP_Client:
+                        {
+                            asyncUDPClient.ReleaseClient();
+                        }
+                        break;
+
+                    case CommunProtocalType.Test:
+                        break;
+
+                    default:
+                        break;
+                }
+
+                IsListening = false;
+                Changeable = true;
+            }
+            catch (Exception ex)
+            {
+                MessageShowHelper.ShowErrorMessage(ex.ToString());
+            }
         }
 
         #endregion Command
@@ -185,23 +285,22 @@ namespace One.Toolbox.ViewModels.Network
 
                 switch (SelectCommunProtocalType)
                 {
-                    case CommunProtocalType.TCP客户端:
+                    case CommunProtocalType.TCP_Client:
 
                         //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                         asyncTCPClient.InitClient(ip, int.Parse(InputPort));
                         break;
 
-                    case CommunProtocalType.TCP服务端:
+                    case CommunProtocalType.TCP_Server:
 
                         break;
 
-                    case CommunProtocalType.UDP客户端:
+                    case CommunProtocalType.UDP_Client:
 
-                        Socket s = new Socket(ipe.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
                         break;
 
-                    case CommunProtocalType.UDP服务端:
+                    case CommunProtocalType.Test:
                         break;
 
                     default:
@@ -223,20 +322,22 @@ namespace One.Toolbox.ViewModels.Network
         {
             switch (SelectCommunProtocalType)
             {
-                case CommunProtocalType.TCP客户端:
+                case CommunProtocalType.TCP_Client:
                     {
                         asyncTCPClient.ReleaseClient();
                     }
 
                     break;
 
-                case CommunProtocalType.TCP服务端:
+                case CommunProtocalType.TCP_Server:
                     break;
 
-                case CommunProtocalType.UDP客户端:
+                case CommunProtocalType.UDP_Client:
+                    {
+                    }
                     break;
 
-                case CommunProtocalType.UDP服务端:
+                case CommunProtocalType.Test:
                     break;
 
                 default:
@@ -248,7 +349,7 @@ namespace One.Toolbox.ViewModels.Network
         }
 
         [RelayCommand]
-        private void SendData()
+        private void SendData(object toAll)
         {
             if (DataToSend == null)
             {
@@ -258,27 +359,53 @@ namespace One.Toolbox.ViewModels.Network
             byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
                          Tools.Global.GetEncoding().GetBytes(DataToSend);
 
-            //ShowData("", buff, true);
-
             switch (SelectCommunProtocalType)
             {
-                case CommunProtocalType.TCP客户端:
+                case CommunProtocalType.TCP_Client:
                     {
                         asyncTCPClient.SendData(buff);
                     }
 
                     break;
 
-                case CommunProtocalType.TCP服务端:
+                case CommunProtocalType.TCP_Server:
                     {
-                        asyncTCPServer.SendDataToAll(buff);
+                        if (toAll != null)
+                        {
+                            var param = toAll.ToString();
+                            if (param == "ToAll")
+                            {
+                                asyncTCPServer.SendDataToAll(buff);
+                            }
+                        }
+                        else
+                        {
+                            var temp = RemoteSelectedIP.Replace(" ", "");
+                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+
+                            asyncTCPServer.SendData(buff, iPEndPoint);
+                        }
                     }
                     break;
 
-                case CommunProtocalType.UDP客户端:
+                case CommunProtocalType.UDP_Client:
+                    {
+                        try
+                        {
+                            //RemoteSelectedIP = "8.8.8.8:8799";
+
+                            var temp = RemoteSelectedIP.Replace(" ", "");
+                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+                            asyncUDPClient.SendData(iPEndPoint, buff);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageShowHelper.ShowErrorMessage(ex.ToString());
+                        }
+                    }
                     break;
 
-                case CommunProtocalType.UDP服务端:
+                case CommunProtocalType.Test:
                     break;
 
                 default:

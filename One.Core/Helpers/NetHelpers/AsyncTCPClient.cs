@@ -108,10 +108,13 @@ namespace One.Core.Helpers.NetHelpers
                 var a = $"{socket.LocalEndPoint} disconnected!";
                 var info = System.Text.Encoding.UTF8.GetBytes(a);
                 OnDisConnected?.Invoke(info);
+
+                socket.Close();
             }
             catch (Exception ex)
             {
                 WriteLog(ex.ToString());
+                throw ex;
             }
         }
 

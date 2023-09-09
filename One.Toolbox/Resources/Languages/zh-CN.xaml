@@ -218,4 +218,6 @@
 
     <system:String x:Key="ShowIndex">显示编号</system:String>
     <system:String x:Key="SaveLog">保存Log</system:String>
+    <system:String x:Key="ProtocolType">协议类型</system:String>
+    <system:String x:Key="Clear">清除</system:String>
 </ResourceDictionary>

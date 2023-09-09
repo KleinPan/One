@@ -144,7 +144,7 @@
     <system:String x:Key="ToSendDataTextBlock">To send data:</system:String>
     <system:String x:Key="NetSendDataButton">Send</system:String>
     <system:String x:Key="KickClientButton">Kick Client</system:String>
-    <system:String x:Key="AddExtraEnter">+ an extra enter</system:String>
+    <system:String x:Key="AddExtraEnter">+ extra enter</system:String>
     <system:String x:Key="AddExtraEnterTip">before do this, alse will use Lua script for data to send</system:String>
     <system:String x:Key="LockLogButton">Lock logs and disable auto scroll</system:String>
     <system:String x:Key="LockLogText">Locked</system:String>
@@ -217,4 +217,6 @@
 
     <system:String x:Key="ShowIndex">ShowIndex</system:String>
     <system:String x:Key="SaveLog">SaveLog</system:String>
+    <system:String x:Key="ProtocolType">ProtocolType</system:String>
+    <system:String x:Key="Clear">Clear</system:String>
 </ResourceDictionary>

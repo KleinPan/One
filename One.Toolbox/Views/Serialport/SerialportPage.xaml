@@ -89,7 +89,7 @@
                     <CheckBox Name="DTRCheckBox" Content="DTR" IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
                     <CheckBox Name="HEXBox" Content="{DynamicResource ShowHexFormat}" IsChecked="{Binding SerialportUISetting.HexShow}" ToolTip="{DynamicResource ShowHexFormatTip}" />
 
-                    <CheckBox Name="EnableSymbolCheckBox" Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />
+                    <CheckBox Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />
 
                     <CheckBox Name="HexSendCheckBox" HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.HexSend}" />
 
@@ -155,7 +155,6 @@
 
                 <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
                 <hc:Divider Grid.Column="4" />
-
 
                 <ComboBox
                     hc:TitleElement.Title="{DynamicResource ShowBaudRate}"

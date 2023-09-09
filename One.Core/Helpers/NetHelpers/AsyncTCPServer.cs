@@ -1,5 +1,7 @@
 ﻿using One.Core.ExtensionMethods;
 
+using Org.BouncyCastle.Bcpg;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace One.Core.Helpers.NetHelpers
 {
@@ -31,6 +35,8 @@ namespace One.Core.Helpers.NetHelpers
         public Action<byte[]> SendAction;
         public Action<byte[]> OnConnected;
         public Action<byte[]> OnDisConnected;
+
+        public Action<IPListOperationEnum, string> OnIpEndPointChanged;
 
         public bool IsStart = false;
 
@@ -58,9 +64,31 @@ namespace One.Core.Helpers.NetHelpers
             }
             catch (Exception ex)
             {
-                WriteLog($"{ex}");
-                return false;
+                WriteLog(ex.ToString());
+                throw ex;
             }
+        }
+
+        public void ReleaseServer()
+        {
+            try
+            {
+                sckServer.Shutdown(SocketShutdown.Both);
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+                //throw ex;
+            }
+            try
+            {
+                sckServer.Close();
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+            }
+            finally { sckServer = null; }
         }
 
         void Start(IPEndPoint iPEndPoint)
@@ -115,7 +143,9 @@ namespace One.Core.Helpers.NetHelpers
 
                 //服务端分配的Socket
                 var localServerSocket = args.AcceptSocket;
+
                 listConnection.Add(localServerSocket);
+                OnIpEndPointChanged?.Invoke(IPListOperationEnum.Add, localServerSocket.RemoteEndPoint.ToString());
 
                 disconnect.Set();//其他地方可以处理了
 
@@ -153,6 +183,7 @@ namespace One.Core.Helpers.NetHelpers
                             var addressFamily = listConnection[i].RemoteEndPoint.AddressFamily.ToString();
                             var a = $"{listConnection[i].RemoteEndPoint} disconnected!";
 
+                            OnIpEndPointChanged?.Invoke(IPListOperationEnum.Subtract, listConnection[i].RemoteEndPoint.ToString());
                             listConnection.RemoveAt(i);
 
                             var info = System.Text.Encoding.UTF8.GetBytes(a);
@@ -214,6 +245,36 @@ namespace One.Core.Helpers.NetHelpers
             catch (Exception ex)
             {
                 WriteLog(ex.ToString());
+            }
+        }
+
+        public async void SendData(byte[] data, IPEndPoint iPEndPoint)
+        {
+            try
+            {
+                foreach (var item in listConnection)
+                {
+                    if (item.RemoteEndPoint.Equals(iPEndPoint))
+                    {
+                        SendData(item, data);
+                        break;
+                    }
+                }
+
+                SendAction?.Invoke(data);
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+            }
+        }
+
+        private async void SendData(Socket socket, byte[] data)
+        {
+            int bytesSent = 0;
+            while (bytesSent < data.Length)
+            {
+                bytesSent += await socket.SendAsync(data.AsMemory(bytesSent), SocketFlags.None);
             }
         }
 

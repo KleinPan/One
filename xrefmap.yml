@@ -6903,6 +6903,12 @@ references:
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.OnDisConnected
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnDisConnected
   nameWithType: AsyncTCPServer.OnDisConnected
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnIpEndPointChanged
+  name: OnIpEndPointChanged
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_OnIpEndPointChanged
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.OnIpEndPointChanged
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.OnIpEndPointChanged
+  nameWithType: AsyncTCPServer.OnIpEndPointChanged
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReceiveAction
   name: ReceiveAction
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_ReceiveAction
@@ -6925,12 +6931,41 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReceiveAndSend
   nameWithType: AsyncTCPServer.ReceiveAndSend
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer
+  name: ReleaseServer()
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_ReleaseServer
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer()
+  nameWithType: AsyncTCPServer.ReleaseServer()
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer*
+  name: ReleaseServer
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_ReleaseServer_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.ReleaseServer
+  nameWithType: AsyncTCPServer.ReleaseServer
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendAction
   name: SendAction
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_SendAction
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.SendAction
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendAction
   nameWithType: AsyncTCPServer.SendAction
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData(System.Byte[],System.Net.IPEndPoint)
+  name: SendData(byte[], IPEndPoint)
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_SendData_System_Byte___System_Net_IPEndPoint_
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData(System.Byte[],System.Net.IPEndPoint)
+  name.vb: SendData(Byte(), IPEndPoint)
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData(byte[], System.Net.IPEndPoint)
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData(Byte(), System.Net.IPEndPoint)
+  nameWithType: AsyncTCPServer.SendData(byte[], IPEndPoint)
+  nameWithType.vb: AsyncTCPServer.SendData(Byte(), IPEndPoint)
+- uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData*
+  name: SendData
+  href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_SendData_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendData
+  nameWithType: AsyncTCPServer.SendData
 - uid: One.Core.Helpers.NetHelpers.AsyncTCPServer.SendDataOld(System.String)
   name: SendDataOld(string)
   href: api/One.Core.Helpers.NetHelpers.AsyncTCPServer.html#One_Core_Helpers_NetHelpers_AsyncTCPServer_SendDataOld_System_String_
@@ -6988,6 +7023,118 @@ references:
   commentId: F:One.Core.Helpers.NetHelpers.AsyncTCPServer.sckSend
   fullName: One.Core.Helpers.NetHelpers.AsyncTCPServer.sckSend
   nameWithType: AsyncTCPServer.sckSend
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient
+  name: AsyncUDPClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html
+  commentId: T:One.Core.Helpers.NetHelpers.AsyncUDPClient
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient
+  nameWithType: AsyncUDPClient
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor(System.Action{System.String})
+  name: AsyncUDPClient(Action<string>)
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient__ctor_System_Action_System_String__
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor(System.Action{System.String})
+  name.vb: New(Action(Of String))
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.AsyncUDPClient(System.Action<string>)
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncUDPClient.New(System.Action(Of String))
+  nameWithType: AsyncUDPClient.AsyncUDPClient(Action<string>)
+  nameWithType.vb: AsyncUDPClient.New(Action(Of String))
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor*
+  name: AsyncUDPClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient__ctor_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.AsyncUDPClient
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncUDPClient.New
+  nameWithType: AsyncUDPClient.AsyncUDPClient
+  nameWithType.vb: AsyncUDPClient.New
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient(System.Net.IPAddress,System.Int32)
+  name: InitClient(IPAddress, int)
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_InitClient_System_Net_IPAddress_System_Int32_
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient(System.Net.IPAddress,System.Int32)
+  name.vb: InitClient(IPAddress, Integer)
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient(System.Net.IPAddress, int)
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient(System.Net.IPAddress, Integer)
+  nameWithType: AsyncUDPClient.InitClient(IPAddress, int)
+  nameWithType.vb: AsyncUDPClient.InitClient(IPAddress, Integer)
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient*
+  name: InitClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_InitClient_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient
+  nameWithType: AsyncUDPClient.InitClient
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnConnected
+  name: OnConnected
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_OnConnected
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.OnConnected
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnConnected
+  nameWithType: AsyncUDPClient.OnConnected
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnDisConnected
+  name: OnDisConnected
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_OnDisConnected
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.OnDisConnected
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnDisConnected
+  nameWithType: AsyncUDPClient.OnDisConnected
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnIpEndPointChanged
+  name: OnIpEndPointChanged
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_OnIpEndPointChanged
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.OnIpEndPointChanged
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.OnIpEndPointChanged
+  nameWithType: AsyncUDPClient.OnIpEndPointChanged
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReceiveAction
+  name: ReceiveAction
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_ReceiveAction
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.ReceiveAction
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReceiveAction
+  nameWithType: AsyncUDPClient.ReceiveAction
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient
+  name: ReleaseClient()
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_ReleaseClient
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient()
+  nameWithType: AsyncUDPClient.ReleaseClient()
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient*
+  name: ReleaseClient
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_ReleaseClient_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient
+  nameWithType: AsyncUDPClient.ReleaseClient
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendAction
+  name: SendAction
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_SendAction
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.SendAction
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendAction
+  nameWithType: AsyncUDPClient.SendAction
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData(System.Net.IPEndPoint,System.Byte[])
+  name: SendData(IPEndPoint, byte[])
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_SendData_System_Net_IPEndPoint_System_Byte___
+  commentId: M:One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData(System.Net.IPEndPoint,System.Byte[])
+  name.vb: SendData(IPEndPoint, Byte())
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData(System.Net.IPEndPoint, byte[])
+  fullName.vb: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData(System.Net.IPEndPoint, Byte())
+  nameWithType: AsyncUDPClient.SendData(IPEndPoint, byte[])
+  nameWithType.vb: AsyncUDPClient.SendData(IPEndPoint, Byte())
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData*
+  name: SendData
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_SendData_
+  commentId: Overload:One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData
+  isSpec: "True"
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData
+  nameWithType: AsyncUDPClient.SendData
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.WaitTime
+  name: WaitTime
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_WaitTime
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.WaitTime
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.WaitTime
+  nameWithType: AsyncUDPClient.WaitTime
+- uid: One.Core.Helpers.NetHelpers.AsyncUDPClient.cancellationToken
+  name: cancellationToken
+  href: api/One.Core.Helpers.NetHelpers.AsyncUDPClient.html#One_Core_Helpers_NetHelpers_AsyncUDPClient_cancellationToken
+  commentId: F:One.Core.Helpers.NetHelpers.AsyncUDPClient.cancellationToken
+  fullName: One.Core.Helpers.NetHelpers.AsyncUDPClient.cancellationToken
+  nameWithType: AsyncUDPClient.cancellationToken
 - uid: One.Core.Helpers.NetHelpers.IPConvertHelper
   name: IPConvertHelper
   href: api/One.Core.Helpers.NetHelpers.IPConvertHelper.html
@@ -7026,6 +7173,24 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.NetHelpers.IPConvertHelper.NumberToIP
   nameWithType: IPConvertHelper.NumberToIP
+- uid: One.Core.Helpers.NetHelpers.IPListOperationEnum
+  name: IPListOperationEnum
+  href: api/One.Core.Helpers.NetHelpers.IPListOperationEnum.html
+  commentId: T:One.Core.Helpers.NetHelpers.IPListOperationEnum
+  fullName: One.Core.Helpers.NetHelpers.IPListOperationEnum
+  nameWithType: IPListOperationEnum
+- uid: One.Core.Helpers.NetHelpers.IPListOperationEnum.Add
+  name: Add
+  href: api/One.Core.Helpers.NetHelpers.IPListOperationEnum.html#One_Core_Helpers_NetHelpers_IPListOperationEnum_Add
+  commentId: F:One.Core.Helpers.NetHelpers.IPListOperationEnum.Add
+  fullName: One.Core.Helpers.NetHelpers.IPListOperationEnum.Add
+  nameWithType: IPListOperationEnum.Add
+- uid: One.Core.Helpers.NetHelpers.IPListOperationEnum.Subtract
+  name: Subtract
+  href: api/One.Core.Helpers.NetHelpers.IPListOperationEnum.html#One_Core_Helpers_NetHelpers_IPListOperationEnum_Subtract
+  commentId: F:One.Core.Helpers.NetHelpers.IPListOperationEnum.Subtract
+  fullName: One.Core.Helpers.NetHelpers.IPListOperationEnum.Subtract
+  nameWithType: IPListOperationEnum.Subtract
 - uid: One.Core.Helpers.NetHelpers.NetHelper
   name: NetHelper
   href: api/One.Core.Helpers.NetHelpers.NetHelper.html

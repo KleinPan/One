@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class AsyncTCPClient
+      <title>Class AsyncUDPClient
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class AsyncTCPClient
+      <meta name="title" content="Class AsyncUDPClient
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_NetHelpers_AsyncTCPClient.md&amp;value=---%0Auid%3A%20One.Core.Helpers.NetHelpers.AsyncTCPClient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_NetHelpers_AsyncUDPClient.md&amp;value=---%0Auid%3A%20One.Core.Helpers.NetHelpers.AsyncUDPClient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,13 +84,13 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient">
+        <article data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient">
 
 
 
-  <h1 id="One_Core_Helpers_NetHelpers_AsyncTCPClient" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient" class="text-break">
-    Class AsyncTCPClient
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Helpers_NetHelpers_AsyncUDPClient" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient" class="text-break">
+    Class AsyncUDPClient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -99,13 +99,12 @@
   </div>
 
   <div class="markdown summary"><p>使用新版本微软推荐的异步套接字开发</p>
-<p> https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/socket-services#create-a-socket-client </p>
-<p> https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.socket?view=net-7.0 </p>
+<p> https://learn.microsoft.com/zh-cn/dotnet/api/system.net.sockets.udpclient?view=net-7.0 </p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AsyncTCPClient : BaseHelper</code></pre>
+    <pre><code class="lang-csharp hljs">public class AsyncUDPClient : BaseHelper</code></pre>
   </div>
 
 
@@ -116,7 +115,7 @@
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="One.Core.Helpers.BaseHelper.html">BaseHelper</a></div>
-      <div><span class="xref">AsyncTCPClient</span></div>
+      <div><span class="xref">AsyncUDPClient</span></div>
     </dd>
   </dl>
 
@@ -160,18 +159,18 @@
 </h2>
 
 
-  <a id="One_Core_Helpers_NetHelpers_AsyncTCPClient__ctor_" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.#ctor*"></a>
+  <a id="One_Core_Helpers_NetHelpers_AsyncUDPClient__ctor_" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor*"></a>
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient__ctor_System_Action_System_String__" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.#ctor(System.Action{System.String})">
-  AsyncTCPClient(Action&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient__ctor_System_Action_System_String__" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.#ctor(System.Action{System.String})">
+  AsyncUDPClient(Action&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AsyncTCPClient(Action&lt;string&gt; logAction)</code></pre>
+    <pre><code class="lang-csharp hljs">public AsyncUDPClient(Action&lt;string&gt; logAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -196,9 +195,9 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_OnConnected" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.OnConnected">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_OnConnected" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.OnConnected">
   OnConnected
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -226,9 +225,9 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_OnDisConnected" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.OnDisConnected">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_OnDisConnected" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.OnDisConnected">
   OnDisConnected
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -256,16 +255,16 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_ReceiveAction" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.ReceiveAction">
-  ReceiveAction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_OnIpEndPointChanged" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.OnIpEndPointChanged">
+  OnIpEndPointChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;byte[]&gt; ReceiveAction</code></pre>
+    <pre><code class="lang-csharp hljs">public Action&lt;IPListOperationEnum, string&gt; OnIpEndPointChanged</code></pre>
   </div>
 
 
@@ -273,7 +272,7 @@
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="One.Core.Helpers.NetHelpers.IPListOperationEnum.html">IPListOperationEnum</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -286,9 +285,39 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_SendAction" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.SendAction">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_ReceiveAction" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.ReceiveAction">
+  ReceiveAction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;string, byte[]&gt; ReceiveAction</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_SendAction" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.SendAction">
   SendAction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -316,9 +345,9 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_WaitTime" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.WaitTime">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_WaitTime" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.WaitTime">
   WaitTime
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>暂时不起作用</p>
@@ -347,9 +376,9 @@
 
 
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_cancellationToken" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.cancellationToken">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_cancellationToken" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.cancellationToken">
   cancellationToken
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -380,11 +409,11 @@
 </h2>
 
 
-  <a id="One_Core_Helpers_NetHelpers_AsyncTCPClient_InitClient_" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient*"></a>
+  <a id="One_Core_Helpers_NetHelpers_AsyncUDPClient_InitClient_" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient*"></a>
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_InitClient_System_Net_IPAddress_System_Int32_" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.InitClient(System.Net.IPAddress,System.Int32)">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_InitClient_System_Net_IPAddress_System_Int32_" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.InitClient(System.Net.IPAddress,System.Int32)">
   InitClient(IPAddress, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>初始化作为客户端并连接</p>
@@ -419,11 +448,11 @@
 
 
 
-  <a id="One_Core_Helpers_NetHelpers_AsyncTCPClient_ReleaseClient_" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient*"></a>
+  <a id="One_Core_Helpers_NetHelpers_AsyncUDPClient_ReleaseClient_" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient*"></a>
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_ReleaseClient" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.ReleaseClient">
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_ReleaseClient" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.ReleaseClient">
   ReleaseClient()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>释放当前客户端连接</p>
@@ -446,22 +475,24 @@
 
 
 
-  <a id="One_Core_Helpers_NetHelpers_AsyncTCPClient_SendData_" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.SendData*"></a>
+  <a id="One_Core_Helpers_NetHelpers_AsyncUDPClient_SendData_" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData*"></a>
 
-  <h3 id="One_Core_Helpers_NetHelpers_AsyncTCPClient_SendData_System_Byte___" data-uid="One.Core.Helpers.NetHelpers.AsyncTCPClient.SendData(System.Byte[])">
-  SendData(byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_NetHelpers_AsyncUDPClient_SendData_System_Net_IPEndPoint_System_Byte___" data-uid="One.Core.Helpers.NetHelpers.AsyncUDPClient.SendData(System.Net.IPEndPoint,System.Byte[])">
+  SendData(IPEndPoint, byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SendData(byte[] data)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SendData(IPEndPoint iPEndPoint, byte[] data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>iPEndPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.ipendpoint">IPEndPoint</a></dt>
+    <dd></dd>
     <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
     <dd></dd>
   </dl>
@@ -481,7 +512,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncTCPClient.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/NetHelpers/AsyncUDPClient.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
         

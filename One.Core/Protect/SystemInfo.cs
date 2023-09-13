@@ -1,7 +1,6 @@
-﻿using System;
-using System.Management;
+﻿using System.Linq;
 
-namespace One.Protect
+namespace One.Core.Protect
 {
     public class SystemInfo
     {
@@ -57,24 +56,22 @@ namespace One.Protect
         //Win32_Share, // 共享
         //Win32_NetworkClient, // 已安装的网络客户端
         //Win32_NetworkProtocol, // 已安装的网络协议
+
+        /// <summary> 获取CUP序列号 </summary>
+        /// <returns> </returns>
         public static string GetCPUSN()
         {
-            string CPUSerialNumber = "";
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Processor");
+            var res = One.Core.Helpers.HardwareInfoHelper.MulGetHardwareInfo(Helpers.HardwareEnum.Win32_Processor, "ProcessorId");
 
-                foreach (ManagementObject mo in searcher.Get())
-                {
-                    CPUSerialNumber = mo["ProcessorId"].ToString().Trim();
-                }
-                return CPUSerialNumber;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            return res.First();
+        }
+
+        /// <summary> 获取所有盘符的第一个卷标号 </summary>
+        /// <returns> </returns>
+        public static string GetDiskVolumeSerialNumber()
+        {
+            var res = One.Core.Helpers.HardwareInfoHelper.MulGetHardwareInfo(Helpers.HardwareEnum.Win32_LogicalDisk, "VolumeSerialNumber");
+            return res.First();
         }
     }
 }

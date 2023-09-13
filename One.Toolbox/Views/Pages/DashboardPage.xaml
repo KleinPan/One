@@ -9,9 +9,7 @@
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
     d:DataContext="{d:DesignInstance viewmodels:DashboardViewModel,
                                      IsDesignTimeCreatable=False}"
-    d:DesignHeight="650"
-    d:DesignWidth="800"
-    mc:Ignorable="d">
+    d:DesignHeight="650" d:DesignWidth="800" mc:Ignorable="d">
     <ScrollViewer>
         <Grid Margin="20">
             <Grid.RowDefinitions>
@@ -40,12 +38,8 @@
                             <TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />
                         </StackPanel>
                         <TextBlock
-                            Margin="12"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            FontSize="10"
-                            Foreground="#57FFFFFF"
-                            Text="Created by pwb" />
+                            Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
+                            Foreground="#57FFFFFF" Text="Created by pwb" />
                     </Grid>
                 </Border>
             </Border>
@@ -91,7 +85,7 @@
                 <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
 
-            <Button Command="{Binding TestCommand}" Content="Test" Visibility="Collapsed" />
+            <Button Command="{Binding TestCommand}" Content="Test" Visibility="Visible" />
         </Grid>
     </ScrollViewer>
 </UserControl>

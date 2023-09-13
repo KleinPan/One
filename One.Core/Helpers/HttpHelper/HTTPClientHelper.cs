@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace One.Core.Helper.HttpHelper
+namespace One.Core.Helpers.HttpHelper
 {
     /// <summary> 主要用于get post请求 </summary>
     public class HTTPClientHelper

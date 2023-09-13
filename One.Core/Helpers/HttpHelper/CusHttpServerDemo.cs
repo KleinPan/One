@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace One.Core.Helper.HttpHelper
+namespace One.Core.Helpers.HttpHelper
 {
     public class CusHttpServerHelper : HttpServerHelper
     {

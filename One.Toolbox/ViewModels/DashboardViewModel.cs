@@ -82,7 +82,9 @@ public partial class DashboardViewModel : BaseViewModel
     [RelayCommand]
     private async void Test()
     {
-        MessageShowHelper.ShowInfoMessage("123");
+        // MessageShowHelper.ShowInfoMessage("123");
+        var a = One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber();
+        One.Core.Helpers.RegistryHelper.WriteKey("Toolbox", "Version", "Test");
     }
 
     private static async Task<YiyanAPI> GetEveryDayYiyan()

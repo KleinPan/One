@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace One.Core.Helper.HttpHelper
+namespace One.Core.Helpers.HttpHelper
 {
     /// <summary> 官方推荐的HttpClient，下载方法使用上边的 </summary>
     public class HttpDownloadHelper

@@ -8,9 +8,9 @@ namespace One.Core.Helpers
         /// <summary> WMI取硬件信息 </summary>
         /// <param name="hardType"> </param>
         /// <param name="propKey">  </param>
-        /// <param name="filter">   </param>
+        /// <param name="filter"> COM </param>
         /// <returns> </returns>
-        public static string[] MulGetHardwareInfo(HardwareEnum hardType, string propKey, string filter = "COM")
+        public static string[] MulGetHardwareInfo(HardwareEnum hardType, string propKey, string filter = "")
         {
             List<string> strs = new List<string>();
             try

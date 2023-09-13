@@ -14,6 +14,7 @@ using RestSharp;
 
 using System.Diagnostics;
 using System.Globalization;
+using System.Reflection;
 
 namespace One.Toolbox.ViewModels;
 
@@ -78,21 +79,22 @@ public partial class DashboardViewModel : BaseViewModel
 
     private void Register()
     {
-   
         var regTime = One.Core.Helpers.RegistryHelper.ReadSetting("Toolbox", "FirstRun", "");
         if (string.IsNullOrEmpty(regTime))
         {
             var first = DateTime.Now.ToString("u");
             One.Core.Helpers.RegistryHelper.WriteKey("Toolbox", "FirstRun", first);
         }
-
-        DateTime firstInfo = DateTime.ParseExact(regTime, "u", CultureInfo.InvariantCulture);
-
-        var sub = DateTime.Now - firstInfo;
-
-        if (sub > TimeSpan.FromDays(7))
+        else
         {
-           // MessageShowHelper.ShowErrorMessage("试用期到期！");
+            DateTime firstInfo = DateTime.ParseExact(regTime, "u", CultureInfo.InvariantCulture);
+
+            var sub = DateTime.Now - firstInfo;
+
+            if (sub > TimeSpan.FromDays(7))
+            {
+                // MessageShowHelper.ShowErrorMessage("试用期到期！");
+            }
         }
     }
 
@@ -105,10 +107,8 @@ public partial class DashboardViewModel : BaseViewModel
     [RelayCommand]
     private async void Test()
     {
-        // MessageShowHelper.ShowInfoMessage("123");
-        var a = One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber();
-
-       var s= await DialogHelper.Instance.ShowInteractiveDialog("sss");
+        //var s = AssemblyHelper.Instance.FileVersionInfo;
+        //var ab = new AssemblyHelper(Assembly.GetExecutingAssembly());
     }
 
     private static async Task<YiyanAPI> GetEveryDayYiyan()

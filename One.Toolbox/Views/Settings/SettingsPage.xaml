@@ -39,14 +39,9 @@
                     <TextBlock Margin="5" Text="{DynamicResource AboutDiscriptionMain}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutDevelopers}" />
                     <TextBlock Margin="5" Text="{DynamicResource AboutQQGroup}" />
+                    <myuc:Hyperlink Margin="5" Content="{DynamicResource AboutFeedBackButton}" NavigateUri="https://github.com/KleinPan/One/issues/new" />
                 </StackPanel>
             </Border>
-            <Button
-                Name="CheckUpdateButton" Width="auto" Margin="10" HorizontalAlignment="Center"
-                Content="{DynamicResource AboutLoadingUpdate}"
-                IsEnabled="False" />
-
-            <myuc:Hyperlink HorizontalAlignment="Center" Content="{DynamicResource AboutFeedBackButton}" NavigateUri="https://github.com/KleinPan/One/issues/new" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

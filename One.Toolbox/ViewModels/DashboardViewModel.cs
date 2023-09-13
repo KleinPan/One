@@ -13,6 +13,7 @@ using One.Toolbox.ViewModels.Base;
 using RestSharp;
 
 using System.Diagnostics;
+using System.Globalization;
 
 namespace One.Toolbox.ViewModels;
 
@@ -30,6 +31,8 @@ public partial class DashboardViewModel : BaseViewModel
 
     void InitData()
     {
+        Register();
+
         Task.Run(async () =>
         {
             var a = await GetEveryDayYiyan();
@@ -73,6 +76,26 @@ public partial class DashboardViewModel : BaseViewModel
         });
     }
 
+    private void Register()
+    {
+   
+        var regTime = One.Core.Helpers.RegistryHelper.ReadSetting("Toolbox", "FirstRun", "");
+        if (string.IsNullOrEmpty(regTime))
+        {
+            var first = DateTime.Now.ToString("u");
+            One.Core.Helpers.RegistryHelper.WriteKey("Toolbox", "FirstRun", first);
+        }
+
+        DateTime firstInfo = DateTime.ParseExact(regTime, "u", CultureInfo.InvariantCulture);
+
+        var sub = DateTime.Now - firstInfo;
+
+        if (sub > TimeSpan.FromDays(7))
+        {
+           // MessageShowHelper.ShowErrorMessage("试用期到期！");
+        }
+    }
+
     [ObservableProperty]
     private string text;
 
@@ -84,7 +107,8 @@ public partial class DashboardViewModel : BaseViewModel
     {
         // MessageShowHelper.ShowInfoMessage("123");
         var a = One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber();
-        One.Core.Helpers.RegistryHelper.WriteKey("Toolbox", "Version", "Test");
+
+       var s= await DialogHelper.Instance.ShowInteractiveDialog("sss");
     }
 
     private static async Task<YiyanAPI> GetEveryDayYiyan()

@@ -43,8 +43,6 @@ public partial class MainWindowViewModel : BaseViewModel
     {
         ApplicationTitle = "One.Toolbox";
 
-
-        
         NavigationItems = new ObservableCollection<MainMenuItemViewModel>();
 
         //https://www.xicons.org/#/
@@ -56,7 +54,7 @@ public partial class MainWindowViewModel : BaseViewModel
             Icon = ResourceHelper.Dic["HomeRound"],
             TargetPageType = typeof(Views.Pages.DashboardPage),
             Content = new DashboardPage(),
-        }) ;
+        });
 
         NavigationItems.Add(new MainMenuItemViewModel()
         {
@@ -80,6 +78,13 @@ public partial class MainWindowViewModel : BaseViewModel
             Content = new NetworklPage(),
         });
 
+        //NavigationItems.Add(new MainMenuItemViewModel()
+        //{
+        //    Header = "CodeEditor",
+        //    Icon = ResourceHelper.Dic["Network"],
+
+        //});
+
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Setting",
@@ -101,8 +106,11 @@ public partial class MainWindowViewModel : BaseViewModel
             var vm = oldValue.Content.DataContext as BaseViewModel;
             vm.OnNavigatedLeave();
         }
-        var vmNew = newValue.Content.DataContext as BaseViewModel;
-        vmNew.OnNavigatedEnter();
+        if (newValue != null)
+        {
+            var vmNew = newValue.Content.DataContext as BaseViewModel;
+            vmNew.OnNavigatedEnter();
+        }
     }
 
     #endregion 框架逻辑

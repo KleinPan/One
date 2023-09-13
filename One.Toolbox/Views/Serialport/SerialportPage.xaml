@@ -26,9 +26,8 @@
             <Border Margin="0,0,0,-35">
 
                 <FlowDocumentScrollViewer
-                    Name="uartDataFlowDocument"
-                    Height="{Binding ElementName=aaa, Path=ActualHeight}"
-                    BorderBrush="#FF009400" BorderThickness="0" MaxZoom="150" MinZoom="100"
+                    Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MaxZoom="150"
+                    MinZoom="100"
                     Style="{StaticResource FlowDocumentScrollViewerBaseStyle}"
                     VerticalScrollBarVisibility="Visible">
                     <!--  更改段落间距  -->
@@ -89,7 +88,7 @@
                     <CheckBox Name="DTRCheckBox" Content="DTR" IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
                     <CheckBox Name="HEXBox" Content="{DynamicResource ShowHexFormat}" IsChecked="{Binding SerialportUISetting.HexShow}" ToolTip="{DynamicResource ShowHexFormatTip}" />
 
-                    <CheckBox Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />
+                    <!--<CheckBox Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />-->
 
                     <CheckBox Name="HexSendCheckBox" HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.HexSend}" />
 
@@ -153,7 +152,11 @@
                     Content="{DynamicResource RefreshPortButton}"
                     IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" />
 
-                <ComboBox MinWidth="150" IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" ItemsSource="{Binding PortNameList}" SelectedItem="{Binding SelectedPortName}" />
+                <ComboBox
+                    MinWidth="150" MaxWidth="300"
+                    IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
+                    ItemsSource="{Binding PortNameList}"
+                    SelectedItem="{Binding SelectedPortName}" />
                 <hc:Divider Grid.Column="4" />
 
                 <ComboBox

@@ -173,7 +173,7 @@ namespace One.Core.Helpers.NetHelpers
             {
                 while (true)
                 {
-                    disconnect.WaitOne();
+                    disconnect.WaitOne();//会自动恢复等待，所以后边需要发出信号才能继续执行
 
                     for (int i = listConnection.Count - 1; i >= 0; i--)
                     {

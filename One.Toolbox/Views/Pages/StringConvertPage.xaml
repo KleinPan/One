@@ -92,7 +92,6 @@
                 Padding="10,8,5,7" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
                 AcceptsReturn="True" FontFamily="Consolas" FontSize="15" IsReadOnly="true"
                 Text="{Binding OutputString}"
-                TextBlock.LineHeight="{Binding LineHeight}"
                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
             <!--  FontFamily="Courier New"  -->
             <TextBlock

@@ -32,23 +32,10 @@ namespace One.Toolbox.Component
         {
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-            //serialPort.RtsEnable = Rts;
-            //serialPort.DtrEnable = Dtr;
+           
             new Thread(ReadData).Start();
 
-            //适配一下通用通道
-            /*
-            LuaApis.SendChannelsRegister("uart", (data, _) =>
-            {
-                if (IsOpen() && data != null)
-                {
-                    SendData(data);
-                    return true;
-                }
-                else
-                    return false;
-            });
-            */
+          
         }
 
         /// <summary> 刷新串口对象 </summary>
@@ -105,12 +92,7 @@ namespace One.Toolbox.Component
             serialPort = new SerialPort();
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-            //serialPort.BaudRate = Tools.Global.setting.baudRate;
-            //serialPort.Parity = (Parity)Tools.Global.setting.parity;
-            //serialPort.DataBits = Tools.Global.setting.dataBits;
-            //serialPort.StopBits = (StopBits)Tools.Global.setting.stopBit;
-            //serialPort.RtsEnable = Rts;
-            //serialPort.DtrEnable = Dtr;
+       
             WriteTraceLog($"[refreshSerialDevice]done");
         }
 
@@ -175,7 +157,7 @@ namespace One.Toolbox.Component
             if (data.Length == 0)
                 return;
             serialPort.Write(data, 0, data.Length);
-            //Tools.Global.setting.SentCount += data.Length;
+      
             UartDataSent(data, EventArgs.Empty);//回调
         }
 
@@ -197,8 +179,7 @@ namespace One.Toolbox.Component
             while (true)
             {
                 WaitUartReceive.WaitOne();
-                if (Tools.Global.isMainWindowsClosed)
-                    return;
+               
                 if (SerialportSetting.Timeout > 0)
                     Thread.Sleep(SerialportSetting.Timeout);//等待时间
                 List<byte> result = new List<byte>();
@@ -221,12 +202,9 @@ namespace One.Toolbox.Component
 
                     if (result.Count > SerialportSetting.MaxLength)//长度超了
                         break;
-                    //if (Tools.Global.setting.bitDelay && Tools.Global.setting.timeout > 0)//如果是设置了等待间隔时间
-                    //{
-                    //    Thread.Sleep(Tools.Global.setting.timeout);//等待时间
-                    //}
+                  
                 }
-                //Tools.Global.setting.ReceivedCount += result.Count;
+              
                 if (result.Count > 0)
                 {
                     try
@@ -234,7 +212,7 @@ namespace One.Toolbox.Component
                         var r = result.ToArray();
                         UartDataRecived(r, EventArgs.Empty);//回调事件
 
-                        //LuaApis.SendChannelsReceived("uart", r);
+                      
                     }
                     catch
                     { }

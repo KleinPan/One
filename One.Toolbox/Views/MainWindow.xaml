@@ -14,7 +14,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="ColumnDefinitionLeft" Width="60" MinWidth="60" MaxWidth="100" />
+            <ColumnDefinition x:Name="ColumnDefinitionLeft" Width="45" MinWidth="45" MaxWidth="60" />
             <ColumnDefinition MinWidth="200" />
         </Grid.ColumnDefinitions>
         <Button
@@ -23,13 +23,10 @@
             hc:IconElement.Geometry="{StaticResource LeftGeometry}"
             Click="OnLeftMainContentShiftOut"
             Style="{StaticResource ButtonIconCircular}" />
-        <Border x:Name="MainContent" Grid.Column="1" Margin="14,10,14,10">
-            <ContentControl Content="{Binding CurrentMenuItem.Content}" />
-        </Border>
 
         <Border x:Name="LeftMainContent">
             <ListBox
-                Margin="5,10,0,10"
+                Margin="0,0,0,0" Padding="0"
                 ItemsSource="{Binding NavigationItems}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 SelectedItem="{Binding CurrentMenuItem}"
@@ -48,7 +45,13 @@
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="#F4F5F7" />
                                 <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+
+
                             </Trigger>
+
+                            <!--Back <Trigger Property="Control.IsMouseOver" Value="True">
+                                <Setter Property="Control.ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Content.Header}" />
+                            </Trigger>-->
                         </Style.Triggers>
                         <Style.Resources>
                             <Style TargetType="Border">
@@ -59,7 +62,6 @@
                 </ListBox.ItemContainerStyle>
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-
                         <DockPanel IsItemsHost="True" LastChildFill="False" />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
@@ -70,15 +72,16 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
-                                <RowDefinition />
+
                             </Grid.RowDefinitions>
 
                             <Path
                                 HorizontalAlignment="Center"
                                 Data="{Binding Icon}"
-                                Fill="{Binding ElementName=text1, Path=Foreground}"
-                                Stroke="Gray" StrokeThickness="1" />
-                            <TextBlock Name="text1" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Header}" />
+                                Fill="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
+                                Stroke="Gray" StrokeThickness="1"
+                                ToolTip="{Binding Header}" />
+                            <!--<TextBlock Name="text1" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Header}" />-->
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -98,5 +101,9 @@
             Click="OnLeftMainContentShiftIn"
             Style="{StaticResource ButtonIconCircular}"
             Visibility="Collapsed" />
+        <Border x:Name="MainContent" Grid.Column="1" Margin="10,10,10,10">
+            <ContentControl Content="{Binding CurrentMenuItem.Content}" />
+        </Border>
+
     </Grid>
 </hc:Window>

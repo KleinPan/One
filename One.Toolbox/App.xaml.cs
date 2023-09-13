@@ -28,6 +28,13 @@ namespace One.Toolbox
             InitDataColelection();
         }
 
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            //处理后台线程杀不掉问题
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            base.OnExit(e);
+        }
         /// <summary> Configures the services for the application. </summary>
         private static IServiceProvider ConfigureServices()
         {

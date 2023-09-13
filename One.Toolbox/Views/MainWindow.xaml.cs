@@ -90,7 +90,7 @@ namespace One.Toolbox.Views
                 Grid.SetColumn(MainContent, 1);
                 Grid.SetColumnSpan(MainContent, 1);
 
-                ColumnDefinitionLeft.MinWidth = 60;
+                ColumnDefinitionLeft.MinWidth = 45;
                 ColumnDefinitionLeft.Width = _columnDefinitionWidth;
                 ButtonLeft.Show();
             }

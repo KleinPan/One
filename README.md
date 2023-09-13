@@ -27,6 +27,11 @@
 ## 3. One.AutoUpdater
   https://kleinpan.github.io/One/api/index.html
 ## 4. One.Toolbox
+
+### 简介
+
+	项目采用MVVM架构开发，Dotnet版本为7.0。
+
 ![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard.jpg?raw=true)
 
 ### 字符处理工具集
@@ -36,10 +41,10 @@
 ![image](https://github.com/KleinPan/One/blob/master/docs/StringHelper.jpg?raw=true)
 
 ### 串口工具
-待完善
+![image](https://github.com/KleinPan/One/blob/master/docs/Com.jpg?raw=true)
 
 ### 网络工具
-待完善
+![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
 
 
 

@@ -4174,548 +4174,6 @@ references:
   isSpec: "True"
   fullName: One.Core.ExtensionMethods.ExtensionMethodsForString.Tobyte
   nameWithType: ExtensionMethodsForString.Tobyte
-- uid: One.Core.Helper.HttpHelper
-  name: One.Core.Helper.HttpHelper
-  href: api/One.Core.Helper.HttpHelper.html
-  commentId: N:One.Core.Helper.HttpHelper
-  fullName: One.Core.Helper.HttpHelper
-  nameWithType: One.Core.Helper.HttpHelper
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper
-  name: CusHttpServerHelper
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.CusHttpServerHelper
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper
-  nameWithType: CusHttpServerHelper
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.#ctor(System.Int32)
-  name: CusHttpServerHelper(int)
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper__ctor_System_Int32_
-  commentId: M:One.Core.Helper.HttpHelper.CusHttpServerHelper.#ctor(System.Int32)
-  name.vb: New(Integer)
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.CusHttpServerHelper(int)
-  fullName.vb: One.Core.Helper.HttpHelper.CusHttpServerHelper.New(Integer)
-  nameWithType: CusHttpServerHelper.CusHttpServerHelper(int)
-  nameWithType.vb: CusHttpServerHelper.New(Integer)
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.#ctor*
-  name: CusHttpServerHelper
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper__ctor_
-  commentId: Overload:One.Core.Helper.HttpHelper.CusHttpServerHelper.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.CusHttpServerHelper
-  fullName.vb: One.Core.Helper.HttpHelper.CusHttpServerHelper.New
-  nameWithType: CusHttpServerHelper.CusHttpServerHelper
-  nameWithType.vb: CusHttpServerHelper.New
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  name: Dispather(HttpListenerContext)
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper_Dispather_System_Net_HttpListenerContext_
-  commentId: M:One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  nameWithType: CusHttpServerHelper.Dispather(HttpListenerContext)
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather*
-  name: Dispather
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper_Dispather_
-  commentId: Overload:One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.Dispather
-  nameWithType: CusHttpServerHelper.Dispather
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID
-  name: EqID
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper_EqID
-  commentId: P:One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID
-  nameWithType: CusHttpServerHelper.EqID
-- uid: One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID*
-  name: EqID
-  href: api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html#One_Core_Helper_HttpHelper_CusHttpServerHelper_EqID_
-  commentId: Overload:One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.CusHttpServerHelper.EqID
-  nameWithType: CusHttpServerHelper.EqID
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper
-  name: HTTPClientHelper
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.HTTPClientHelper
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper
-  nameWithType: HTTPClientHelper
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name: GetRequest(Dictionary<string, string>, string)
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_GetRequest_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name.vb: GetRequest(Dictionary(Of String, String), String)
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary<string, string>, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary(Of String, String), String)
-  nameWithType: HTTPClientHelper.GetRequest(Dictionary<string, string>, string)
-  nameWithType.vb: HTTPClientHelper.GetRequest(Dictionary(Of String, String), String)
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest*
-  name: GetRequest
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_GetRequest_
-  commentId: Overload:One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequest
-  nameWithType: HTTPClientHelper.GetRequest
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name: GetRequestAsync(Dictionary<string, string>, string)
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_GetRequestAsync_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name.vb: GetRequestAsync(Dictionary(Of String, String), String)
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary<string, string>, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary(Of String, String), String)
-  nameWithType: HTTPClientHelper.GetRequestAsync(Dictionary<string, string>, string)
-  nameWithType.vb: HTTPClientHelper.GetRequestAsync(Dictionary(Of String, String), String)
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync*
-  name: GetRequestAsync
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_GetRequestAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.GetRequestAsync
-  nameWithType: HTTPClientHelper.GetRequestAsync
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
-  name: HttpPostDictionaryRequestAsync(string, Dictionary<string, string>)
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostDictionaryRequestAsync_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
-  commentId: M:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
-  name.vb: HttpPostDictionaryRequestAsync(String, Dictionary(Of String, String))
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(string, System.Collections.Generic.Dictionary<string, string>)
-  fullName.vb: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(String, System.Collections.Generic.Dictionary(Of String, String))
-  nameWithType: HTTPClientHelper.HttpPostDictionaryRequestAsync(string, Dictionary<string, string>)
-  nameWithType.vb: HTTPClientHelper.HttpPostDictionaryRequestAsync(String, Dictionary(Of String, String))
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync*
-  name: HttpPostDictionaryRequestAsync
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostDictionaryRequestAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync
-  nameWithType: HTTPClientHelper.HttpPostDictionaryRequestAsync
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(System.String,System.String)
-  name: HttpPostJsonRequestAsync(string, string)
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostJsonRequestAsync_System_String_System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(System.String,System.String)
-  name.vb: HttpPostJsonRequestAsync(String, String)
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(string, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(String, String)
-  nameWithType: HTTPClientHelper.HttpPostJsonRequestAsync(string, string)
-  nameWithType.vb: HTTPClientHelper.HttpPostJsonRequestAsync(String, String)
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync*
-  name: HttpPostJsonRequestAsync
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostJsonRequestAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync
-  nameWithType: HTTPClientHelper.HttpPostJsonRequestAsync
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name: HttpPostRequestAsync(string, Dictionary<string, string>, string)
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostRequestAsync_System_String_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)
-  name.vb: HttpPostRequestAsync(String, Dictionary(Of String, String), String)
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(string, System.Collections.Generic.Dictionary<string, string>, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(String, System.Collections.Generic.Dictionary(Of String, String), String)
-  nameWithType: HTTPClientHelper.HttpPostRequestAsync(string, Dictionary<string, string>, string)
-  nameWithType.vb: HTTPClientHelper.HttpPostRequestAsync(String, Dictionary(Of String, String), String)
-- uid: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync*
-  name: HttpPostRequestAsync
-  href: api/One.Core.Helper.HttpHelper.HTTPClientHelper.html#One_Core_Helper_HttpHelper_HTTPClientHelper_HttpPostRequestAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HTTPClientHelper.HttpPostRequestAsync
-  nameWithType: HTTPClientHelper.HttpPostRequestAsync
-- uid: One.Core.Helper.HttpHelper.HttpClientExtensions
-  name: HttpClientExtensions
-  href: api/One.Core.Helper.HttpHelper.HttpClientExtensions.html
-  commentId: T:One.Core.Helper.HttpHelper.HttpClientExtensions
-  fullName: One.Core.Helper.HttpHelper.HttpClientExtensions
-  nameWithType: HttpClientExtensions
-- uid: One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient,System.String,System.IO.Stream,System.IProgress{System.Single},System.Threading.CancellationToken)
-  name: DownloadAsync(HttpClient, string, Stream, IProgress<float>, CancellationToken)
-  href: api/One.Core.Helper.HttpHelper.HttpClientExtensions.html#One_Core_Helper_HttpHelper_HttpClientExtensions_DownloadAsync_System_Net_Http_HttpClient_System_String_System_IO_Stream_System_IProgress_System_Single__System_Threading_CancellationToken_
-  commentId: M:One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient,System.String,System.IO.Stream,System.IProgress{System.Single},System.Threading.CancellationToken)
-  name.vb: DownloadAsync(HttpClient, String, Stream, IProgress(Of Single), CancellationToken)
-  fullName: One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient, string, System.IO.Stream, System.IProgress<float>, System.Threading.CancellationToken)
-  fullName.vb: One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient, String, System.IO.Stream, System.IProgress(Of Single), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtensions.DownloadAsync(HttpClient, string, Stream, IProgress<float>, CancellationToken)
-  nameWithType.vb: HttpClientExtensions.DownloadAsync(HttpClient, String, Stream, IProgress(Of Single), CancellationToken)
-- uid: One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync*
-  name: DownloadAsync
-  href: api/One.Core.Helper.HttpHelper.HttpClientExtensions.html#One_Core_Helper_HttpHelper_HttpClientExtensions_DownloadAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpClientExtensions.DownloadAsync
-  nameWithType: HttpClientExtensions.DownloadAsync
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper
-  name: HttpDownloadHelper
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.HttpDownloadHelper
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper
-  nameWithType: HttpDownloadHelper
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.Download(System.String,System.String,System.String)
-  name: Download(string, string, string)
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_Download_System_String_System_String_System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HttpDownloadHelper.Download(System.String,System.String,System.String)
-  name.vb: Download(String, String, String)
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.Download(string, string, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HttpDownloadHelper.Download(String, String, String)
-  nameWithType: HttpDownloadHelper.Download(string, string, string)
-  nameWithType.vb: HttpDownloadHelper.Download(String, String, String)
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.Download*
-  name: Download
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_Download_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpDownloadHelper.Download
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.Download
-  nameWithType: HttpDownloadHelper.Download
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(System.String,System.String,System.String)
-  name: DownloadLittleAsync(string, string, string)
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_DownloadLittleAsync_System_String_System_String_System_String_
-  commentId: M:One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(System.String,System.String,System.String)
-  name.vb: DownloadLittleAsync(String, String, String)
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(string, string, string)
-  fullName.vb: One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(String, String, String)
-  nameWithType: HttpDownloadHelper.DownloadLittleAsync(string, string, string)
-  nameWithType.vb: HttpDownloadHelper.DownloadLittleAsync(String, String, String)
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync*
-  name: DownloadLittleAsync
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_DownloadLittleAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.DownloadLittleAsync
-  nameWithType: HttpDownloadHelper.DownloadLittleAsync
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.NotifyProgress
-  name: NotifyProgress
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_NotifyProgress
-  commentId: E:One.Core.Helper.HttpHelper.HttpDownloadHelper.NotifyProgress
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.NotifyProgress
-  nameWithType: HttpDownloadHelper.NotifyProgress
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport
-  name: HttpDownloadHelper.ProgressReport
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport.html
-  commentId: T:One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport
-  nameWithType: HttpDownloadHelper.ProgressReport
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad
-  name: StopDownLoad()
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_StopDownLoad
-  commentId: M:One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad()
-  nameWithType: HttpDownloadHelper.StopDownLoad()
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad*
-  name: StopDownLoad
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_StopDownLoad_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.StopDownLoad
-  nameWithType: HttpDownloadHelper.StopDownLoad
-- uid: One.Core.Helper.HttpHelper.HttpDownloadHelper.source
-  name: source
-  href: api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html#One_Core_Helper_HttpHelper_HttpDownloadHelper_source
-  commentId: F:One.Core.Helper.HttpHelper.HttpDownloadHelper.source
-  fullName: One.Core.Helper.HttpHelper.HttpDownloadHelper.source
-  nameWithType: HttpDownloadHelper.source
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper
-  name: HttpServerHelper
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.HttpServerHelper
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper
-  nameWithType: HttpServerHelper
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  name: Dispather(HttpListenerContext)
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Dispather_System_Net_HttpListenerContext_
-  commentId: M:One.Core.Helper.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
-  nameWithType: HttpServerHelper.Dispather(HttpListenerContext)
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Dispather*
-  name: Dispather
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Dispather_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpServerHelper.Dispather
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Dispather
-  nameWithType: HttpServerHelper.Dispather
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Dispose
-  name: Dispose()
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Dispose
-  commentId: M:One.Core.Helper.HttpHelper.HttpServerHelper.Dispose
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Dispose()
-  nameWithType: HttpServerHelper.Dispose()
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Dispose*
-  name: Dispose
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Dispose_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpServerHelper.Dispose
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Dispose
-  nameWithType: HttpServerHelper.Dispose
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper
-  name: RequestHelper
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_RequestHelper
-  commentId: P:One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper
-  nameWithType: HttpServerHelper.RequestHelper
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper*
-  name: RequestHelper
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_RequestHelper_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.RequestHelper
-  nameWithType: HttpServerHelper.RequestHelper
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper
-  name: ResponseHelper
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_ResponseHelper
-  commentId: P:One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper
-  nameWithType: HttpServerHelper.ResponseHelper
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper*
-  name: ResponseHelper
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_ResponseHelper_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.ResponseHelper
-  nameWithType: HttpServerHelper.ResponseHelper
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Setup(System.Int32)
-  name: Setup(int)
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Setup_System_Int32_
-  commentId: M:One.Core.Helper.HttpHelper.HttpServerHelper.Setup(System.Int32)
-  name.vb: Setup(Integer)
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Setup(int)
-  fullName.vb: One.Core.Helper.HttpHelper.HttpServerHelper.Setup(Integer)
-  nameWithType: HttpServerHelper.Setup(int)
-  nameWithType.vb: HttpServerHelper.Setup(Integer)
-- uid: One.Core.Helper.HttpHelper.HttpServerHelper.Setup*
-  name: Setup
-  href: api/One.Core.Helper.HttpHelper.HttpServerHelper.html#One_Core_Helper_HttpHelper_HttpServerHelper_Setup_
-  commentId: Overload:One.Core.Helper.HttpHelper.HttpServerHelper.Setup
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.HttpServerHelper.Setup
-  nameWithType: HttpServerHelper.Setup
-- uid: One.Core.Helper.HttpHelper.RequestHelper
-  name: RequestHelper
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.RequestHelper
-  fullName: One.Core.Helper.HttpHelper.RequestHelper
-  nameWithType: RequestHelper
-- uid: One.Core.Helper.HttpHelper.RequestHelper.#ctor(System.Net.HttpListenerRequest)
-  name: RequestHelper(HttpListenerRequest)
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper__ctor_System_Net_HttpListenerRequest_
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.#ctor(System.Net.HttpListenerRequest)
-  name.vb: New(HttpListenerRequest)
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.RequestHelper(System.Net.HttpListenerRequest)
-  fullName.vb: One.Core.Helper.HttpHelper.RequestHelper.New(System.Net.HttpListenerRequest)
-  nameWithType: RequestHelper.RequestHelper(HttpListenerRequest)
-  nameWithType.vb: RequestHelper.New(HttpListenerRequest)
-- uid: One.Core.Helper.HttpHelper.RequestHelper.#ctor*
-  name: RequestHelper
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper__ctor_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.RequestHelper
-  fullName.vb: One.Core.Helper.HttpHelper.RequestHelper.New
-  nameWithType: RequestHelper.RequestHelper
-  nameWithType.vb: RequestHelper.New
-- uid: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
-  name: DispatchResourcesFileStream(ExecutingDispatchFileStream)
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_DispatchResourcesFileStream_One_Core_Helper_HttpHelper_RequestHelper_ExecutingDispatchFileStream_
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
-  nameWithType: RequestHelper.DispatchResourcesFileStream(RequestHelper.ExecutingDispatchFileStream)
-- uid: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream*
-  name: DispatchResourcesFileStream
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_DispatchResourcesFileStream_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesFileStream
-  nameWithType: RequestHelper.DispatchResourcesFileStream
-- uid: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString)
-  name: DispatchResourcesString(ExecutingDispatchString)
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_DispatchResourcesString_One_Core_Helper_HttpHelper_RequestHelper_ExecutingDispatchString_
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString)
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString)
-  nameWithType: RequestHelper.DispatchResourcesString(RequestHelper.ExecutingDispatchString)
-- uid: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString*
-  name: DispatchResourcesString
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_DispatchResourcesString_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.DispatchResourcesString
-  nameWithType: RequestHelper.DispatchResourcesString
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream
-  name: RequestHelper.ExecutingDispatchFileStream
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream.html
-  commentId: T:One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream
-  nameWithType: RequestHelper.ExecutingDispatchFileStream
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString
-  name: RequestHelper.ExecutingDispatchString
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString.html
-  commentId: T:One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString
-  nameWithType: RequestHelper.ExecutingDispatchString
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader
-  name: ExtracHeader()
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ExtracHeader
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader()
-  nameWithType: RequestHelper.ExtracHeader()
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader*
-  name: ExtracHeader
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ExtracHeader_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ExtracHeader
-  nameWithType: RequestHelper.ExtracHeader
-- uid: One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData(System.Byte[])
-  name: PreprocessingData(byte[])
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_PreprocessingData_System_Byte___
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData(System.Byte[])
-  name.vb: PreprocessingData(Byte())
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData(byte[])
-  fullName.vb: One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData(Byte())
-  nameWithType: RequestHelper.PreprocessingData(byte[])
-  nameWithType.vb: RequestHelper.PreprocessingData(Byte())
-- uid: One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData*
-  name: PreprocessingData
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_PreprocessingData_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.PreprocessingData
-  nameWithType: RequestHelper.PreprocessingData
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ProcessingData(System.String)
-  name: ProcessingData(string)
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ProcessingData_System_String_
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.ProcessingData(System.String)
-  name.vb: ProcessingData(String)
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ProcessingData(string)
-  fullName.vb: One.Core.Helper.HttpHelper.RequestHelper.ProcessingData(String)
-  nameWithType: RequestHelper.ProcessingData(string)
-  nameWithType.vb: RequestHelper.ProcessingData(String)
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ProcessingData*
-  name: ProcessingData
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ProcessingData_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.ProcessingData
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ProcessingData
-  nameWithType: RequestHelper.ProcessingData
-- uid: One.Core.Helper.HttpHelper.RequestHelper.RequestStream
-  name: RequestStream
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_RequestStream
-  commentId: P:One.Core.Helper.HttpHelper.RequestHelper.RequestStream
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.RequestStream
-  nameWithType: RequestHelper.RequestStream
-- uid: One.Core.Helper.HttpHelper.RequestHelper.RequestStream*
-  name: RequestStream
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_RequestStream_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.RequestStream
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.RequestStream
-  nameWithType: RequestHelper.RequestStream
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys
-  name: ResponseQuerys()
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ResponseQuerys
-  commentId: M:One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys()
-  nameWithType: RequestHelper.ResponseQuerys()
-- uid: One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys*
-  name: ResponseQuerys
-  href: api/One.Core.Helper.HttpHelper.RequestHelper.html#One_Core_Helper_HttpHelper_RequestHelper_ResponseQuerys_
-  commentId: Overload:One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.RequestHelper.ResponseQuerys
-  nameWithType: RequestHelper.ResponseQuerys
-- uid: One.Core.Helper.HttpHelper.ResponseHelper
-  name: ResponseHelper
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html
-  commentId: T:One.Core.Helper.HttpHelper.ResponseHelper
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper
-  nameWithType: ResponseHelper
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.#ctor(System.Net.HttpListenerResponse)
-  name: ResponseHelper(HttpListenerResponse)
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper__ctor_System_Net_HttpListenerResponse_
-  commentId: M:One.Core.Helper.HttpHelper.ResponseHelper.#ctor(System.Net.HttpListenerResponse)
-  name.vb: New(HttpListenerResponse)
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.ResponseHelper(System.Net.HttpListenerResponse)
-  fullName.vb: One.Core.Helper.HttpHelper.ResponseHelper.New(System.Net.HttpListenerResponse)
-  nameWithType: ResponseHelper.ResponseHelper(HttpListenerResponse)
-  nameWithType.vb: ResponseHelper.New(HttpListenerResponse)
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.#ctor*
-  name: ResponseHelper
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper__ctor_
-  commentId: Overload:One.Core.Helper.HttpHelper.ResponseHelper.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.ResponseHelper
-  fullName.vb: One.Core.Helper.HttpHelper.ResponseHelper.New
-  nameWithType: ResponseHelper.ResponseHelper
-  nameWithType.vb: ResponseHelper.New
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.FileObject
-  name: ResponseHelper.FileObject
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.html
-  commentId: T:One.Core.Helper.HttpHelper.ResponseHelper.FileObject
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.FileObject
-  nameWithType: ResponseHelper.FileObject
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.FileObject.buffer
-  name: buffer
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.html#One_Core_Helper_HttpHelper_ResponseHelper_FileObject_buffer
-  commentId: F:One.Core.Helper.HttpHelper.ResponseHelper.FileObject.buffer
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.FileObject.buffer
-  nameWithType: ResponseHelper.FileObject.buffer
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.FileObject.fs
-  name: fs
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.html#One_Core_Helper_HttpHelper_ResponseHelper_FileObject_fs
-  commentId: F:One.Core.Helper.HttpHelper.ResponseHelper.FileObject.fs
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.FileObject.fs
-  nameWithType: ResponseHelper.FileObject.fs
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.OutputStream
-  name: OutputStream
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper_OutputStream
-  commentId: P:One.Core.Helper.HttpHelper.ResponseHelper.OutputStream
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.OutputStream
-  nameWithType: ResponseHelper.OutputStream
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.OutputStream*
-  name: OutputStream
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper_OutputStream_
-  commentId: Overload:One.Core.Helper.HttpHelper.ResponseHelper.OutputStream
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.OutputStream
-  nameWithType: ResponseHelper.OutputStream
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(System.Byte[])
-  name: WriteToClient(byte[])
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper_WriteToClient_System_Byte___
-  commentId: M:One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(System.Byte[])
-  name.vb: WriteToClient(Byte())
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(byte[])
-  fullName.vb: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(Byte())
-  nameWithType: ResponseHelper.WriteToClient(byte[])
-  nameWithType.vb: ResponseHelper.WriteToClient(Byte())
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
-  name: WriteToClient(FileStream)
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper_WriteToClient_System_IO_FileStream_
-  commentId: M:One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
-  nameWithType: ResponseHelper.WriteToClient(FileStream)
-- uid: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient*
-  name: WriteToClient
-  href: api/One.Core.Helper.HttpHelper.ResponseHelper.html#One_Core_Helper_HttpHelper_ResponseHelper_WriteToClient_
-  commentId: Overload:One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.ResponseHelper.WriteToClient
-  nameWithType: ResponseHelper.WriteToClient
-- uid: One.Core.Helper.HttpHelper.StreamExtensions
-  name: StreamExtensions
-  href: api/One.Core.Helper.HttpHelper.StreamExtensions.html
-  commentId: T:One.Core.Helper.HttpHelper.StreamExtensions
-  fullName: One.Core.Helper.HttpHelper.StreamExtensions
-  nameWithType: StreamExtensions
-- uid: One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Int32,System.IProgress{System.Int64},System.Threading.CancellationToken)
-  name: CopyToAsync(Stream, Stream, int, IProgress<long>, CancellationToken)
-  href: api/One.Core.Helper.HttpHelper.StreamExtensions.html#One_Core_Helper_HttpHelper_StreamExtensions_CopyToAsync_System_IO_Stream_System_IO_Stream_System_Int32_System_IProgress_System_Int64__System_Threading_CancellationToken_
-  commentId: M:One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Int32,System.IProgress{System.Int64},System.Threading.CancellationToken)
-  name.vb: CopyToAsync(Stream, Stream, Integer, IProgress(Of Long), CancellationToken)
-  fullName: One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream, System.IO.Stream, int, System.IProgress<long>, System.Threading.CancellationToken)
-  fullName.vb: One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream, System.IO.Stream, Integer, System.IProgress(Of Long), System.Threading.CancellationToken)
-  nameWithType: StreamExtensions.CopyToAsync(Stream, Stream, int, IProgress<long>, CancellationToken)
-  nameWithType.vb: StreamExtensions.CopyToAsync(Stream, Stream, Integer, IProgress(Of Long), CancellationToken)
-- uid: One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync*
-  name: CopyToAsync
-  href: api/One.Core.Helper.HttpHelper.StreamExtensions.html#One_Core_Helper_HttpHelper_StreamExtensions_CopyToAsync_
-  commentId: Overload:One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync
-  isSpec: "True"
-  fullName: One.Core.Helper.HttpHelper.StreamExtensions.CopyToAsync
-  nameWithType: StreamExtensions.CopyToAsync
 - uid: One.Core.Helpers
   name: One.Core.Helpers
   href: api/One.Core.Helpers.html
@@ -6587,6 +6045,548 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.HardwareInfoHelper.MulGetHardwareInfo
   nameWithType: HardwareInfoHelper.MulGetHardwareInfo
+- uid: One.Core.Helpers.HttpHelper
+  name: One.Core.Helpers.HttpHelper
+  href: api/One.Core.Helpers.HttpHelper.html
+  commentId: N:One.Core.Helpers.HttpHelper
+  fullName: One.Core.Helpers.HttpHelper
+  nameWithType: One.Core.Helpers.HttpHelper
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper
+  name: CusHttpServerHelper
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.CusHttpServerHelper
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper
+  nameWithType: CusHttpServerHelper
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.#ctor(System.Int32)
+  name: CusHttpServerHelper(int)
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper__ctor_System_Int32_
+  commentId: M:One.Core.Helpers.HttpHelper.CusHttpServerHelper.#ctor(System.Int32)
+  name.vb: New(Integer)
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.CusHttpServerHelper(int)
+  fullName.vb: One.Core.Helpers.HttpHelper.CusHttpServerHelper.New(Integer)
+  nameWithType: CusHttpServerHelper.CusHttpServerHelper(int)
+  nameWithType.vb: CusHttpServerHelper.New(Integer)
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.#ctor*
+  name: CusHttpServerHelper
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper__ctor_
+  commentId: Overload:One.Core.Helpers.HttpHelper.CusHttpServerHelper.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.CusHttpServerHelper
+  fullName.vb: One.Core.Helpers.HttpHelper.CusHttpServerHelper.New
+  nameWithType: CusHttpServerHelper.CusHttpServerHelper
+  nameWithType.vb: CusHttpServerHelper.New
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  name: Dispather(HttpListenerContext)
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper_Dispather_System_Net_HttpListenerContext_
+  commentId: M:One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  nameWithType: CusHttpServerHelper.Dispather(HttpListenerContext)
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather*
+  name: Dispather
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper_Dispather_
+  commentId: Overload:One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.Dispather
+  nameWithType: CusHttpServerHelper.Dispather
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID
+  name: EqID
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper_EqID
+  commentId: P:One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID
+  nameWithType: CusHttpServerHelper.EqID
+- uid: One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID*
+  name: EqID
+  href: api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html#One_Core_Helpers_HttpHelper_CusHttpServerHelper_EqID_
+  commentId: Overload:One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.CusHttpServerHelper.EqID
+  nameWithType: CusHttpServerHelper.EqID
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper
+  name: HTTPClientHelper
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.HTTPClientHelper
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper
+  nameWithType: HTTPClientHelper
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name: GetRequest(Dictionary<string, string>, string)
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_GetRequest_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name.vb: GetRequest(Dictionary(Of String, String), String)
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary<string, string>, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest(System.Collections.Generic.Dictionary(Of String, String), String)
+  nameWithType: HTTPClientHelper.GetRequest(Dictionary<string, string>, string)
+  nameWithType.vb: HTTPClientHelper.GetRequest(Dictionary(Of String, String), String)
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest*
+  name: GetRequest
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_GetRequest_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequest
+  nameWithType: HTTPClientHelper.GetRequest
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name: GetRequestAsync(Dictionary<string, string>, string)
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_GetRequestAsync_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name.vb: GetRequestAsync(Dictionary(Of String, String), String)
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary<string, string>, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync(System.Collections.Generic.Dictionary(Of String, String), String)
+  nameWithType: HTTPClientHelper.GetRequestAsync(Dictionary<string, string>, string)
+  nameWithType.vb: HTTPClientHelper.GetRequestAsync(Dictionary(Of String, String), String)
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync*
+  name: GetRequestAsync
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_GetRequestAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.GetRequestAsync
+  nameWithType: HTTPClientHelper.GetRequestAsync
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name: HttpPostDictionaryRequestAsync(string, Dictionary<string, string>)
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostDictionaryRequestAsync_System_String_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: HttpPostDictionaryRequestAsync(String, Dictionary(Of String, String))
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(string, System.Collections.Generic.Dictionary<string, string>)
+  fullName.vb: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync(String, System.Collections.Generic.Dictionary(Of String, String))
+  nameWithType: HTTPClientHelper.HttpPostDictionaryRequestAsync(string, Dictionary<string, string>)
+  nameWithType.vb: HTTPClientHelper.HttpPostDictionaryRequestAsync(String, Dictionary(Of String, String))
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync*
+  name: HttpPostDictionaryRequestAsync
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostDictionaryRequestAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostDictionaryRequestAsync
+  nameWithType: HTTPClientHelper.HttpPostDictionaryRequestAsync
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(System.String,System.String)
+  name: HttpPostJsonRequestAsync(string, string)
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostJsonRequestAsync_System_String_System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(System.String,System.String)
+  name.vb: HttpPostJsonRequestAsync(String, String)
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(string, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync(String, String)
+  nameWithType: HTTPClientHelper.HttpPostJsonRequestAsync(string, string)
+  nameWithType.vb: HTTPClientHelper.HttpPostJsonRequestAsync(String, String)
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync*
+  name: HttpPostJsonRequestAsync
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostJsonRequestAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostJsonRequestAsync
+  nameWithType: HTTPClientHelper.HttpPostJsonRequestAsync
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name: HttpPostRequestAsync(string, Dictionary<string, string>, string)
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostRequestAsync_System_String_System_Collections_Generic_Dictionary_System_String_System_String__System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)
+  name.vb: HttpPostRequestAsync(String, Dictionary(Of String, String), String)
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(string, System.Collections.Generic.Dictionary<string, string>, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync(String, System.Collections.Generic.Dictionary(Of String, String), String)
+  nameWithType: HTTPClientHelper.HttpPostRequestAsync(string, Dictionary<string, string>, string)
+  nameWithType.vb: HTTPClientHelper.HttpPostRequestAsync(String, Dictionary(Of String, String), String)
+- uid: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync*
+  name: HttpPostRequestAsync
+  href: api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html#One_Core_Helpers_HttpHelper_HTTPClientHelper_HttpPostRequestAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HTTPClientHelper.HttpPostRequestAsync
+  nameWithType: HTTPClientHelper.HttpPostRequestAsync
+- uid: One.Core.Helpers.HttpHelper.HttpClientExtensions
+  name: HttpClientExtensions
+  href: api/One.Core.Helpers.HttpHelper.HttpClientExtensions.html
+  commentId: T:One.Core.Helpers.HttpHelper.HttpClientExtensions
+  fullName: One.Core.Helpers.HttpHelper.HttpClientExtensions
+  nameWithType: HttpClientExtensions
+- uid: One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient,System.String,System.IO.Stream,System.IProgress{System.Single},System.Threading.CancellationToken)
+  name: DownloadAsync(HttpClient, string, Stream, IProgress<float>, CancellationToken)
+  href: api/One.Core.Helpers.HttpHelper.HttpClientExtensions.html#One_Core_Helpers_HttpHelper_HttpClientExtensions_DownloadAsync_System_Net_Http_HttpClient_System_String_System_IO_Stream_System_IProgress_System_Single__System_Threading_CancellationToken_
+  commentId: M:One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient,System.String,System.IO.Stream,System.IProgress{System.Single},System.Threading.CancellationToken)
+  name.vb: DownloadAsync(HttpClient, String, Stream, IProgress(Of Single), CancellationToken)
+  fullName: One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient, string, System.IO.Stream, System.IProgress<float>, System.Threading.CancellationToken)
+  fullName.vb: One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync(System.Net.Http.HttpClient, String, System.IO.Stream, System.IProgress(Of Single), System.Threading.CancellationToken)
+  nameWithType: HttpClientExtensions.DownloadAsync(HttpClient, string, Stream, IProgress<float>, CancellationToken)
+  nameWithType.vb: HttpClientExtensions.DownloadAsync(HttpClient, String, Stream, IProgress(Of Single), CancellationToken)
+- uid: One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync*
+  name: DownloadAsync
+  href: api/One.Core.Helpers.HttpHelper.HttpClientExtensions.html#One_Core_Helpers_HttpHelper_HttpClientExtensions_DownloadAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpClientExtensions.DownloadAsync
+  nameWithType: HttpClientExtensions.DownloadAsync
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper
+  name: HttpDownloadHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.HttpDownloadHelper
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper
+  nameWithType: HttpDownloadHelper
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download(System.String,System.String,System.String)
+  name: Download(string, string, string)
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_Download_System_String_System_String_System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download(System.String,System.String,System.String)
+  name.vb: Download(String, String, String)
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download(string, string, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download(String, String, String)
+  nameWithType: HttpDownloadHelper.Download(string, string, string)
+  nameWithType.vb: HttpDownloadHelper.Download(String, String, String)
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download*
+  name: Download
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_Download_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.Download
+  nameWithType: HttpDownloadHelper.Download
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(System.String,System.String,System.String)
+  name: DownloadLittleAsync(string, string, string)
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_DownloadLittleAsync_System_String_System_String_System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(System.String,System.String,System.String)
+  name.vb: DownloadLittleAsync(String, String, String)
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(string, string, string)
+  fullName.vb: One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync(String, String, String)
+  nameWithType: HttpDownloadHelper.DownloadLittleAsync(string, string, string)
+  nameWithType.vb: HttpDownloadHelper.DownloadLittleAsync(String, String, String)
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync*
+  name: DownloadLittleAsync
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_DownloadLittleAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.DownloadLittleAsync
+  nameWithType: HttpDownloadHelper.DownloadLittleAsync
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.NotifyProgress
+  name: NotifyProgress
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_NotifyProgress
+  commentId: E:One.Core.Helpers.HttpHelper.HttpDownloadHelper.NotifyProgress
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.NotifyProgress
+  nameWithType: HttpDownloadHelper.NotifyProgress
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport
+  name: HttpDownloadHelper.ProgressReport
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport.html
+  commentId: T:One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport
+  nameWithType: HttpDownloadHelper.ProgressReport
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad
+  name: StopDownLoad()
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_StopDownLoad
+  commentId: M:One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad()
+  nameWithType: HttpDownloadHelper.StopDownLoad()
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad*
+  name: StopDownLoad
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_StopDownLoad_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.StopDownLoad
+  nameWithType: HttpDownloadHelper.StopDownLoad
+- uid: One.Core.Helpers.HttpHelper.HttpDownloadHelper.source
+  name: source
+  href: api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html#One_Core_Helpers_HttpHelper_HttpDownloadHelper_source
+  commentId: F:One.Core.Helpers.HttpHelper.HttpDownloadHelper.source
+  fullName: One.Core.Helpers.HttpHelper.HttpDownloadHelper.source
+  nameWithType: HttpDownloadHelper.source
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper
+  name: HttpServerHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.HttpServerHelper
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper
+  nameWithType: HttpServerHelper
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  name: Dispather(HttpListenerContext)
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Dispather_System_Net_HttpListenerContext_
+  commentId: M:One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather(System.Net.HttpListenerContext)
+  nameWithType: HttpServerHelper.Dispather(HttpListenerContext)
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather*
+  name: Dispather
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Dispather_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispather
+  nameWithType: HttpServerHelper.Dispather
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose
+  name: Dispose()
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Dispose
+  commentId: M:One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose()
+  nameWithType: HttpServerHelper.Dispose()
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose*
+  name: Dispose
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Dispose_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Dispose
+  nameWithType: HttpServerHelper.Dispose
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper
+  name: RequestHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_RequestHelper
+  commentId: P:One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper
+  nameWithType: HttpServerHelper.RequestHelper
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper*
+  name: RequestHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_RequestHelper_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.RequestHelper
+  nameWithType: HttpServerHelper.RequestHelper
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper
+  name: ResponseHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_ResponseHelper
+  commentId: P:One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper
+  nameWithType: HttpServerHelper.ResponseHelper
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper*
+  name: ResponseHelper
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_ResponseHelper_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.ResponseHelper
+  nameWithType: HttpServerHelper.ResponseHelper
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Setup(System.Int32)
+  name: Setup(int)
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Setup_System_Int32_
+  commentId: M:One.Core.Helpers.HttpHelper.HttpServerHelper.Setup(System.Int32)
+  name.vb: Setup(Integer)
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Setup(int)
+  fullName.vb: One.Core.Helpers.HttpHelper.HttpServerHelper.Setup(Integer)
+  nameWithType: HttpServerHelper.Setup(int)
+  nameWithType.vb: HttpServerHelper.Setup(Integer)
+- uid: One.Core.Helpers.HttpHelper.HttpServerHelper.Setup*
+  name: Setup
+  href: api/One.Core.Helpers.HttpHelper.HttpServerHelper.html#One_Core_Helpers_HttpHelper_HttpServerHelper_Setup_
+  commentId: Overload:One.Core.Helpers.HttpHelper.HttpServerHelper.Setup
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.HttpServerHelper.Setup
+  nameWithType: HttpServerHelper.Setup
+- uid: One.Core.Helpers.HttpHelper.RequestHelper
+  name: RequestHelper
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.RequestHelper
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper
+  nameWithType: RequestHelper
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.#ctor(System.Net.HttpListenerRequest)
+  name: RequestHelper(HttpListenerRequest)
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper__ctor_System_Net_HttpListenerRequest_
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.#ctor(System.Net.HttpListenerRequest)
+  name.vb: New(HttpListenerRequest)
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.RequestHelper(System.Net.HttpListenerRequest)
+  fullName.vb: One.Core.Helpers.HttpHelper.RequestHelper.New(System.Net.HttpListenerRequest)
+  nameWithType: RequestHelper.RequestHelper(HttpListenerRequest)
+  nameWithType.vb: RequestHelper.New(HttpListenerRequest)
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.#ctor*
+  name: RequestHelper
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper__ctor_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.RequestHelper
+  fullName.vb: One.Core.Helpers.HttpHelper.RequestHelper.New
+  nameWithType: RequestHelper.RequestHelper
+  nameWithType.vb: RequestHelper.New
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
+  name: DispatchResourcesFileStream(ExecutingDispatchFileStream)
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_DispatchResourcesFileStream_One_Core_Helpers_HttpHelper_RequestHelper_ExecutingDispatchFileStream_
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream)
+  nameWithType: RequestHelper.DispatchResourcesFileStream(RequestHelper.ExecutingDispatchFileStream)
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream*
+  name: DispatchResourcesFileStream
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_DispatchResourcesFileStream_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesFileStream
+  nameWithType: RequestHelper.DispatchResourcesFileStream
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString)
+  name: DispatchResourcesString(ExecutingDispatchString)
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_DispatchResourcesString_One_Core_Helpers_HttpHelper_RequestHelper_ExecutingDispatchString_
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString)
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString(One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString)
+  nameWithType: RequestHelper.DispatchResourcesString(RequestHelper.ExecutingDispatchString)
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString*
+  name: DispatchResourcesString
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_DispatchResourcesString_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.DispatchResourcesString
+  nameWithType: RequestHelper.DispatchResourcesString
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream
+  name: RequestHelper.ExecutingDispatchFileStream
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream.html
+  commentId: T:One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream
+  nameWithType: RequestHelper.ExecutingDispatchFileStream
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString
+  name: RequestHelper.ExecutingDispatchString
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString.html
+  commentId: T:One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString
+  nameWithType: RequestHelper.ExecutingDispatchString
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader
+  name: ExtracHeader()
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ExtracHeader
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader()
+  nameWithType: RequestHelper.ExtracHeader()
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader*
+  name: ExtracHeader
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ExtracHeader_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ExtracHeader
+  nameWithType: RequestHelper.ExtracHeader
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData(System.Byte[])
+  name: PreprocessingData(byte[])
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_PreprocessingData_System_Byte___
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData(System.Byte[])
+  name.vb: PreprocessingData(Byte())
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData(byte[])
+  fullName.vb: One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData(Byte())
+  nameWithType: RequestHelper.PreprocessingData(byte[])
+  nameWithType.vb: RequestHelper.PreprocessingData(Byte())
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData*
+  name: PreprocessingData
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_PreprocessingData_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.PreprocessingData
+  nameWithType: RequestHelper.PreprocessingData
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData(System.String)
+  name: ProcessingData(string)
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ProcessingData_System_String_
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData(System.String)
+  name.vb: ProcessingData(String)
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData(string)
+  fullName.vb: One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData(String)
+  nameWithType: RequestHelper.ProcessingData(string)
+  nameWithType.vb: RequestHelper.ProcessingData(String)
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData*
+  name: ProcessingData
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ProcessingData_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ProcessingData
+  nameWithType: RequestHelper.ProcessingData
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.RequestStream
+  name: RequestStream
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_RequestStream
+  commentId: P:One.Core.Helpers.HttpHelper.RequestHelper.RequestStream
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.RequestStream
+  nameWithType: RequestHelper.RequestStream
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.RequestStream*
+  name: RequestStream
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_RequestStream_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.RequestStream
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.RequestStream
+  nameWithType: RequestHelper.RequestStream
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys
+  name: ResponseQuerys()
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ResponseQuerys
+  commentId: M:One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys()
+  nameWithType: RequestHelper.ResponseQuerys()
+- uid: One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys*
+  name: ResponseQuerys
+  href: api/One.Core.Helpers.HttpHelper.RequestHelper.html#One_Core_Helpers_HttpHelper_RequestHelper_ResponseQuerys_
+  commentId: Overload:One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.RequestHelper.ResponseQuerys
+  nameWithType: RequestHelper.ResponseQuerys
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper
+  name: ResponseHelper
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html
+  commentId: T:One.Core.Helpers.HttpHelper.ResponseHelper
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper
+  nameWithType: ResponseHelper
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.#ctor(System.Net.HttpListenerResponse)
+  name: ResponseHelper(HttpListenerResponse)
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper__ctor_System_Net_HttpListenerResponse_
+  commentId: M:One.Core.Helpers.HttpHelper.ResponseHelper.#ctor(System.Net.HttpListenerResponse)
+  name.vb: New(HttpListenerResponse)
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.ResponseHelper(System.Net.HttpListenerResponse)
+  fullName.vb: One.Core.Helpers.HttpHelper.ResponseHelper.New(System.Net.HttpListenerResponse)
+  nameWithType: ResponseHelper.ResponseHelper(HttpListenerResponse)
+  nameWithType.vb: ResponseHelper.New(HttpListenerResponse)
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.#ctor*
+  name: ResponseHelper
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper__ctor_
+  commentId: Overload:One.Core.Helpers.HttpHelper.ResponseHelper.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.ResponseHelper
+  fullName.vb: One.Core.Helpers.HttpHelper.ResponseHelper.New
+  nameWithType: ResponseHelper.ResponseHelper
+  nameWithType.vb: ResponseHelper.New
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject
+  name: ResponseHelper.FileObject
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.html
+  commentId: T:One.Core.Helpers.HttpHelper.ResponseHelper.FileObject
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject
+  nameWithType: ResponseHelper.FileObject
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.buffer
+  name: buffer
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.html#One_Core_Helpers_HttpHelper_ResponseHelper_FileObject_buffer
+  commentId: F:One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.buffer
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.buffer
+  nameWithType: ResponseHelper.FileObject.buffer
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.fs
+  name: fs
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.html#One_Core_Helpers_HttpHelper_ResponseHelper_FileObject_fs
+  commentId: F:One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.fs
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.fs
+  nameWithType: ResponseHelper.FileObject.fs
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream
+  name: OutputStream
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper_OutputStream
+  commentId: P:One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream
+  nameWithType: ResponseHelper.OutputStream
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream*
+  name: OutputStream
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper_OutputStream_
+  commentId: Overload:One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.OutputStream
+  nameWithType: ResponseHelper.OutputStream
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(System.Byte[])
+  name: WriteToClient(byte[])
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper_WriteToClient_System_Byte___
+  commentId: M:One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(System.Byte[])
+  name.vb: WriteToClient(Byte())
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(byte[])
+  fullName.vb: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(Byte())
+  nameWithType: ResponseHelper.WriteToClient(byte[])
+  nameWithType.vb: ResponseHelper.WriteToClient(Byte())
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
+  name: WriteToClient(FileStream)
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper_WriteToClient_System_IO_FileStream_
+  commentId: M:One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient(System.IO.FileStream)
+  nameWithType: ResponseHelper.WriteToClient(FileStream)
+- uid: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient*
+  name: WriteToClient
+  href: api/One.Core.Helpers.HttpHelper.ResponseHelper.html#One_Core_Helpers_HttpHelper_ResponseHelper_WriteToClient_
+  commentId: Overload:One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.ResponseHelper.WriteToClient
+  nameWithType: ResponseHelper.WriteToClient
+- uid: One.Core.Helpers.HttpHelper.StreamExtensions
+  name: StreamExtensions
+  href: api/One.Core.Helpers.HttpHelper.StreamExtensions.html
+  commentId: T:One.Core.Helpers.HttpHelper.StreamExtensions
+  fullName: One.Core.Helpers.HttpHelper.StreamExtensions
+  nameWithType: StreamExtensions
+- uid: One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Int32,System.IProgress{System.Int64},System.Threading.CancellationToken)
+  name: CopyToAsync(Stream, Stream, int, IProgress<long>, CancellationToken)
+  href: api/One.Core.Helpers.HttpHelper.StreamExtensions.html#One_Core_Helpers_HttpHelper_StreamExtensions_CopyToAsync_System_IO_Stream_System_IO_Stream_System_Int32_System_IProgress_System_Int64__System_Threading_CancellationToken_
+  commentId: M:One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Int32,System.IProgress{System.Int64},System.Threading.CancellationToken)
+  name.vb: CopyToAsync(Stream, Stream, Integer, IProgress(Of Long), CancellationToken)
+  fullName: One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream, System.IO.Stream, int, System.IProgress<long>, System.Threading.CancellationToken)
+  fullName.vb: One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream, System.IO.Stream, Integer, System.IProgress(Of Long), System.Threading.CancellationToken)
+  nameWithType: StreamExtensions.CopyToAsync(Stream, Stream, int, IProgress<long>, CancellationToken)
+  nameWithType.vb: StreamExtensions.CopyToAsync(Stream, Stream, Integer, IProgress(Of Long), CancellationToken)
+- uid: One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync*
+  name: CopyToAsync
+  href: api/One.Core.Helpers.HttpHelper.StreamExtensions.html#One_Core_Helpers_HttpHelper_StreamExtensions_CopyToAsync_
+  commentId: Overload:One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync
+  isSpec: "True"
+  fullName: One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync
+  nameWithType: StreamExtensions.CopyToAsync
 - uid: One.Core.Helpers.IOHelper
   name: IOHelper
   href: api/One.Core.Helpers.IOHelper.html
@@ -7587,6 +7587,44 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.ReflectionHelper.GetParentMethodName
   nameWithType: ReflectionHelper.GetParentMethodName
+- uid: One.Core.Helpers.RegistryHelper
+  name: RegistryHelper
+  href: api/One.Core.Helpers.RegistryHelper.html
+  commentId: T:One.Core.Helpers.RegistryHelper
+  fullName: One.Core.Helpers.RegistryHelper
+  nameWithType: RegistryHelper
+- uid: One.Core.Helpers.RegistryHelper.ReadSetting(System.String,System.String,System.String)
+  name: ReadSetting(string, string, string)
+  href: api/One.Core.Helpers.RegistryHelper.html#One_Core_Helpers_RegistryHelper_ReadSetting_System_String_System_String_System_String_
+  commentId: M:One.Core.Helpers.RegistryHelper.ReadSetting(System.String,System.String,System.String)
+  name.vb: ReadSetting(String, String, String)
+  fullName: One.Core.Helpers.RegistryHelper.ReadSetting(string, string, string)
+  fullName.vb: One.Core.Helpers.RegistryHelper.ReadSetting(String, String, String)
+  nameWithType: RegistryHelper.ReadSetting(string, string, string)
+  nameWithType.vb: RegistryHelper.ReadSetting(String, String, String)
+- uid: One.Core.Helpers.RegistryHelper.ReadSetting*
+  name: ReadSetting
+  href: api/One.Core.Helpers.RegistryHelper.html#One_Core_Helpers_RegistryHelper_ReadSetting_
+  commentId: Overload:One.Core.Helpers.RegistryHelper.ReadSetting
+  isSpec: "True"
+  fullName: One.Core.Helpers.RegistryHelper.ReadSetting
+  nameWithType: RegistryHelper.ReadSetting
+- uid: One.Core.Helpers.RegistryHelper.WriteKey(System.String,System.String,System.String)
+  name: WriteKey(string, string, string)
+  href: api/One.Core.Helpers.RegistryHelper.html#One_Core_Helpers_RegistryHelper_WriteKey_System_String_System_String_System_String_
+  commentId: M:One.Core.Helpers.RegistryHelper.WriteKey(System.String,System.String,System.String)
+  name.vb: WriteKey(String, String, String)
+  fullName: One.Core.Helpers.RegistryHelper.WriteKey(string, string, string)
+  fullName.vb: One.Core.Helpers.RegistryHelper.WriteKey(String, String, String)
+  nameWithType: RegistryHelper.WriteKey(string, string, string)
+  nameWithType.vb: RegistryHelper.WriteKey(String, String, String)
+- uid: One.Core.Helpers.RegistryHelper.WriteKey*
+  name: WriteKey
+  href: api/One.Core.Helpers.RegistryHelper.html#One_Core_Helpers_RegistryHelper_WriteKey_
+  commentId: Overload:One.Core.Helpers.RegistryHelper.WriteKey
+  isSpec: "True"
+  fullName: One.Core.Helpers.RegistryHelper.WriteKey
+  nameWithType: RegistryHelper.WriteKey
 - uid: One.Core.Helpers.ServiceHelper
   name: ServiceHelper
   href: api/One.Core.Helpers.ServiceHelper.html
@@ -8119,31 +8157,44 @@ references:
   isSpec: "True"
   fullName: One.Core.Models.Configs.TestSecquenceConfigM.TestSecquenceItemConfigList
   nameWithType: TestSecquenceConfigM.TestSecquenceItemConfigList
-- uid: One.Protect
-  name: One.Protect
-  href: api/One.Protect.html
-  commentId: N:One.Protect
-  fullName: One.Protect
-  nameWithType: One.Protect
-- uid: One.Protect.SystemInfo
+- uid: One.Core.Protect
+  name: One.Core.Protect
+  href: api/One.Core.Protect.html
+  commentId: N:One.Core.Protect
+  fullName: One.Core.Protect
+  nameWithType: One.Core.Protect
+- uid: One.Core.Protect.SystemInfo
   name: SystemInfo
-  href: api/One.Protect.SystemInfo.html
-  commentId: T:One.Protect.SystemInfo
-  fullName: One.Protect.SystemInfo
+  href: api/One.Core.Protect.SystemInfo.html
+  commentId: T:One.Core.Protect.SystemInfo
+  fullName: One.Core.Protect.SystemInfo
   nameWithType: SystemInfo
-- uid: One.Protect.SystemInfo.GetCPUSN
+- uid: One.Core.Protect.SystemInfo.GetCPUSN
   name: GetCPUSN()
-  href: api/One.Protect.SystemInfo.html#One_Protect_SystemInfo_GetCPUSN
-  commentId: M:One.Protect.SystemInfo.GetCPUSN
-  fullName: One.Protect.SystemInfo.GetCPUSN()
+  href: api/One.Core.Protect.SystemInfo.html#One_Core_Protect_SystemInfo_GetCPUSN
+  commentId: M:One.Core.Protect.SystemInfo.GetCPUSN
+  fullName: One.Core.Protect.SystemInfo.GetCPUSN()
   nameWithType: SystemInfo.GetCPUSN()
-- uid: One.Protect.SystemInfo.GetCPUSN*
+- uid: One.Core.Protect.SystemInfo.GetCPUSN*
   name: GetCPUSN
-  href: api/One.Protect.SystemInfo.html#One_Protect_SystemInfo_GetCPUSN_
-  commentId: Overload:One.Protect.SystemInfo.GetCPUSN
+  href: api/One.Core.Protect.SystemInfo.html#One_Core_Protect_SystemInfo_GetCPUSN_
+  commentId: Overload:One.Core.Protect.SystemInfo.GetCPUSN
   isSpec: "True"
-  fullName: One.Protect.SystemInfo.GetCPUSN
+  fullName: One.Core.Protect.SystemInfo.GetCPUSN
   nameWithType: SystemInfo.GetCPUSN
+- uid: One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber
+  name: GetDiskVolumeSerialNumber()
+  href: api/One.Core.Protect.SystemInfo.html#One_Core_Protect_SystemInfo_GetDiskVolumeSerialNumber
+  commentId: M:One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber
+  fullName: One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber()
+  nameWithType: SystemInfo.GetDiskVolumeSerialNumber()
+- uid: One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber*
+  name: GetDiskVolumeSerialNumber
+  href: api/One.Core.Protect.SystemInfo.html#One_Core_Protect_SystemInfo_GetDiskVolumeSerialNumber_
+  commentId: Overload:One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber
+  isSpec: "True"
+  fullName: One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber
+  nameWithType: SystemInfo.GetDiskVolumeSerialNumber
 - uid: ZipExtractor
   name: ZipExtractor
   href: api/ZipExtractor.html

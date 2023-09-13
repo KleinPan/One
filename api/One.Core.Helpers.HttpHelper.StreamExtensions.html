@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class HardwareInfoHelper
+      <title>Class StreamExtensions
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class HardwareInfoHelper
+      <meta name="title" content="Class StreamExtensions
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_HardwareInfoHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.HardwareInfoHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_HttpHelper_StreamExtensions.md&amp;value=---%0Auid%3A%20One.Core.Helpers.HttpHelper.StreamExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,17 +84,17 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Core.Helpers.HardwareInfoHelper">
+        <article data-uid="One.Core.Helpers.HttpHelper.StreamExtensions">
 
 
 
-  <h1 id="One_Core_Helpers_HardwareInfoHelper" data-uid="One.Core.Helpers.HardwareInfoHelper" class="text-break">
-    Class HardwareInfoHelper
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HardwareInfoHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Helpers_HttpHelper_StreamExtensions" data-uid="One.Core.Helpers.HttpHelper.StreamExtensions" class="text-break">
+    Class StreamExtensions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpDownloadHelper.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a>.<a class="xref" href="One.Core.Helpers.HttpHelper.html">HttpHelper</a></dd></dl>
   <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
@@ -102,7 +102,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class HardwareInfoHelper</code></pre>
+    <pre><code class="lang-csharp hljs">public static class StreamExtensions</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">HardwareInfoHelper</span></div>
+      <div><span class="xref">StreamExtensions</span></div>
     </dd>
   </dl>
 
@@ -153,35 +153,37 @@
 </h2>
 
 
-  <a id="One_Core_Helpers_HardwareInfoHelper_MulGetHardwareInfo_" data-uid="One.Core.Helpers.HardwareInfoHelper.MulGetHardwareInfo*"></a>
+  <a id="One_Core_Helpers_HttpHelper_StreamExtensions_CopyToAsync_" data-uid="One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync*"></a>
 
-  <h3 id="One_Core_Helpers_HardwareInfoHelper_MulGetHardwareInfo_One_Core_Helpers_HardwareEnum_System_String_System_String_" data-uid="One.Core.Helpers.HardwareInfoHelper.MulGetHardwareInfo(One.Core.Helpers.HardwareEnum,System.String,System.String)">
-  MulGetHardwareInfo(HardwareEnum, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HardwareInfoHelper.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_HttpHelper_StreamExtensions_CopyToAsync_System_IO_Stream_System_IO_Stream_System_Int32_System_IProgress_System_Int64__System_Threading_CancellationToken_" data-uid="One.Core.Helpers.HttpHelper.StreamExtensions.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Int32,System.IProgress{System.Int64},System.Threading.CancellationToken)">
+  CopyToAsync(Stream, Stream, int, IProgress&lt;long&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpDownloadHelper.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>WMI取硬件信息</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string[] MulGetHardwareInfo(HardwareEnum hardType, string propKey, string filter = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task CopyToAsync(this Stream source, Stream destination, int bufferSize, IProgress&lt;long&gt; progress = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>hardType</code> <a class="xref" href="One.Core.Helpers.HardwareEnum.html">HardwareEnum</a></dt>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
     <dd></dd>
-    <dt><code>propKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>destination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
     <dd></dd>
-    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>COM</p>
-</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
     <dd></dd>
   </dl>
 
@@ -199,7 +201,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HardwareInfoHelper.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpDownloadHelper.cs/#L111" class="edit-link">Edit this page</a>
         </div>
 
         

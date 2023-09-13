@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ResponseHelper.FileObject
+      <title>Class SystemInfo
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ResponseHelper.FileObject
+      <meta name="title" content="Class SystemInfo
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helper_HttpHelper_ResponseHelper_FileObject.md&amp;value=---%0Auid%3A%20One.Core.Helper.HttpHelper.ResponseHelper.FileObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Protect_SystemInfo.md&amp;value=---%0Auid%3A%20One.Core.Protect.SystemInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,17 +84,17 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Core.Helper.HttpHelper.ResponseHelper.FileObject">
+        <article data-uid="One.Core.Protect.SystemInfo">
 
 
 
-  <h1 id="One_Core_Helper_HttpHelper_ResponseHelper_FileObject" data-uid="One.Core.Helper.HttpHelper.ResponseHelper.FileObject" class="text-break">
-    Class ResponseHelper.FileObject
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpServerHelper.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Protect_SystemInfo" data-uid="One.Core.Protect.SystemInfo" class="text-break">
+    Class SystemInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helper.html">Helper</a>.<a class="xref" href="One.Core.Helper.HttpHelper.html">HttpHelper</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Protect.html">Protect</a></dd></dl>
   <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
@@ -102,7 +102,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ResponseHelper.FileObject</code></pre>
+    <pre><code class="lang-csharp hljs">public class SystemInfo</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">ResponseHelper.FileObject</span></div>
+      <div><span class="xref">SystemInfo</span></div>
     </dd>
   </dl>
 
@@ -149,29 +149,29 @@
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="methods">Methods
 </h2>
 
 
+  <a id="One_Core_Protect_SystemInfo_GetCPUSN_" data-uid="One.Core.Protect.SystemInfo.GetCPUSN*"></a>
 
-  <h3 id="One_Core_Helper_HttpHelper_ResponseHelper_FileObject_buffer" data-uid="One.Core.Helper.HttpHelper.ResponseHelper.FileObject.buffer">
-  buffer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpServerHelper.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Protect_SystemInfo_GetCPUSN" data-uid="One.Core.Protect.SystemInfo.GetCPUSN">
+  GetCPUSN()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取CUP序列号</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] buffer</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetCPUSN()</code></pre>
   </div>
 
 
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -184,26 +184,30 @@
 
 
 
-  <h3 id="One_Core_Helper_HttpHelper_ResponseHelper_FileObject_fs" data-uid="One.Core.Helper.HttpHelper.ResponseHelper.FileObject.fs">
-  fs
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpServerHelper.cs/#L190"><i class="bi bi-code-slash"></i></a>
+
+  <a id="One_Core_Protect_SystemInfo_GetDiskVolumeSerialNumber_" data-uid="One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber*"></a>
+
+  <h3 id="One_Core_Protect_SystemInfo_GetDiskVolumeSerialNumber" data-uid="One.Core.Protect.SystemInfo.GetDiskVolumeSerialNumber">
+  GetDiskVolumeSerialNumber()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取所有盘符的第一个卷标号</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileStream fs</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetDiskVolumeSerialNumber()</code></pre>
   </div>
 
 
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
+
+
 
 
 
@@ -217,7 +221,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/HttpHelper/HttpServerHelper.cs/#L188" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
         

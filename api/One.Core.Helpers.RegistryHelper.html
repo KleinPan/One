@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SystemInfo
+      <title>Class RegistryHelper
  </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SystemInfo
+      <meta name="title" content="Class RegistryHelper
  ">
       
       <link rel="icon" href="../favicon.ico">
@@ -17,7 +17,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Protect_SystemInfo.md&amp;value=---%0Auid%3A%20One.Protect.SystemInfo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/KleinPan/One/new/master/apiSpec/new?filename=One_Core_Helpers_RegistryHelper.md&amp;value=---%0Auid%3A%20One.Core.Helpers.RegistryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="One.Protect.SystemInfo">
+        <article data-uid="One.Core.Helpers.RegistryHelper">
 
 
 
-  <h1 id="One_Protect_SystemInfo" data-uid="One.Protect.SystemInfo" class="text-break">
-    Class SystemInfo
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="One_Core_Helpers_RegistryHelper" data-uid="One.Core.Helpers.RegistryHelper" class="text-break">
+    Class RegistryHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/RegistryHelper.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Protect.html">Protect</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="One.html">One</a>.<a class="xref" href="One.Core.html">Core</a>.<a class="xref" href="One.Core.Helpers.html">Helpers</a></dd></dl>
   <dl><dt>Assembly</dt><dd>One.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>注册表帮助类</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SystemInfo</code></pre>
+    <pre><code class="lang-csharp hljs">public class RegistryHelper</code></pre>
   </div>
 
 
@@ -112,7 +113,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">SystemInfo</span></div>
+      <div><span class="xref">RegistryHelper</span></div>
     </dd>
   </dl>
 
@@ -153,20 +154,30 @@
 </h2>
 
 
-  <a id="One_Protect_SystemInfo_GetCPUSN_" data-uid="One.Protect.SystemInfo.GetCPUSN*"></a>
+  <a id="One_Core_Helpers_RegistryHelper_ReadSetting_" data-uid="One.Core.Helpers.RegistryHelper.ReadSetting*"></a>
 
-  <h3 id="One_Protect_SystemInfo_GetCPUSN" data-uid="One.Protect.SystemInfo.GetCPUSN">
-  GetCPUSN()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <h3 id="One_Core_Helpers_RegistryHelper_ReadSetting_System_String_System_String_System_String_" data-uid="One.Core.Helpers.RegistryHelper.ReadSetting(System.String,System.String,System.String)">
+  ReadSetting(string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/RegistryHelper.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>读取注册表</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetCPUSN()</code></pre>
+    <pre><code class="lang-csharp hljs">public static string ReadSetting(string Section, string Key, string Default)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Section</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Default</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
@@ -184,11 +195,52 @@
 
 
 
+  <a id="One_Core_Helpers_RegistryHelper_WriteKey_" data-uid="One.Core.Helpers.RegistryHelper.WriteKey*"></a>
+
+  <h3 id="One_Core_Helpers_RegistryHelper_WriteKey_System_String_System_String_System_String_" data-uid="One.Core.Helpers.RegistryHelper.WriteKey(System.String,System.String,System.String)">
+  WriteKey(string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/RegistryHelper.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>写入注册表</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool WriteKey(string Section, string Key, string Setting)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Section</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Setting</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Protect/SystemInfo.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Core/Helpers/RegistryHelper.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
         

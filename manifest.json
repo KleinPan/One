@@ -845,136 +845,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.CusHttpServerHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.CusHttpServerHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.HTTPClientHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.HTTPClientHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpClientExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.HttpClientExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.ProgressReport.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.HttpDownloadHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.HttpServerHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.HttpServerHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchFileStream.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.ExecutingDispatchString.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.RequestHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.FileObject.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.ResponseHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.StreamExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.StreamExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/One.Core.Helper.HttpHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/One.Core.Helper.HttpHelper.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/One.Core.Helpers.AssemblyHelper.yml",
       "output": {
         ".html": {
@@ -1175,6 +1045,136 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.CusHttpServerHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.HTTPClientHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.HTTPClientHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.HttpClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.HttpClientExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.ProgressReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.HttpDownloadHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.HttpServerHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.HttpServerHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchFileStream.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.ExecutingDispatchString.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.RequestHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.ResponseHelper.FileObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.ResponseHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.ResponseHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.StreamExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.StreamExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.HttpHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.HttpHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Core.Helpers.IOHelper.yml",
       "output": {
         ".html": {
@@ -1295,6 +1295,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.RegistryHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.RegistryHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Core.Helpers.ServiceHelper.yml",
       "output": {
         ".html": {
@@ -1385,20 +1395,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/One.Protect.SystemInfo.yml",
+      "source_relative_path": "api/One.Core.Protect.SystemInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/One.Protect.SystemInfo.html"
+          "relative_path": "api/One.Core.Protect.SystemInfo.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/One.Protect.yml",
+      "source_relative_path": "api/One.Core.Protect.yml",
       "output": {
         ".html": {
-          "relative_path": "api/One.Protect.html"
+          "relative_path": "api/One.Core.Protect.html"
         }
       },
       "version": ""

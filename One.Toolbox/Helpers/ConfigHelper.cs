@@ -1,4 +1,5 @@
 ﻿using One.Toolbox.Models;
+using One.Toolbox.Models.Serialport;
 
 using System.IO;
 
@@ -10,7 +11,8 @@ namespace One.Toolbox.Helpers
 
         public string AppPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
 
-        public const string Config = "Setting.json";
+        public const string LocalConfig = "Setting.json";
+        public const string CloudConfig = "CloudSetting.json";
         public AllConfigModel AllConfig { get; set; } = new AllConfigModel();
 
         public ConfigHelper()
@@ -21,14 +23,19 @@ namespace One.Toolbox.Helpers
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(AllConfig);
 
-            File.WriteAllText(AppPath + Config, json);
+            File.WriteAllText(AppPath + LocalConfig, json);
         }
 
-        public void Load()
+        public void LoadLocalDefaultSetting()
+        {
+            LoadTargetSetting(AppPath + LocalConfig);
+        }
+
+        public void LoadTargetSetting(string fullPath)
         {
             try
             {
-                var text = File.ReadAllText(AppPath + Config);
+                var text = File.ReadAllText(fullPath);
 
                 AllConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<AllConfigModel>(text);
             }
@@ -42,7 +49,7 @@ namespace One.Toolbox.Helpers
         {
             AllConfig = new AllConfigModel();
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new Model.ToSendData()
+            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
             {
                 Id = 0,
                 Commit = "发送",
@@ -50,7 +57,7 @@ namespace One.Toolbox.Helpers
                 Text = "Hello?",
             });
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new Model.ToSendData()
+            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
             {
                 Id = 1,
                 Commit = "Hex发送",

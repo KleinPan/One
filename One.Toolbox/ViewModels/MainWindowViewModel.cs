@@ -29,7 +29,7 @@ public partial class MainWindowViewModel : BaseViewModel
     {
         InitializeViewModel();
 
-        ConfigHelper.Instance.Load();
+        ConfigHelper.Instance.LoadLocalDefaultSetting();
         isInitialized = true;
     }
 

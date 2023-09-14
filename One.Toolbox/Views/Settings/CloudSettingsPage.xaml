@@ -12,7 +12,12 @@
     d:Height="548" d:Width="733" mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="10">
-            <Button Command="{Binding TestCommand}" />
+
+            <TextBox hc:InfoElement.Title="用户名" hc:InfoElement.TitlePlacement="Top" Style="{StaticResource TextBoxExtend}" Text="{Binding UserName}" />
+            <hc:PasswordBox hc:InfoElement.Title="密码" hc:InfoElement.TitlePlacement="Top" IsSafeEnabled="False" UnsafePassword="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            <Button Margin="5" Command="{Binding TestCommand}" Content="加载云配置" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

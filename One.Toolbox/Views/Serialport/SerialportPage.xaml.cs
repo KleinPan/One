@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Helpers;
-using One.Toolbox.Model;
+using One.Toolbox.Models.Serialport;
 using One.Toolbox.ViewModels.Serialport;
 
 using System.Diagnostics;

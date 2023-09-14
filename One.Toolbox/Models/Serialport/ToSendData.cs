@@ -1,4 +1,4 @@
-namespace One.Toolbox.Model
+namespace One.Toolbox.Models.Serialport
 {
     public partial class ToSendData : ObservableObject
     {

@@ -2,8 +2,7 @@
 using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
-using One.Toolbox.Model;
-using One.Toolbox.Tools;
+using One.Toolbox.Models.Serialport;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views;
 

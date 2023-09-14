@@ -9,12 +9,12 @@ using One.Core.Helpers;
 using One.Toolbox.Helpers;
 using One.Toolbox.Models.Dashboard;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.ViewModels.Dialogs;
 
 using RestSharp;
 
 using System.Diagnostics;
 using System.Globalization;
-using System.Reflection;
 
 namespace One.Toolbox.ViewModels;
 
@@ -109,6 +109,14 @@ public partial class DashboardViewModel : BaseViewModel
     {
         //var s = AssemblyHelper.Instance.FileVersionInfo;
         //var ab = new AssemblyHelper(Assembly.GetExecutingAssembly());
+
+        //List<InputInfoVM> inputInfoVMs = new List<InputInfoVM>()
+        //{
+        //    new InputInfoVM("aa","bb"),
+        //     new InputInfoVM("cc","dd"),
+        //     new InputInfoVM("dd","ee"),
+        //};
+        //var res = await DialogHelper.Instance.ShowInputDialog("test", inputInfoVMs);
     }
 
     private static async Task<YiyanAPI> GetEveryDayYiyan()

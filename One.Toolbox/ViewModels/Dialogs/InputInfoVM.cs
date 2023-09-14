@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using One.Toolbox.ViewModels.Base;
 
-namespace Aquarius.Common.Models
+using System.Text.RegularExpressions;
+
+namespace One.Toolbox.ViewModels.Dialogs
 {
-    public class InputInfoVM
+    public partial class InputInfoVM : BaseViewModel
     {
         /// <summary> 唯一标识符，获取时候传入 </summary>
-        public string Key { get; set; }
+        [ObservableProperty] private string key;
 
         /// <summary> 标题 </summary>
-        public string Title { get; set; }
+        [ObservableProperty] private string title;
 
         /// <summary> 描述 </summary>
-        public string Descrption { get; set; }
+        [ObservableProperty] private string descrption;
 
-        public int DataLength { get; set; }
+        [ObservableProperty] private int dataLength;
 
         /// <summary> 正则校验规则 </summary>
-        public Regex DataRule { get; set; }
+        [ObservableProperty] private Regex dataRule;
+
+        /// <summary> 结果 </summary>
+        [ObservableProperty] private string content;
 
         public InputInfoVM(string title, string key)
         {

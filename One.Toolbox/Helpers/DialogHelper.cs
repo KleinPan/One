@@ -1,6 +1,4 @@
-﻿using Aquarius.Common.Models;
-
-using HandyControl.Controls;
+﻿using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 
 using One.Toolbox.ViewModels.Dialogs;
@@ -28,18 +26,21 @@ namespace One.Toolbox.Helpers
             return await myDialog.GetResultAsync<string>();
         }
 
-        public Task<Dictionary<string, string>> ShowInputDialog(string title, List<InputInfoVM> inputInfoMs)
+        public async Task<Dictionary<string, string>> ShowInputDialog(string title, List<InputInfoVM> inputInfoMs)
         {
             //bool? diares = false;
 
-            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
-
             var myDialog = Dialog.Show<InteractiveDialogDynamic>();
-            myDialog.DataContext = new DialogVMString()
+
+            var vm = new DialogVMDynamic()
             {
                 Title = title,
             };
-            return myDialog.GetResultAsync<Dictionary<string, string>>();
+
+            myDialog.DataContext = vm;
+            vm.IniDialog(inputInfoMs);
+
+            return await myDialog.GetResultAsync<Dictionary<string, string>>();
 
             /*
             Application.Current.Dispatcher.Invoke(new Action(() =>

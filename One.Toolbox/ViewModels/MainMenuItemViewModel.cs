@@ -1,11 +1,5 @@
 ﻿using One.Toolbox.ViewModels.Base;
-using Org.BouncyCastle.Asn1.X509.Qualified;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels
@@ -18,8 +12,8 @@ namespace One.Toolbox.ViewModels
         [ObservableProperty]
         private string header;
 
-        [ObservableProperty]
-        private Type? targetPageType;
+        //[ObservableProperty]
+        //private Type? targetPageType;
 
         [ObservableProperty]
         private object icon;
@@ -32,7 +26,6 @@ namespace One.Toolbox.ViewModels
         {
             //Content = App.GetService< Type.GetType(nameof(targetPageType)) >();
             Dock = Dock.Top;
-            
         }
 
         public override string ToString()

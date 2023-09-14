@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
     d:DataContext="{d:DesignInstance Type=viewmodels:SerialportViewModel}"
-    d:Height="548" d:Width="930" mc:Ignorable="d">
+    d:Height="548" d:Width="733" mc:Ignorable="d">
     <Border Margin="2" Padding="0" Style="{StaticResource BorderRegion}">
         <Grid>
             <Grid.RowDefinitions>

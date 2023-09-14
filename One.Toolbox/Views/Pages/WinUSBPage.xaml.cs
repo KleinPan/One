@@ -110,13 +110,7 @@ namespace One.Toolbox.Views.Pages
                 return;
             loaded = true;
 
-            if (Tools.Global.IsMSIX())
-            {
-                Tools.MessageBox.Show("微软商店版无法使用该功能\r\n" +
-                    "Can't use this in MS Store Version");
-                MainGrid.IsEnabled = false;
-            }
-
+           
             //绑定
             MainGrid.DataContext = this;
 
@@ -209,7 +203,7 @@ namespace One.Toolbox.Views.Pages
             var epw = (WriteEndpointID)((int)WriteEndpointID.Ep01 + UsbOutComboBox.SelectedIndex);
             var epr = (ReadEndpointID)((int)ReadEndpointID.Ep01 + UsbInComboBox.SelectedIndex);
             byte[] buff = HexMode ? StringHelper.HexStringToBytes(toSendDataTextBox.Text) :
-                    Tools.Global.GetEncoding().GetBytes(toSendDataTextBox.Text);
+                    System.Text.Encoding.UTF8.GetBytes( toSendDataTextBox.Text);
             await Task.Run(() =>
             {
                 try

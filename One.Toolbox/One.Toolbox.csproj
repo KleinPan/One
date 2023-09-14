@@ -12,6 +12,13 @@
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
+    <Page Remove="Services\**" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Icon.png" />
     <None Remove="Resources\pexels-johannes-plenio-1103970.jpg" />
@@ -39,6 +46,7 @@
     <PackageReference Include="System.Management" Version="7.0.2" />
 	<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.16" />
     <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="3.4.16" />
+    <PackageReference Include="WebDav.Client" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,10 +74,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\pexels-johannes-plenio-1103970.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

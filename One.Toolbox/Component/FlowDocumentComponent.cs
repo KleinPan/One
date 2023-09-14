@@ -45,8 +45,7 @@ namespace One.Toolbox.Component
 
         private bool DoInvoke(Action action)
         {
-            if (Global.isMainWindowsClosed)
-                return false;
+           
             Application.Current.Dispatcher.Invoke(action);
             return true;
         }
@@ -60,15 +59,11 @@ namespace One.Toolbox.Component
         private void DataShowTask()
         {
             waitQueue.Reset();
-            Global.ProgramClosedEvent += (_, _) =>
-            {
-                waitQueue.Set();
-            };
+           
             while (true)
             {
                 waitQueue.WaitOne();
-                if (Global.isMainWindowsClosed)
-                    return;
+              
                 var logList = new List<DataShowCommon>();
                 lock (DataQueue)//取数据
                 {

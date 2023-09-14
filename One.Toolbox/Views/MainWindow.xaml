@@ -25,6 +25,7 @@
             Style="{StaticResource ButtonIconCircular}" />
 
         <Border x:Name="LeftMainContent">
+            <Border.Resources />
             <ListBox
                 Margin="0,0,0,0" Padding="0"
                 ItemsSource="{Binding NavigationItems}"
@@ -66,25 +67,34 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
-
                     <DataTemplate DataType="viewmodels:MainMenuItemViewModel">
-
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
 
                             </Grid.RowDefinitions>
-
                             <Path
                                 HorizontalAlignment="Center"
                                 Data="{Binding Icon}"
                                 Fill="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
-                                Stroke="Gray" StrokeThickness="1"
+                                RenderTransformOrigin="0.5,0.5" Stroke="Gray" StrokeThickness="1"
                                 ToolTip="{Binding Header}" />
                             <!--<TextBlock Name="text1" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Header}" />-->
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+                <d:ListBox.ItemsSource>
+                    <x:Array Type="{x:Type viewmodels:MainMenuItemViewModel}">
+                        <viewmodels:MainMenuItemViewModel Header="1" Icon="{StaticResource HomeRound}" />
+                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource TextFieldsRound}" />
+                        <viewmodels:MainMenuItemViewModel Header="2" Icon="{StaticResource SerialPort24Filled}" />
+                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource Network}" />
+                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource EditNoteFilled}" />
+
+                        <viewmodels:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource SettingsRound}" />
+                        <viewmodels:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource CloudSyncFilled}" />
+                    </x:Array>
+                </d:ListBox.ItemsSource>
             </ListBox>
             <UIElement.RenderTransform>
                 <TranslateTransform />
@@ -103,6 +113,7 @@
             Visibility="Collapsed" />
         <Border x:Name="MainContent" Grid.Column="1" Margin="10,10,10,10">
             <ContentControl Content="{Binding CurrentMenuItem.Content}" />
+            <!--  733 548  -->
         </Border>
 
     </Grid>

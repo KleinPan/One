@@ -52,7 +52,7 @@ public partial class MainWindowViewModel : BaseViewModel
             Header = "Home",
             //Icon = FontAwesome.Sharp.IconChar.Home,
             Icon = ResourceHelper.Dic["HomeRound"],
-            TargetPageType = typeof(Views.Pages.DashboardPage),
+            //TargetPageType = typeof(Views.Pages.DashboardPage),
             Content = new DashboardPage(),
         });
 
@@ -60,21 +60,21 @@ public partial class MainWindowViewModel : BaseViewModel
         {
             Header = "Text",
             Icon = ResourceHelper.Dic["TextFieldsRound"],
-            TargetPageType = typeof(Views.Pages.StringConvertPage),
+            //TargetPageType = typeof(Views.Pages.StringConvertPage),
             Content = new StringConvertPage(),
         });
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Com",
-            Icon = ResourceHelper.Dic["SerialPort20Regular"],
-            TargetPageType = typeof(Views.Serialport.SerialportPage),
+            Icon = ResourceHelper.Dic["SerialPort24Filled"],
+            //TargetPageType = typeof(Views.Serialport.SerialportPage),
             Content = new SerialportPage(),
         });
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Net",
             Icon = ResourceHelper.Dic["Network"],
-            TargetPageType = typeof(Views.Network.NetworklPage),
+            //TargetPageType = typeof(Views.Network.NetworklPage),
             Content = new NetworklPage(),
         });
 
@@ -84,16 +84,33 @@ public partial class MainWindowViewModel : BaseViewModel
         //    Icon = ResourceHelper.Dic["Network"],
 
         //});
+        NavigationItems.Add(new MainMenuItemViewModel()
+        {
+            Header = "NotePad",
+            Icon = ResourceHelper.Dic["EditNoteFilled"],
+            //TargetPageType = typeof(Views.NotePad.NotePadPage),
+            Content = new Views.NotePad.NotePadPage(),
 
+        });
+
+        //倒叙
         NavigationItems.Add(new MainMenuItemViewModel()
         {
             Header = "Setting",
             Icon = ResourceHelper.Dic["SettingsRound"],
-            TargetPageType = typeof(Views.Settings.SettingsPage),
+            //TargetPageType = typeof(Views.Settings.SettingsPage),
             Content = new SettingsPage(),
             Dock = System.Windows.Controls.Dock.Bottom,
         });
 
+        NavigationItems.Add(new MainMenuItemViewModel()
+        {
+            Header = "CloudSetting",
+            Icon = ResourceHelper.Dic["CloudSyncFilled"],
+            //TargetPageType = typeof(Views.Settings.SettingsPage),
+            Content = new CloudSettingsPage(),
+            Dock = System.Windows.Controls.Dock.Bottom,
+        });
         CurrentMenuItem = NavigationItems.First();
     }
 

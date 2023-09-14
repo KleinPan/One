@@ -10,7 +10,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Windows.Controls;
 
-namespace One.Toolbox.ViewModels.Network
+namespace One.Toolbox.ViewModels
 {
     public partial class NetworkViewModel : BaseShowViewModel
     {
@@ -357,7 +357,7 @@ namespace One.Toolbox.ViewModels.Network
             }
 
             byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
-                         Tools.Global.GetEncoding().GetBytes(DataToSend);
+                          System.Text.Encoding.UTF8.GetBytes(DataToSend); ;
 
             switch (SelectCommunProtocalType)
             {

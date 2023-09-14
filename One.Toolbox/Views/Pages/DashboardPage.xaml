@@ -40,6 +40,10 @@
                         <TextBlock
                             Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
                             Foreground="#57FFFFFF" Text="Created by pwb" />
+                        <Button
+                            HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0"
+                            Command="{Binding TestCommand}"
+                            Visibility="Visible" />
                     </Grid>
                 </Border>
             </Border>
@@ -85,7 +89,7 @@
                 <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
 
-            <Button Command="{Binding TestCommand}" Content="Test" Visibility="Visible" />
+
         </Grid>
     </ScrollViewer>
 </UserControl>

@@ -3,6 +3,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
+using One.Toolbox.ViewModels;
+
 using System.Globalization;
 using System.Windows.Threading;
 
@@ -59,7 +61,12 @@ namespace One.Toolbox
             services.AddTransient<ViewModels.Serialport.SerialportViewModel>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddTransient<ViewModels.Network.NetworkViewModel>();
+            services.AddTransient<ViewModels.NetworkViewModel>();
+
+
+            services.AddTransient<ViewModels.NotePadViewModel >(); 
+            services.AddTransient<ViewModels.CloudSettingsViewModel>();
+            
 
             return services.BuildServiceProvider();
         }
@@ -125,22 +132,7 @@ namespace One.Toolbox
                 return;
             }
 
-            Tools.MessageBox.Show($"{exception.Message}\r\nexit!");
-            return;
-            if (Tools.Global.setting.language == "zh-CN")
-                Tools.MessageBox.Show("恭喜你触发了一个BUG！\r\n" +
-                    "如果条件允许，请点击“Send Report”来上报这个BUG\r\n" +
-                    $"报错信息：{exception.Message}");
-            if (!Tools.Global.ReportBug)
-            {
-                Tools.MessageBox.Show("检测到不支持的.net版本，禁止上报bug");
-                return;
-            }
-            if (Tools.Global.HasNewVersion)
-            {
-                Tools.MessageBox.Show("检测到该软件不是最新版，禁止上报bug\r\n请保证软件是最新版");
-                return;
-            }
+          
         }
 
         #endregion Exception

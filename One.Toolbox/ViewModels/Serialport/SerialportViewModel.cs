@@ -225,7 +225,9 @@ namespace One.Toolbox.ViewModels.Serialport
         [RelayCommand]
         private void SendData()
         {
-            SendUartData(Global.GetEncoding().GetBytes(DataToSend));
+            var data = System.Text.Encoding.UTF8.GetBytes(DataToSend);
+
+            SendUartData(data);
         }
 
         [RelayCommand]

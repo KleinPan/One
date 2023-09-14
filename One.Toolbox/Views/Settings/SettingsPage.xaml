@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:EnumConverters="clr-namespace:One.Control.EnumConverters;assembly=One.Control"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:enums="clr-namespace:One.Toolbox.Enums" xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:myuc="clr-namespace:One.Toolbox.MyUserControl"
     xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
@@ -19,12 +19,10 @@
 
             <myuc:SettingItem Header="Language" SubHeader="Select which app language to display">
                 <ComboBox
-                    Grid.Column="1" MinWidth="200" SelectedIndex="0"
-                    SelectedItem="{Binding CurrentLanguage}"
-                    SelectionChanged="LanguageComboBox_SelectionChanged">
-                    <ComboBoxItem Content="zh-CN" />
-                    <ComboBoxItem Content="en-US" />
-                </ComboBox>
+                    Grid.Column="1" MinWidth="200"
+                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:LanguageEnum}}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding CurrentLanguage}" />
             </myuc:SettingItem>
 
             <myuc:SettingItem Header="Auto Update" SubHeader="{DynamicResource AboutAutoUpdate}">

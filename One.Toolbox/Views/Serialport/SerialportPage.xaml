@@ -208,7 +208,7 @@
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition SharedSizeGroup="D" />
                                     </Grid.ColumnDefinitions>
-                                    <Grid Margin="1" Background="#F6F6F6" Cursor="Cross" Tag="{Binding}" />
+                                    <Grid Margin="1" Background="{StaticResource SecondaryRegionBrush}" Cursor="Cross" Tag="{Binding}" />
                                     <TextBlock Grid.Column="0" Style="{StaticResource TextBlockDefault}" Text="{Binding Id}" ToolTip="{DynamicResource QuickSendIdTip}" />
                                     <TextBox
                                         Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" DockPanel.Dock="Left"

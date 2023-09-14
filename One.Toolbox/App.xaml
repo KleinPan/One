@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh-CN.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh_CN.xaml" />
 
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>

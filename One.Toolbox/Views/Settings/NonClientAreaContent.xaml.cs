@@ -12,7 +12,9 @@ namespace One.Toolbox.Views.Settings
     {
         public NonClientAreaContent()
         {
-            DataContext = App.Current.Services.GetService<SettingsViewModel>();
+            var vm = App.Current.Services.GetService<SettingsViewModel>();
+            vm.OnNavigatedEnter();
+            DataContext = vm;
             InitializeComponent();
         }
 

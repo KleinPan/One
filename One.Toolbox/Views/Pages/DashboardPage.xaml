@@ -33,9 +33,15 @@
                     </Border.Background>
                     <Grid>
                         <StackPanel Margin="48,0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent">
-                            <TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Windows Presentation Foundation" />
+                            <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Windows Presentation Foundation" />-->
                             <TextBlock FontSize="28" FontWeight="Bold" Foreground="#FFFFFF" Text="One.Toolbox" />
-                            <TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />
+                            <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />-->
+                            <StackPanel   VerticalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock Foreground="#B7FFFFFF"  FontSize="14" Text="{Binding Text}" />
+                                <!--<TextBlock VerticalAlignment="Center" FontSize="12" Text=" " />-->
+
+                                <TextBlock Foreground="#B7FFFFFF" VerticalAlignment="Center" FontSize="12" Text="{Binding Author}" />
+                            </StackPanel>
                         </StackPanel>
                         <TextBlock
                             Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
@@ -58,12 +64,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
             </Grid>
-            <StackPanel Grid.Row="1" Margin="0,24,0,0" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Name="txb1" FontSize="14" Text="{Binding Text}" />
-                <TextBlock VerticalAlignment="Center" FontSize="12" Text="--" />
-
-                <TextBlock VerticalAlignment="Center" FontSize="12" Text="{Binding Author}" />
-            </StackPanel>
+            
             <StackPanel Grid.Row="2" Margin="0,24,0,0">
 
                 <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Core" />
@@ -88,8 +89,6 @@
                 <uc:Hyperlink Content="Documentation" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
                 <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
             </StackPanel>
-
-
         </Grid>
     </ScrollViewer>
 </UserControl>

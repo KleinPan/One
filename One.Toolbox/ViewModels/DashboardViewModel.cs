@@ -39,7 +39,7 @@ public partial class DashboardViewModel : BaseViewModel
             var a = await GetEveryDayYiyan();
 
             Text = a.hitokoto;
-            Author = a.from;
+            Author = "--" + a.from;
         });
 
         Task.Run(async () =>

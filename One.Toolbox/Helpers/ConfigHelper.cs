@@ -1,5 +1,5 @@
-﻿using One.Toolbox.Models;
-using One.Toolbox.Models.Serialport;
+﻿using One.Toolbox.Models.Serialport;
+using One.Toolbox.Models.Setting;
 
 using System.IO;
 

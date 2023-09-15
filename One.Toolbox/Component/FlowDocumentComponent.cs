@@ -26,11 +26,16 @@ namespace One.Toolbox.Component
         private static string logAutoClearWarn = "";
         private ScrollViewer sv;
 
+        public int MaxPacksAutoClear;
+        public bool LagAutoClear=true;
         /// <summary> 禁止自动滚动？ </summary>
         public bool LockLog { get; set; } = false;
 
         public FlowDocumentComponent(FlowDocumentScrollViewer flowDocumentScrollViewer)
         {
+
+
+
             FlowDocumentScrollViewer = flowDocumentScrollViewer;
             sv = FlowDocumentScrollViewer.Template.FindName("PART_ContentHost", FlowDocumentScrollViewer) as ScrollViewer;
             sv.CanContentScroll = true;
@@ -96,9 +101,9 @@ namespace One.Toolbox.Component
                 var start = DateTime.Now;
                 if (!DoInvoke(() =>
                 {
-                    var count = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.MaxPacksAutoClear;
+                    //var count = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.MaxPacksAutoClear;
                     //条目过多，自动清空
-                    if (FlowDocumentScrollViewer.Document.Blocks.Count > count)
+                    if (FlowDocumentScrollViewer.Document.Blocks.Count > MaxPacksAutoClear)
                     {
                         FlowDocumentScrollViewer.Document.Blocks.Clear();
                         Paragraph p = new Paragraph(new Run(logAutoClearWarn));
@@ -118,8 +123,8 @@ namespace One.Toolbox.Component
                     return;
                 //如果卡顿超过了半秒，则触发自动清空
 
-                var autoClear = One.Toolbox.Helpers.ConfigHelper.Instance.AllConfig.SerialportSetting.LagAutoClear;
-                if (autoClear && (DateTime.Now - start).Milliseconds > 250)
+                
+                if (LagAutoClear && (DateTime.Now - start).Milliseconds > 250)
                 {
                     DoInvoke(() =>
                     {

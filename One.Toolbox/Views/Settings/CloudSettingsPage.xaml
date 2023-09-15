@@ -22,15 +22,15 @@
 
                 <ComboBox
                     Grid.Column="1"
-                    hc:InfoElement.Title="{DynamicResource ProtocolType}"
+                    hc:InfoElement.Title="{DynamicResource WebDAVServer}"
                     hc:InfoElement.TitlePlacement="Top"
                     ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:WebDAVTypeEnum}}"
                     SelectedIndex="0"
                     SelectedItem="{Binding SelectedWebDAVTypeEnum}"
                     Style="{StaticResource ComboBoxExtend}" />
 
-                <TextBox hc:InfoElement.Title="用户名" hc:InfoElement.TitlePlacement="Top" Style="{StaticResource TextBoxExtend}" Text="{Binding UserName}" />
-                <hc:PasswordBox hc:InfoElement.Title="密码" hc:InfoElement.TitlePlacement="Top" IsSafeEnabled="False" UnsafePassword="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox hc:InfoElement.Title="{DynamicResource UserName}" hc:InfoElement.TitlePlacement="Top" Style="{StaticResource TextBoxExtend}" Text="{Binding UserName}" />
+                <hc:PasswordBox hc:InfoElement.Title="{DynamicResource Password}" hc:InfoElement.TitlePlacement="Top" IsSafeEnabled="False" UnsafePassword="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
 
             </StackPanel>
 

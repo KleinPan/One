@@ -3,8 +3,6 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
-
 using System.Globalization;
 using System.Windows.Threading;
 
@@ -30,43 +28,46 @@ namespace One.Toolbox
             InitDataColelection();
         }
 
-
         protected override void OnExit(ExitEventArgs e)
         {
             //处理后台线程杀不掉问题
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             base.OnExit(e);
         }
+
         /// <summary> Configures the services for the application. </summary>
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
 
             // App Host
+            //Scoped 1指定将为每个作用域创建服务的新实例。 在 ASP.NET Core 应用中，会针对每个服务器请求创建一个作用域。
+            //Singleton	0指定将创建该服务的单个实例。
+            //Transient 2指定每次请求服务时，将创建该服务的新实例。
 
             // Views and ViewModels
-            //services.AddTransient<Views.MainWindow>();
-            services.AddTransient<ViewModels.MainWindowViewModel>();
+
+            services.AddSingleton<ViewModels.MainWindowViewModel>();
 
             //services.AddTransient<Views.Pages.DashboardPage>();
-            services.AddTransient<ViewModels.DashboardViewModel>();
+            services.AddSingleton<ViewModels.DashboardViewModel>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
-            services.AddTransient<ViewModels.StringConvertViewModel>();
+            services.AddSingleton<ViewModels.StringConvertViewModel>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
-            services.AddTransient<ViewModels.SettingsViewModel>();
+            services.AddSingleton<ViewModels.SettingsViewModel>();
 
             //services.AddTransient<Views.Serialport.SerialportPage>();
-            services.AddTransient<ViewModels.Serialport.SerialportViewModel>();
+            services.AddSingleton<ViewModels.Serialport.SerialportViewModel>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddTransient<ViewModels.NetworkViewModel>();
+            services.AddSingleton<ViewModels.NetworkViewModel>();
 
+            services.AddSingleton<ViewModels.NotePadViewModel>();
+            services.AddSingleton<ViewModels.CloudSettingsViewModel>();
 
-            services.AddTransient<ViewModels.NotePadViewModel >(); 
-            services.AddTransient<ViewModels.CloudSettingsViewModel>();
-            
+            services.AddSingleton<Services.SettingService>();
 
             return services.BuildServiceProvider();
         }
@@ -131,8 +132,6 @@ namespace One.Toolbox
                 Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");
                 return;
             }
-
-          
         }
 
         #endregion Exception

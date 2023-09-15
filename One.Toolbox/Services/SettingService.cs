@@ -1,0 +1,166 @@
+﻿using HandyControl.Data;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using One.Toolbox.Enums;
+using One.Toolbox.Helpers;
+using One.Toolbox.Models.Serialport;
+using One.Toolbox.Models.Setting;
+using One.Toolbox.ViewModels;
+
+using System.IO;
+
+namespace One.Toolbox.Services
+{
+    public class SettingService
+    {
+        //public SkinType SkinType = SkinType.Default;
+
+        //public LanguageEnum CurrentLanguage = LanguageEnum.zh_CN;
+
+        #region Config
+
+        public string AppPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+
+        public const string LocalConfig = "Setting.json";
+        public const string CloudConfig = "CloudSetting.json";
+        public AllConfigModel AllConfig { get; set; } = new AllConfigModel();
+
+
+
+
+
+        #endregion Config
+
+        public SettingService() 
+        {
+
+            LoadLocalDefaultSetting();
+
+            //var setting= App.Current.Services.GetService<SettingsViewModel>();
+            //setting.CurrentLanguage = AllConfig.Setting.CurrentLanguage;
+            //setting.SkinType = AllConfig.Setting.SkinType;
+
+
+            ChangSkinType(AllConfig.Setting.SkinType);
+            ChangeLanguage(AllConfig.Setting.CurrentLanguage);
+        }
+        #region Operation
+
+        public void Save()
+        {
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(AllConfig);
+
+            File.WriteAllText(AppPath + LocalConfig, json);
+        }
+
+        public void LoadLocalDefaultSetting()
+        {
+            LoadTargetSetting(AppPath + LocalConfig);
+        }
+
+        public void LoadTargetSetting(string fullPath)
+        {
+            try
+            {
+                var text = File.ReadAllText(fullPath);
+
+                AllConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<AllConfigModel>(text);
+            }
+            catch (Exception)
+            {
+                InitDefaultData();
+            }
+        }
+
+        void InitDefaultData()
+        {
+            AllConfig = new AllConfigModel();
+
+            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
+            {
+                Id = 0,
+                Commit = "发送",
+                Hex = false,
+                Text = "Hello?",
+            });
+
+            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
+            {
+                Id = 1,
+                Commit = "Hex发送",
+                Hex = true,
+                Text = "01 02 03 04",
+            });
+        }
+        #endregion
+        #region Skin
+
+        public void ChangSkinType(SkinType skin)
+        {
+            try
+            {
+                var skins0 = App.Current.Resources.MergedDictionaries[1];//APP.xaml 里边第二行
+                skins0.MergedDictionaries.Clear();
+                skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(skin));
+                skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+
+                var skins1 = App.Current.Resources.MergedDictionaries[2];
+                skins1.MergedDictionaries.Clear();
+                skins1.MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+                });
+                skins1.MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("pack://application:,,,/One.Toolbox;component/Resources/Themes/Theme.xaml")
+                });
+
+                App.Current.MainWindow?.OnApplyTemplate();
+
+                AllConfig.Setting.SkinType = skin;
+
+                Save();
+            }
+            catch (Exception ex)
+            {
+                MessageShowHelper.ShowErrorMessage(ex.Message);
+            }
+        }
+
+        #endregion Skin
+
+        #region Language
+
+        public void ChangeLanguage(LanguageEnum currentLanguage)
+        {
+            try
+            {
+                //var cmb = (System.Windows.Controls.ComboBox)sender;
+
+                //var selItem = (ComboBoxItem)cmb.SelectedValue;
+                //var CurrentLanguage = selItem.Content.ToString();
+
+                System.Windows.Application.Current.Resources.MergedDictionaries[0] = new System.Windows.ResourceDictionary()
+                {
+                    Source = new Uri($"pack://application:,,,/Resources/Languages/{currentLanguage}.xaml")
+                };
+
+                AllConfig.Setting.CurrentLanguage = currentLanguage;
+
+                Save();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Application.Current.Resources.MergedDictionaries[0] = new System.Windows.ResourceDictionary()
+                {
+                    Source = new Uri("pack://application:,,,/Resources/Languages/zh-CN.xaml", UriKind.RelativeOrAbsolute)
+                };
+
+                MessageShowHelper.ShowErrorMessage(ex.Message);
+            }
+        }
+
+        #endregion Language
+    }
+}

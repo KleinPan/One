@@ -1,4 +1,6 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="AppTitle">One.Toolbox - 能跑Lua脚本的串口调试工具</system:String>
     <system:String x:Key="OpenPort_open">打开</system:String>
     <system:String x:Key="OpenPort_close">关闭</system:String>
@@ -176,8 +178,8 @@
     <system:String x:Key="MQTTPort">服务器端口</system:String>
     <system:String x:Key="MQTTClientID">设备Client ID</system:String>
     <system:String x:Key="MQTTTLS">启用TLS</system:String>
-    <system:String x:Key="MQTTUser">用户名</system:String>
-    <system:String x:Key="MQTTPassword">密码</system:String>
+    <system:String x:Key="UserName">用户名</system:String>
+    <system:String x:Key="Password">密码</system:String>
     <system:String x:Key="MQTTKeepAlive">保活时间</system:String>
     <system:String x:Key="MQTTClean">Clean session</system:String>
     <system:String x:Key="MQTTWsPath">websocket路径</system:String>
@@ -220,4 +222,7 @@
     <system:String x:Key="SaveLog">保存Log</system:String>
     <system:String x:Key="ProtocolType">协议类型</system:String>
     <system:String x:Key="Clear">清除</system:String>
+    <system:String x:Key="WebDAVServer">WebDAV服务商</system:String>
+
+
 </ResourceDictionary>

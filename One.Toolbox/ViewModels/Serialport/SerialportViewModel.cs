@@ -1,8 +1,11 @@
-﻿using One.Core.ExtensionMethods;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using One.Core.ExtensionMethods;
 using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Models.Serialport;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views;
 
@@ -126,6 +129,9 @@ namespace One.Toolbox.ViewModels.Serialport
             var args = obj as System.Windows.RoutedEventArgs;
             var control = args.OriginalSource as FlowDocumentScrollViewer;
             flowDocumentHelper = new FlowDocumentComponent(control);
+
+            flowDocumentHelper.MaxPacksAutoClear = SerialportUISetting.MaxPacksAutoClear;
+            flowDocumentHelper.LagAutoClear = SerialportUISetting.LagAutoClear;
         }
 
         #endregion InitUI
@@ -389,22 +395,21 @@ namespace One.Toolbox.ViewModels.Serialport
 
         public void SaveSetting()
         {
-            if (serialportUISetting == null)
-            {
-                serialportUISetting = new SerialportSettingViewModel();
-            }
+            var service = App.Current.Services.GetService<SettingService>();
 
-            ConfigHelper.Instance.AllConfig.SerialportSetting = SerialportUISetting.ToModel();
-            ConfigHelper.Instance.AllConfig.SerialportParams = SerialportUISetting.SerialportParams;
+            service.AllConfig.SerialportSetting = SerialportUISetting.ToModel();
+            service.AllConfig.SerialportParams = SerialportUISetting.SerialportParams;
 
-            ConfigHelper.Instance.Save();
+            service.Save();
         }
 
         public void LoadSetting()
         {
-            SerialportUISetting = ConfigHelper.Instance.AllConfig.SerialportSetting.ToVM();
+            var service = App.Current.Services.GetService<SettingService>();
 
-            SerialportUISetting.SerialportParams = ConfigHelper.Instance.AllConfig.SerialportParams;
+            SerialportUISetting = service.AllConfig.SerialportSetting.ToVM();
+
+            SerialportUISetting.SerialportParams = service.AllConfig.SerialportParams;
 
             QuickSendList.Clear();
             QuickSendList.AddRange(SerialportUISetting.QuickSendList);

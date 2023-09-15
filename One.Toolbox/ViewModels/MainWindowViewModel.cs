@@ -29,7 +29,7 @@ public partial class MainWindowViewModel : BaseViewModel
     {
         InitializeViewModel();
 
-        ConfigHelper.Instance.LoadLocalDefaultSetting();
+        //ConfigHelper.Instance.LoadLocalDefaultSetting();
         isInitialized = true;
     }
 
@@ -90,7 +90,6 @@ public partial class MainWindowViewModel : BaseViewModel
             Icon = ResourceHelper.Dic["EditNoteFilled"],
             //TargetPageType = typeof(Views.NotePad.NotePadPage),
             Content = new Views.NotePad.NotePadPage(),
-
         });
 
         //倒叙

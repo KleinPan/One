@@ -56,7 +56,7 @@ namespace One.Toolbox.ViewModels
         public override void OnNavigatedEnter()
         {
             base.OnNavigatedEnter();
-            ConfigHelper.Instance.LoadLocalDefaultSetting();
+            //ConfigHelper.Instance.LoadLocalDefaultSetting();
         }
 
         private void DoConvert()

@@ -2,8 +2,11 @@
 
 using ICSharpCode.AvalonEdit.Editing;
 
+using Microsoft.Extensions.DependencyInjection;
+
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
 
 using System.IO;
@@ -15,6 +18,7 @@ namespace One.Toolbox.ViewModels;
 
 public partial class CloudSettingsViewModel : BaseViewModel
 {
+    //https://github.com/skazantsev/WebDavClient/tree/main
     public static IWebDavClient _client = new WebDavClient();
 
     #region UI
@@ -38,12 +42,19 @@ public partial class CloudSettingsViewModel : BaseViewModel
 
     private const string targetFile = targetDir + "/Setting.json";
     private const string targetDir = "One.Toolbox/Setting";
-
+    private SettingService settingService;
     public CloudSettingsViewModel()
     {
         InitializeViewModel();
     }
 
+    public override void InitializeViewModel()
+    {
+        base.InitializeViewModel();
+
+
+        settingService = App.Current.Services.GetService<Services.SettingService>();
+    }
     [RelayCommand]
     private async void Upload()
     {
@@ -79,54 +90,72 @@ public partial class CloudSettingsViewModel : BaseViewModel
 
     public async Task DownloadCloudSettingAsync()
     {
-        var param = InitWebDavParam();
-        using (var client = new WebDavClient(param))
+        try
         {
-            // create a setting directory
-            var resMK = await client.Mkcol(targetDir);
+            var param = InitWebDavParam();
+            using (var client = new WebDavClient(param))
+            {
+                // create a setting directory
+                var resMK = await client.Mkcol(targetDir);
 
-            if (!resMK.IsSuccessful)
-            {
-                MessageShowHelper.ShowErrorMessage("Connect failed!");
-                return;
-            }
-            var res = await client.Propfind(targetFile);
-            if (res.IsSuccessful)
-            {
-                if (res.Resources.Count > 0)
+                if (!resMK.IsSuccessful)
                 {
-                    var rsp = await client.GetRawFile(targetFile);
-
-                    using (var fileStream = File.Create(ConfigHelper.Instance.AppPath + ConfigHelper.LocalConfig))
+                    MessageShowHelper.ShowErrorMessage("Connect failed!");
+                    return;
+                }
+                var res = await client.Propfind(targetFile);
+                if (res.IsSuccessful)
+                {
+                    if (res.Resources.Count > 0)
                     {
-                        rsp.Stream.CopyTo(fileStream);
+                        var rsp = await client.GetRawFile(targetFile);
+
+                        using (var fileStream = File.Create(settingService.AppPath + SettingService.LocalConfig))
+                        {
+                            rsp.Stream.CopyTo(fileStream);
+                        }
+
+                        settingService.LoadTargetSetting(settingService.AppPath + SettingService.LocalConfig);
                     }
 
-                    ConfigHelper.Instance.LoadTargetSetting(ConfigHelper.Instance.AppPath + ConfigHelper.LocalConfig);
+                    MessageShowHelper.ShowErrorMessage("Not find cloud setting!");
                 }
-
-                MessageShowHelper.ShowErrorMessage("Not find cloud setting!");
-            }
-            else
-            {
-                MessageShowHelper.ShowErrorMessage("Not find cloud setting!");
+                else
+                {
+                    MessageShowHelper.ShowErrorMessage("Not find cloud setting!");
+                }
             }
         }
+        catch (Exception ex)
+        {
+
+            MessageShowHelper.ShowErrorMessage(ex.Message);
+        }
+       
     }
 
     public async Task UploadCloudSettingAsync()
     {
-        var param = InitWebDavParam();
-        using (var client = new WebDavClient(param))
+        try
         {
-            // create a setting directory
-            var resMK = await client.Mkcol(targetDir);
-            if (!resMK.IsSuccessful)
+            var param = InitWebDavParam();
+            using (var client = new WebDavClient(param))
             {
-                MessageShowHelper.ShowErrorMessage("Connect failed!");
-                return;
+                // create a setting directory
+                var resMK = await client.Mkcol(targetDir);
+                if (!resMK.IsSuccessful)
+                {
+                    MessageShowHelper.ShowErrorMessage("Connect failed!");
+                    return;
+                }
+                await client.PutFile(targetFile, File.OpenRead(settingService.AppPath + SettingService.LocalConfig)); // upload a resource
             }
-            await client.PutFile(targetFile, File.OpenRead(ConfigHelper.Instance.AppPath + ConfigHelper.LocalConfig)); // upload a resource
         }
+        catch (Exception ex)
+        {
+
+            MessageShowHelper.ShowErrorMessage(ex.Message);
+        }
+      
     }
 }

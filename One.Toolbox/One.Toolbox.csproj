@@ -7,20 +7,15 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	<Version>2.4.0</Version>
+	<Version>2.4.1</Version>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Services\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="Services\**" />
-    <Page Remove="Services\**" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Icon.png" />
+    <None Remove="Resources\Img\Flag\cn.png" />
+    <None Remove="Resources\Img\Flag\en.png" />
     <None Remove="Resources\pexels-johannes-plenio-1103970.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +23,10 @@
     <Content Include="Resources\Icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Img\Flag\cn.png" />
+    <Resource Include="Resources\Img\Flag\en.png" />
   </ItemGroup>
 
   <ItemGroup>

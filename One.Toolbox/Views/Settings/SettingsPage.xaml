@@ -13,17 +13,7 @@
     <ScrollViewer>
         <StackPanel Margin="10">
 
-            <myuc:SettingItem Header="App theme" SubHeader="Select which app theme to display">
-                <ComboBox Grid.Column="1" MinWidth="200" ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=hc:SkinType}}" SelectedItem="{Binding SkinType}" />
-            </myuc:SettingItem>
 
-            <myuc:SettingItem Header="Language" SubHeader="Select which app language to display">
-                <ComboBox
-                    Grid.Column="1" MinWidth="200"
-                    ItemsSource="{Binding Source={EnumConverters:EnumBindingSource EnumType=enums:LanguageEnum}}"
-                    SelectedIndex="0"
-                    SelectedItem="{Binding CurrentLanguage}" />
-            </myuc:SettingItem>
 
             <myuc:SettingItem Header="Auto Update" SubHeader="{DynamicResource AboutAutoUpdate}">
                 <CheckBox IsChecked="{Binding AutoUpdate}" />

@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HandyControl.Data;
 
+using Microsoft.Extensions.DependencyInjection;
+
+using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels;
 
@@ -10,11 +13,13 @@ namespace One.Toolbox.Views.Settings
     /// <summary> SettingHeader.xaml 的交互逻辑 </summary>
     public partial class NonClientAreaContent
     {
+        private SettingsViewModel settingsViewModel { get; set; }
+
         public NonClientAreaContent()
         {
-            var vm = App.Current.Services.GetService<SettingsViewModel>();
-            vm.OnNavigatedEnter();
-            DataContext = vm;
+            settingsViewModel = App.Current.Services.GetService<SettingsViewModel>();
+            settingsViewModel.OnNavigatedEnter();
+            DataContext = settingsViewModel;
             InitializeComponent();
         }
 
@@ -37,6 +42,43 @@ namespace One.Toolbox.Views.Settings
             else
             {
                 thisButton.SetValue(HandyControl.Controls.IconElement.GeometryProperty, ResourceHelper.Dic["PinOff20Regular"]);
+            }
+        }
+
+        private void ButtonConfig_OnClick(object sender, RoutedEventArgs e)
+        {
+            PopupConfig.IsOpen = true;
+        }
+
+        private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is Button { Tag: string langName })
+            {
+                PopupConfig.IsOpen = false;
+
+                var select = (LanguageEnum)Enum.Parse(typeof(LanguageEnum), langName);
+                if (select == settingsViewModel.CurrentLanguage)
+                {
+                    return;
+                }
+                settingsViewModel.CurrentLanguage = select;
+                var service = App.Current.Services.GetService<Services.SettingService>();
+                service.ChangeLanguage(select);
+            }
+        }
+
+        private void ButtonSkins_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is Button { Tag: SkinType skinType })
+            {
+                PopupConfig.IsOpen = false;
+                if (skinType.Equals(settingsViewModel.SkinType))
+                {
+                    return;
+                }
+                settingsViewModel.SkinType = skinType;
+                var service = App.Current.Services.GetService<Services.SettingService>();
+                service.ChangSkinType(skinType);
             }
         }
     }

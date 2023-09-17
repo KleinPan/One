@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="AppTitle">One.Toolbox - 能跑Lua脚本的串口调试工具</system:String>
-    <system:String x:Key="OpenPort_open">打开</system:String>
+    <system:String x:Key="Open">打开</system:String>
     <system:String x:Key="OpenPort_close">关闭</system:String>
     <system:String x:Key="OpenPort_port">串口</system:String>
     <system:String x:Key="ErrorOpenPort">串口打开失败！</system:String>
@@ -223,6 +223,4 @@
     <system:String x:Key="ProtocolType">协议类型</system:String>
     <system:String x:Key="Clear">清除</system:String>
     <system:String x:Key="WebDAVServer">WebDAV服务商</system:String>
-
-
 </ResourceDictionary>

@@ -12,7 +12,7 @@ using System.Windows.Controls;
 namespace One.Toolbox.Views.Pages
 {
     /// <summary> WinUSBPage.xaml 的交互逻辑 </summary>
-    [PropertyChanged.AddINotifyPropertyChangedInterface]
+
     public partial class WinUSBPage : Page
     {
         public WinUSBPage()
@@ -110,7 +110,6 @@ namespace One.Toolbox.Views.Pages
                 return;
             loaded = true;
 
-           
             //绑定
             MainGrid.DataContext = this;
 
@@ -203,7 +202,7 @@ namespace One.Toolbox.Views.Pages
             var epw = (WriteEndpointID)((int)WriteEndpointID.Ep01 + UsbOutComboBox.SelectedIndex);
             var epr = (ReadEndpointID)((int)ReadEndpointID.Ep01 + UsbInComboBox.SelectedIndex);
             byte[] buff = HexMode ? StringHelper.HexStringToBytes(toSendDataTextBox.Text) :
-                    System.Text.Encoding.UTF8.GetBytes( toSendDataTextBox.Text);
+                    System.Text.Encoding.UTF8.GetBytes(toSendDataTextBox.Text);
             await Task.Run(() =>
             {
                 try

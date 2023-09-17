@@ -51,7 +51,7 @@ namespace One.Toolbox.ViewModels.Serialport
         #region 界面显示
 
         [ObservableProperty]
-        private string openCloseButtonContent = ResourceHelper.FindStringResource("OpenPort_open");
+        private string openCloseButtonContent = ResourceHelper.FindStringResource("Open");
 
         [ObservableProperty]
         private string statusTextBlockContent = ResourceHelper.FindStringResource("OpenPort_close");
@@ -266,7 +266,7 @@ namespace One.Toolbox.ViewModels.Serialport
                     MessageShowHelper.ShowErrorMessage(ResourceHelper.FindStringResource("ErrorClosePort"));
                 }
 
-                OpenCloseButtonContent = ResourceHelper.FindStringResource("OpenPort_open");
+                OpenCloseButtonContent = ResourceHelper.FindStringResource("Open");
 
                 IsOpen = false;
 
@@ -341,7 +341,7 @@ namespace One.Toolbox.ViewModels.Serialport
                                 OpenCloseButtonContent = ResourceHelper.FindStringResource("OpenPort_close");
 
                                 //serialPortsListComboBox.IsEnabled = false;
-                                StatusTextBlockContent = ResourceHelper.FindStringResource("OpenPort_open");
+                                StatusTextBlockContent = ResourceHelper.FindStringResource("Open");
                             }));
 
                             if (toSendData != null)

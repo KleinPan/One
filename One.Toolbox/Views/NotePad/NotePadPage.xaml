@@ -1,22 +1,69 @@
-<UserControl
-    x:Class="One.Toolbox.Views.NotePad.NotePadPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
-    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-    d:DataContext="{d:DesignInstance viewmodels:NotePadViewModel,
-                                     IsDesignTimeCreatable=False}"
-    d:Height="548" d:Width="733" mc:Ignorable="d">
+<UserControl x:Class="One.Toolbox.Views.NotePad.NotePadPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
+             xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
+             d:DataContext="{d:DesignInstance viewmodels:NotePadViewModel,
+                                              IsDesignTimeCreatable=False}"
+             d:Height="548"
+             d:Width="733"
+             mc:Ignorable="d">
     <Border>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ToolBarTray VerticalAlignment="Center">
+                    <ToolBar>
+
+                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource FileOpenOutlined}" Command="{Binding OpenFileCommand}" Style="{StaticResource ButtonIcon}" />
+                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource SaveOutlined}" Command="{Binding SaveFileCommand}" Style="{StaticResource ButtonIcon}" />
+
+                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True" IsChecked="{Binding ElementName=textEditor, Path=WordWrap}" Style="{StaticResource ToggleButtonCustom}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                                    <Path Data="{StaticResource WrapTextOutlined}" Fill="Black" />
+                                </Border>
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                                <Path Data="{StaticResource WrapTextOutlined}" Fill="Black" />
+                            </Border>
+                        </ToggleButton>
+                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True" IsChecked="{Binding ElementName=textEditor, Path=ShowLineNumbers}" Style="{StaticResource ToggleButtonCustom}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
+                                </Border>
+
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
+                            </Border>
+
+                        </ToggleButton>
+                    </ToolBar>
+                </ToolBarTray>
+
+                <avalonEdit:TextEditor Name="textEditor" Grid.Row="1"
+                                       Document="{Binding Document}"
+                                       Encoding="{Binding Encoding}"
+                                       FontFamily="Consola"
+                                       IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       IsReadOnly="{Binding IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                       ShowLineNumbers="True"
+                                       SyntaxHighlighting="{Binding HighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
         </Grid>
     </Border>
-
 </UserControl>

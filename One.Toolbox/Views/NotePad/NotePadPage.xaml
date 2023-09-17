@@ -2,12 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:localVMS="clr-namespace:One.Toolbox.ViewModels.NotePad"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
-             xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-             d:DataContext="{d:DesignInstance viewmodels:NotePadViewModel,
+             xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
+             d:DataContext="{d:DesignInstance vms:NotePadViewModel,
                                               IsDesignTimeCreatable=False}"
              d:Height="548"
              d:Width="733"
@@ -15,55 +17,122 @@
     <Border>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" MinWidth="200" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
+            <Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <ToolBarTray>
 
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <ToolBarTray VerticalAlignment="Center">
-                    <ToolBar>
+                        <ToolBar>
+                            <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" Command="{Binding NewFileCommand}" Style="{StaticResource ButtonIcon}" />
+                        </ToolBar>
+                    </ToolBarTray>
+                    <!--<StackPanel HorizontalAlignment="Right">
+                        <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" Style="{StaticResource ButtonIcon}" />
+                    </StackPanel>-->
+                    <ListBox Grid.Row="1" ItemsSource="{Binding EditFileInfoViewModelOC}" SelectedItem="{Binding SelectedEditFileInfo}">
 
-                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource FileOpenOutlined}" Command="{Binding OpenFileCommand}" Style="{StaticResource ButtonIcon}" />
-                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource SaveOutlined}" Command="{Binding SaveFileCommand}" Style="{StaticResource ButtonIcon}" />
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="SelectionChanged">
+                                <behaviors:InvokeCommandAction Command="{Binding SelectedEditFileChangedCommand}" PassEventArgsToCommand="True" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+                        <ListBox.ItemContainerStyle>
+                            <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
 
-                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True" IsChecked="{Binding ElementName=textEditor, Path=WordWrap}" Style="{StaticResource ToggleButtonCustom}">
-                            <hc:StatusSwitchElement.CheckedElement>
-                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                                <Setter Property="Margin" Value="0,3,0,3" />
+
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#F4F5F7" />
+                                        <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="localVMS:EditFileInfoViewModel">
+                                <Grid>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding FileName}" />
+
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                        <d:ListBox.ItemsSource>
+                            <x:Array Type="{x:Type localVMS:EditFileInfoViewModel}">
+                                <localVMS:EditFileInfoViewModel FileName="untitled1" ModifyTime="08-02-2023" />
+                                <localVMS:EditFileInfoViewModel FileName="untitled2" ModifyTime="08-03-2023" />
+                                <localVMS:EditFileInfoViewModel FileName="untitled3" ModifyTime="08-03-2023" />
+                            </x:Array>
+                        </d:ListBox.ItemsSource>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+            <Border Grid.Column="2" Padding="0" Style="{StaticResource BorderRegion}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <ToolBarTray>
+                        <ToolBar>
+
+                            <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource FileOpenOutlined}" Command="{Binding SelectedEditFileInfo.OpenFileCommand}" Style="{StaticResource ButtonIcon}" />
+                            <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource SaveOutlined}" Command="{Binding SelectedEditFileInfo.SaveFileCommand}" Style="{StaticResource ButtonIcon}" />
+
+                            <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
+                                          IsChecked="{Binding ElementName=textEditor, Path=WordWrap}"
+                                          Style="{StaticResource ToggleButtonCustom}"
+                                          ToolTip="{DynamicResource WordWrap}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                                        <Path Data="{StaticResource WrapTextOutlined}" Fill="Black" />
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
                                     <Path Data="{StaticResource WrapTextOutlined}" Fill="Black" />
                                 </Border>
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
-                                <Path Data="{StaticResource WrapTextOutlined}" Fill="Black" />
-                            </Border>
-                        </ToggleButton>
-                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True" IsChecked="{Binding ElementName=textEditor, Path=ShowLineNumbers}" Style="{StaticResource ToggleButtonCustom}">
-                            <hc:StatusSwitchElement.CheckedElement>
-                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                            </ToggleButton>
+                            <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
+                                          IsChecked="{Binding ElementName=textEditor, Path=ShowLineNumbers}"
+                                          Style="{StaticResource ToggleButtonCustom}"
+                                          ToolTip="{DynamicResource ShowLineNum}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
                                 </Border>
-
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
-                            </Border>
-
-                        </ToggleButton>
-                    </ToolBar>
-                </ToolBarTray>
-
-                <avalonEdit:TextEditor Name="textEditor" Grid.Row="1"
-                                       Document="{Binding Document}"
-                                       Encoding="{Binding Encoding}"
-                                       FontFamily="Consola"
-                                       IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                       IsReadOnly="{Binding IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                                       ShowLineNumbers="True"
-                                       SyntaxHighlighting="{Binding HighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-            </Grid>
+                            </ToggleButton>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <Border Grid.Row="1" Style="{StaticResource BorderRegion}">
+                        <avalonEdit:TextEditor Name="textEditor"
+                                               Document="{Binding SelectedEditFileInfo.Document}"
+                                               Encoding="{Binding SelectedEditFileInfo.Encoding}"
+                                               FontFamily="Consola"
+                                               IsModified="{Binding Path=SelectedEditFileInfo.IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                               IsReadOnly="{Binding SelectedEditFileInfo.IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                               ShowLineNumbers="True"
+                                               SyntaxHighlighting="{Binding SelectedEditFileInfo.HighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </Border>
+                </Grid>
+            </Border>
         </Grid>
     </Border>
 </UserControl>

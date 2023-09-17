@@ -8,5 +8,13 @@ namespace One.Toolbox.Models.Setting
         public SerialportParams SerialportParams { get; set; } = new SerialportParams();
 
         public SettingModel Setting { get; set; } = new SettingModel();
+        public List<EditFileInfo> EditFileInfoList { get; set; } = new();
+    }
+
+    public class EditFileInfo
+    {
+        public string FileName { get; set; }
+
+        public string FilePath { get; set; }
     }
 }

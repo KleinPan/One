@@ -14,17 +14,20 @@ namespace One.Toolbox.Helpers
         /// <summary> 当前程序路径 </summary>
         private static string basePath { get; set; } = System.IO.Directory.GetCurrentDirectory();
 
-        /// <summary> 资源文件路径 </summary>
+        /// <summary> 资源文件路径带\ </summary>
         public static string resourcePath { get; set; }
 
-        /// <summary> 临时文件夹 </summary>
+        /// <summary> 临时文件夹带\ </summary>
         public static string tempPath { get; set; }
 
-        /// <summary> Log路径 </summary>
+        /// <summary> Log路径带\ </summary>
         public static string logPath { get; set; }
 
-        /// <summary> </summary>
+        /// <summary> 文档路径带\ </summary>
         public static string docPath { get; set; }
+
+        /// <summary> 数据路径带\ </summary>
+        public static string dataPath { get; set; }
 
         static PathHelper()
         {
@@ -51,6 +54,9 @@ namespace One.Toolbox.Helpers
 
             docPath = exePath + @"\Docs\";
             Directory.CreateDirectory(docPath);
+
+            dataPath = exePath + @"\Data\";
+            Directory.CreateDirectory(dataPath);
         }
     }
 }

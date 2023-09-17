@@ -1,4 +1,4 @@
-<hc:Window x:Class="One.Toolbox.Views.MainWindow"
+﻿<hc:Window x:Class="One.Toolbox.Views.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -28,7 +28,7 @@
 
         <Border x:Name="LeftMainContent">
             <Border.Resources />
-            <ListBox Margin="0,0,0,0" Padding="0"
+            <ListBox Margin="0,0,0,0" Padding="0" hc:BorderElement.CornerRadius="0"
                      ItemsSource="{Binding NavigationItems}"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      SelectedItem="{Binding CurrentMenuItem}"
@@ -47,8 +47,6 @@
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="#F4F5F7" />
                                 <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
-
-
                             </Trigger>
 
                             <!--Back <Trigger Property="Control.IsMouseOver" Value="True">
@@ -72,7 +70,6 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
-
                             </Grid.RowDefinitions>
                             <Path HorizontalAlignment="Center"
                                   Data="{Binding Icon}"
@@ -109,10 +106,9 @@
                 Click="OnLeftMainContentShiftIn"
                 Style="{StaticResource ButtonIconCircular}"
                 Visibility="Collapsed" />
-        <Border x:Name="MainContent" Grid.Column="1" Margin="10,10,10,10">
+        <Border x:Name="MainContent" Grid.Column="1" Margin="10,5,5,5">
             <ContentControl Content="{Binding CurrentMenuItem.Content}" />
             <!--  733 548  -->
         </Border>
-
     </Grid>
 </hc:Window>

@@ -223,4 +223,6 @@
     <system:String x:Key="ProtocolType">协议类型</system:String>
     <system:String x:Key="Clear">清除</system:String>
     <system:String x:Key="WebDAVServer">WebDAV服务商</system:String>
+    <system:String x:Key="ShowLineNum">显示行号</system:String>
+    <system:String x:Key="WordWrap">自动换行</system:String>
 </ResourceDictionary>

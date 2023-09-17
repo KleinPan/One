@@ -4,14 +4,16 @@ using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Utils;
 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 
+using One.Toolbox.Models.Setting;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.ViewModels.NotePad;
 
-using Org.BouncyCastle.Utilities;
-
+using System.Collections.ObjectModel;
 using System.IO;
-using System.Reflection.Metadata;
 using System.Text;
 
 namespace One.Toolbox.ViewModels;
@@ -19,27 +21,9 @@ namespace One.Toolbox.ViewModels;
 public partial class NotePadViewModel : BaseViewModel
 {
     [ObservableProperty]
-    private TextDocument document;
+    private EditFileInfoViewModel selectedEditFileInfo;
 
-    [ObservableProperty]
-    private bool isDirty;
-
-    [ObservableProperty]
-    private bool isReadOnly;
-
-    [ObservableProperty]
-    public string isReadOnlyReason;
-
-    /// <summary> 当前打开的文件路径 </summary>
-    [ObservableProperty]
-    public string filePath;
-
-    /// <summary> AvalonEdit exposes a Highlighting property that controls whether keywords, comments and other interesting text parts are colored or highlighted in any other visual way. This property exposes the highlighting information for the text file managed in this viewmodel class. </summary>
-    [ObservableProperty]
-    private IHighlightingDefinition highlightingDefinition;
-
-    [ObservableProperty]
-    private Encoding encoding = Encoding.UTF8;
+    public ObservableCollection<EditFileInfoViewModel> EditFileInfoViewModelOC { get; set; } = new ObservableCollection<EditFileInfoViewModel>();
 
     public NotePadViewModel()
     {
@@ -53,72 +37,69 @@ public partial class NotePadViewModel : BaseViewModel
 
     void InitData()
     {
-        document = new TextDocument();
+        LoadSetting();
+    }
+
+    public override void OnNavigatedLeave()
+    {
+        base.OnNavigatedLeave();
+
+        SaveSetting();
     }
 
     [RelayCommand]
-    private void OpenFile()
+    private void NewFile()
     {
-        var dlg = new OpenFileDialog();
-        if (dlg.ShowDialog().GetValueOrDefault())
-        {
-            var fileViewModel = LoadDocument(dlg.FileName);
-        }
+        EditFileInfoViewModel editFileInfoViewModel = new EditFileInfoViewModel();
+        editFileInfoViewModel.CreateNewFile();
+
+        EditFileInfoViewModelOC.Add(editFileInfoViewModel);
     }
 
     [RelayCommand]
-    private void SaveFile()
+    private void OnSelectedEditFileChanged(System.Windows.Controls.SelectionChangedEventArgs args)
     {
-        SaveDocument();
+        var newItems = args.AddedItems;
+
+        if (newItems.Count == 1)
+        {
+            var item = newItems[0] as EditFileInfoViewModel;
+            item.LoadDocument();
+        }
+        else
+        {
+        }
     }
 
-    bool LoadDocument(string filePath)
+    public void SaveSetting()
     {
-        if (File.Exists(filePath))
+        var service = App.Current.Services.GetService<SettingService>();
+
+        foreach (var item in EditFileInfoViewModelOC)
         {
-            var hlManager = HighlightingManager.Instance;
-
-            Document = new TextDocument();
-            string extension = System.IO.Path.GetExtension(filePath);
-            HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
-
-            IsDirty = false;
-            IsReadOnly = false;
-
-            // Check file attributes and set to read-only if file attributes indicate that
-            if ((System.IO.File.GetAttributes(filePath) & FileAttributes.ReadOnly) != 0)
+            EditFileInfo editFileInfo = new()
             {
-                IsReadOnly = true;
-                IsReadOnlyReason = "This file cannot be edit because another process is currently writting to it.\n" +
-                                   "Change the file access permissions or save the file in a different location if you want to edit it.";
-            }
-
-            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                using (StreamReader reader = FileReader.OpenStream(fs, Encoding))
-                {
-                    Document = new TextDocument(reader.ReadToEnd());
-                }
-            }
-
-            FilePath = filePath;
-
-            return true;
+                FilePath = item.FilePath,
+            };
+            service.AllConfig.EditFileInfoList.Add(editFileInfo);
         }
 
-        return false;
+        service.Save();
     }
 
-    void SaveDocument()
+    public void LoadSetting()
     {
-        if (FilePath == null)
-            throw new ArgumentNullException("fileName");
-        using (FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write, FileShare.None))
+        EditFileInfoViewModelOC.Clear();
+
+        var service = App.Current.Services.GetService<SettingService>();
+
+        foreach (var item in service.AllConfig.EditFileInfoList)
         {
-            StreamWriter writer = Encoding != null ? new StreamWriter(fs, Encoding) : new StreamWriter(fs);
-            if (Document != null)
-                Document.WriteTextTo(writer);
-            writer.Flush();
+            EditFileInfoViewModel editFileInfo = new()
+            {
+                FilePath = item.FilePath,
+            };
+            EditFileInfoViewModelOC.Add(editFileInfo);
         }
     }
 }

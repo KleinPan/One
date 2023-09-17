@@ -222,4 +222,6 @@
     <system:String x:Key="ProtocolType">ProtocolType</system:String>
     <system:String x:Key="Clear">Clear</system:String>
     <system:String x:Key="WebDAVServer">WebDAV Server</system:String>
+    <system:String x:Key="ShowLineNum">Show Line Num</system:String>
+    <system:String x:Key="WordWrap">Word Wrap</system:String>
 </ResourceDictionary>

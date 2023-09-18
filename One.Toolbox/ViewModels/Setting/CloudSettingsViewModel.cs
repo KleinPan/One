@@ -1,7 +1,5 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
-using ICSharpCode.AvalonEdit.Editing;
-
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Enums;
@@ -13,6 +11,8 @@ using System.IO;
 using System.Net;
 
 using WebDav;
+
+using static Vanara.PInvoke.AdvApi32;
 
 namespace One.Toolbox.ViewModels;
 
@@ -38,11 +38,18 @@ public partial class CloudSettingsViewModel : BaseViewModel
     [ObservableProperty]
     private bool isDownloading;
 
+    [ObservableProperty]
+    private bool useProxy = true;
+
+
+    [ObservableProperty]
+    private string proxyAddress= "socks5://localhost:10808";
     #endregion UI
 
     private const string targetFile = targetDir + "/Setting.json";
-    private const string targetDir = "One.Toolbox/Setting";
+    private const string targetDir = "One.Toolbox";//"One.Toolbox/Setting"//yandex 不支持 嵌套文件夹
     private SettingService settingService;
+
     public CloudSettingsViewModel()
     {
         InitializeViewModel();
@@ -52,9 +59,9 @@ public partial class CloudSettingsViewModel : BaseViewModel
     {
         base.InitializeViewModel();
 
-
         settingService = App.Current.Services.GetService<Services.SettingService>();
     }
+
     [RelayCommand]
     private async void Upload()
     {
@@ -73,7 +80,16 @@ public partial class CloudSettingsViewModel : BaseViewModel
 
     private WebDavClientParams InitWebDavParam()
     {
-        string addr = "https://dav.jianguoyun.com/dav/";
+        string addr;
+        switch (selectedWebDAVTypeEnum)
+        {
+            case WebDAVTypeEnum.坚果云: addr = "https://dav.jianguoyun.com/dav/"; break;
+            case WebDAVTypeEnum.Yandex: addr = "https://webdav.yandex.com/"; break;
+            default:
+
+                throw new Exception("Unsupport WebDAV type!");
+                break;
+        }
 
         //var httpClient = new HttpClient();
         //httpClient.DefaultRequestHeaders.Authorization =
@@ -83,7 +99,14 @@ public partial class CloudSettingsViewModel : BaseViewModel
         {
             BaseAddress = new Uri(addr),
             Credentials = new NetworkCredential(UserName, Password)
+
+             
         };
+        if (useProxy)
+        {
+            WebProxy webProxy = new WebProxy(ProxyAddress);//"socks5://localhost:10808"
+            clientParams.Proxy = webProxy;
+        }
 
         return clientParams;
     }
@@ -128,10 +151,8 @@ public partial class CloudSettingsViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-
             MessageShowHelper.ShowErrorMessage(ex.Message);
         }
-       
     }
 
     public async Task UploadCloudSettingAsync()
@@ -145,7 +166,7 @@ public partial class CloudSettingsViewModel : BaseViewModel
                 var resMK = await client.Mkcol(targetDir);
                 if (!resMK.IsSuccessful)
                 {
-                    MessageShowHelper.ShowErrorMessage("Connect failed!");
+                    MessageShowHelper.ShowErrorMessage($"Error {resMK.Description};");
                     return;
                 }
                 await client.PutFile(targetFile, File.OpenRead(settingService.AppPath + SettingService.LocalConfig)); // upload a resource
@@ -153,9 +174,7 @@ public partial class CloudSettingsViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-
             MessageShowHelper.ShowErrorMessage(ex.Message);
         }
-      
     }
 }

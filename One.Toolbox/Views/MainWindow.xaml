@@ -40,7 +40,6 @@
                         <Setter Property="Margin" Value="0,3,0,3" />
                         <Setter Property="Cursor" Value="Hand" />
                         <Setter Property="Padding" Value="3" />
-
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Style.Triggers>

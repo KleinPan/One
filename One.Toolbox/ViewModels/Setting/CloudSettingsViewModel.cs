@@ -41,9 +41,9 @@ public partial class CloudSettingsViewModel : BaseViewModel
     [ObservableProperty]
     private bool useProxy = true;
 
-
     [ObservableProperty]
-    private string proxyAddress= "socks5://localhost:10808";
+    private string proxyAddress = "socks5://localhost:10808";
+
     #endregion UI
 
     private const string targetFile = targetDir + "/Setting.json";
@@ -80,27 +80,17 @@ public partial class CloudSettingsViewModel : BaseViewModel
 
     private WebDavClientParams InitWebDavParam()
     {
-        string addr;
-        switch (selectedWebDAVTypeEnum)
+        string addr = SelectedWebDAVTypeEnum switch
         {
-            case WebDAVTypeEnum.坚果云: addr = "https://dav.jianguoyun.com/dav/"; break;
-            case WebDAVTypeEnum.Yandex: addr = "https://webdav.yandex.com/"; break;
-            default:
-
-                throw new Exception("Unsupport WebDAV type!");
-                break;
-        }
-
-        //var httpClient = new HttpClient();
-        //httpClient.DefaultRequestHeaders.Authorization =
-        //    new AuthenticationHeaderValue("964012840@qq.com", "a2tyevkb6a2fe552");
+            WebDAVTypeEnum.坚果云 => "https://dav.jianguoyun.com/dav/",
+            WebDAVTypeEnum.Yandex => "https://webdav.yandex.com/",
+            _ => throw new Exception("Unsupport WebDAV type!"),
+        };
 
         var clientParams = new WebDavClientParams
         {
             BaseAddress = new Uri(addr),
             Credentials = new NetworkCredential(UserName, Password)
-
-             
         };
         if (useProxy)
         {
@@ -160,17 +150,16 @@ public partial class CloudSettingsViewModel : BaseViewModel
         try
         {
             var param = InitWebDavParam();
-            using (var client = new WebDavClient(param))
+            //简化using
+            using var client = new WebDavClient(param);
+            // create a setting directory
+            var resMK = await client.Mkcol(targetDir);
+            if (!resMK.IsSuccessful)
             {
-                // create a setting directory
-                var resMK = await client.Mkcol(targetDir);
-                if (!resMK.IsSuccessful)
-                {
-                    MessageShowHelper.ShowErrorMessage($"Error {resMK.Description};");
-                    return;
-                }
-                await client.PutFile(targetFile, File.OpenRead(settingService.AppPath + SettingService.LocalConfig)); // upload a resource
+                MessageShowHelper.ShowErrorMessage($"Error {resMK.Description};");
+                return;
             }
+            await client.PutFile(targetFile, File.OpenRead(settingService.AppPath + SettingService.LocalConfig)); // upload a resource
         }
         catch (Exception ex)
         {

@@ -7,6 +7,7 @@ using ICSharpCode.AvalonEdit.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 
+using One.Toolbox.Helpers;
 using One.Toolbox.Models.Setting;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
@@ -47,13 +48,24 @@ public partial class NotePadViewModel : BaseViewModel
         SaveSetting();
     }
 
+    #region Command
+
     [RelayCommand]
     private void NewFile()
     {
-        EditFileInfoViewModel editFileInfoViewModel = new EditFileInfoViewModel();
-        editFileInfoViewModel.CreateNewFile();
-
-        EditFileInfoViewModelOC.Add(editFileInfoViewModel);
+        int index = EditFileInfoViewModelOC.Count;
+        string filePath = PathHelper.dataPath + "unfitled" + index + ".txt";
+        EditFileInfoViewModel editFileInfoViewModel = new EditFileInfoViewModel(filePath);
+        var res = editFileInfoViewModel.CreateNewFile();
+        if (res)
+        {
+            EditFileInfoViewModelOC.Add(editFileInfoViewModel);
+            SaveSetting();
+        }
+        else
+        {
+            MessageShowHelper.ShowWarnMessage("File already exist!");
+        }
     }
 
     [RelayCommand]
@@ -71,15 +83,50 @@ public partial class NotePadViewModel : BaseViewModel
         }
     }
 
+    [RelayCommand]
+    private void DeleteFile()
+    {
+        if (SelectedEditFileInfo != null)
+        {
+            if (File.Exists(SelectedEditFileInfo.FilePath))
+            {
+                File.Delete(SelectedEditFileInfo.FilePath);
+            }
+
+            EditFileInfoViewModelOC.Remove(SelectedEditFileInfo);
+
+            SaveSetting();
+        }
+    }
+
+    [RelayCommand]
+    private void RenameFile()
+    {
+        if (SelectedEditFileInfo != null)
+        {
+            var newFileName = "";
+            SelectedEditFileInfo.RenameFile(newFileName);
+            SaveSetting();
+        }
+    }
+
+    #endregion Command
+
+    #region Setting
+
     public void SaveSetting()
     {
         var service = App.Current.Services.GetService<SettingService>();
 
+        service.AllConfig.EditFileInfoList.Clear();
         foreach (var item in EditFileInfoViewModelOC)
         {
             EditFileInfo editFileInfo = new()
             {
                 FilePath = item.FilePath,
+                FileName = item.FileName,
+                CreateTime = item.CreateTime,
+                ModifyTime = item.ModifyTime,
             };
             service.AllConfig.EditFileInfoList.Add(editFileInfo);
         }
@@ -95,11 +142,13 @@ public partial class NotePadViewModel : BaseViewModel
 
         foreach (var item in service.AllConfig.EditFileInfoList)
         {
-            EditFileInfoViewModel editFileInfo = new()
-            {
-                FilePath = item.FilePath,
-            };
+            EditFileInfoViewModel editFileInfo = new(item.FilePath);
+            editFileInfo.CreateTime = item.CreateTime;
+            editFileInfo.ModifyTime = item.ModifyTime;
+
             EditFileInfoViewModelOC.Add(editFileInfo);
         }
     }
+
+    #endregion Setting
 }

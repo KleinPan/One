@@ -16,5 +16,7 @@ namespace One.Toolbox.Models.Setting
         public string FileName { get; set; }
 
         public string FilePath { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime ModifyTime { get; set; }
     }
 }

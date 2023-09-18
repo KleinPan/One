@@ -79,6 +79,8 @@ public partial class DashboardViewModel : BaseViewModel
 
     private void Register()
     {
+        //https://blog.cool2645.com/posts/csruanjianjiaxul/
+        //https://m.xp.cn/b.php/92230.html
         var regTime = One.Core.Helpers.RegistryHelper.ReadSetting("Toolbox", "FirstRun", "");
         if (string.IsNullOrEmpty(regTime))
         {

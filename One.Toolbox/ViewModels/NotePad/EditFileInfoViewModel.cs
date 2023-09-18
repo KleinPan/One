@@ -44,11 +44,11 @@ namespace One.Toolbox.ViewModels.NotePad
         private bool isReadOnly;
 
         [ObservableProperty]
-        public string isReadOnlyReason;
+        private string isReadOnlyReason;
 
         /// <summary> 当前打开的文件路径 </summary>
         [ObservableProperty]
-        public string filePath;
+        private string filePath;
 
         /// <summary> AvalonEdit exposes a Highlighting property that controls whether keywords, comments and other interesting text parts are colored or highlighted in any other visual way. This property exposes the highlighting information for the text file managed in this viewmodel class. </summary>
         [ObservableProperty]
@@ -57,13 +57,22 @@ namespace One.Toolbox.ViewModels.NotePad
         [ObservableProperty]
         private Encoding encoding = Encoding.UTF8;
 
+        /// <summary> UI 展示数据使用 </summary>
         public EditFileInfoViewModel()
         {
-            ModifyTime = CreateTime = DateTime.Now;
+        }
 
-            FileName = "未命名" + DateTime.Now.ToString("yyMMdd-HHmmss");
-            Extension = ".txt";
-            FilePath = PathHelper.dataPath + FileName + Extension;
+        /// <summary> 正常使用 </summary>
+        /// <param name="filePath"> </param>
+        public EditFileInfoViewModel(string filePath)
+        {
+            //FileName = "未命名" + DateTime.Now.ToString("yyMMdd-HHmmss");
+            //Extension = ".txt";
+            //FilePath = PathHelper.dataPath + FileName + Extension;
+
+            FilePath = filePath;
+            FileName = System.IO.Path.GetFileNameWithoutExtension(FilePath);
+            Extension = System.IO.Path.GetExtension(FilePath);
         }
 
         [RelayCommand]
@@ -79,22 +88,46 @@ namespace One.Toolbox.ViewModels.NotePad
         [RelayCommand]
         private void SaveFile()
         {
-            FileName = System.IO.Path.GetFileNameWithoutExtension(FilePath);
-            Extension = System.IO.Path.GetExtension(FilePath);
+            ModifyTime = CreateTime = DateTime.Now;
+
             SaveDocument();
+        }
+
+        public void RenameFile(string newFileName)
+        {
+            //Extension = System.IO.Path.GetExtension(FilePath);
+
+            FilePath = FilePath.Replace(FileName, newFileName);
+
+            FileName = newFileName;
         }
 
         public void LoadDocument()
         {
-            LoadDocument(FilePath);
+            var res = LoadDocument(FilePath);
+
+            if (!res)
+            {
+                MessageShowHelper.ShowErrorMessage($"{FilePath} 不存在！");
+            }
         }
 
-        public void CreateNewFile()
+        /// <summary> 创建文件 </summary>
+        /// <returns> </returns>
+        public bool CreateNewFile()
         {
             if (!File.Exists(FilePath))
             {
                 File.Create(FilePath).Dispose();
+
+                CreateTime = DateTime.Now;
             }
+            else
+            {
+                return false;
+            }
+
+            return true;
         }
 
         bool LoadDocument(string filePath)
@@ -127,10 +160,6 @@ namespace One.Toolbox.ViewModels.NotePad
                 }
 
                 return true;
-            }
-            else
-            {
-                MessageShowHelper.ShowErrorMessage($"{filePath} 不存在！");
             }
 
             return false;

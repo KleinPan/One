@@ -56,13 +56,14 @@ namespace One.Toolbox.Views.Settings
             {
                 PopupConfig.IsOpen = false;
 
+                var service = App.Current.Services.GetService<Services.SettingService>();
+
                 var select = (LanguageEnum)Enum.Parse(typeof(LanguageEnum), langName);
-                if (select == settingsViewModel.CurrentLanguage)
+                if (select == service.AllConfig.Setting.CurrentLanguage)
                 {
                     return;
                 }
-                settingsViewModel.CurrentLanguage = select;
-                var service = App.Current.Services.GetService<Services.SettingService>();
+
                 service.ChangeLanguage(select);
             }
         }
@@ -72,12 +73,14 @@ namespace One.Toolbox.Views.Settings
             if (e.OriginalSource is Button { Tag: SkinType skinType })
             {
                 PopupConfig.IsOpen = false;
-                if (skinType.Equals(settingsViewModel.SkinType))
+
+                var service = App.Current.Services.GetService<Services.SettingService>();
+
+                if (skinType.Equals(service.AllConfig.Setting.SkinType))
                 {
                     return;
                 }
-                settingsViewModel.SkinType = skinType;
-                var service = App.Current.Services.GetService<Services.SettingService>();
+
                 service.ChangSkinType(skinType);
             }
         }

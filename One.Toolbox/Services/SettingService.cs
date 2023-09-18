@@ -1,12 +1,11 @@
 ﻿using HandyControl.Data;
 
-using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
 using One.Toolbox.Models.Serialport;
 using One.Toolbox.Models.Setting;
-using One.Toolbox.ViewModels;
 
 using System.IO;
 
@@ -26,30 +25,26 @@ namespace One.Toolbox.Services
         public const string CloudConfig = "CloudSetting.json";
         public AllConfigModel AllConfig { get; set; } = new AllConfigModel();
 
-
-
-
-
         #endregion Config
 
-        public SettingService() 
+        public SettingService()
         {
-
             LoadLocalDefaultSetting();
-
-            //var setting= App.Current.Services.GetService<SettingsViewModel>();
-            //setting.CurrentLanguage = AllConfig.Setting.CurrentLanguage;
-            //setting.SkinType = AllConfig.Setting.SkinType;
-
 
             ChangSkinType(AllConfig.Setting.SkinType);
             ChangeLanguage(AllConfig.Setting.CurrentLanguage);
         }
+
         #region Operation
 
         public void Save()
         {
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(AllConfig);
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            };
+
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(AllConfig, Formatting.Indented, jsonSerializerSettings);
 
             File.WriteAllText(AppPath + LocalConfig, json);
         }
@@ -93,7 +88,9 @@ namespace One.Toolbox.Services
                 Text = "01 02 03 04",
             });
         }
-        #endregion
+
+        #endregion Operation
+
         #region Skin
 
         public void ChangSkinType(SkinType skin)

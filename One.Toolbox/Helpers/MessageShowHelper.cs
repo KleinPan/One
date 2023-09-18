@@ -23,6 +23,14 @@ namespace One.Toolbox.Helpers
             });
         }
 
+        public static void ShowWarnMessage(string message)
+        {
+            HandyControl.Controls.Growl.Warning(new GrowlInfo
+            {
+                Message = $"{message}",
+            });
+        }
+
         public static void ShowInfoMessage(string message)
         {
             HandyControl.Controls.Growl.Info(new GrowlInfo

@@ -985,6 +985,44 @@ references:
   isSpec: "True"
   fullName: One.Control.Behaviors.ListBoxBehavior.SetScrollOnNewItem
   nameWithType: ListBoxBehavior.SetScrollOnNewItem
+- uid: One.Control.Behaviors.SelectionChangedBehavior
+  name: SelectionChangedBehavior
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html
+  commentId: T:One.Control.Behaviors.SelectionChangedBehavior
+  fullName: One.Control.Behaviors.SelectionChangedBehavior
+  nameWithType: SelectionChangedBehavior
+- uid: One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand(System.Windows.DependencyObject)
+  name: GetSelectionChangedCommand(DependencyObject)
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html#One_Control_Behaviors_SelectionChangedBehavior_GetSelectionChangedCommand_System_Windows_DependencyObject_
+  commentId: M:One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand(System.Windows.DependencyObject)
+  fullName: One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand(System.Windows.DependencyObject)
+  nameWithType: SelectionChangedBehavior.GetSelectionChangedCommand(DependencyObject)
+- uid: One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand*
+  name: GetSelectionChangedCommand
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html#One_Control_Behaviors_SelectionChangedBehavior_GetSelectionChangedCommand_
+  commentId: Overload:One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand
+  isSpec: "True"
+  fullName: One.Control.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand
+  nameWithType: SelectionChangedBehavior.GetSelectionChangedCommand
+- uid: One.Control.Behaviors.SelectionChangedBehavior.SelectionChangedCommandProperty
+  name: SelectionChangedCommandProperty
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html#One_Control_Behaviors_SelectionChangedBehavior_SelectionChangedCommandProperty
+  commentId: F:One.Control.Behaviors.SelectionChangedBehavior.SelectionChangedCommandProperty
+  fullName: One.Control.Behaviors.SelectionChangedBehavior.SelectionChangedCommandProperty
+  nameWithType: SelectionChangedBehavior.SelectionChangedCommandProperty
+- uid: One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)
+  name: SetSelectionChangedCommand(DependencyObject, ICommand)
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html#One_Control_Behaviors_SelectionChangedBehavior_SetSelectionChangedCommand_System_Windows_DependencyObject_System_Windows_Input_ICommand_
+  commentId: M:One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)
+  fullName: One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand(System.Windows.DependencyObject, System.Windows.Input.ICommand)
+  nameWithType: SelectionChangedBehavior.SetSelectionChangedCommand(DependencyObject, ICommand)
+- uid: One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand*
+  name: SetSelectionChangedCommand
+  href: api/One.Control.Behaviors.SelectionChangedBehavior.html#One_Control_Behaviors_SelectionChangedBehavior_SetSelectionChangedCommand_
+  commentId: Overload:One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand
+  isSpec: "True"
+  fullName: One.Control.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand
+  nameWithType: SelectionChangedBehavior.SetSelectionChangedCommand
 - uid: One.Control.Command
   name: One.Control.Command
   href: api/One.Control.Command.html

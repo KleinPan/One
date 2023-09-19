@@ -225,6 +225,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Behaviors.SelectionChangedBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Behaviors.SelectionChangedBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Control.Behaviors.yml",
       "output": {
         ".html": {

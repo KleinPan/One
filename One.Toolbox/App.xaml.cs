@@ -1,7 +1,11 @@
+using CommunityToolkit.Mvvm.Messaging;
+
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
+
+using One.Toolbox.Messenger;
 
 using System.Globalization;
 using System.Windows.Threading;
@@ -30,6 +34,7 @@ namespace One.Toolbox
 
         protected override void OnExit(ExitEventArgs e)
         {
+            WeakReferenceMessenger.Default.Send(new CloseMessage());
             //处理后台线程杀不掉问题
             System.Diagnostics.Process.GetCurrentProcess().Kill();
             base.OnExit(e);

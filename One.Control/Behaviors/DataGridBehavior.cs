@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
+//https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/properties/attached-properties-overview?view=netdesktop-7.0#how-to-create-an-attached-property
 namespace One.Control.Behaviors
 {
     /// <summary> 使用方法 左尖括号 DataGrid ItemsSource="{Binding ...}" behaviors:DataGridBehavior.DisplayRowNumber="True" 右尖括号 </summary>

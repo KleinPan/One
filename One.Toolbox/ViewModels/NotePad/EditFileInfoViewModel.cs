@@ -8,6 +8,7 @@ using One.Toolbox.Helpers;
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -24,9 +25,13 @@ namespace One.Toolbox.ViewModels.NotePad
         [ObservableProperty]
         private string fileName;
 
-        /// <summary> 文件后缀 </summary>
+        /// <summary> 文件名 </summary>
         [ObservableProperty]
-        private string extension;
+        private bool isEditFileName;
+
+        /// <summary> 文件后缀 </summary>
+        //[ObservableProperty]
+        //private string extension;
 
         [ObservableProperty]
         private DateTime createTime;
@@ -52,10 +57,15 @@ namespace One.Toolbox.ViewModels.NotePad
 
         /// <summary> AvalonEdit exposes a Highlighting property that controls whether keywords, comments and other interesting text parts are colored or highlighted in any other visual way. This property exposes the highlighting information for the text file managed in this viewmodel class. </summary>
         [ObservableProperty]
-        private IHighlightingDefinition highlightingDefinition;
+        private IHighlightingDefinition selectedHighlightingDefinition;
+
+        [ObservableProperty]
+        private ReadOnlyCollection<IHighlightingDefinition> highlightingDefinitionOC;
 
         [ObservableProperty]
         private Encoding encoding = Encoding.UTF8;
+
+        public Action UpdateInfoAction { get; set; }
 
         /// <summary> UI 展示数据使用 </summary>
         public EditFileInfoViewModel()
@@ -71,8 +81,10 @@ namespace One.Toolbox.ViewModels.NotePad
             //FilePath = PathHelper.dataPath + FileName + Extension;
 
             FilePath = filePath;
-            FileName = System.IO.Path.GetFileNameWithoutExtension(FilePath);
-            Extension = System.IO.Path.GetExtension(FilePath);
+            FileName = System.IO.Path.GetFileName(FilePath);
+            //Extension = System.IO.Path.GetExtension(FilePath);
+
+            HighlightingDefinitionOC = HighlightingManager.Instance.HighlightingDefinitions;
         }
 
         [RelayCommand]
@@ -88,18 +100,47 @@ namespace One.Toolbox.ViewModels.NotePad
         [RelayCommand]
         private void SaveFile()
         {
-            ModifyTime = CreateTime = DateTime.Now;
-
             SaveDocument();
         }
 
-        public void RenameFile(string newFileName)
+        [RelayCommand]
+        private void OnSelectedHighlightingChanged(object obj)
         {
-            //Extension = System.IO.Path.GetExtension(FilePath);
+            var parames = obj as object[];
 
-            FilePath = FilePath.Replace(FileName, newFileName);
+            if (parames == null)
+                return;
 
-            FileName = newFileName;
+            if (parames.Length != 1)
+                return;
+
+            var param = parames[0] as IHighlightingDefinition;
+            if (param == null)
+                return;
+        }
+
+        partial void OnFileNameChanged(string? oldValue, string newValue)
+        {
+            if (oldValue == null)
+            {
+                return;
+            }
+            if (newValue == oldValue)
+            {
+                return;
+            }
+            if (File.Exists(FilePath))
+            {
+                File.Delete(FilePath);
+            }
+
+            FilePath = FilePath.Replace(oldValue, newValue);
+
+            IsEditFileName = false;
+
+            SaveDocument();
+
+            UpdateInfoAction?.Invoke();
         }
 
         public void LoadDocument()
@@ -120,7 +161,7 @@ namespace One.Toolbox.ViewModels.NotePad
             {
                 File.Create(FilePath).Dispose();
 
-                CreateTime = DateTime.Now;
+                ModifyTime = CreateTime = DateTime.Now;
             }
             else
             {
@@ -138,7 +179,7 @@ namespace One.Toolbox.ViewModels.NotePad
 
                 Document = new TextDocument();
                 string extension = System.IO.Path.GetExtension(filePath);
-                HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+                SelectedHighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
 
                 IsDirty = false;
                 IsReadOnly = false;
@@ -165,10 +206,16 @@ namespace One.Toolbox.ViewModels.NotePad
             return false;
         }
 
-        void SaveDocument()
+        public void SaveDocument()
         {
             if (FilePath == null)
                 throw new ArgumentNullException("fileName");
+
+            if (IsDirty)
+            {
+                ModifyTime = DateTime.Now;
+            }
+
             using (FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 StreamWriter writer = Encoding != null ? new StreamWriter(fs, Encoding) : new StreamWriter(fs);

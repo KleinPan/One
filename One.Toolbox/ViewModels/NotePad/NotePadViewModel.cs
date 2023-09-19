@@ -1,5 +1,7 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
+using CommunityToolkit.Mvvm.Messaging;
+
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Utils;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 
 using One.Toolbox.Helpers;
+using One.Toolbox.Messenger;
 using One.Toolbox.Models.Setting;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
@@ -28,6 +31,13 @@ public partial class NotePadViewModel : BaseViewModel
 
     public NotePadViewModel()
     {
+        // Register a message in some module
+        WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
+        {
+            // Handle the message here, with r being the recipient and m being the input message. Using the recipient passed as input makes it so that the lambda expression doesn't capture "this", improving performance.
+
+            SaveSetting();
+        });
     }
 
     public override void OnNavigatedEnter()
@@ -104,9 +114,10 @@ public partial class NotePadViewModel : BaseViewModel
     {
         if (SelectedEditFileInfo != null)
         {
-            var newFileName = "";
-            SelectedEditFileInfo.RenameFile(newFileName);
-            SaveSetting();
+            //var newFileName = "";
+            //SelectedEditFileInfo.RenameFile(newFileName);
+
+            SelectedEditFileInfo.IsEditFileName = true;
         }
     }
 
@@ -121,6 +132,7 @@ public partial class NotePadViewModel : BaseViewModel
         service.AllConfig.EditFileInfoList.Clear();
         foreach (var item in EditFileInfoViewModelOC)
         {
+            item.SaveDocument();
             EditFileInfo editFileInfo = new()
             {
                 FilePath = item.FilePath,
@@ -145,9 +157,15 @@ public partial class NotePadViewModel : BaseViewModel
             EditFileInfoViewModel editFileInfo = new(item.FilePath);
             editFileInfo.CreateTime = item.CreateTime;
             editFileInfo.ModifyTime = item.ModifyTime;
+            editFileInfo.UpdateInfoAction += Update;
 
             EditFileInfoViewModelOC.Add(editFileInfo);
         }
+    }
+
+    private void Update()
+    {
+        SaveSetting();
     }
 
     #endregion Setting

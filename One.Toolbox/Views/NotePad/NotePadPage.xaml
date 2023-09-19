@@ -7,6 +7,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:localVMS="clr-namespace:One.Toolbox.ViewModels.NotePad"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:onebehavior="clr-namespace:One.Control.Behaviors;assembly=One.Control"
              xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
              xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
              d:DataContext="{d:DesignInstance vms:NotePadViewModel,
@@ -55,9 +56,18 @@
                         </ListBox.ItemContainerStyle>
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="localVMS:EditFileInfoViewModel">
-                                <Border>
-                                    <TextBlock Text="{Binding FileName}" />
-                                </Border>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding FileName}" Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                                    <TextBox Height="20" MinHeight="25" Margin="0" Padding="0"
+                                             Background="Transparent" BorderThickness="0"
+                                             Text="{Binding FileName}"
+                                             Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                                    <TextBlock Grid.Row="1" FontSize="10" Opacity="0.5" Text="{Binding ModifyTime, StringFormat={}{0:yyyy-MM-dd}}" />
+                                </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
 
@@ -65,7 +75,7 @@
                             <x:Array Type="{x:Type localVMS:EditFileInfoViewModel}">
                                 <localVMS:EditFileInfoViewModel FileName="untitled1" ModifyTime="08-02-2023" />
                                 <localVMS:EditFileInfoViewModel FileName="untitled2" ModifyTime="08-03-2023" />
-                                <localVMS:EditFileInfoViewModel FileName="untitled3" ModifyTime="08-03-2023" />
+                                <localVMS:EditFileInfoViewModel FileName="untitled3" ModifyTime="08-04-2023" />
                             </x:Array>
                         </d:ListBox.ItemsSource>
                         <ListBox.ContextMenu>
@@ -117,6 +127,12 @@
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
                                 </Border>
                             </ToggleButton>
+
+                            <ComboBox Width="100"
+                                      onebehavior:SelectionChangedBehavior.SelectionChangedCommand="{Binding SelectedEditFileInfo.SelectedHighlightingChangedCommand}"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding SelectedEditFileInfo.HighlightingDefinitionOC}"
+                                      SelectedItem="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition}" />
                         </ToolBar>
                     </ToolBarTray>
                     <Border Grid.Row="1" Style="{StaticResource BorderRegion}">
@@ -127,7 +143,7 @@
                                                IsModified="{Binding Path=SelectedEditFileInfo.IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                IsReadOnly="{Binding SelectedEditFileInfo.IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                                                ShowLineNumbers="True"
-                                               SyntaxHighlighting="{Binding SelectedEditFileInfo.HighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                                               SyntaxHighlighting="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                     </Border>
                 </Grid>
             </Border>

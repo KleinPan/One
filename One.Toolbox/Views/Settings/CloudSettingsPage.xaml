@@ -35,21 +35,20 @@
 
                 <CheckBox Margin="5" Content="代理" IsChecked="{Binding UseProxy}" />
                 <TextBox hc:InfoElement.Title="地址" hc:InfoElement.TitlePlacement="Top" Style="{StaticResource TextBoxExtend}" Text="{Binding ProxyAddress}" />
-            </StackPanel>
 
-            <StackPanel Grid.Column="1" Margin="10">
-                <ToggleButton Width="180" Margin="5"
+                <ToggleButton Margin="0,20,0,10" HorizontalAlignment="Stretch"
                               Command="{Binding UploadCommand}"
                               Content="上传云配置 "
                               IsChecked="{Binding IsUploading, Mode=TwoWay}"
                               Style="{StaticResource ToggleButtonLoading}" />
-                <ToggleButton Width="180" Margin="5"
+                <ToggleButton Margin="0,10" HorizontalAlignment="Stretch"
                               Command="{Binding DownloadCommand}"
                               Content="下载云配置 "
                               IsChecked="{Binding IsDownloading, Mode=TwoWay}"
                               Style="{StaticResource ToggleButtonLoading}" />
             </StackPanel>
-        </Grid>
 
+            <StackPanel Grid.Column="1" Margin="10" />
+        </Grid>
     </ScrollViewer>
 </UserControl>

@@ -59,7 +59,7 @@
     <system:String x:Key="LuaGetShare">获取社区上分享的脚本，或把脚本分享给大家</system:String>
     <system:String x:Key="LuaFileName">文件名：</system:String>
     <system:String x:Key="LuaConfirmCreate">确认新建文件</system:String>
-    <system:String x:Key="LuaCancel">取消</system:String>
+    <system:String x:Key="Cancel">取消</system:String>
     <system:String x:Key="LuaStop">停止运行</system:String>
     <system:String x:Key="LuaQuit">退出</system:String>
     <system:String x:Key="LuaOverload">重新载入代码并运行</system:String>

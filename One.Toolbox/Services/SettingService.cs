@@ -4,8 +4,8 @@ using Newtonsoft.Json;
 
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
-using One.Toolbox.Models.Serialport;
 using One.Toolbox.Models.Setting;
+using One.Toolbox.ViewModels.Serialport;
 
 using System.IO;
 
@@ -72,7 +72,7 @@ namespace One.Toolbox.Services
         {
             AllConfig = new AllConfigModel();
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
+            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendViewModel()
             {
                 Id = 0,
                 Commit = "发送",
@@ -80,7 +80,7 @@ namespace One.Toolbox.Services
                 Text = "Hello?",
             });
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new ToSendData()
+            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendViewModel()
             {
                 Id = 1,
                 Commit = "Hex发送",

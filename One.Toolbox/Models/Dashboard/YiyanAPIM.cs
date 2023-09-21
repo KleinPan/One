@@ -1,6 +1,6 @@
 ﻿namespace One.Toolbox.Models.Dashboard
 {
-    internal class YiyanAPI
+    internal class YiyanAPIM
     {
         public int id { get; set; }
         public string uuid { get; set; }

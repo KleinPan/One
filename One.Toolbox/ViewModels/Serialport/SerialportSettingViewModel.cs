@@ -10,9 +10,14 @@ namespace One.Toolbox.ViewModels.Serialport
         [ObservableProperty]
         private List<double> stopBits = new List<double>() { 1, 2, 3 };
 
-        public bool HexShow { get; set; }
-        public bool HexSend { get; set; }
-        public bool WithExtraEnter { get; set; }
+        [ObservableProperty]
+        private bool hexShow;
+
+        [ObservableProperty]
+        private bool hexSend;
+
+        [ObservableProperty]
+        private bool withExtraEnter;
 
         /// <summary> 替换不可见字符 </summary>
         public bool EnableSymbol { get; set; }
@@ -27,7 +32,7 @@ namespace One.Toolbox.ViewModels.Serialport
 
         public SerialportParams SerialportParams { get; set; } = new SerialportParams();
 
-        public List<ToSendData> QuickSendList { get; set; } = new List<ToSendData>();
+        public List<QuickSendViewModel> QuickSendList { get; set; } = new List<QuickSendViewModel>();
 
         public SerialportSettingViewModel()
         {

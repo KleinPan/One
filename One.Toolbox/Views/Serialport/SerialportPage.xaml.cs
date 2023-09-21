@@ -23,7 +23,7 @@ namespace One.Toolbox.Views.Serialport
 
         private void Button_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ToSendData data = ((System.Windows.Controls.Button)sender).DataContext as ToSendData;
+            QuickSendViewModel data = ((System.Windows.Controls.Button)sender).DataContext as QuickSendViewModel;
             Tuple<bool, string> ret = Tools.InputDialog.OpenDialog(ResourceHelper.FindStringResource("QuickSendSetButton"),
                 data.Commit, ResourceHelper.FindStringResource("QuickSendChangeButton"));
             if (ret.Item1)

@@ -46,7 +46,7 @@ namespace One.Toolbox.ViewModels.Serialport
         private SerialPortComponent serialPortHelper { get; set; }
 
         /// <summary> 快捷发送列表 </summary>
-        public ObservableCollection<ToSendData> QuickSendList { get; set; } = new ObservableCollection<ToSendData>();
+        public ObservableCollection<QuickSendViewModel> QuickSendList { get; set; } = new ObservableCollection<QuickSendViewModel>();
 
         #region 界面显示
 
@@ -67,6 +67,17 @@ namespace One.Toolbox.ViewModels.Serialport
 
         [ObservableProperty]
         private string logTip = "右键打开Log目录";
+
+        #region 定时发送
+
+        /// <summary> 定时发送 </summary>
+        [ObservableProperty]
+        private bool timedSend;
+
+        [ObservableProperty]
+        private int timedCount = 1000;
+
+        #endregion 定时发送
 
         #endregion 界面显示
 
@@ -235,10 +246,31 @@ namespace One.Toolbox.ViewModels.Serialport
             SendUartData(data);
         }
 
+        /// <summary> 定时发送 </summary>
+        /// <param name="value"> </param>
+        /// <exception cref="NotImplementedException"> </exception>
+        partial void OnTimedSendChanged(bool value)
+        {
+            if (value)
+            {
+                Task.Run(() =>
+                {
+                    while (TimedSend)
+                    {
+                        var data = System.Text.Encoding.UTF8.GetBytes(DataToSend);
+
+                        SendUartData(data);
+
+                        Thread.Sleep(TimedCount);
+                    }
+                });
+            }
+        }
+
         [RelayCommand]
         private void AddQuickSendItem()
         {
-            QuickSendList.Add(new ToSendData() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
+            QuickSendList.Add(new QuickSendViewModel() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
         }
 
         private bool forcusClosePort = true;

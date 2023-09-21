@@ -82,15 +82,19 @@
                         </Style>
                     </StackPanel.Resources>
 
-                    <CheckBox Name="RTSCheckBox" Content="RTS" IsChecked="{Binding SerialportUISetting.SerialportParams.RtsEnable}" />
-                    <CheckBox Name="DTRCheckBox" Content="DTR" IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
-                    <CheckBox Name="HEXBox" Content="{DynamicResource ShowHexFormat}" IsChecked="{Binding SerialportUISetting.HexShow}" ToolTip="{DynamicResource ShowHexFormatTip}" />
+                    <CheckBox Content="RTS" IsChecked="{Binding SerialportUISetting.SerialportParams.RtsEnable}" />
+                    <CheckBox Content="DTR" IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
+                    <CheckBox Content="{DynamicResource HexShow}" IsChecked="{Binding SerialportUISetting.HexShow}" />
 
                     <!--<CheckBox Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />-->
 
-                    <CheckBox Name="HexSendCheckBox" HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.HexSend}" />
+                    <CheckBox HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.HexSend}" />
 
-                    <CheckBox Name="ExtraEnterCheckBox" Content="{DynamicResource AddExtraEnter}" IsChecked="{Binding SerialportUISetting.WithExtraEnter}" ToolTip="{DynamicResource AddExtraEnterTip}" />
+                    <CheckBox Content="{DynamicResource AddExtraEnter}" IsChecked="{Binding SerialportUISetting.WithExtraEnter}" />
+
+                    <CheckBox Content="{DynamicResource TimedSend}" IsChecked="{Binding TimedSend}" />
+                    <TextBox IsEnabled="{Binding TimedSend, Converter={StaticResource Boolean2BooleanReConverter}}" Style="{StaticResource TextBoxExtend.Small}" Text="{Binding TimedCount}" />
+                    <TextBlock VerticalAlignment="Center" Text="ms/次" />
                 </StackPanel>
 
                 <Grid Grid.Row="2">
@@ -145,17 +149,17 @@
                 <Button Name="refreshPortButton" Margin="2,2"
                         Command="{Binding RefreshPortListCommand}"
                         Content="{DynamicResource RefreshPortButton}"
-                        IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}" />
+                        IsEnabled="{Binding IsOpen, Converter={StaticResource Boolean2BooleanReConverter}}" />
 
                 <ComboBox MinWidth="150" MaxWidth="300"
-                          IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
+                          IsEnabled="{Binding IsOpen, Converter={StaticResource Boolean2BooleanReConverter}}"
                           ItemsSource="{Binding PortNameList}"
                           SelectedItem="{Binding SelectedPortName}" />
                 <hc:Divider Grid.Column="4" />
 
                 <ComboBox hc:TitleElement.Title="{DynamicResource ShowBaudRate}"
                           hc:TitleElement.TitlePlacement="Left" IsEditable="True"
-                          IsEnabled="{Binding IsOpen, Converter={StaticResource BoolReverseConverter}}"
+                          IsEnabled="{Binding IsOpen, Converter={StaticResource Boolean2BooleanReConverter}}"
                           ItemsSource="{Binding BaudRateList}"
                           Text="{Binding SelectedBaudRate}" />
 

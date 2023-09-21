@@ -78,7 +78,7 @@ public partial class DashboardViewModel : BaseViewModel
         //var res = await DialogHelper.Instance.ShowInputDialog("test", inputInfoVMs);
     }
 
-    private static async Task<YiyanAPI> GetEveryDayYiyan()
+    private static async Task<YiyanAPIM> GetEveryDayYiyan()
     {
         var options = new RestClientOptions("https://v1.hitokoto.cn/")
         {
@@ -88,7 +88,7 @@ public partial class DashboardViewModel : BaseViewModel
         var request = new RestRequest("");
 
         // The cancellation token comes from the caller. You can still make a call without it.
-        var timeline = await client.GetAsync<YiyanAPI>(request);
+        var timeline = await client.GetAsync<YiyanAPIM>(request);
 
         return timeline;
     }

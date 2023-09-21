@@ -26,10 +26,10 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
-            <Converters:boolConnected x:Key="boolConnected" />
+
             <oc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <oc:BoolToVisibilityConverterInverse x:Key="BoolToVisibilityConverterInverse" />
-            <Converters:BoolReverseConverter x:Key="BoolReverseConverter" />
+
             <Converters:LanguageConverter x:Key="LanguageConverter" />
         </ResourceDictionary>
     </Application.Resources>

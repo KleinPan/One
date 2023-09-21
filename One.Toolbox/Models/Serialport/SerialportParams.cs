@@ -20,7 +20,7 @@ namespace One.Toolbox.Models.Serialport
 
         public bool LagAutoClear { get; set; } = true;
 
-        public List<ToSendData> QuickSendList { get; set; } = new List<ToSendData>();
+        public List<QuickSendViewModel> QuickSendList { get; set; } = new List<QuickSendViewModel>();
 
         public SerialportSettingViewModel ToVM()
         {

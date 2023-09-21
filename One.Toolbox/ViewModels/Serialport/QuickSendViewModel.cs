@@ -1,6 +1,6 @@
-namespace One.Toolbox.Models.Serialport
+namespace One.Toolbox.ViewModels.Serialport
 {
-    public partial class ToSendData : ObservableObject
+    public partial class QuickSendViewModel : ObservableObject
     {
         [ObservableProperty]
         private int _id;

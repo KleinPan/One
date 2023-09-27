@@ -1,9 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using Microsoft.Extensions.DependencyInjection;
 
 using One.Core.ExtensionMethods;
 using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
+using One.Toolbox.Messenger;
 using One.Toolbox.Models.Serialport;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
@@ -98,6 +101,13 @@ namespace One.Toolbox.ViewModels.Serialport
         {
             if (isInitialized)
                 return;
+
+            WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
+            {
+                // Handle the message here, with r being the recipient and m being the input message. Using the recipient passed as input makes it so that the lambda expression doesn't capture "this", improving performance.
+
+                SaveSetting();
+            });
 
             RefreshPortList();
 
@@ -403,8 +413,17 @@ namespace One.Toolbox.ViewModels.Serialport
 
                 try
                 {
-                    //dataConvert = SerialportUISetting.HexSend ? ByteHelper.HexToByte(ByteHelper.ByteToString(data)) : data;
-                    dataConvert = SerialportUISetting.HexSend ? StringHelper.HexStringToBytes(StringHelper.BytesToHexString(data)) : data;
+                    if (SerialportUISetting.HexSend)
+                    {
+                        var temp = System.Text.Encoding.UTF8.GetString(data.ToArray());
+
+                        var temp2 = temp.Replace(" ", "").Replace("\r\n", "");
+                        dataConvert = StringHelper.HexStringToBytes(temp);
+                    }
+                    else
+                    {
+                        dataConvert = data;
+                    }
 
                     if (SerialportUISetting.WithExtraEnter)
                     {

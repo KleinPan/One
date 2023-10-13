@@ -46,7 +46,7 @@ namespace One.Toolbox.ViewModels.Serialport
 
         private byte[] toSendData = null;//待发送的数据
 
-        private SerialPortComponent serialPortHelper { get; set; }
+        internal SerialPortComponent serialPortHelper { get; set; }
 
         /// <summary> 快捷发送列表 </summary>
         public ObservableCollection<QuickSendViewModel> QuickSendList { get; set; } = new ObservableCollection<QuickSendViewModel>();
@@ -447,6 +447,8 @@ namespace One.Toolbox.ViewModels.Serialport
         public void SaveSetting()
         {
             var service = App.Current.Services.GetService<SettingService>();
+
+            SerialportUISetting.QuickSendList = QuickSendList.ToList();
 
             service.AllConfig.SerialportSetting = SerialportUISetting.ToModel();
             service.AllConfig.SerialportParams = SerialportUISetting.SerialportParams;

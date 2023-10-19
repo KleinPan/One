@@ -29,6 +29,9 @@ namespace One.Toolbox.Helpers
         /// <summary> 数据路径带\ </summary>
         public static string dataPath { get; set; }
 
+        /// <summary> BingImage路径带\ </summary>
+        public static string imagePath { get; set; }
+
         static PathHelper()
         {
             //exePath = System.IO.Directory.GetCurrentDirectory();
@@ -57,6 +60,9 @@ namespace One.Toolbox.Helpers
 
             dataPath = exePath + @"\Data\";
             Directory.CreateDirectory(dataPath);
+
+            imagePath = exePath + @"\BingImage\";
+            Directory.CreateDirectory(imagePath);
         }
     }
 }

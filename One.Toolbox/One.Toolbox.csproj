@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	<Version>2.4.4</Version>
+	<Version>2.5.0</Version>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>

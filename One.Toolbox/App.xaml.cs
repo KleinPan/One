@@ -72,6 +72,8 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.NotePadViewModel>();
             services.AddSingleton<ViewModels.CloudSettingsViewModel>();
 
+            services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
+
             services.AddSingleton<Services.SettingService>();
 
             return services.BuildServiceProvider();

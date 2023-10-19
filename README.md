@@ -38,13 +38,16 @@
 ![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess.jpg)
 
 ### 显示编号
-![image](https://github.com/KleinPan/One/blob/master/docs/StringHelper.jpg?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/StringHelper.png?raw=true)
 
 ### 串口工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Com.jpg?raw=true)
 
 ### 网络工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
+
+### Bing壁纸
+![image](https://github.com/KleinPan/One/blob/master/docs/BingImage.jpg?raw=true)
 
 
 

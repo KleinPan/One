@@ -92,6 +92,14 @@ public partial class MainWindowViewModel : BaseViewModel
             Content = new Views.NotePad.NotePadPage(),
         });
 
+        NavigationItems.Add(new MainMenuItemViewModel()
+        {
+            Header = "EveryImage",
+            Icon = ResourceHelper.Dic["ImageArea"],
+            //TargetPageType = typeof(Views.NotePad.NotePadPage),
+            Content = new Views.BingImage.BingImagePage(),
+        });
+
         //倒叙
         NavigationItems.Add(new MainMenuItemViewModel()
         {

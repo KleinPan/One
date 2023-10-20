@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -29,63 +30,6 @@ namespace One.Core.Helpers
 
         #region Json
 
-        public T ReadContentFromLocal<T>(string fileName, string directoryPath = "", string ext = ".json")
-        {
-            try
-            {
-                T Config;
-
-                #region 基本信息
-
-                string content = "";
-                if (string.IsNullOrEmpty(directoryPath))
-                {
-                    content = System.IO.File.ReadAllText(fileName + ext);
-                }
-                else
-                {
-                    content = System.IO.File.ReadAllText(directoryPath + fileName + ext);
-                }
-
-                Config = JsonDeserialize<T>(content);
-
-                #endregion 基本信息
-
-                return Config;
-            }
-            catch (FileNotFoundException)
-            {
-                throw new FileNotFoundException("Configuration file not found!", fileName);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void WriteContentTolocal<T>(T allGatewayConfig, string path, string fileName)
-        {
-            try
-            {
-                string newpath = path;
-                //string newpath = PathConfig.projectPath + "\\" + path;
-                if (!Directory.Exists(newpath))
-                {
-                    Directory.CreateDirectory(newpath);
-                }
-                var json = JsonConvert.SerializeObject(allGatewayConfig, Formatting.Indented, jsonSerializerSettings);
-                System.IO.File.WriteAllText(newpath + fileName + ".json", json);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        #endregion Json
-
-        #region Json_New
-
         public T ReadContentFromLocal<T>(string filePath)
         {
             try
@@ -101,8 +45,6 @@ namespace One.Core.Helpers
             catch (Exception ex)
             {
                 throw ex;
-
-                return default(T);
             }
         }
 
@@ -129,7 +71,7 @@ namespace One.Core.Helpers
             }
         }
 
-        #endregion Json_New
+        #endregion Json
 
         #region Xml
 

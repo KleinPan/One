@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace One.Toolbox.ViewModels.BingImage
 {
-    public partial class UsefullImageInfo : ObservableObject
+    public partial class UsefullImageInfoViewModel : ObservableObject
     {
         /// <summary> </summary>
         /// <param name="uAction">  指定要设置的参数。参考uAction常数表。 </param>
@@ -48,39 +48,42 @@ namespace One.Toolbox.ViewModels.BingImage
         {
             SetImageToDesktop(LocalImagePath);
         }
+
+        public UsefullImageInfoModel ToModel()
+        {
+            UsefullImageInfoModel usefullImageInfoViewModel = new UsefullImageInfoModel();
+            usefullImageInfoViewModel.Title = Title;
+            usefullImageInfoViewModel.Copyright = Copyright;
+            usefullImageInfoViewModel.LocalImagePath = LocalImagePath;
+            usefullImageInfoViewModel.LocalImageName = LocalImageName;
+            usefullImageInfoViewModel.DownloadUrl = DownloadUrl;
+
+            return usefullImageInfoViewModel;
+        }
     }
 
-    internal class BingImageModel
+    public class UsefullImageInfoModel
     {
-        public List<BingImage> images { get; set; }
-        public Tooltips tooltips { get; set; }
-    }
+        public string DownloadUrl;
 
-    public class Tooltips
-    {
-        public string loading { get; set; }
-        public string previous { get; set; }
-        public string next { get; set; }
-        public string walle { get; set; }
-        public string walls { get; set; }
-    }
+        public string Copyright;
 
-    public class BingImage
-    {
-        public string startdate { get; set; }
-        public string fullstartdate { get; set; }
-        public string enddate { get; set; }
-        public string url { get; set; }
-        public string urlbase { get; set; }
-        public string copyright { get; set; }
-        public string copyrightlink { get; set; }
-        public string title { get; set; }
-        public string quiz { get; set; }
-        public bool wp { get; set; }
-        public string hsh { get; set; }
-        public int drk { get; set; }
-        public int top { get; set; }
-        public int bot { get; set; }
-        public object[] hs { get; set; }
+        public string Title;
+
+        public string LocalImageName;
+
+        public string LocalImagePath;
+
+        public UsefullImageInfoViewModel ToVM()
+        {
+            UsefullImageInfoViewModel usefullImageInfoViewModel = new UsefullImageInfoViewModel();
+            usefullImageInfoViewModel.Title = Title;
+            usefullImageInfoViewModel.Copyright = Copyright;
+            usefullImageInfoViewModel.LocalImagePath = LocalImagePath;
+            usefullImageInfoViewModel.LocalImageName = LocalImageName;
+            usefullImageInfoViewModel.DownloadUrl = DownloadUrl;
+
+            return usefullImageInfoViewModel;
+        }
     }
 }

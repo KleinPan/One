@@ -61,7 +61,7 @@ namespace One.Toolbox.Helpers
             dataPath = exePath + @"\Data\";
             Directory.CreateDirectory(dataPath);
 
-            imagePath = exePath + @"\BingImage\";
+            imagePath = exePath + @"\BingImages\";
             Directory.CreateDirectory(imagePath);
         }
     }

@@ -1,6 +1,7 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
 using One.Core.ExtensionMethods;
+using One.Core.Helpers;
 using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
 
@@ -29,14 +30,14 @@ public partial class BingImageViewModel : BaseViewModel
         InitData();
     }
 
-    public ObservableCollection<UsefullImageInfo> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfo>();
+    public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
 
     async void InitData()
     {
         ShowLocalImage();
         var a = await GetImageInfo();
 
-        var b = FilterImage(a);
+        var b = FilterImageInfoAndSave(a);
 
         foreach (var item in b)
         {
@@ -60,11 +61,11 @@ public partial class BingImageViewModel : BaseViewModel
     {
         ObImageListInfo.Clear();
 
-        var temp = Directory.GetFiles(PathHelper.imagePath);
-
-        foreach (var item in temp)
+        var temp = Directory.GetFiles(Helpers.PathHelper.imagePath);
+        var temp2 = temp.Where(x => x.EndsWith("jpg"));
+        foreach (var item in temp2)
         {
-            UsefullImageInfo showInfo = new UsefullImageInfo();
+            UsefullImageInfoViewModel showInfo = new UsefullImageInfoViewModel();
 
             showInfo.LocalImageName = System.IO.Path.GetFileNameWithoutExtension(item);
             showInfo.LocalImagePath = item;
@@ -73,7 +74,7 @@ public partial class BingImageViewModel : BaseViewModel
         }
     }
 
-    private static async Task<BingImageModel> GetImageInfo()
+    private static async Task<BingImageOriginalModel> GetImageInfo()
     {
         //获取图片api:http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1
         //idx参数：指获取图片的时间，0（指获取当天图片），1（获取昨天照片），2（获取前天的图片），最多可获取8天前的照片。
@@ -87,33 +88,62 @@ public partial class BingImageViewModel : BaseViewModel
         var request = new RestRequest("");
 
         // The cancellation token comes from the caller. You can still make a call without it.
-        var timeline = await client.GetAsync<BingImageModel>(request);
+        var timeline = await client.GetAsync<BingImageOriginalModel>(request);
 
         return timeline;
     }
 
-    private List<UsefullImageInfo> FilterImage(BingImageModel bingImageModel)
+    private string ConfigPath = One.Toolbox.Helpers.PathHelper.imagePath + "ImageInfo.json";
+
+    private List<UsefullImageInfoViewModel> FilterImageInfoAndSave(BingImageOriginalModel bingImageModel)
     {
-        List<UsefullImageInfo> strings = new List<UsefullImageInfo>();
+        //Model
+        List<UsefullImageInfoModel> list = new List<UsefullImageInfoModel>();
+        try
+        {
+            list = IOHelper.Instance.ReadContentFromLocal<List<UsefullImageInfoModel>>(ConfigPath);
+        }
+        catch (Exception)
+        {
+        }
 
         foreach (var item in bingImageModel.images)
         {
-            UsefullImageInfo usefullImageInfo = new UsefullImageInfo();
+            if (list.Any(x => x.LocalImageName == item.fullstartdate))
+            {
+                continue;
+            }
+
+            UsefullImageInfoModel usefullImageInfo = new UsefullImageInfoModel();
 
             usefullImageInfo.DownloadUrl = "http://cn.bing.com" + item.url;
             usefullImageInfo.Copyright = item.copyright;
             usefullImageInfo.Title = item.title;
             usefullImageInfo.LocalImageName = item.fullstartdate;
 
-            usefullImageInfo.LocalImagePath = PathHelper.imagePath + item.fullstartdate + ".jpg";
+            usefullImageInfo.LocalImagePath = Helpers.PathHelper.imagePath + item.fullstartdate + ".jpg";
 
-            strings.Add(usefullImageInfo);
+            list.Add(usefullImageInfo);
+        }
+        try
+        {
+            IOHelper.Instance.WriteContentTolocal(list, ConfigPath);
+        }
+        catch (Exception ex)
+        {
+            MessageShowHelper.ShowErrorMessage(ex.Message);
         }
 
-        return strings;
+        //VM
+        List<UsefullImageInfoViewModel> listVM = new List<UsefullImageInfoViewModel>();
+        foreach (var item in list)
+        {
+            listVM.Add(item.ToVM());
+        }
+        return listVM;
     }
 
-    private async Task DownloadImage(UsefullImageInfo usefullImageInfos)
+    private async Task DownloadImage(UsefullImageInfoViewModel usefullImageInfos)
     {
         //查看图片是否已经下载，path为路径
         if (File.Exists(usefullImageInfos.LocalImagePath))

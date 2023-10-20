@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Dashboard;
 
 namespace One.Toolbox.Views.Pages;
 

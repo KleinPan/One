@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Setting;
 
 namespace One.Toolbox.Views.Settings;
 

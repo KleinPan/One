@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Setting;
 
 using System.Windows.Controls;
 

@@ -1,24 +1,18 @@
 ﻿using HandyControl.Controls;
 using HandyControl.Data;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using Newtonsoft.Json;
 
 using One.Core.Helpers;
-using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
-using One.Toolbox.Models.Dashboard;
-using One.Toolbox.Models.Setting;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.ViewModels.Dashboard;
 
 using RestSharp;
 
 using System.Diagnostics;
 
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.Setting;
 
 public partial class SettingsViewModel : BaseViewModel
 {

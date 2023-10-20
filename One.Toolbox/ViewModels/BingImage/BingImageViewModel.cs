@@ -8,13 +8,7 @@ using One.Toolbox.ViewModels.Base;
 using RestSharp;
 
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
-using System.Net.Http;
-using System.Runtime.InteropServices;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace One.Toolbox.ViewModels.BingImage;
 

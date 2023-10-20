@@ -1,13 +1,12 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
-using One.Toolbox.Models.Dashboard;
 using One.Toolbox.ViewModels.Base;
 
 using RestSharp;
 
 using System.Globalization;
 
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.Dashboard;
 
 public partial class DashboardViewModel : BaseViewModel
 {

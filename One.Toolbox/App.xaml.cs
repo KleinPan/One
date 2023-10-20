@@ -55,13 +55,13 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.MainWindowViewModel>();
 
             //services.AddTransient<Views.Pages.DashboardPage>();
-            services.AddSingleton<ViewModels.DashboardViewModel>();
+            services.AddSingleton<ViewModels.Dashboard.DashboardViewModel>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
             services.AddSingleton<ViewModels.StringConvertViewModel>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
-            services.AddSingleton<ViewModels.SettingsViewModel>();
+            services.AddSingleton<ViewModels.Setting.SettingsViewModel>();
 
             //services.AddTransient<Views.Serialport.SerialportPage>();
             services.AddSingleton<ViewModels.Serialport.SerialportViewModel>();
@@ -70,7 +70,7 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.NetworkViewModel>();
 
             services.AddSingleton<ViewModels.NotePadViewModel>();
-            services.AddSingleton<ViewModels.CloudSettingsViewModel>();
+            services.AddSingleton<ViewModels.Setting.CloudSettingsViewModel>();
 
             services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
 

@@ -1,56 +1,50 @@
 ﻿using One.Core.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
-using One.Toolbox.Models;
 
 using System.Windows.Media;
 
-namespace One.Toolbox.ViewModels.Base
+namespace One.Toolbox.ViewModels.Base;
+
+public class BaseShowViewModel : BaseViewModel
 {
-    public class BaseShowViewModel : BaseViewModel
+    protected FlowDocumentComponent flowDocumentHelper { get; set; }
+
+    /// <summary> 显示消息的方法 </summary>
+    /// <param name="title">   只支持字符串 </param>
+    /// <param name="data">    </param>
+    /// <param name="send">    </param>
+    /// <param name="hexMode"> </param>
+    public virtual void ShowData(string title = "", byte[] data = null, bool send = false, bool hexMode = false)
     {
-        protected FlowDocumentComponent flowDocumentHelper { get; set; }
+        string realData = "";
 
-        /// <summary>
-        /// 显示消息的方法
-        /// </summary>
-        /// <param name="title">只支持字符串</param>
-        /// <param name="data"></param>
-        /// <param name="send"></param>
-        /// <param name="hexMode"></param>
-        public virtual void ShowData(string title = "", byte[] data = null, bool send = false, bool hexMode = false)
+        if (data != null)
         {
-            string realData="";
-
-            if (data!=null)
+            if (hexMode)
             {
-                if (hexMode)
-                {
-                    realData = StringHelper.BytesToHexString(data);
-                }
-                else
-                {
-                    realData = System.Text.Encoding.UTF8.GetString(data);
-                }
-
+                realData = StringHelper.BytesToHexString(data);
             }
-          
-
-            DataShowCommon dataShowCommon = new DataShowCommon()
+            else
             {
-                Title = title,
-                Send = send,
-                Content = realData,
-                MessageColor = send ? Brushes.DarkRed : Brushes.DarkGreen,
-                Prefix = (send ? " << " : " >> "),
-            };
-
-            if (data==null)
-            {
-                dataShowCommon.Prefix = null;
+                realData = System.Text.Encoding.UTF8.GetString(data);
             }
-            flowDocumentHelper.DataShowAdd(dataShowCommon);
-
-            WriteInfoLog(realData);
         }
+
+        DataShowCommon dataShowCommon = new DataShowCommon()
+        {
+            Title = title,
+            Send = send,
+            Content = realData,
+            MessageColor = send ? Brushes.DarkRed : Brushes.DarkGreen,
+            Prefix = (send ? " << " : " >> "),
+        };
+
+        if (data == null)
+        {
+            dataShowCommon.Prefix = null;
+        }
+        flowDocumentHelper.DataShowAdd(dataShowCommon);
+
+        WriteInfoLog(realData);
     }
 }

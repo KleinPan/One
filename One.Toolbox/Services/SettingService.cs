@@ -4,8 +4,8 @@ using Newtonsoft.Json;
 
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
-using One.Toolbox.Models.Setting;
 using One.Toolbox.ViewModels.Serialport;
+using One.Toolbox.ViewModels.Setting;
 
 using System.IO;
 

@@ -2,23 +2,17 @@
 
 using CommunityToolkit.Mvvm.Messaging;
 
-using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Utils;
-
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Win32;
 
 using One.Toolbox.Helpers;
 using One.Toolbox.Messenger;
-using One.Toolbox.Models.Setting;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.ViewModels.NotePad;
+using One.Toolbox.ViewModels.Setting;
 
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Text;
 
 namespace One.Toolbox.ViewModels;
 

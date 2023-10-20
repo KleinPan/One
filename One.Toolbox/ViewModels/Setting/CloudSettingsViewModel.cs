@@ -12,9 +12,7 @@ using System.Net;
 
 using WebDav;
 
-using static Vanara.PInvoke.AdvApi32;
-
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.Setting;
 
 public partial class CloudSettingsViewModel : BaseViewModel
 {

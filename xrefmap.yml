@@ -6688,15 +6688,6 @@ references:
   fullName.vb: One.Core.Helpers.IOHelper.ReadContentFromLocal(Of T)(String)
   nameWithType: IOHelper.ReadContentFromLocal<T>(string)
   nameWithType.vb: IOHelper.ReadContentFromLocal(Of T)(String)
-- uid: One.Core.Helpers.IOHelper.ReadContentFromLocal``1(System.String,System.String,System.String)
-  name: ReadContentFromLocal<T>(string, string, string)
-  href: api/One.Core.Helpers.IOHelper.html#One_Core_Helpers_IOHelper_ReadContentFromLocal__1_System_String_System_String_System_String_
-  commentId: M:One.Core.Helpers.IOHelper.ReadContentFromLocal``1(System.String,System.String,System.String)
-  name.vb: ReadContentFromLocal(Of T)(String, String, String)
-  fullName: One.Core.Helpers.IOHelper.ReadContentFromLocal<T>(string, string, string)
-  fullName.vb: One.Core.Helpers.IOHelper.ReadContentFromLocal(Of T)(String, String, String)
-  nameWithType: IOHelper.ReadContentFromLocal<T>(string, string, string)
-  nameWithType.vb: IOHelper.ReadContentFromLocal(Of T)(String, String, String)
 - uid: One.Core.Helpers.IOHelper.SerializeToXml*
   name: SerializeToXml
   href: api/One.Core.Helpers.IOHelper.html#One_Core_Helpers_IOHelper_SerializeToXml_
@@ -6745,15 +6736,6 @@ references:
   fullName.vb: One.Core.Helpers.IOHelper.WriteContentTolocal(Of T)(T, String)
   nameWithType: IOHelper.WriteContentTolocal<T>(T, string)
   nameWithType.vb: IOHelper.WriteContentTolocal(Of T)(T, String)
-- uid: One.Core.Helpers.IOHelper.WriteContentTolocal``1(``0,System.String,System.String)
-  name: WriteContentTolocal<T>(T, string, string)
-  href: api/One.Core.Helpers.IOHelper.html#One_Core_Helpers_IOHelper_WriteContentTolocal__1___0_System_String_System_String_
-  commentId: M:One.Core.Helpers.IOHelper.WriteContentTolocal``1(``0,System.String,System.String)
-  name.vb: WriteContentTolocal(Of T)(T, String, String)
-  fullName: One.Core.Helpers.IOHelper.WriteContentTolocal<T>(T, string, string)
-  fullName.vb: One.Core.Helpers.IOHelper.WriteContentTolocal(Of T)(T, String, String)
-  nameWithType: IOHelper.WriteContentTolocal<T>(T, string, string)
-  nameWithType.vb: IOHelper.WriteContentTolocal(Of T)(T, String, String)
 - uid: One.Core.Helpers.NetHelpers
   name: One.Core.Helpers.NetHelpers
   href: api/One.Core.Helpers.NetHelpers.html

@@ -76,5 +76,32 @@ namespace One.Core.Helpers.EncryptionHelpers
                 throw;
             }
         }
+
+        #region Net5.0
+
+        //https://www.cnblogs.com/broadm/p/17789951.html
+
+        /// <summary> 实例版 </summary>
+        /// <param name="input"> </param>
+        /// <returns> </returns>
+        public static string HexConvert_Instance(string input)
+        {
+            using var md5 = MD5.Create();
+            var inputBytes = Encoding.UTF8.GetBytes(input);
+            var hashBytes = md5.ComputeHash(inputBytes);
+            return Convert.ToHexString(hashBytes);
+        }
+
+        /// <summary> 性能最强 </summary>
+        /// <param name="input"> </param>
+        /// <returns> </returns>
+        public static string HexConvert_Static(string input)
+        {
+            var inputBytes = Encoding.UTF8.GetBytes(input);
+            var hashBytes = MD5.HashData(inputBytes);
+            return Convert.ToHexString(hashBytes);
+        }
+
+        #endregion Net5.0
     }
 }

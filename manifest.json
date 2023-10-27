@@ -1314,10 +1314,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.SYSTEMTIME.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.SYSTEMTIME.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Core.Helpers.ServiceHelper.yml",
       "output": {
         ".html": {
           "relative_path": "api/One.Core.Helpers.ServiceHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Core.Helpers.TimeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Core.Helpers.TimeHelper.html"
         }
       },
       "version": ""

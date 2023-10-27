@@ -5535,6 +5535,38 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5
   nameWithType: Md5Helper.GetStringMd5
+- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance(System.String)
+  name: HexConvert_Instance(string)
+  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_HexConvert_Instance_System_String_
+  commentId: M:One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance(System.String)
+  name.vb: HexConvert_Instance(String)
+  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance(string)
+  fullName.vb: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance(String)
+  nameWithType: Md5Helper.HexConvert_Instance(string)
+  nameWithType.vb: Md5Helper.HexConvert_Instance(String)
+- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance*
+  name: HexConvert_Instance
+  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_HexConvert_Instance_
+  commentId: Overload:One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance
+  isSpec: "True"
+  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Instance
+  nameWithType: Md5Helper.HexConvert_Instance
+- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static(System.String)
+  name: HexConvert_Static(string)
+  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_HexConvert_Static_System_String_
+  commentId: M:One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static(System.String)
+  name.vb: HexConvert_Static(String)
+  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static(string)
+  fullName.vb: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static(String)
+  nameWithType: Md5Helper.HexConvert_Static(string)
+  nameWithType.vb: Md5Helper.HexConvert_Static(String)
+- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static*
+  name: HexConvert_Static
+  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_HexConvert_Static_
+  commentId: Overload:One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static
+  isSpec: "True"
+  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.HexConvert_Static
+  nameWithType: Md5Helper.HexConvert_Static
 - uid: One.Core.Helpers.EncryptionHelpers.RSAHelper
   name: RSAHelper
   href: api/One.Core.Helpers.EncryptionHelpers.RSAHelper.html
@@ -7645,6 +7677,60 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.RegistryHelper.WriteKey
   nameWithType: RegistryHelper.WriteKey
+- uid: One.Core.Helpers.SYSTEMTIME
+  name: SYSTEMTIME
+  href: api/One.Core.Helpers.SYSTEMTIME.html
+  commentId: T:One.Core.Helpers.SYSTEMTIME
+  fullName: One.Core.Helpers.SYSTEMTIME
+  nameWithType: SYSTEMTIME
+- uid: One.Core.Helpers.SYSTEMTIME.Day
+  name: Day
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Day
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Day
+  fullName: One.Core.Helpers.SYSTEMTIME.Day
+  nameWithType: SYSTEMTIME.Day
+- uid: One.Core.Helpers.SYSTEMTIME.DayOfWeek
+  name: DayOfWeek
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_DayOfWeek
+  commentId: F:One.Core.Helpers.SYSTEMTIME.DayOfWeek
+  fullName: One.Core.Helpers.SYSTEMTIME.DayOfWeek
+  nameWithType: SYSTEMTIME.DayOfWeek
+- uid: One.Core.Helpers.SYSTEMTIME.Hour
+  name: Hour
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Hour
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Hour
+  fullName: One.Core.Helpers.SYSTEMTIME.Hour
+  nameWithType: SYSTEMTIME.Hour
+- uid: One.Core.Helpers.SYSTEMTIME.Millisecond
+  name: Millisecond
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Millisecond
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Millisecond
+  fullName: One.Core.Helpers.SYSTEMTIME.Millisecond
+  nameWithType: SYSTEMTIME.Millisecond
+- uid: One.Core.Helpers.SYSTEMTIME.Minute
+  name: Minute
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Minute
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Minute
+  fullName: One.Core.Helpers.SYSTEMTIME.Minute
+  nameWithType: SYSTEMTIME.Minute
+- uid: One.Core.Helpers.SYSTEMTIME.Month
+  name: Month
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Month
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Month
+  fullName: One.Core.Helpers.SYSTEMTIME.Month
+  nameWithType: SYSTEMTIME.Month
+- uid: One.Core.Helpers.SYSTEMTIME.Second
+  name: Second
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Second
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Second
+  fullName: One.Core.Helpers.SYSTEMTIME.Second
+  nameWithType: SYSTEMTIME.Second
+- uid: One.Core.Helpers.SYSTEMTIME.Year
+  name: Year
+  href: api/One.Core.Helpers.SYSTEMTIME.html#One_Core_Helpers_SYSTEMTIME_Year
+  commentId: F:One.Core.Helpers.SYSTEMTIME.Year
+  fullName: One.Core.Helpers.SYSTEMTIME.Year
+  nameWithType: SYSTEMTIME.Year
 - uid: One.Core.Helpers.ServiceHelper
   name: ServiceHelper
   href: api/One.Core.Helpers.ServiceHelper.html
@@ -7811,6 +7897,28 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.ServiceHelper.UnstallService
   nameWithType: ServiceHelper.UnstallService
+- uid: One.Core.Helpers.TimeHelper
+  name: TimeHelper
+  href: api/One.Core.Helpers.TimeHelper.html
+  commentId: T:One.Core.Helpers.TimeHelper
+  fullName: One.Core.Helpers.TimeHelper
+  nameWithType: TimeHelper
+- uid: One.Core.Helpers.TimeHelper.SetSystemTime(System.DateTime)
+  name: SetSystemTime(DateTime)
+  href: api/One.Core.Helpers.TimeHelper.html#One_Core_Helpers_TimeHelper_SetSystemTime_System_DateTime_
+  commentId: M:One.Core.Helpers.TimeHelper.SetSystemTime(System.DateTime)
+  name.vb: SetSystemTime(Date)
+  fullName: One.Core.Helpers.TimeHelper.SetSystemTime(System.DateTime)
+  fullName.vb: One.Core.Helpers.TimeHelper.SetSystemTime(Date)
+  nameWithType: TimeHelper.SetSystemTime(DateTime)
+  nameWithType.vb: TimeHelper.SetSystemTime(Date)
+- uid: One.Core.Helpers.TimeHelper.SetSystemTime*
+  name: SetSystemTime
+  href: api/One.Core.Helpers.TimeHelper.html#One_Core_Helpers_TimeHelper_SetSystemTime_
+  commentId: Overload:One.Core.Helpers.TimeHelper.SetSystemTime
+  isSpec: "True"
+  fullName: One.Core.Helpers.TimeHelper.SetSystemTime
+  nameWithType: TimeHelper.SetSystemTime
 - uid: One.Core.Helpers.ZipHelper
   name: ZipHelper
   href: api/One.Core.Helpers.ZipHelper.html

@@ -9,7 +9,7 @@ using One.Toolbox.Views.Settings;
 
 using System.Collections.ObjectModel;
 
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.MainWindow;
 
 public partial class MainWindowViewModel : BaseViewModel
 {
@@ -100,6 +100,12 @@ public partial class MainWindowViewModel : BaseViewModel
             Content = new Views.BingImage.BingImagePage(),
         });
 
+        NavigationItems.Add(new MainMenuItemViewModel()
+        {
+            Header = "LotteryDraw",
+            Icon = ResourceHelper.Dic["IncompleteCircleFilled"],
+            Content = new Views.LotteryDraw.LotteryDrawPage(),
+        });
         //倒叙
         NavigationItems.Add(new MainMenuItemViewModel()
         {

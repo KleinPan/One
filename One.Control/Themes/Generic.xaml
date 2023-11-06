@@ -1,6 +1,21 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:convert="clr-namespace:One.Control.Controls.CirclePanel"
+                    xmlns:cp="clr-namespace:One.Control.Controls.CirclePanel">
+
+
+
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/ProgressRing.xaml" />
-        <ResourceDictionary Source="/One.Control;component/Controls/Dragablz/Themes/Generic.xaml" />
+        <!--<ResourceDictionary Source="Geometrys.xaml" />
+        <ResourceDictionary Source="ProgressRing.xaml" />
+        <ResourceDictionary Source="/Controls/CirclePanel/PrizeItemControl.xaml" />-->
+        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/Geometrys.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/Styles/ProgressRing.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/Styles/PrizeItemControl.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/ProgressRing.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Controls/CirclePanel/PrizeItemControl.xaml" />-->
+        <!--<ResourceDictionary Source="/One.Control;component/Controls/Dragablz/Themes/Generic.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
+
+
 </ResourceDictionary>

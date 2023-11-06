@@ -2,7 +2,7 @@
 
 using System.Windows.Controls;
 
-namespace One.Toolbox.ViewModels
+namespace One.Toolbox.ViewModels.MainWindow
 {
     public partial class MainMenuItemViewModel : BaseViewModel
     {

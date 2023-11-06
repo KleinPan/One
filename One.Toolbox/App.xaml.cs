@@ -52,7 +52,7 @@ namespace One.Toolbox
 
             // Views and ViewModels
 
-            services.AddSingleton<ViewModels.MainWindowViewModel>();
+            services.AddSingleton<ViewModels.MainWindow.MainWindowViewModel>();
 
             //services.AddTransient<Views.Pages.DashboardPage>();
             services.AddSingleton<ViewModels.Dashboard.DashboardViewModel>();
@@ -73,6 +73,7 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Setting.CloudSettingsViewModel>();
 
             services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
+            services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawViewModel>();
 
             services.AddSingleton<Services.SettingService>();
 

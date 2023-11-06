@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BranPan</Authors>
     <Company />
-    <Version>3.7.0</Version>
+    <Version>3.8.0</Version>
     <PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
     <PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>
@@ -32,5 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\MonthView\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 </Project>

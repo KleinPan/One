@@ -4,6 +4,7 @@ using HandyControl.Tools.Extension;
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.MainWindow;
 using One.Toolbox.Views.Settings;
 
 using System.Windows.Controls;

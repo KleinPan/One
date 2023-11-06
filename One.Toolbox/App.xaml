@@ -9,7 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary Source="pack://application:,,,/Resources/Languages/zh_CN.xaml" />
-
+                <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/Generic.xaml" />
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
                         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />

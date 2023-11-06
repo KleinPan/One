@@ -304,6 +304,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.CirclePanel.DrawPrize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.CirclePanel.DrawPrize.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.CirclePanel.PrizeItemControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.CirclePanel.PrizeItemControl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.CirclePanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.CirclePanel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Control.Controls.MessageBox.PopUpMessageBox.yml",
       "output": {
         ".html": {
@@ -318,6 +358,26 @@
       "output": {
         ".html": {
           "relative_path": "api/One.Control.Controls.MessageBox.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Panels.OverlapPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Panels.OverlapPanel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.Panels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.Panels.html"
         }
       },
       "version": ""

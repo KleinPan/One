@@ -1361,6 +1361,196 @@ references:
   isSpec: "True"
   fullName: One.Control.Controls.Buttons.AssistButton.OnApplyTemplate
   nameWithType: AssistButton.OnApplyTemplate
+- uid: One.Control.Controls.CirclePanel
+  name: One.Control.Controls.CirclePanel
+  href: api/One.Control.Controls.CirclePanel.html
+  commentId: N:One.Control.Controls.CirclePanel
+  fullName: One.Control.Controls.CirclePanel
+  nameWithType: One.Control.Controls.CirclePanel
+- uid: One.Control.Controls.CirclePanel.DrawPrize
+  name: DrawPrize
+  href: api/One.Control.Controls.CirclePanel.DrawPrize.html
+  commentId: T:One.Control.Controls.CirclePanel.DrawPrize
+  fullName: One.Control.Controls.CirclePanel.DrawPrize
+  nameWithType: DrawPrize
+- uid: One.Control.Controls.CirclePanel.DrawPrize.#ctor
+  name: DrawPrize()
+  href: api/One.Control.Controls.CirclePanel.DrawPrize.html#One_Control_Controls_CirclePanel_DrawPrize__ctor
+  commentId: M:One.Control.Controls.CirclePanel.DrawPrize.#ctor
+  name.vb: New()
+  fullName: One.Control.Controls.CirclePanel.DrawPrize.DrawPrize()
+  fullName.vb: One.Control.Controls.CirclePanel.DrawPrize.New()
+  nameWithType: DrawPrize.DrawPrize()
+  nameWithType.vb: DrawPrize.New()
+- uid: One.Control.Controls.CirclePanel.DrawPrize.#ctor*
+  name: DrawPrize
+  href: api/One.Control.Controls.CirclePanel.DrawPrize.html#One_Control_Controls_CirclePanel_DrawPrize__ctor_
+  commentId: Overload:One.Control.Controls.CirclePanel.DrawPrize.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: One.Control.Controls.CirclePanel.DrawPrize.DrawPrize
+  fullName.vb: One.Control.Controls.CirclePanel.DrawPrize.New
+  nameWithType: DrawPrize.DrawPrize
+  nameWithType.vb: DrawPrize.New
+- uid: One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate
+  name: OnApplyTemplate()
+  href: api/One.Control.Controls.CirclePanel.DrawPrize.html#One_Control_Controls_CirclePanel_DrawPrize_OnApplyTemplate
+  commentId: M:One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate
+  fullName: One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate()
+  nameWithType: DrawPrize.OnApplyTemplate()
+- uid: One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate*
+  name: OnApplyTemplate
+  href: api/One.Control.Controls.CirclePanel.DrawPrize.html#One_Control_Controls_CirclePanel_DrawPrize_OnApplyTemplate_
+  commentId: Overload:One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.DrawPrize.OnApplyTemplate
+  nameWithType: DrawPrize.OnApplyTemplate
+- uid: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor
+  name: DrawPrizeIndexToColor
+  href: api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html
+  commentId: T:One.Control.Controls.CirclePanel.DrawPrizeIndexToColor
+  fullName: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor
+  nameWithType: DrawPrizeIndexToColor
+- uid: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)
+  name: Convert(object, Type, object, CultureInfo)
+  href: api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html#One_Control_Controls_CirclePanel_DrawPrizeIndexToColor_Convert_System_Object_System_Type_System_Object_System_Globalization_CultureInfo_
+  commentId: M:One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)
+  name.vb: Convert(Object, Type, Object, CultureInfo)
+  fullName: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert(object, System.Type, object, System.Globalization.CultureInfo)
+  fullName.vb: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert(Object, System.Type, Object, System.Globalization.CultureInfo)
+  nameWithType: DrawPrizeIndexToColor.Convert(object, Type, object, CultureInfo)
+  nameWithType.vb: DrawPrizeIndexToColor.Convert(Object, Type, Object, CultureInfo)
+- uid: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert*
+  name: Convert
+  href: api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html#One_Control_Controls_CirclePanel_DrawPrizeIndexToColor_Convert_
+  commentId: Overload:One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.Convert
+  nameWithType: DrawPrizeIndexToColor.Convert
+- uid: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)
+  name: ConvertBack(object, Type, object, CultureInfo)
+  href: api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html#One_Control_Controls_CirclePanel_DrawPrizeIndexToColor_ConvertBack_System_Object_System_Type_System_Object_System_Globalization_CultureInfo_
+  commentId: M:One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)
+  name.vb: ConvertBack(Object, Type, Object, CultureInfo)
+  fullName: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack(object, System.Type, object, System.Globalization.CultureInfo)
+  fullName.vb: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack(Object, System.Type, Object, System.Globalization.CultureInfo)
+  nameWithType: DrawPrizeIndexToColor.ConvertBack(object, Type, object, CultureInfo)
+  nameWithType.vb: DrawPrizeIndexToColor.ConvertBack(Object, Type, Object, CultureInfo)
+- uid: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack*
+  name: ConvertBack
+  href: api/One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.html#One_Control_Controls_CirclePanel_DrawPrizeIndexToColor_ConvertBack_
+  commentId: Overload:One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.DrawPrizeIndexToColor.ConvertBack
+  nameWithType: DrawPrizeIndexToColor.ConvertBack
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl
+  name: PrizeItemControl
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html
+  commentId: T:One.Control.Controls.CirclePanel.PrizeItemControl
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl
+  nameWithType: PrizeItemControl
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.Angle
+  name: Angle
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_Angle
+  commentId: P:One.Control.Controls.CirclePanel.PrizeItemControl.Angle
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.Angle
+  nameWithType: PrizeItemControl.Angle
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.Angle*
+  name: Angle
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_Angle_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.Angle
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.Angle
+  nameWithType: PrizeItemControl.Angle
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.AngleProperty
+  name: AngleProperty
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_AngleProperty
+  commentId: F:One.Control.Controls.CirclePanel.PrizeItemControl.AngleProperty
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.AngleProperty
+  nameWithType: PrizeItemControl.AngleProperty
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor
+  name: BackgroundColor
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_BackgroundColor
+  commentId: P:One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor
+  nameWithType: PrizeItemControl.BackgroundColor
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor*
+  name: BackgroundColor
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_BackgroundColor_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColor
+  nameWithType: PrizeItemControl.BackgroundColor
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColorProperty
+  name: BackgroundColorProperty
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_BackgroundColorProperty
+  commentId: F:One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColorProperty
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.BackgroundColorProperty
+  nameWithType: PrizeItemControl.BackgroundColorProperty
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector
+  name: DrawSector()
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_DrawSector
+  commentId: M:One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector()
+  nameWithType: PrizeItemControl.DrawSector()
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector*
+  name: DrawSector
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_DrawSector_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.DrawSector
+  nameWithType: PrizeItemControl.DrawSector
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate
+  name: OnApplyTemplate()
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_OnApplyTemplate
+  commentId: M:One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate()
+  nameWithType: PrizeItemControl.OnApplyTemplate()
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate*
+  name: OnApplyTemplate
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_OnApplyTemplate_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.OnApplyTemplate
+  nameWithType: PrizeItemControl.OnApplyTemplate
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle
+  name: StartAngle
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_StartAngle
+  commentId: P:One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle
+  nameWithType: PrizeItemControl.StartAngle
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle*
+  name: StartAngle
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_StartAngle_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngle
+  nameWithType: PrizeItemControl.StartAngle
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngleProperty
+  name: StartAngleProperty
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_StartAngleProperty
+  commentId: F:One.Control.Controls.CirclePanel.PrizeItemControl.StartAngleProperty
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.StartAngleProperty
+  nameWithType: PrizeItemControl.StartAngleProperty
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.Title
+  name: Title
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_Title
+  commentId: P:One.Control.Controls.CirclePanel.PrizeItemControl.Title
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.Title
+  nameWithType: PrizeItemControl.Title
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.Title*
+  name: Title
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_Title_
+  commentId: Overload:One.Control.Controls.CirclePanel.PrizeItemControl.Title
+  isSpec: "True"
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.Title
+  nameWithType: PrizeItemControl.Title
+- uid: One.Control.Controls.CirclePanel.PrizeItemControl.TitleProperty
+  name: TitleProperty
+  href: api/One.Control.Controls.CirclePanel.PrizeItemControl.html#One_Control_Controls_CirclePanel_PrizeItemControl_TitleProperty
+  commentId: F:One.Control.Controls.CirclePanel.PrizeItemControl.TitleProperty
+  fullName: One.Control.Controls.CirclePanel.PrizeItemControl.TitleProperty
+  nameWithType: PrizeItemControl.TitleProperty
 - uid: One.Control.Controls.MessageBox
   name: One.Control.Controls.MessageBox
   href: api/One.Control.Controls.MessageBox.html
@@ -1428,6 +1618,44 @@ references:
   isSpec: "True"
   fullName: One.Control.Controls.MessageBox.PopUpMessageBox.TopFrom
   nameWithType: PopUpMessageBox.TopFrom
+- uid: One.Control.Controls.Panels
+  name: One.Control.Controls.Panels
+  href: api/One.Control.Controls.Panels.html
+  commentId: N:One.Control.Controls.Panels
+  fullName: One.Control.Controls.Panels
+  nameWithType: One.Control.Controls.Panels
+- uid: One.Control.Controls.Panels.OverlapPanel
+  name: OverlapPanel
+  href: api/One.Control.Controls.Panels.OverlapPanel.html
+  commentId: T:One.Control.Controls.Panels.OverlapPanel
+  fullName: One.Control.Controls.Panels.OverlapPanel
+  nameWithType: OverlapPanel
+- uid: One.Control.Controls.Panels.OverlapPanel.ArrangeOverride(System.Windows.Size)
+  name: ArrangeOverride(Size)
+  href: api/One.Control.Controls.Panels.OverlapPanel.html#One_Control_Controls_Panels_OverlapPanel_ArrangeOverride_System_Windows_Size_
+  commentId: M:One.Control.Controls.Panels.OverlapPanel.ArrangeOverride(System.Windows.Size)
+  fullName: One.Control.Controls.Panels.OverlapPanel.ArrangeOverride(System.Windows.Size)
+  nameWithType: OverlapPanel.ArrangeOverride(Size)
+- uid: One.Control.Controls.Panels.OverlapPanel.ArrangeOverride*
+  name: ArrangeOverride
+  href: api/One.Control.Controls.Panels.OverlapPanel.html#One_Control_Controls_Panels_OverlapPanel_ArrangeOverride_
+  commentId: Overload:One.Control.Controls.Panels.OverlapPanel.ArrangeOverride
+  isSpec: "True"
+  fullName: One.Control.Controls.Panels.OverlapPanel.ArrangeOverride
+  nameWithType: OverlapPanel.ArrangeOverride
+- uid: One.Control.Controls.Panels.OverlapPanel.MeasureOverride(System.Windows.Size)
+  name: MeasureOverride(Size)
+  href: api/One.Control.Controls.Panels.OverlapPanel.html#One_Control_Controls_Panels_OverlapPanel_MeasureOverride_System_Windows_Size_
+  commentId: M:One.Control.Controls.Panels.OverlapPanel.MeasureOverride(System.Windows.Size)
+  fullName: One.Control.Controls.Panels.OverlapPanel.MeasureOverride(System.Windows.Size)
+  nameWithType: OverlapPanel.MeasureOverride(Size)
+- uid: One.Control.Controls.Panels.OverlapPanel.MeasureOverride*
+  name: MeasureOverride
+  href: api/One.Control.Controls.Panels.OverlapPanel.html#One_Control_Controls_Panels_OverlapPanel_MeasureOverride_
+  commentId: Overload:One.Control.Controls.Panels.OverlapPanel.MeasureOverride
+  isSpec: "True"
+  fullName: One.Control.Controls.Panels.OverlapPanel.MeasureOverride
+  nameWithType: OverlapPanel.MeasureOverride
 - uid: One.Control.Controls.ProgressRing
   name: ProgressRing
   href: api/One.Control.Controls.ProgressRing.html

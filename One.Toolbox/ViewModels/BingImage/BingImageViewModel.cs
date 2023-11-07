@@ -24,7 +24,10 @@ public partial class BingImageViewModel : BaseViewModel
         InitData();
     }
 
-    public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
+    [ObservableProperty]
+    private ObservableCollection<UsefullImageInfoViewModel> obImageListInfo = new ObservableCollection<UsefullImageInfoViewModel>();
+
+    //public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
 
     async void InitData()
     {
@@ -49,6 +52,8 @@ public partial class BingImageViewModel : BaseViewModel
                 ObImageListInfo.Add(item);
             }
         }
+
+        ObImageListInfo = new ObservableCollection<UsefullImageInfoViewModel>(ObImageListInfo.Reverse());
     }
 
     private void ShowLocalImage()

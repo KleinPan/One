@@ -82,6 +82,7 @@
                             <ContextMenu>
                                 <MenuItem Command="{Binding DeleteFileCommand}" Header="Delete" />
                                 <MenuItem Command="{Binding RenameFileCommand}" Header="Rename" />
+                                <MenuItem Command="{Binding OpenFilePathCommand}" Header="Open File Path" />
                             </ContextMenu>
                         </ListBox.ContextMenu>
                     </ListBox>

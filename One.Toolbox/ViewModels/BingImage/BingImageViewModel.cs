@@ -27,6 +27,7 @@ public partial class BingImageViewModel : BaseViewModel
     [ObservableProperty]
     private ObservableCollection<UsefullImageInfoViewModel> obImageListInfo = new ObservableCollection<UsefullImageInfoViewModel>();
 
+    private List<UsefullImageInfoViewModel> ImageList = new List<UsefullImageInfoViewModel>();
     //public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
 
     async void InitData()
@@ -36,6 +37,7 @@ public partial class BingImageViewModel : BaseViewModel
 
         var b = FilterImageInfoAndSave(a);
 
+        ImageList.Clear();
         foreach (var item in b)
         {
             await DownloadImage(item);
@@ -49,11 +51,11 @@ public partial class BingImageViewModel : BaseViewModel
             }
             else
             {
-                ObImageListInfo.Add(item);
+                ImageList.Add(item);
             }
         }
 
-        ObImageListInfo = new ObservableCollection<UsefullImageInfoViewModel>(ObImageListInfo.Reverse());
+        ObImageListInfo.AddRange(ImageList.OrderByDescending(x => x.LocalImageName));
     }
 
     private void ShowLocalImage()
@@ -62,7 +64,8 @@ public partial class BingImageViewModel : BaseViewModel
 
         var temp = Directory.GetFiles(Helpers.PathHelper.imagePath);
         var temp2 = temp.Where(x => x.EndsWith("jpg"));
-        foreach (var item in temp2)
+        var temp3 = temp2.Reverse();
+        foreach (var item in temp3)
         {
             UsefullImageInfoViewModel showInfo = new UsefullImageInfoViewModel();
 

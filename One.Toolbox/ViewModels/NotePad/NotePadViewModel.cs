@@ -12,6 +12,7 @@ using One.Toolbox.ViewModels.NotePad;
 using One.Toolbox.ViewModels.Setting;
 
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 
 namespace One.Toolbox.ViewModels;
@@ -112,6 +113,15 @@ public partial class NotePadViewModel : BaseViewModel
             //SelectedEditFileInfo.RenameFile(newFileName);
 
             SelectedEditFileInfo.IsEditFileName = true;
+        }
+    }
+
+    [RelayCommand]
+    private void OpenFilePath()
+    {
+        if (SelectedEditFileInfo != null)
+        {
+            Process.Start("explorer.exe", PathHelper.dataPath);
         }
     }
 

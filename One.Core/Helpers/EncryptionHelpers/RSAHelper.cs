@@ -129,9 +129,11 @@ namespace One.Core.Helpers.EncryptionHelpers
         }
 
         /// <summary> 使用公钥加密，分段加密 </summary>
-        /// <param name="content">        </param>
-        /// <param name="privateKeyPath"> </param>
+        /// <param name="publicKeyPath">    </param>
+        /// <param name="strEncryptString"> </param>
         /// <returns> </returns>
+        /// <exception cref="NotSupportedException"> </exception>
+        /// <exception cref="ArgumentNullException"> </exception>
         public static string EncrytByPublic(string publicKeyPath, string strEncryptString)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
@@ -176,9 +178,11 @@ namespace One.Core.Helpers.EncryptionHelpers
         }
 
         /// <summary> 使用公钥加密，分段加密 </summary>
-        /// <param name="content">        </param>
-        /// <param name="privateKeyPath"> </param>
+        /// <param name="publicKeyContent"> </param>
+        /// <param name="strEncryptString"> </param>
         /// <returns> </returns>
+        /// <exception cref="NotSupportedException"> </exception>
+        /// <exception cref="ArgumentNullException"> </exception>
         public static string EncrytByPublic2(string publicKeyContent, string strEncryptString)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
@@ -223,9 +227,11 @@ namespace One.Core.Helpers.EncryptionHelpers
         }
 
         /// <summary> 使用公钥加密，分段加密,加密后做特殊处理,预计为网络传输要求 </summary>
-        /// <param name="content">        </param>
-        /// <param name="privateKeyPath"> </param>
+        /// <param name="publicKeyContent"> </param>
+        /// <param name="strEncryptString"> </param>
         /// <returns> </returns>
+        /// <exception cref="NotSupportedException"> </exception>
+        /// <exception cref="ArgumentNullException"> </exception>
         public static string EncrytByPublicForOppoMes(string publicKeyContent, string strEncryptString)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
@@ -290,9 +296,10 @@ namespace One.Core.Helpers.EncryptionHelpers
         }
 
         /// <summary> 通过私钥解密，分段解密 </summary>
-        /// <param name="content">        </param>
-        /// <param name="privateKeyPath"> </param>
+        /// <param name="privateKeyPath">   </param>
+        /// <param name="strDecryptString"> </param>
         /// <returns> </returns>
+        /// <exception cref="NotSupportedException"> </exception>
         public static string DecryptByPrivate(string privateKeyPath, string strDecryptString)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();

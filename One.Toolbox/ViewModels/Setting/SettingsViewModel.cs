@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 namespace One.Toolbox.ViewModels.Setting;
 
-public partial class SettingsViewModel : BaseViewModel
+public partial class SettingsViewModel : BaseVM
 {
     [ObservableProperty]
     private string _appVersion = String.Empty;

@@ -12,7 +12,7 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels.BingImage;
 
-public partial class BingImageViewModel : BaseViewModel
+public partial class BingImageViewModel : BaseVM
 {
     public BingImageViewModel()
     {

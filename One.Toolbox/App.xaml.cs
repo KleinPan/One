@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Messenger;
+using One.Toolbox.ViewModels;
 
 using System.Globalization;
 using System.Windows.Threading;
@@ -51,11 +52,10 @@ namespace One.Toolbox
             //Transient 2指定每次请求服务时，将创建该服务的新实例。
 
             // Views and ViewModels
-
-            services.AddSingleton<ViewModels.MainWindow.MainWindowViewModel>();
+            services.AddSingleton<ViewModels.MainWindow.MainWindowVM>();
 
             //services.AddTransient<Views.Pages.DashboardPage>();
-            services.AddSingleton<ViewModels.Dashboard.DashboardViewModel>();
+            services.AddSingleton<ViewModels.Dashboard.DashboardVM>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
             services.AddSingleton<ViewModels.StringConvertViewModel>();
@@ -75,7 +75,11 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
             services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawViewModel>();
 
+            //Services
             services.AddSingleton<Services.SettingService>();
+
+            //多例
+            services.AddTransient<StickWindowVM>();
 
             return services.BuildServiceProvider();
         }

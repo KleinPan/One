@@ -4,7 +4,7 @@ using One.Toolbox.ViewModels.Base;
 
 namespace One.Toolbox.ViewModels;
 
-public partial class CopyViewModel : BaseViewModel
+public partial class CopyViewModel : BaseVM
 {
     public CopyViewModel()
     {

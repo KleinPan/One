@@ -1,6 +1,6 @@
 ﻿namespace One.Toolbox.ViewModels.Base
 {
-    public class BaseViewModel : ObservableObject
+    public class BaseVM : ObservableObject
     {
         public static readonly NLog.Logger NLogger = NLog.LogManager.GetCurrentClassLogger();
 

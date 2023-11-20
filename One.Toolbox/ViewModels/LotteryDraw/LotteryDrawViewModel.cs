@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace One.Toolbox.ViewModels.LotteryDraw;
 
-public partial class LotteryDrawViewModel : BaseViewModel
+public partial class LotteryDrawViewModel : BaseVM
 {
     public LotteryDrawViewModel()
     {

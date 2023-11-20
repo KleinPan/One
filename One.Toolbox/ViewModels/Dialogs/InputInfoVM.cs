@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace One.Toolbox.ViewModels.Dialogs
 {
-    public partial class InputInfoVM : BaseViewModel
+    public partial class InputInfoVM : BaseVM
     {
         /// <summary> 唯一标识符，获取时候传入 </summary>
         [ObservableProperty] private string key;

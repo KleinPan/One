@@ -19,7 +19,7 @@ namespace One.Toolbox.Views
     {
         public MainWindow()
         {
-            this.DataContext = App.Current.Services.GetService<MainWindowViewModel>();
+            this.DataContext = App.Current.Services.GetService<MainWindowVM>();
             //ResizeAndRelocate();
 
             NonClientAreaContent = new NonClientAreaContent();

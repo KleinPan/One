@@ -17,7 +17,7 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels;
 
-public partial class NotePadViewModel : BaseViewModel
+public partial class NotePadViewModel : BaseVM
 {
     [ObservableProperty]
     private EditFileInfoViewModel selectedEditFileInfo;

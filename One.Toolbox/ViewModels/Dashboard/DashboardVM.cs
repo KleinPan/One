@@ -1,18 +1,17 @@
 ﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
 
-using One.Core.Helpers;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.Views;
 
 using RestSharp;
 
 using System.Globalization;
-using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Dashboard;
 
-public partial class DashboardViewModel : BaseViewModel
+public partial class DashboardVM : BaseVM
 {
-    public DashboardViewModel()
+    public DashboardVM()
     {
     }
 
@@ -77,6 +76,9 @@ public partial class DashboardViewModel : BaseViewModel
         //     new InputInfoVM("dd","ee"),
         //};
         //var res = await DialogHelper.Instance.ShowInputDialog("test", inputInfoVMs);
+
+        StickWindow stickWindow = new StickWindow();
+        stickWindow.Show();
     }
 
     private static async Task<YiyanAPIM> GetEveryDayYiyan()

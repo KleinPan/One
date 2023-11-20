@@ -13,7 +13,7 @@ namespace One.Toolbox.Helpers
         /// <summary> 使用方式在ui层中，代async的方法里加上 await </summary>
         /// <param name="header"> </param>
         /// <returns> </returns>
-        public async Task<string> ShowInteractiveDialog(string info, string title = "Info", string res = "")
+        public async Task<StringResult> ShowInteractiveDialog(string info, string title = "Info")
         {
             var myDialog = Dialog.Show<InteractiveDialog>();
 
@@ -21,9 +21,8 @@ namespace One.Toolbox.Helpers
             {
                 Title = title,
                 Info = info,
-                Result = res,
             };
-            return await myDialog.GetResultAsync<string>();
+            return await myDialog.GetResultAsync<StringResult>();
         }
 
         public async Task<Dictionary<string, string>> ShowInputDialog(string title, List<InputInfoVM> inputInfoMs)

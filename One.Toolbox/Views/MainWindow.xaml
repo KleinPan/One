@@ -4,11 +4,11 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:hc="https://handyorg.github.io/handycontrol"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
+           xmlns:vms="clr-namespace:One.Toolbox.ViewModels.MainWindow"
            Title="{Binding ApplicationTitle, Mode=OneWay}"
            Width="800"
            Height="600"
-           d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+           d:DataContext="{d:DesignInstance Type=vms:MainWindowVM}"
            d:DesignHeight="600"
            d:DesignWidth="800"
            Icon="/Resources/icon.png"
@@ -80,15 +80,15 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <d:ListBox.ItemsSource>
-                    <x:Array Type="{x:Type viewmodels:MainMenuItemViewModel}">
-                        <viewmodels:MainMenuItemViewModel Header="1" Icon="{StaticResource HomeRound}" />
-                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource TextFieldsRound}" />
-                        <viewmodels:MainMenuItemViewModel Header="2" Icon="{StaticResource SerialPort24Filled}" />
-                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource Network}" />
-                        <viewmodels:MainMenuItemViewModel Icon="{StaticResource EditNoteFilled}" />
+                    <x:Array Type="{x:Type vms:MainMenuItemViewModel}">
+                        <vms:MainMenuItemViewModel Header="1" Icon="{StaticResource HomeRound}" />
+                        <vms:MainMenuItemViewModel Icon="{StaticResource TextFieldsRound}" />
+                        <vms:MainMenuItemViewModel Header="2" Icon="{StaticResource SerialPort24Filled}" />
+                        <vms:MainMenuItemViewModel Icon="{StaticResource Network}" />
+                        <vms:MainMenuItemViewModel Icon="{StaticResource EditNoteFilled}" />
 
-                        <viewmodels:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource SettingsRound}" />
-                        <viewmodels:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource CloudSyncFilled}" />
+                        <vms:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource SettingsRound}" />
+                        <vms:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource CloudSyncFilled}" />
                     </x:Array>
                 </d:ListBox.ItemsSource>
             </ListBox>

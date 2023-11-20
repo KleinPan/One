@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace One.Toolbox.ViewModels.MainWindow;
 
-public partial class MainWindowViewModel : BaseViewModel
+public partial class MainWindowVM : BaseVM
 {
     [ObservableProperty]
     private string _applicationTitle = String.Empty;
@@ -25,7 +25,7 @@ public partial class MainWindowViewModel : BaseViewModel
     [ObservableProperty]
     private MainMenuItemViewModel currentMenuItem;
 
-    public MainWindowViewModel()
+    public MainWindowVM()
     {
         InitializeViewModel();
 
@@ -133,12 +133,12 @@ public partial class MainWindowViewModel : BaseViewModel
     {
         if (oldValue != null)
         {
-            var vm = oldValue.Content.DataContext as BaseViewModel;
+            var vm = oldValue.Content.DataContext as BaseVM;
             vm.OnNavigatedLeave();
         }
         if (newValue != null)
         {
-            var vmNew = newValue.Content.DataContext as BaseViewModel;
+            var vmNew = newValue.Content.DataContext as BaseVM;
             vmNew.OnNavigatedEnter();
         }
     }

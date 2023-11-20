@@ -6,7 +6,7 @@ using System.IO.Ports;
 
 namespace One.Toolbox.Component
 {
-    internal class SerialPortComponent : BaseViewModel
+    internal class SerialPortComponent : BaseVM
     {
         //废弃的串口对象，存放处，尝试fix[System.ObjectDisposedException: 已关闭 Safe handle]
         //https://drdump.com/Problem.aspx?ProblemID=524533

@@ -14,7 +14,7 @@ using WebDav;
 
 namespace One.Toolbox.ViewModels.Setting;
 
-public partial class CloudSettingsViewModel : BaseViewModel
+public partial class CloudSettingsViewModel : BaseVM
 {
     //https://github.com/skazantsev/WebDavClient/tree/main
     public static IWebDavClient _client = new WebDavClient();

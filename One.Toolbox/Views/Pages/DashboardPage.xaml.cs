@@ -6,11 +6,11 @@ namespace One.Toolbox.Views.Pages;
 
 public partial class DashboardPage
 {
-    public DashboardViewModel ViewModel { get; }
+    public DashboardVM ViewModel { get; }
 
     public DashboardPage()
     {
-        DataContext = ViewModel = App.Current.Services.GetService<DashboardViewModel>();
+        DataContext = ViewModel = App.Current.Services.GetService<DashboardVM>();
 
         InitializeComponent();
     }

@@ -15,7 +15,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace One.Toolbox.ViewModels
 {
-    public partial class StringConvertViewModel : BaseViewModel
+    public partial class StringConvertViewModel : BaseVM
     {
         public ObservableCollection<string> ConverterTaskList { get; set; } = new ObservableCollection<string>();
 

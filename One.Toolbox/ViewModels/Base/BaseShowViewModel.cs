@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace One.Toolbox.ViewModels.Base;
 
-public class BaseShowViewModel : BaseViewModel
+public class BaseShowViewModel : BaseVM
 {
     protected FlowDocumentComponent flowDocumentHelper { get; set; }
 

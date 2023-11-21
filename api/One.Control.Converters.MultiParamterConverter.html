@@ -87,7 +87,7 @@
 
   <h1 id="One_Control_Converters_MultiParamterConverter" data-uid="One.Control.Converters.MultiParamterConverter" class="text-break">
     Class MultiParamterConverter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control\Converters\MultiParamterConverter.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Converters/MultiParamterConverter.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,10 +160,11 @@
 
   <h3 id="One_Control_Converters_MultiParamterConverter_Convert_System_Object___System_Type_System_Object_System_Globalization_CultureInfo_" data-uid="One.Control.Converters.MultiParamterConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
   Convert(object[], Type, object, CultureInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control\Converters\MultiParamterConverter.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Converters/MultiParamterConverter.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts source values to a value for the binding target. The data binding engine calls this method when it propagates the values from source bindings to the binding target.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -173,19 +174,27 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd><p>The array of values that the source bindings in the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.data.multibinding">MultiBinding</a> produces. The value <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty.unsetvalue">UnsetValue</a> indicates that the source binding has no value to provide for conversion.</p>
+</dd>
     <dt><code>targetType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd><p>The type of the binding target property.</p>
+</dd>
     <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The converter parameter to use.</p>
+</dd>
     <dt><code>culture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></dt>
-    <dd></dd>
+    <dd><p>The culture to use in the converter.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>A converted value.</p>
+<p>If the method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the valid <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value is used.</p>
+<p>A return value of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty.unsetvalue">UnsetValue</a> indicates that the converter did not produce a value, and that the binding will use the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.data.bindingbase.fallbackvalue">FallbackValue</a> if it is available, or else will use the default value.</p>
+<p>A return value of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.data.binding">Binding</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.data.binding.donothing">DoNothing</a> indicates that the binding does not transfer the value or use the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.data.bindingbase.fallbackvalue">FallbackValue</a> or the default value.</p>
+</dd>
   </dl>
 
 
@@ -202,10 +211,11 @@
 
   <h3 id="One_Control_Converters_MultiParamterConverter_ConvertBack_System_Object_System_Type___System_Object_System_Globalization_CultureInfo_" data-uid="One.Control.Converters.MultiParamterConverter.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
   ConvertBack(object, Type[], object, CultureInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control\Converters\MultiParamterConverter.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Converters/MultiParamterConverter.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts a binding target value to the source binding values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,19 +225,24 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The value that the binding target produces.</p>
+</dd>
     <dt><code>targetTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
-    <dd></dd>
+    <dd><p>The array of types to convert to. The array length indicates the number and types of values that are suggested for the method to return.</p>
+</dd>
     <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The converter parameter to use.</p>
+</dd>
     <dt><code>culture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></dt>
-    <dd></dd>
+    <dd><p>The culture to use in the converter.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd><p>An array of values that have been converted from the target value back to the source values.</p>
+</dd>
   </dl>
 
 
@@ -244,7 +259,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Control\Converters\MultiParamterConverter.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Control/Converters/MultiParamterConverter.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

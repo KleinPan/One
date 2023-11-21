@@ -394,6 +394,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.RichTextboxEx.RichTextboxEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/One.Control.Controls.RichTextboxEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/One.Control.Controls.RichTextboxEx.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/One.Control.Controls.yml",
       "output": {
         ".html": {

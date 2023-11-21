@@ -1827,6 +1827,69 @@ references:
   isSpec: "True"
   fullName: One.Control.Controls.ProgressRing.OnApplyTemplate
   nameWithType: ProgressRing.OnApplyTemplate
+- uid: One.Control.Controls.RichTextboxEx
+  name: One.Control.Controls.RichTextboxEx
+  href: api/One.Control.Controls.RichTextboxEx.html
+  commentId: N:One.Control.Controls.RichTextboxEx
+  fullName: One.Control.Controls.RichTextboxEx
+  nameWithType: One.Control.Controls.RichTextboxEx
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx
+  name: RichTextboxEx
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html
+  commentId: T:One.Control.Controls.RichTextboxEx.RichTextboxEx
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx
+  nameWithType: RichTextboxEx
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate
+  name: OnApplyTemplate()
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_OnApplyTemplate
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate()
+  nameWithType: RichTextboxEx.OnApplyTemplate()
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate*
+  name: OnApplyTemplate
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_OnApplyTemplate_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate
+  nameWithType: RichTextboxEx.OnApplyTemplate
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged(System.Windows.Controls.TextChangedEventArgs)
+  name: OnTextChanged(TextChangedEventArgs)
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_OnTextChanged_System_Windows_Controls_TextChangedEventArgs_
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged(System.Windows.Controls.TextChangedEventArgs)
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged(System.Windows.Controls.TextChangedEventArgs)
+  nameWithType: RichTextboxEx.OnTextChanged(TextChangedEventArgs)
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged*
+  name: OnTextChanged
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_OnTextChanged_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged
+  nameWithType: RichTextboxEx.OnTextChanged
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
+  name: ShowLineNumber
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumber
+  commentId: P:One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
+  nameWithType: RichTextboxEx.ShowLineNumber
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber*
+  name: ShowLineNumber
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumber_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
+  nameWithType: RichTextboxEx.ShowLineNumber
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty
+  name: ShowLineNumberProperty
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumberProperty
+  commentId: F:One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty
+  nameWithType: RichTextboxEx.ShowLineNumberProperty
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.stackPanel
+  name: stackPanel
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_stackPanel
+  commentId: F:One.Control.Controls.RichTextboxEx.RichTextboxEx.stackPanel
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.stackPanel
+  nameWithType: RichTextboxEx.stackPanel
 - uid: One.Control.Converters
   name: One.Control.Converters
   href: api/One.Control.Converters.html
@@ -5731,22 +5794,15 @@ references:
   isSpec: "True"
   fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetFileMd5
   nameWithType: Md5Helper.GetFileMd5
-- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5(System.String)
-  name: GetStringMD5(string)
-  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_GetStringMD5_System_String_
-  commentId: M:One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5(System.String)
-  name.vb: GetStringMD5(String)
-  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5(string)
-  fullName.vb: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5(String)
-  nameWithType: Md5Helper.GetStringMD5(string)
-  nameWithType.vb: Md5Helper.GetStringMD5(String)
-- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5*
-  name: GetStringMD5
-  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_GetStringMD5_
-  commentId: Overload:One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5
-  isSpec: "True"
-  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMD5
-  nameWithType: Md5Helper.GetStringMD5
+- uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5(System.String)
+  name: GetStringMd5(string)
+  href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_GetStringMd5_System_String_
+  commentId: M:One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5(System.String)
+  name.vb: GetStringMd5(String)
+  fullName: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5(string)
+  fullName.vb: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5(String)
+  nameWithType: Md5Helper.GetStringMd5(string)
+  nameWithType.vb: Md5Helper.GetStringMd5(String)
 - uid: One.Core.Helpers.EncryptionHelpers.Md5Helper.GetStringMd5(System.String,System.Boolean,System.Boolean)
   name: GetStringMd5(string, bool, bool)
   href: api/One.Core.Helpers.EncryptionHelpers.Md5Helper.html#One_Core_Helpers_EncryptionHelpers_Md5Helper_GetStringMd5_System_String_System_Boolean_System_Boolean_

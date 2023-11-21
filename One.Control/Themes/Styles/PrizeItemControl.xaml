@@ -5,7 +5,9 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:panels="clr-namespace:One.Control.Controls.Panels">
-
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/One.Control;component/Themes/Converters.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="PrizeItemControl" TargetType="{x:Type cp:PrizeItemControl}">
         <Setter Property="Template">
             <Setter.Value>
@@ -37,7 +39,7 @@
         </Setter>
     </Style>
 
-    <convert:DrawPrizeIndexToColor x:Key="DrawPrizeIndexToColor" />
+
 
     <Style x:Key="DrawPrize" TargetType="{x:Type cp:DrawPrize}">
         <Setter Property="Template">

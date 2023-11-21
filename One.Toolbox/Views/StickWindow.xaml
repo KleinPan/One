@@ -7,6 +7,7 @@
            xmlns:helper="clr-namespace:One.Toolbox.Helpers"
            xmlns:local="clr-namespace:One.Toolbox.Views"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:oc="clr-namespace:One.Control.Controls.RichTextboxEx;assembly=One.Control"
            xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
            x:Name="wnd"
            Title="StickWindow"
@@ -82,11 +83,10 @@
             </Grid>
         </Border>
         <Border Grid.Row="1">
-            <RichTextBox Name="rtf"
-                         helper:RichTextBoxHelper.DocumentXaml="{Binding StickContent}"
-                         Background="{Binding CurrentTheme.BackBrush}"
-                         BorderThickness="0"
-                         Style="{x:Null}">
+            <oc:RichTextboxEx Name="rtf"
+                              helper:RichTextBoxHelper.DocumentXaml="{Binding StickContent}"
+                              Background="{Binding CurrentTheme.BackBrush}"
+                              BorderThickness="0" ShowLineNumber="True">
                 <RichTextBox.Document>
                     <FlowDocument Name="fd" Focusable="True" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
                 </RichTextBox.Document>
@@ -100,7 +100,7 @@
                         <MenuItem Command="{Binding RenameStickCommand}" Header="重命名" />
                     </ContextMenu>
                 </RichTextBox.ContextMenu>
-            </RichTextBox>
+            </oc:RichTextboxEx>
         </Border>
         <Border Grid.Row="2" Background="{Binding CurrentTheme.BackBrush}">
             <Grid x:Name="bottomGrid">
@@ -121,6 +121,8 @@
                     <Button hc:IconElement.Geometry="{StaticResource TextItalic24Regular}" Command="EditingCommands.ToggleItalic" CommandTarget="{Binding ElementName=rtf}" ToolTip="Italic" />
                     <Button hc:IconElement.Geometry="{StaticResource TextUnderline24Regular}" Command="EditingCommands.ToggleUnderline" CommandTarget="{Binding ElementName=rtf}" ToolTip="Underline" />
                     <Button hc:IconElement.Geometry="{StaticResource TextStrikethrough24Regular}" Command="{Binding ToggleStrikeThroughCommand}" ToolTip="Strikethrough" />
+                    <Button hc:IconElement.Geometry="{StaticResource FontIncrease24Regular}" Command="EditingCommands.IncreaseFontSize" CommandTarget="{Binding ElementName=rtf}" ToolTip="IncreaseFontSize" />
+                    <Button hc:IconElement.Geometry="{StaticResource FontDecrease24Regular}" Command="EditingCommands.DecreaseFontSize" CommandTarget="{Binding ElementName=rtf}" ToolTip="DecreaseFontSize" />
                 </StackPanel>
             </Grid>
 

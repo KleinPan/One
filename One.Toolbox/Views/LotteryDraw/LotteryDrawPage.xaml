@@ -37,7 +37,7 @@
                              Style="{StaticResource PrizeItemControl2}" />
         <oc:PrizeItemControl Title="3等奖" Angle="60" BackgroundColor="Orange" StartAngle="90"
                              Style="{StaticResource PrizeItemControl2}" />-->
-        <panels:OverlapPanel>
+        <!--<panels:OverlapPanel>
             <TextBlock Width="16" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Orange"
                        FontSize="16" RenderTransformOrigin="0.5,0" Text="谢谢参与" TextWrapping="WrapWithOverflow">
                 <TextBlock.RenderTransform>
@@ -53,6 +53,6 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
 
-        </panels:OverlapPanel>
+        </panels:OverlapPanel>-->
     </Grid>
 </UserControl>

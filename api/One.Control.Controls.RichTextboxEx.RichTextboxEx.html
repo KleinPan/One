@@ -87,7 +87,7 @@
 
   <h1 id="One_Control_Controls_RichTextboxEx_RichTextboxEx" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx" class="text-break">
     Class RichTextboxEx
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -99,7 +99,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[TemplatePart(Name = &quot;PART_StackPanel&quot;, Type = typeof(StackPanel))]
+    <pre><code class="lang-csharp hljs">[TemplatePart(Name = &quot;PART_StackPanel&quot;, Type = typeof(OverlapPanel))]
 public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFrameworkInputElement, IInputElement, IQueryAmbient, IAddChild</code></pre>
   </div>
 
@@ -2194,9 +2194,39 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 
 
 
+  <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectanglesProperty" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectanglesProperty">
+  SearchRectanglesProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty SearchRectanglesProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumberProperty" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty">
   ShowLineNumberProperty
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>行号</p>
@@ -2227,14 +2257,14 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 
   <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_stackPanel" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.stackPanel">
   stackPanel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StackPanel stackPanel</code></pre>
+    <pre><code class="lang-csharp hljs">public OverlapPanel stackPanel</code></pre>
   </div>
 
 
@@ -2242,7 +2272,7 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.stackpanel">StackPanel</a></dt>
+    <dt><a class="xref" href="One.Control.Controls.Panels.OverlapPanel.html">OverlapPanel</a></dt>
     <dd></dd>
   </dl>
 
@@ -2258,11 +2288,42 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 </h2>
 
 
+  <a id="One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectangles_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles*"></a>
+
+  <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectangles" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles">
+  SearchRectangles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;Rect&gt; SearchRectangles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.rect">Rect</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumber_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber*"></a>
 
   <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumber" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber">
   ShowLineNumber
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -2293,11 +2354,42 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 </h2>
 
 
+  <a id="One_Control_Controls_RichTextboxEx_RichTextboxEx_HighLightSearch_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch*"></a>
+
+  <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_HighLightSearch_System_String_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch(System.String)">
+  HighLightSearch(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HighLightSearch(string searchString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>searchString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="One_Control_Controls_RichTextboxEx_RichTextboxEx_OnApplyTemplate_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate*"></a>
 
   <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_OnApplyTemplate" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate">
   OnApplyTemplate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Is called when a control template is applied.</p>
@@ -2324,7 +2416,7 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 
   <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_OnTextChanged_System_Windows_Controls_TextChangedEventArgs_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged(System.Windows.Controls.TextChangedEventArgs)">
   OnTextChanged(TextChangedEventArgs)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Is called when content in this editing control changes.</p>
@@ -2353,11 +2445,48 @@ public class RichTextboxEx : RichTextBox, IAnimatable, ISupportInitialize, IFram
 
 
 
+  <a id="One_Control_Controls_RichTextboxEx_RichTextboxEx_SplitWords_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords*"></a>
+
+  <h3 id="One_Control_Controls_RichTextboxEx_RichTextboxEx_SplitWords_System_String_" data-uid="One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords(System.String)">
+  SplitWords(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Splits strings on spaces, but preserves string which are between double quotes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string[] SplitWords(string inputString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/KleinPan/One/blob/master/One.Control/Controls/RichTextboxEx/RichTextboxEx.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

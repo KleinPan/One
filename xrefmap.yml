@@ -1839,6 +1839,22 @@ references:
   commentId: T:One.Control.Controls.RichTextboxEx.RichTextboxEx
   fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx
   nameWithType: RichTextboxEx
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch(System.String)
+  name: HighLightSearch(string)
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_HighLightSearch_System_String_
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch(System.String)
+  name.vb: HighLightSearch(String)
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch(string)
+  fullName.vb: One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch(String)
+  nameWithType: RichTextboxEx.HighLightSearch(string)
+  nameWithType.vb: RichTextboxEx.HighLightSearch(String)
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch*
+  name: HighLightSearch
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_HighLightSearch_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.HighLightSearch
+  nameWithType: RichTextboxEx.HighLightSearch
 - uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnApplyTemplate
   name: OnApplyTemplate()
   href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_OnApplyTemplate
@@ -1865,6 +1881,25 @@ references:
   isSpec: "True"
   fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.OnTextChanged
   nameWithType: RichTextboxEx.OnTextChanged
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles
+  name: SearchRectangles
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectangles
+  commentId: P:One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles
+  nameWithType: RichTextboxEx.SearchRectangles
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles*
+  name: SearchRectangles
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectangles_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectangles
+  nameWithType: RichTextboxEx.SearchRectangles
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectanglesProperty
+  name: SearchRectanglesProperty
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_SearchRectanglesProperty
+  commentId: F:One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectanglesProperty
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.SearchRectanglesProperty
+  nameWithType: RichTextboxEx.SearchRectanglesProperty
 - uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumber
   name: ShowLineNumber
   href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_ShowLineNumber
@@ -1884,6 +1919,22 @@ references:
   commentId: F:One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty
   fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.ShowLineNumberProperty
   nameWithType: RichTextboxEx.ShowLineNumberProperty
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords(System.String)
+  name: SplitWords(string)
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_SplitWords_System_String_
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords(System.String)
+  name.vb: SplitWords(String)
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords(string)
+  fullName.vb: One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords(String)
+  nameWithType: RichTextboxEx.SplitWords(string)
+  nameWithType.vb: RichTextboxEx.SplitWords(String)
+- uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords*
+  name: SplitWords
+  href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_SplitWords_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextboxEx.SplitWords
+  nameWithType: RichTextboxEx.SplitWords
 - uid: One.Control.Controls.RichTextboxEx.RichTextboxEx.stackPanel
   name: stackPanel
   href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html#One_Control_Controls_RichTextboxEx_RichTextboxEx_stackPanel

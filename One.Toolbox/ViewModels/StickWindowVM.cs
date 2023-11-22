@@ -1,4 +1,5 @@
-﻿using One.Core.Helpers;
+﻿using One.Control.Controls.RichTextboxEx;
+using One.Core.Helpers;
 using One.Core.Helpers.EncryptionHelpers;
 using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
@@ -50,7 +51,7 @@ public partial class StickWindowVM : BaseVM
 
     #endregion Prop
 
-    private RichTextBox currentRtb;
+    private RichTextboxEx currentRtb;
     private System.Windows.Controls.Primitives.Popup popup;
     private const string configName = "sticks.txt";
 
@@ -79,7 +80,7 @@ public partial class StickWindowVM : BaseVM
     private void InitRtbControl(object obj)
     {
         var a = obj as System.Windows.RoutedEventArgs;
-        currentRtb = a.Source as RichTextBox;
+        currentRtb = a.Source as RichTextboxEx;
     }
 
     #endregion CommonCommand
@@ -101,9 +102,7 @@ public partial class StickWindowVM : BaseVM
     private void SearchContent()
     {
         //https://www.cnblogs.com/dreamos/p/12531366.html
-        if (stickContent != null)
-        {
-        }
+        currentRtb.HighLightSearch("aa");
     }
 
     [RelayCommand]

@@ -19,6 +19,12 @@
            BorderThickness="0"
            ShowNonClientArea="False"
            mc:Ignorable="d">
+    <hc:Window.Resources>
+      
+        <Style x:Key="RichTextBoxStyle1" BasedOn="{StaticResource TextBoxBaseBaseStyle}" TargetType="{x:Type RichTextBox}">
+            <Setter Property="MinWidth" Value="10"/>
+        </Style>
+    </hc:Window.Resources>
     <behaviors:Interaction.Triggers>
         <behaviors:EventTrigger EventName="Deactivated">
             <behaviors:InvokeCommandAction Command="{Binding DeactivatedWndCommand}" />
@@ -101,6 +107,7 @@
                     </ContextMenu>
                 </RichTextBox.ContextMenu>
             </oc:RichTextboxEx>
+            
         </Border>
         <Border Grid.Row="2" Background="{Binding CurrentTheme.BackBrush}">
             <Grid x:Name="bottomGrid">

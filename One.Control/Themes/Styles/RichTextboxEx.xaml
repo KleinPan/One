@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:panels="clr-namespace:One.Control.Controls.Panels"
                     xmlns:rtb="clr-namespace:One.Control.Controls.RichTextboxEx">
 
     <ResourceDictionary.MergedDictionaries>
@@ -10,26 +11,69 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type rtb:RichTextboxEx}">
                     <Grid>
+                        <ItemsControl Grid.Row="0" Grid.Column="0" ItemsSource="{TemplateBinding SearchRectangles}" Visibility="Collapsed">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="AliceBlue" Opacity="0.5" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="Canvas.Top" Value="{Binding Top}" />
+                                    <Setter Property="Canvas.Left" Value="{Binding Left}" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                        </ItemsControl>
                         <DockPanel>
                             <Border Padding="0,0,0,0" Background="{TemplateBinding Background}" Visibility="{TemplateBinding ShowLineNumber, Converter={StaticResource Boolean2VisibilityConverter}}">
-                                <StackPanel Name="PART_StackPanel" Width="18">
-                                    <StackPanel.Resources>
+                                <panels:OverlapPanel x:Name="PART_StackPanel" Width="18">
+                                    <panels:OverlapPanel.Resources>
                                         <Style TargetType="Label">
                                             <Setter Property="Background" Value="Transparent" />
                                             <Setter Property="Foreground" Value="Gray" />
-                                            <Setter Property="Margin" Value="1,0,1,0" />
+
                                             <Setter Property="Padding" Value="0,0,0,0" />
                                             <Setter Property="VerticalContentAlignment" Value="Center" />
-                                            <Setter Property="HorizontalContentAlignment" Value="Right" />
+                                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+
+                                            <Setter Property="HorizontalAlignment" Value="Right" />
+                                            <Setter Property="VerticalAlignment" Value="Top" />
                                         </Style>
-                                    </StackPanel.Resources>
-                                </StackPanel>
+                                    </panels:OverlapPanel.Resources>
+                                </panels:OverlapPanel>
                             </Border>
-                            <ScrollViewer x:Name="PART_ContentHost" Padding="5,10,0,0" Background="{TemplateBinding Background}" />
+                            <!--<ScrollViewer x:Name="PART_ContentHost" Padding="5,10,0,0" Background="{TemplateBinding Background}" />-->
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    SnapsToDevicePixels="True">
+                                <ScrollViewer x:Name="PART_ContentHost" Padding="{TemplateBinding Padding}" ScrollViewer.HorizontalScrollBarVisibility="{Binding (ScrollViewer.HorizontalScrollBarVisibility), RelativeSource={RelativeSource Mode=TemplatedParent}}" ScrollViewer.VerticalScrollBarVisibility="{Binding (ScrollViewer.VerticalScrollBarVisibility), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </Border>
+
                         </DockPanel>
+
                     </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

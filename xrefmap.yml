@@ -1833,6 +1833,47 @@ references:
   commentId: N:One.Control.Controls.RichTextboxEx
   fullName: One.Control.Controls.RichTextboxEx
   nameWithType: One.Control.Controls.RichTextboxEx
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper
+  name: RichTextBoxHelper
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html
+  commentId: T:One.Control.Controls.RichTextboxEx.RichTextBoxHelper
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper
+  nameWithType: RichTextBoxHelper
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.DocumentXamlProperty
+  name: DocumentXamlProperty
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html#One_Control_Controls_RichTextboxEx_RichTextBoxHelper_DocumentXamlProperty
+  commentId: F:One.Control.Controls.RichTextboxEx.RichTextBoxHelper.DocumentXamlProperty
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.DocumentXamlProperty
+  nameWithType: RichTextBoxHelper.DocumentXamlProperty
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml(System.Windows.DependencyObject)
+  name: GetDocumentXaml(DependencyObject)
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html#One_Control_Controls_RichTextboxEx_RichTextBoxHelper_GetDocumentXaml_System_Windows_DependencyObject_
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml(System.Windows.DependencyObject)
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml(System.Windows.DependencyObject)
+  nameWithType: RichTextBoxHelper.GetDocumentXaml(DependencyObject)
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml*
+  name: GetDocumentXaml
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html#One_Control_Controls_RichTextboxEx_RichTextBoxHelper_GetDocumentXaml_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.GetDocumentXaml
+  nameWithType: RichTextBoxHelper.GetDocumentXaml
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml(System.Windows.DependencyObject,System.String)
+  name: SetDocumentXaml(DependencyObject, string)
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html#One_Control_Controls_RichTextboxEx_RichTextBoxHelper_SetDocumentXaml_System_Windows_DependencyObject_System_String_
+  commentId: M:One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml(System.Windows.DependencyObject,System.String)
+  name.vb: SetDocumentXaml(DependencyObject, String)
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml(System.Windows.DependencyObject, string)
+  fullName.vb: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml(System.Windows.DependencyObject, String)
+  nameWithType: RichTextBoxHelper.SetDocumentXaml(DependencyObject, string)
+  nameWithType.vb: RichTextBoxHelper.SetDocumentXaml(DependencyObject, String)
+- uid: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml*
+  name: SetDocumentXaml
+  href: api/One.Control.Controls.RichTextboxEx.RichTextBoxHelper.html#One_Control_Controls_RichTextboxEx_RichTextBoxHelper_SetDocumentXaml_
+  commentId: Overload:One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml
+  isSpec: "True"
+  fullName: One.Control.Controls.RichTextboxEx.RichTextBoxHelper.SetDocumentXaml
+  nameWithType: RichTextBoxHelper.SetDocumentXaml
 - uid: One.Control.Controls.RichTextboxEx.RichTextboxEx
   name: RichTextboxEx
   href: api/One.Control.Controls.RichTextboxEx.RichTextboxEx.html

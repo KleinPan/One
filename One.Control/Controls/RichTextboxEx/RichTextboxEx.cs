@@ -78,7 +78,7 @@ public class RichTextboxEx : RichTextBox
 
                 Label label = new();
 
-                label.Margin = new Thickness(0, endRect.Top + 3, 0, 0);
+                label.Margin = new Thickness(0, endRect.Top + 2, 0, 0);
 
                 var test = $"{endRect.Top},{endRect.Height}";
                 //label.ToolTip = test;

@@ -1,4 +1,5 @@
-﻿using One.Control.Controls.RichTextboxEx;
+﻿using One.Control.Command;
+using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
 using One.Core.Helpers.EncryptionHelpers;
 using One.Toolbox.Helpers;
@@ -8,8 +9,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
-
+using System.Windows.Input;
 using System.Windows.Media;
 
 using Button = System.Windows.Controls.Button;
@@ -72,6 +74,11 @@ public partial class StickWindowVM : BaseVM
         CurrentTheme = themeList[0];
 
         InitData();
+    }
+
+    private void asda(bool obj)
+    {
+        Console.WriteLine(obj);
     }
 
     #region CommonCommand
@@ -205,6 +212,57 @@ public partial class StickWindowVM : BaseVM
     }
 
     #endregion BottomCommand
+
+    #region CenterCommand
+
+    [RelayCommand]
+    private void InsertCheckbox(object obj)
+    {
+        var chb = new CheckBox() { Margin = new Thickness(0, 0, 5, 0) };
+        //chb.Command = testACommand;
+
+        Paragraph paragraph = new();
+
+        // Create a new InlineUIContainer to contain the Button.
+        InlineUIContainer myInlineUIContainer = new InlineUIContainer();
+
+        // Set the BaselineAlignment property to "Bottom" so that the Button aligns properly with the text.
+        myInlineUIContainer.BaselineAlignment = BaselineAlignment.Center;
+
+        // Asign the button as the UI container's child.
+        myInlineUIContainer.Child = chb;
+
+        paragraph.Inlines.Add(myInlineUIContainer);
+
+        currentRtb.Document.Blocks.Add(paragraph);
+    }
+
+    [RelayCommand]
+    private void TestA(object obj)
+    {
+        var args = obj as MouseButtonEventArgs;
+        if (args.Source is CheckBox chb)
+        {
+            var inlineUIContainer = chb.Parent as InlineUIContainer;
+            var paragraph = inlineUIContainer.Parent as Paragraph;
+            if (paragraph != null)
+            {
+                //paragraph.TextDecorations = TextDecorations.Strikethrough;
+                var text = paragraph.Inlines.ElementAt(1) as Run;
+
+                if ((bool)chb.IsChecked)//反着来
+                {
+                    text.TextDecorations = new TextDecorationCollection();
+                }
+                else
+                {
+                    text.TextDecorations = TextDecorations.Strikethrough;
+                }
+            }
+        }
+    }
+
+    #endregion CenterCommand
 
     public StickM ToModel()
     {

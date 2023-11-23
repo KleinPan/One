@@ -11,8 +11,8 @@
            xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
            x:Name="wnd"
            Title="StickWindow"
-           Width="300"
-           Height="450"
+           Width="200"
+           Height="250"
            d:DataContext="{d:DesignInstance Type=vms:StickWindowVM}"
            d:DesignHeight="450"
            d:DesignWidth="300"
@@ -20,9 +20,9 @@
            ShowNonClientArea="False"
            mc:Ignorable="d">
     <hc:Window.Resources>
-      
+
         <Style x:Key="RichTextBoxStyle1" BasedOn="{StaticResource TextBoxBaseBaseStyle}" TargetType="{x:Type RichTextBox}">
-            <Setter Property="MinWidth" Value="10"/>
+            <Setter Property="MinWidth" Value="10" />
         </Style>
     </hc:Window.Resources>
     <behaviors:Interaction.Triggers>
@@ -53,6 +53,7 @@
                     <StackPanel.Resources>
                         <Style BasedOn="{StaticResource ButtonIcon.Small}" TargetType="Button" />
                     </StackPanel.Resources>
+                    <Button Name="ButtonPin" hc:IconElement.Geometry="{StaticResource PinOff20Regular}" Click="ButtonPin_Click" />
                     <Button hc:IconElement.Geometry="{StaticResource SearchGeometry}" Command="{Binding SearchContentCommand}" />
                     <Button x:Name="btnSkin" hc:IconElement.Geometry="{StaticResource SkinOutlined}" Command="{Binding ShowThemeCommand}" CommandParameter="{Binding ElementName=popup}" />
 
@@ -90,9 +91,9 @@
         </Border>
         <Border Grid.Row="1">
             <oc:RichTextboxEx Name="rtf"
-                              helper:RichTextBoxHelper.DocumentXaml="{Binding StickContent}"
+                              oc:RichTextBoxHelper.DocumentXaml="{Binding StickContent}"
                               Background="{Binding CurrentTheme.BackBrush}"
-                              BorderThickness="0" ShowLineNumber="True">
+                              BorderThickness="0" IsDocumentEnabled="True" ShowLineNumber="True">
                 <RichTextBox.Document>
                     <FlowDocument Name="fd" Focusable="True" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
                 </RichTextBox.Document>
@@ -100,14 +101,18 @@
                     <behaviors:EventTrigger EventName="Loaded">
                         <behaviors:InvokeCommandAction Command="{Binding InitRtbControlCommand}" PassEventArgsToCommand="True" />
                     </behaviors:EventTrigger>
+                    <behaviors:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding TestACommand}" PassEventArgsToCommand="True" />
+                    </behaviors:EventTrigger>
                 </behaviors:Interaction.Triggers>
                 <RichTextBox.ContextMenu>
                     <ContextMenu Width="150" Style="{StaticResource ContextMenu.Small}">
                         <MenuItem Command="{Binding RenameStickCommand}" Header="重命名" />
+                        <MenuItem Command="{Binding InsertCheckboxCommand}" Header="插入代办" />
                     </ContextMenu>
                 </RichTextBox.ContextMenu>
             </oc:RichTextboxEx>
-            
+
         </Border>
         <Border Grid.Row="2" Background="{Binding CurrentTheme.BackBrush}">
             <Grid x:Name="bottomGrid">

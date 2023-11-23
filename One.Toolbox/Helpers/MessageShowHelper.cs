@@ -11,15 +11,24 @@ namespace One.Toolbox.Helpers
         {
         }
 
-        public static void ShowErrorMessage(string message)
+        public static void ShowErrorMessage(string message, bool global = false)
         {
+            if (global)
+            {
+                HandyControl.Controls.Growl.ErrorGlobal(new GrowlInfo
+                {
+                    Message = $"{message}",
+                });
+            }
+            else
+            {
+                HandyControl.Controls.Growl.Error(new GrowlInfo
+                {
+                    Message = $"{message}",
+                });
+            }
             App.Current.Dispatcher.Invoke(() =>
             {
-            });
-
-            HandyControl.Controls.Growl.Error(new GrowlInfo
-            {
-                Message = $"{message}",
             });
         }
 
@@ -31,12 +40,22 @@ namespace One.Toolbox.Helpers
             });
         }
 
-        public static void ShowInfoMessage(string message)
+        public static void ShowInfoMessage(string message, bool global = false)
         {
-            HandyControl.Controls.Growl.Info(new GrowlInfo
+            if (global)
             {
-                Message = $"{message}",
-            });
+                HandyControl.Controls.Growl.InfoGlobal(new GrowlInfo
+                {
+                    Message = $"{message}",
+                });
+            }
+            else
+            {
+                HandyControl.Controls.Growl.Info(new GrowlInfo
+                {
+                    Message = $"{message}",
+                });
+            }
         }
     }
 }

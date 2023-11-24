@@ -100,12 +100,12 @@ public partial class MainWindowVM : BaseVM
             Content = new Views.BingImage.BingImagePage(),
         });
 
-        NavigationItems.Add(new MainMenuItemViewModel()
-        {
-            Header = "LotteryDraw",
-            Icon = ResourceHelper.Dic["IncompleteCircleFilled"],
-            Content = new Views.LotteryDraw.LotteryDrawPage(),
-        });
+        //NavigationItems.Add(new MainMenuItemViewModel()
+        //{
+        //    Header = "LotteryDraw",
+        //    Icon = ResourceHelper.Dic["IncompleteCircleFilled"],
+        //    Content = new Views.LotteryDraw.LotteryDrawPage(),
+        //});
         //倒叙
         NavigationItems.Add(new MainMenuItemViewModel()
         {

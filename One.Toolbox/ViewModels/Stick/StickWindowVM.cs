@@ -1,25 +1,21 @@
-﻿using One.Control.Command;
-using One.Control.Controls.RichTextboxEx;
+﻿using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
-using One.Core.Helpers.EncryptionHelpers;
 using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
 
-using System;
 using System.Collections.ObjectModel;
-using System.Drawing;
+using System.IO;
+using System.Text;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
+
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 
-using Button = System.Windows.Controls.Button;
-using Color = System.Windows.Media.Color;
 using ColorConverter = System.Windows.Media.ColorConverter;
-using RichTextBox = System.Windows.Controls.RichTextBox;
 
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.Stick;
 
 public enum StickType
 {
@@ -40,7 +36,7 @@ public partial class StickWindowVM : BaseVM
     private string stickName;
 
     [ObservableProperty]
-    private string stickContent;
+    private string stickContentPath;
 
     [ObservableProperty]
     private int lineHeight = 1;
@@ -76,11 +72,6 @@ public partial class StickWindowVM : BaseVM
         InitData();
     }
 
-    private void asda(bool obj)
-    {
-        Console.WriteLine(obj);
-    }
-
     #region CommonCommand
 
     [RelayCommand]
@@ -88,6 +79,13 @@ public partial class StickWindowVM : BaseVM
     {
         var a = obj as System.Windows.RoutedEventArgs;
         currentRtb = a.Source as RichTextboxEx;
+
+        Task.Run(() =>
+        {
+            Task.Delay(100);
+        });
+
+        LoadXamlPackage(StickContentPath);
     }
 
     #endregion CommonCommand
@@ -109,7 +107,7 @@ public partial class StickWindowVM : BaseVM
     private void SearchContent()
     {
         //https://www.cnblogs.com/dreamos/p/12531366.html
-        currentRtb.HighLightSearch("aa");
+        // currentRtb.HighLightSearch("aa");
     }
 
     [RelayCommand]
@@ -163,6 +161,8 @@ public partial class StickWindowVM : BaseVM
         }
     }
 
+    #region DataProcess
+
     void InitData()
     {
         try
@@ -172,18 +172,42 @@ public partial class StickWindowVM : BaseVM
             CurrentTheme = m.CurrentTheme;
             StickName = m.StickName;
             StickType = m.StickType;
-            StickContent = m.StickContent;
+            StickContentPath = m.StickContentPath;
         }
         catch (Exception ex)
         {
         }
     }
 
+    void LoadXamlPackage(string _fileName)
+    {
+        if (!File.Exists(_fileName))
+        {
+            return;
+        }
+        var ss = File.ReadAllBytes(_fileName);
+        var a = XamlReader.Parse(Encoding.UTF8.GetString(ss));
+        currentRtb.Document = (FlowDocument)a;
+    }
+
     void SaveData()
     {
+        StickContentPath = One.Toolbox.Helpers.PathHelper.dataPath + "aa";
+
         var m = ToModel();
+
         IOHelper.Instance.WriteContentTolocal(m, One.Toolbox.Helpers.PathHelper.dataPath + configName);
+
+        SaveXamlPackage(StickContentPath);
     }
+
+    void SaveXamlPackage(string _fileName)
+    {
+        var ss = XamlWriter.Save(currentRtb.Document);
+        File.WriteAllBytes(_fileName, Encoding.UTF8.GetBytes(ss));
+    }
+
+    #endregion DataProcess
 
     #endregion UpCommand
 
@@ -219,7 +243,6 @@ public partial class StickWindowVM : BaseVM
     private void InsertCheckbox(object obj)
     {
         var chb = new CheckBox() { Margin = new Thickness(0, 0, 5, 0) };
-        //chb.Command = testACommand;
 
         Paragraph paragraph = new();
 
@@ -270,7 +293,7 @@ public partial class StickWindowVM : BaseVM
         stickM.CurrentTheme = CurrentTheme;
         stickM.StickName = StickName;
         stickM.StickType = StickType;
-        stickM.StickContent = StickContent;
+        stickM.StickContentPath = StickContentPath;
 
         return stickM;
     }
@@ -301,5 +324,5 @@ public class StickM
     public string StickName { get; set; }
     public StickType StickType { get; set; }
 
-    public string StickContent { get; set; }
+    public string StickContentPath { get; set; }
 }

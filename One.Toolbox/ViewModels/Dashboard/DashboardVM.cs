@@ -76,9 +76,6 @@ public partial class DashboardVM : BaseVM
         //     new InputInfoVM("dd","ee"),
         //};
         //var res = await DialogHelper.Instance.ShowInputDialog("test", inputInfoVMs);
-
-        StickWindow stickWindow = new StickWindow();
-        stickWindow.Show();
     }
 
     private static async Task<YiyanAPIM> GetEveryDayYiyan()

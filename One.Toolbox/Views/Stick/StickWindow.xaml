@@ -1,4 +1,4 @@
-﻿<hc:Window x:Class="One.Toolbox.Views.StickWindow"
+﻿<hc:Window x:Class="One.Toolbox.Views.Stick.StickWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
@@ -8,7 +8,7 @@
            xmlns:local="clr-namespace:One.Toolbox.Views"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:oc="clr-namespace:One.Control.Controls.RichTextboxEx;assembly=One.Control"
-           xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
+           xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
            x:Name="wnd"
            Title="StickWindow"
            Width="200"
@@ -17,6 +17,7 @@
            d:DesignHeight="450"
            d:DesignWidth="300"
            BorderThickness="0"
+           ShowInTaskbar="False"
            ShowNonClientArea="False"
            mc:Ignorable="d">
     <hc:Window.Resources>
@@ -91,11 +92,10 @@
         </Border>
         <Border Grid.Row="1">
             <oc:RichTextboxEx Name="rtf"
-                              oc:RichTextBoxHelper.DocumentXaml="{Binding StickContent}"
                               Background="{Binding CurrentTheme.BackBrush}"
                               BorderThickness="0" IsDocumentEnabled="True" ShowLineNumber="True">
                 <RichTextBox.Document>
-                    <FlowDocument Name="fd" Focusable="True" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
+                    <FlowDocument Name="fd" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
                 </RichTextBox.Document>
                 <behaviors:Interaction.Triggers>
                     <behaviors:EventTrigger EventName="Loaded">

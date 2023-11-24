@@ -96,5 +96,24 @@ namespace One.Toolbox.Views
                 ButtonLeft.Show();
             }
         }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            base.OnStateChanged(e);
+            //if (WindowState == WindowState.Minimized)
+            //{
+            //    ShowInTaskbar = false;
+            //    this.Hide();
+            //}
+        }
+
+        private void NotifyIcon_Click(object sender, RoutedEventArgs e)
+        {
+            //ShowInTaskbar = true;
+            //this.Show();
+            //WindowState = WindowState.Normal;
+
+            // this.Visibility = Visibility.Visible;
+        }
     }
 }

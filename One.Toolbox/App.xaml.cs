@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Messenger;
 using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Stick;
 
 using System.Globalization;
 using System.Windows.Threading;

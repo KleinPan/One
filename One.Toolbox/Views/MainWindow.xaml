@@ -109,5 +109,8 @@
             <ContentControl Content="{Binding CurrentMenuItem.Content}" />
             <!--  733 548  -->
         </Border>
+
+        <!--<hc:NotifyIcon Click="NotifyIcon_Click" Text="HandyControl" />-->
     </Grid>
+
 </hc:Window>

@@ -1,12 +1,16 @@
 ﻿using HandyControl.Controls;
 using HandyControl.Data;
 
+using Microsoft.Extensions.DependencyInjection;
+
 using Newtonsoft.Json;
 
 using One.Core.Helpers;
 using One.Toolbox.Helpers;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.ViewModels.Dashboard;
+using One.Toolbox.Views.Stick;
 
 using RestSharp;
 
@@ -28,10 +32,27 @@ public partial class SettingsViewModel : BaseVM
     [ObservableProperty]
     private bool autoUpdate = true;
 
-    private SettingModel settingModel = new SettingModel();
+    [ObservableProperty]
+    private bool showStickOnStart;
+
+    private SettingService SettingService { get; set; }
 
     public SettingsViewModel()
     {
+        SettingService = App.Current.Services.GetService<Services.SettingService>();
+        LoadSetting();
+    }
+
+    public override void OnNavigatedLeave()
+    {
+        base.OnNavigatedLeave();
+
+        SaveSetting();
+    }
+
+    public override void OnNavigatedEnter()
+    {
+        base.OnNavigatedEnter();
     }
 
     public override void InitializeViewModel()
@@ -73,6 +94,11 @@ public partial class SettingsViewModel : BaseVM
         });
 
         base.InitializeViewModel();
+
+        if (ShowStickOnStart)
+        {
+            ShowStick();
+        }
     }
 
     private static async Task<GithubReleaseFilterInfo> GetLatestInfo()
@@ -126,9 +152,30 @@ public partial class SettingsViewModel : BaseVM
 
     private void LoadSetting()
     {
+        ShowStickOnStart = SettingService.AllConfig.Setting.ShowStickOnStart;
+        AutoUpdate = SettingService.AllConfig.Setting.SutoUpdate;
     }
 
     private void SaveSetting()
     {
+        SettingService.AllConfig.Setting.ShowStickOnStart = ShowStickOnStart;
+        SettingService.AllConfig.Setting.SutoUpdate = AutoUpdate;
+
+        SettingService.Save();
+    }
+
+    private StickWindow stickWindow;
+
+    private void ShowStick()
+    {
+        if (stickWindow == null)
+        {
+            stickWindow = new StickWindow();
+            stickWindow.Show();
+        }
+        else
+        {
+            stickWindow.Show();
+        }
     }
 }

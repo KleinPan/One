@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -70,6 +71,7 @@ public class RichTextBoxHelper : DependencyObject
                 // When the document changes update the source
                 richTextBox.TextChanged += (obj2, e2) =>
                 {
+                    //带UI元素的控件状态保存的不对
                     RichTextBox richTextBox2 = obj2 as RichTextBox;
                     if (richTextBox2 != null)
                     {

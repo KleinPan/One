@@ -44,7 +44,7 @@
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#F4F5F7" />
+                                <Setter Property="Background" Value="{StaticResource SecondaryRegionBrush}" />
                                 <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
                             </Trigger>
 

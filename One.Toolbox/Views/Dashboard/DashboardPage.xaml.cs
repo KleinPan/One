@@ -2,7 +2,7 @@
 
 using One.Toolbox.ViewModels.Dashboard;
 
-namespace One.Toolbox.Views.Pages;
+namespace One.Toolbox.Views.Dashboard;
 
 public partial class DashboardPage
 {

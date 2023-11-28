@@ -19,7 +19,7 @@ using static Vanara.PInvoke.SetupAPI;
 
 namespace One.Toolbox.ViewModels.NotePad
 {
-    public partial class EditFileInfoViewModel : ObservableObject
+    public partial class EditFileInfoVM : ObservableObject
     {
         /// <summary> 文件名 </summary>
         [ObservableProperty]
@@ -68,13 +68,13 @@ namespace One.Toolbox.ViewModels.NotePad
         public Action UpdateInfoAction { get; set; }
 
         /// <summary> UI 展示数据使用 </summary>
-        public EditFileInfoViewModel()
+        public EditFileInfoVM()
         {
         }
 
         /// <summary> 正常使用 </summary>
         /// <param name="filePath"> </param>
-        public EditFileInfoViewModel(string filePath)
+        public EditFileInfoVM(string filePath)
         {
             //FileName = "未命名" + DateTime.Now.ToString("yyMMdd-HHmmss");
             //Extension = ".txt";

@@ -18,11 +18,11 @@ public class SerialportSettingModel
 
     public bool LagAutoClear { get; set; } = true;
 
-    public List<QuickSendViewModel> QuickSendList { get; set; } = new List<QuickSendViewModel>();
+    public List<QuickSendVM> QuickSendList { get; set; } = new List<QuickSendVM>();
 
-    public SerialportSettingViewModel ToVM()
+    public SerialportSettingVM ToVM()
     {
-        SerialportSettingViewModel serialportSettingModel = new SerialportSettingViewModel();
+        SerialportSettingVM serialportSettingModel = new SerialportSettingVM();
         serialportSettingModel.HexShow = HexShow;
         serialportSettingModel.HexSend = HexSend;
         serialportSettingModel.WithExtraEnter = WithExtraEnter;

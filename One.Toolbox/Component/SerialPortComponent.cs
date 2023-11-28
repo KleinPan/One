@@ -25,7 +25,7 @@ namespace One.Toolbox.Component
 
         private static readonly object objLock = new object();
 
-        private SerialportSettingViewModel SerialportSetting { get; set; }
+        private SerialportSettingVM SerialportSetting { get; set; }
 
         /// <summary> 初始化串口各个触发函数 </summary>
         public SerialPortComponent()
@@ -118,7 +118,7 @@ namespace One.Toolbox.Component
         }
 
         /// <summary> 开启串口 </summary>
-        public void Open(SerialportSettingViewModel serialportParams)
+        public void Open(SerialportSettingVM serialportParams)
         {
             string temp = serialPort.PortName;
             WriteTraceLog($"[UartOpen]refreshSerialDevice");

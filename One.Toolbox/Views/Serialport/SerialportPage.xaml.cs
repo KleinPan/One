@@ -11,18 +11,18 @@ namespace One.Toolbox.Views.Serialport;
 /// <summary> SerialportPage.xaml 的交互逻辑 </summary>
 public partial class SerialportPage
 {
-    public ViewModels.Serialport.SerialportViewModel ViewModel { get; }
+    public ViewModels.Serialport.SerialportVM ViewModel { get; }
 
     public SerialportPage()
     {
-        DataContext = ViewModel = App.Current.Services.GetService<SerialportViewModel>();
+        DataContext = ViewModel = App.Current.Services.GetService<SerialportVM>();
 
         InitializeComponent();
     }
 
     private void Button_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
     {
-        QuickSendViewModel data = ((System.Windows.Controls.Button)sender).DataContext as QuickSendViewModel;
+        QuickSendVM data = ((System.Windows.Controls.Button)sender).DataContext as QuickSendVM;
         Tuple<bool, string> ret = Tools.InputDialog.OpenDialog(ResourceHelper.FindStringResource("QuickSendSetButton"),
             data.Commit, ResourceHelper.FindStringResource("QuickSendChangeButton"));
         if (ret.Item1)

@@ -72,7 +72,7 @@ namespace One.Toolbox.Services
         {
             AllConfig = new AllConfigModel();
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendViewModel()
+            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendVM()
             {
                 Id = 0,
                 Commit = "发送",
@@ -80,7 +80,7 @@ namespace One.Toolbox.Services
                 Text = "Hello?",
             });
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendViewModel()
+            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendVM()
             {
                 Id = 1,
                 Commit = "Hex发送",
@@ -97,12 +97,12 @@ namespace One.Toolbox.Services
         {
             try
             {
-                var skins0 = App.Current.Resources.MergedDictionaries[1];//APP.xaml 里边第二行
+                var skins0 = App.Current.Resources.MergedDictionaries[2];//APP.xaml 里边第二行
                 skins0.MergedDictionaries.Clear();
                 skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(skin));
                 skins0.MergedDictionaries.Add(HandyControl.Tools.ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
 
-                var skins1 = App.Current.Resources.MergedDictionaries[2];
+                var skins1 = App.Current.Resources.MergedDictionaries[3];
                 skins1.MergedDictionaries.Clear();
                 skins1.MergedDictionaries.Add(new ResourceDictionary
                 {

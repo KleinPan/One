@@ -17,14 +17,14 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels;
 
-public partial class NotePadViewModel : BaseVM
+public partial class NotePadVM : BaseVM
 {
     [ObservableProperty]
-    private EditFileInfoViewModel selectedEditFileInfo;
+    private EditFileInfoVM selectedEditFileInfo;
 
-    public ObservableCollection<EditFileInfoViewModel> EditFileInfoViewModelOC { get; set; } = new ObservableCollection<EditFileInfoViewModel>();
+    public ObservableCollection<EditFileInfoVM> EditFileInfoViewModelOC { get; set; } = new ObservableCollection<EditFileInfoVM>();
 
-    public NotePadViewModel()
+    public NotePadVM()
     {
         // Register a message in some module
         WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
@@ -60,7 +60,7 @@ public partial class NotePadViewModel : BaseVM
     {
         int index = EditFileInfoViewModelOC.Count;
         string filePath = PathHelper.dataPath + "unfitled" + index + ".txt";
-        EditFileInfoViewModel editFileInfoViewModel = new EditFileInfoViewModel(filePath);
+        EditFileInfoVM editFileInfoViewModel = new EditFileInfoVM(filePath);
         var res = editFileInfoViewModel.CreateNewFile();
         if (res)
         {
@@ -80,7 +80,7 @@ public partial class NotePadViewModel : BaseVM
 
         if (newItems.Count == 1)
         {
-            var item = newItems[0] as EditFileInfoViewModel;
+            var item = newItems[0] as EditFileInfoVM;
             item.LoadDocument();
         }
         else
@@ -158,7 +158,7 @@ public partial class NotePadViewModel : BaseVM
 
         foreach (var item in service.AllConfig.EditFileInfoList)
         {
-            EditFileInfoViewModel editFileInfo = new(item.FilePath);
+            EditFileInfoVM editFileInfo = new(item.FilePath);
             editFileInfo.CreateTime = item.CreateTime;
             editFileInfo.ModifyTime = item.ModifyTime;
             editFileInfo.UpdateInfoAction += Update;

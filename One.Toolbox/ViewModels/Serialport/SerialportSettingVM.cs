@@ -1,6 +1,6 @@
 ﻿namespace One.Toolbox.ViewModels.Serialport;
 
-public partial class SerialportSettingViewModel : ObservableObject
+public partial class SerialportSettingVM : ObservableObject
 {
     [ObservableProperty]
     private List<int> databitList = new List<int>() { 5, 6, 7, 8 };
@@ -30,9 +30,9 @@ public partial class SerialportSettingViewModel : ObservableObject
 
     public SerialportParams SerialportParams { get; set; } = new SerialportParams();
 
-    public List<QuickSendViewModel> QuickSendList { get; set; } = new List<QuickSendViewModel>();
+    public List<QuickSendVM> QuickSendList { get; set; } = new List<QuickSendVM>();
 
-    public SerialportSettingViewModel()
+    public SerialportSettingVM()
     {
         //SerialportParams = new SerialportParams();
     }

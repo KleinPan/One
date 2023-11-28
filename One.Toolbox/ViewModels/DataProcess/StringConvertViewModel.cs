@@ -2,9 +2,7 @@
 using One.Toolbox.ViewModels.Base;
 
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Globalization;
-using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,7 +11,7 @@ using System.Windows.Shapes;
 
 using TextBlock = System.Windows.Controls.TextBlock;
 
-namespace One.Toolbox.ViewModels
+namespace One.Toolbox.ViewModels.DataProcess
 {
     public partial class StringConvertViewModel : BaseVM
     {

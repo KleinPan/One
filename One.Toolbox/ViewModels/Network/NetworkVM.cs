@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels
 {
-    public partial class NetworkViewModel : BaseShowViewModel
+    public partial class NetworkVM : BaseShowViewModel
     {
         [ObservableProperty]
         private CommunProtocalType selectCommunProtocalType;

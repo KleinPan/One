@@ -5,7 +5,7 @@ using One.Toolbox.Helpers;
 
 namespace One.Toolbox.ViewModels.Serialport;
 
-public partial class QuickSendViewModel : ObservableObject
+public partial class QuickSendVM : ObservableObject
 {
     [ObservableProperty]
     private int _id;
@@ -24,7 +24,7 @@ public partial class QuickSendViewModel : ObservableObject
     [RelayCommand]
     private void SendData(object obj)
     {
-        var vm = App.Current.Services.GetService<SerialportViewModel>();
+        var vm = App.Current.Services.GetService<SerialportVM>();
 
         var data = System.Text.Encoding.UTF8.GetBytes(Text);
 

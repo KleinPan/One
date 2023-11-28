@@ -1,7 +1,7 @@
 using System.Windows.Controls;
 using System.Windows.Interop;
 
-namespace One.Toolbox.Views
+namespace One.Toolbox.Views.Dialogs
 {
     public partial class InputDialogWindow : Window
     {

@@ -6,11 +6,11 @@ namespace One.Toolbox.Views.Network
 {
     public partial class NetworklPage
     {
-        public ViewModels.NetworkViewModel ViewModel { get; }
+        public ViewModels.NetworkVM ViewModel { get; }
 
         public NetworklPage()
         {
-            DataContext = ViewModel = App.Current.Services.GetService<NetworkViewModel>();
+            DataContext = ViewModel = App.Current.Services.GetService<NetworkVM>();
 
             InitializeComponent();
         }

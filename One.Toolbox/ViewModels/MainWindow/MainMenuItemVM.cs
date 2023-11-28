@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.MainWindow
 {
-    public partial class MainMenuItemViewModel : BaseVM
+    public partial class MainMenuItemVM : BaseVM
     {
         [ObservableProperty]
         private UserControl content;
@@ -22,7 +22,7 @@ namespace One.Toolbox.ViewModels.MainWindow
         [ObservableProperty]
         public Dock dock;
 
-        public MainMenuItemViewModel()
+        public MainMenuItemVM()
         {
             //Content = App.GetService< Type.GetType(nameof(targetPageType)) >();
             Dock = Dock.Top;

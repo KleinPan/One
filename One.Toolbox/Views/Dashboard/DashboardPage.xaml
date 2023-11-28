@@ -1,12 +1,12 @@
-<UserControl x:Class="One.Toolbox.Views.Pages.DashboardPage"
+<UserControl x:Class="One.Toolbox.Views.Dashboard.DashboardPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
-             xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-             d:DataContext="{d:DesignInstance viewmodels:DashboardViewModel,
+             xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Dashboard"
+             d:DataContext="{d:DesignInstance vms:DashboardVM,
                                               IsDesignTimeCreatable=False}"
              d:Height="548"
              d:Width="733"

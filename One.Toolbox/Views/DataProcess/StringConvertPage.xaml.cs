@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.DataProcess;
 
-namespace One.Toolbox.Views.Pages
+namespace One.Toolbox.Views.DataProcess
 {
     /// <summary> 编码转换工具页面 </summary>
     public partial class StringConvertPage
     {
-        public ViewModels.StringConvertViewModel ViewModel { get; }
+        public ViewModels.DataProcess.StringConvertViewModel ViewModel { get; }
 
         public StringConvertPage()
         {

@@ -6,7 +6,7 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Messenger;
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.DataProcess;
 using One.Toolbox.ViewModels.Stick;
 
 using System.Globalization;
@@ -59,22 +59,22 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Dashboard.DashboardVM>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
-            services.AddSingleton<ViewModels.StringConvertViewModel>();
+            services.AddSingleton<StringConvertViewModel>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
             services.AddSingleton<ViewModels.Setting.SettingsViewModel>();
 
             //services.AddTransient<Views.Serialport.SerialportPage>();
-            services.AddSingleton<ViewModels.Serialport.SerialportViewModel>();
+            services.AddSingleton<ViewModels.Serialport.SerialportVM>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddSingleton<ViewModels.NetworkViewModel>();
+            services.AddSingleton<ViewModels.NetworkVM>();
 
-            services.AddSingleton<ViewModels.NotePadViewModel>();
+            services.AddSingleton<ViewModels.NotePadVM>();
             services.AddSingleton<ViewModels.Setting.CloudSettingsViewModel>();
 
             services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
-            services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawViewModel>();
+            services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawVM>();
 
             //Services
             services.AddSingleton<Services.SettingService>();

@@ -1,4 +1,5 @@
 using One.Toolbox.Views;
+using One.Toolbox.Views.Dialogs;
 
 using System.Windows.Forms;
 

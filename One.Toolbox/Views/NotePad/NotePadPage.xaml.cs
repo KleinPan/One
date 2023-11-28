@@ -7,11 +7,11 @@ namespace One.Toolbox.Views.NotePad;
 
 public partial class NotePadPage
 {
-    public NotePadViewModel ViewModel { get; }
+    public NotePadVM ViewModel { get; }
 
     public NotePadPage()
     {
-        DataContext = ViewModel = App.Current.Services.GetService<NotePadViewModel>();
+        DataContext = ViewModel = App.Current.Services.GetService<NotePadVM>();
 
         InitializeComponent();
     }

@@ -20,7 +20,7 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Serialport;
 
-public partial class SerialportViewModel : BaseShowViewModel
+public partial class SerialportVM : BaseShowViewModel
 {
     #region SerialPortSetting
 
@@ -36,7 +36,7 @@ public partial class SerialportViewModel : BaseShowViewModel
     private string selectedBaudRate;
 
     [ObservableProperty]
-    private SerialportSettingViewModel serialportUISetting;
+    private SerialportSettingVM serialportUISetting;
 
     #endregion SerialPortSetting
 
@@ -48,7 +48,7 @@ public partial class SerialportViewModel : BaseShowViewModel
     internal SerialPortComponent serialPortHelper { get; set; }
 
     /// <summary> 快捷发送列表 </summary>
-    public ObservableCollection<QuickSendViewModel> QuickSendList { get; set; } = new ObservableCollection<QuickSendViewModel>();
+    public ObservableCollection<QuickSendVM> QuickSendList { get; set; } = new ObservableCollection<QuickSendVM>();
 
     #region 界面显示
 
@@ -279,7 +279,7 @@ public partial class SerialportViewModel : BaseShowViewModel
     [RelayCommand]
     private void AddQuickSendItem()
     {
-        QuickSendList.Add(new QuickSendViewModel() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
+        QuickSendList.Add(new QuickSendVM() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
     }
 
     private bool forcusClosePort = true;

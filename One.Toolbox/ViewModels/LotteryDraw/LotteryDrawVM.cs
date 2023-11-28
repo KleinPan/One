@@ -6,9 +6,9 @@ using System.Collections.ObjectModel;
 
 namespace One.Toolbox.ViewModels.LotteryDraw;
 
-public partial class LotteryDrawViewModel : BaseVM
+public partial class LotteryDrawVM : BaseVM
 {
-    public LotteryDrawViewModel()
+    public LotteryDrawVM()
     {
     }
 

@@ -1,6 +1,4 @@
-﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
@@ -14,7 +12,7 @@ using WebDav;
 
 namespace One.Toolbox.ViewModels.Setting;
 
-public partial class CloudSettingsViewModel : BaseVM
+public partial class CloudSettingsVM : BaseVM
 {
     //https://github.com/skazantsev/WebDavClient/tree/main
     public static IWebDavClient _client = new WebDavClient();
@@ -48,7 +46,7 @@ public partial class CloudSettingsViewModel : BaseVM
     private const string targetDir = "One.Toolbox";//"One.Toolbox/Setting"//yandex 不支持 嵌套文件夹
     private SettingService settingService;
 
-    public CloudSettingsViewModel()
+    public CloudSettingsVM()
     {
         InitializeViewModel();
     }

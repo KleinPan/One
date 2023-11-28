@@ -12,6 +12,9 @@
              d:Width="733"
              Foreground="{DynamicResource TextFillColorPrimaryBrush}"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource ContextMenu.Small}" TargetType="ContextMenu" />
+    </UserControl.Resources>
 
     <Grid>
 

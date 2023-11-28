@@ -1,11 +1,7 @@
 ﻿using HandyControl.Tools.Extension;
 
 using One.Control.Command;
-using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
-
-using System.Diagnostics;
-using System.Windows.Input;
 
 namespace One.Toolbox.ViewModels.Dialogs
 {

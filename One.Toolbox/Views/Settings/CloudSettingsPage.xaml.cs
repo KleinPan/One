@@ -8,7 +8,7 @@ public partial class CloudSettingsPage
 {
     public CloudSettingsPage()
     {
-        DataContext = App.Current.Services.GetService<CloudSettingsViewModel>();
+        DataContext = App.Current.Services.GetService<CloudSettingsVM>();
 
         InitializeComponent();
     }

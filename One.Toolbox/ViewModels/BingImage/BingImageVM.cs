@@ -1,6 +1,4 @@
-﻿// This Source Code Form is subject to the terms of the MIT License. If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT. Copyright (C) Leszek Pomianowski and WPF UI Contributors. All Rights Reserved.
-
-using One.Core.ExtensionMethods;
+﻿using One.Core.ExtensionMethods;
 using One.Core.Helpers;
 using One.Toolbox.Helpers;
 using One.Toolbox.ViewModels.Base;
@@ -12,9 +10,9 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels.BingImage;
 
-public partial class BingImageViewModel : BaseVM
+public partial class BingImageVM : BaseVM
 {
-    public BingImageViewModel()
+    public BingImageVM()
     {
     }
 
@@ -25,9 +23,9 @@ public partial class BingImageViewModel : BaseVM
     }
 
     [ObservableProperty]
-    private ObservableCollection<UsefullImageInfoViewModel> obImageListInfo = new ObservableCollection<UsefullImageInfoViewModel>();
+    private ObservableCollection<UsefullImageInfoVM> obImageListInfo = new ObservableCollection<UsefullImageInfoVM>();
 
-    private List<UsefullImageInfoViewModel> ImageList = new List<UsefullImageInfoViewModel>();
+    private List<UsefullImageInfoVM> ImageList = new List<UsefullImageInfoVM>();
     //public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
 
     async void InitData()
@@ -67,7 +65,7 @@ public partial class BingImageViewModel : BaseVM
         var temp3 = temp2.Reverse();
         foreach (var item in temp3)
         {
-            UsefullImageInfoViewModel showInfo = new UsefullImageInfoViewModel();
+            UsefullImageInfoVM showInfo = new UsefullImageInfoVM();
 
             showInfo.LocalImageName = System.IO.Path.GetFileNameWithoutExtension(item);
             showInfo.LocalImagePath = item;
@@ -97,7 +95,7 @@ public partial class BingImageViewModel : BaseVM
 
     private string ConfigPath = One.Toolbox.Helpers.PathHelper.imagePath + "ImageInfo.json";
 
-    private List<UsefullImageInfoViewModel> FilterImageInfoAndSave(BingImageOriginalModel bingImageModel)
+    private List<UsefullImageInfoVM> FilterImageInfoAndSave(BingImageOriginalModel bingImageModel)
     {
         //Model
         List<UsefullImageInfoModel> list = new List<UsefullImageInfoModel>();
@@ -137,7 +135,7 @@ public partial class BingImageViewModel : BaseVM
         }
 
         //VM
-        List<UsefullImageInfoViewModel> listVM = new List<UsefullImageInfoViewModel>();
+        List<UsefullImageInfoVM> listVM = new List<UsefullImageInfoVM>();
         foreach (var item in list)
         {
             listVM.Add(item.ToVM());
@@ -145,7 +143,7 @@ public partial class BingImageViewModel : BaseVM
         return listVM;
     }
 
-    private async Task DownloadImage(UsefullImageInfoViewModel usefullImageInfos)
+    private async Task DownloadImage(UsefullImageInfoVM usefullImageInfos)
     {
         //查看图片是否已经下载，path为路径
         if (File.Exists(usefullImageInfos.LocalImagePath))

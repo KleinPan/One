@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 using One.Core.Helpers;
+using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
@@ -18,7 +19,7 @@ using System.Diagnostics;
 
 namespace One.Toolbox.ViewModels.Setting;
 
-public partial class SettingsViewModel : BaseVM
+public partial class SettingsVM : BaseVM
 {
     [ObservableProperty]
     private string _appVersion = String.Empty;
@@ -37,7 +38,7 @@ public partial class SettingsViewModel : BaseVM
 
     private SettingService SettingService { get; set; }
 
-    public SettingsViewModel()
+    public SettingsVM()
     {
         SettingService = App.Current.Services.GetService<Services.SettingService>();
         LoadSetting();
@@ -177,5 +178,21 @@ public partial class SettingsViewModel : BaseVM
         {
             stickWindow.Show();
         }
+    }
+}
+
+public class SettingModel
+{
+    public SkinType SkinType;
+
+    public LanguageEnum CurrentLanguage;
+
+    public bool SutoUpdate;
+    public bool ShowStickOnStart;
+
+    public SettingModel()
+    {
+        SkinType = SkinType.Default;
+        CurrentLanguage = LanguageEnum.zh_CN;
     }
 }

@@ -13,11 +13,11 @@ namespace One.Toolbox.Views.Settings
     /// <summary> SettingHeader.xaml 的交互逻辑 </summary>
     public partial class NonClientAreaContent
     {
-        private SettingsViewModel settingsViewModel { get; set; }
+        private SettingsVM settingsViewModel { get; set; }
 
         public NonClientAreaContent()
         {
-            settingsViewModel = App.Current.Services.GetService<SettingsViewModel>();
+            settingsViewModel = App.Current.Services.GetService<SettingsVM>();
             settingsViewModel.OnNavigatedEnter();
             DataContext = settingsViewModel;
             InitializeComponent();

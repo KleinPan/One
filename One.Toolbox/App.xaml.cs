@@ -62,7 +62,7 @@ namespace One.Toolbox
             services.AddSingleton<StringConvertViewModel>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
-            services.AddSingleton<ViewModels.Setting.SettingsViewModel>();
+            services.AddSingleton<ViewModels.Setting.SettingsVM>();
 
             //services.AddTransient<Views.Serialport.SerialportPage>();
             services.AddSingleton<ViewModels.Serialport.SerialportVM>();
@@ -71,9 +71,9 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.NetworkVM>();
 
             services.AddSingleton<ViewModels.NotePadVM>();
-            services.AddSingleton<ViewModels.Setting.CloudSettingsViewModel>();
+            services.AddSingleton<ViewModels.Setting.CloudSettingsVM>();
 
-            services.AddSingleton<ViewModels.BingImage.BingImageViewModel>();
+            services.AddSingleton<ViewModels.BingImage.BingImageVM>();
             services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawVM>();
 
             //Services

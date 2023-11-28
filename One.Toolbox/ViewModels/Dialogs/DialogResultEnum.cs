@@ -1,8 +1,7 @@
-﻿namespace One.Toolbox.ViewModels.Dialogs
+﻿namespace One.Toolbox.ViewModels.Dialogs;
+
+public enum DialogResultEnum
 {
-    public enum DialogResultEnum
-    {
-        Cancel,
-        OK,
-    }
+    Cancel,
+    OK,
 }

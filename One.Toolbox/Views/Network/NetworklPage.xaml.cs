@@ -1,18 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.Network;
 
-namespace One.Toolbox.Views.Network
+namespace One.Toolbox.Views.Network;
+
+public partial class NetworklPage
 {
-    public partial class NetworklPage
+    public ViewModels.Network.NetworkVM ViewModel { get; }
+
+    public NetworklPage()
     {
-        public ViewModels.NetworkVM ViewModel { get; }
+        DataContext = ViewModel = App.Current.Services.GetService<NetworkVM>();
 
-        public NetworklPage()
-        {
-            DataContext = ViewModel = App.Current.Services.GetService<NetworkVM>();
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

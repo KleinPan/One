@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:One.Toolbox.Views.Settings"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Setting"
-      d:DataContext="{d:DesignInstance Type=vms:SettingsViewModel}"
+      d:DataContext="{d:DesignInstance Type=vms:SettingsVM}"
       d:DesignHeight="30"
       d:DesignWidth="798"
       mc:Ignorable="d">

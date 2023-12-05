@@ -26,7 +26,7 @@ namespace One.Toolbox
         public App()
         {
             Services = ConfigureServices();
-            this.InitializeComponent();
+            InitializeComponent();
 
             //AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
             Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
@@ -59,7 +59,7 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Dashboard.DashboardVM>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
-            services.AddSingleton<StringConvertViewModel>();
+            services.AddSingleton<StringConvertVM>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
             services.AddSingleton<ViewModels.Setting.SettingsVM>();
@@ -68,9 +68,9 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Serialport.SerialportVM>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddSingleton<ViewModels.NetworkVM>();
+            services.AddSingleton<ViewModels.Network.NetworkVM>();
 
-            services.AddSingleton<ViewModels.NotePadVM>();
+            services.AddSingleton<ViewModels.NotePad.NotePadVM>();
             services.AddSingleton<ViewModels.Setting.CloudSettingsVM>();
 
             services.AddSingleton<ViewModels.BingImage.BingImageVM>();
@@ -78,6 +78,8 @@ namespace One.Toolbox
 
             //Services
             services.AddSingleton<Services.SettingService>();
+
+            services.AddTransient<StickPageVM>();
 
             //多例
             services.AddTransient<StickWindowVM>();

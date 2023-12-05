@@ -10,331 +10,294 @@ using System.Net;
 using System.Net.Sockets;
 using System.Windows.Controls;
 
-namespace One.Toolbox.ViewModels
+namespace One.Toolbox.ViewModels.Network;
+
+public partial class NetworkVM : BaseShowViewModel
 {
-    public partial class NetworkVM : BaseShowViewModel
+    [ObservableProperty]
+    private CommunProtocalType selectCommunProtocalType;
+
+    [ObservableProperty]
+    private bool isConnected = false;
+
+    //是否可以进行操作，例如连接或者断开,监听或者停止监听
+    [ObservableProperty]
+    private bool changeable = true;
+
+    [ObservableProperty]
+    private bool isListening = false;
+
+    [ObservableProperty]
+    private bool hexMode = false;
+
+    [ObservableProperty]
+    private ObservableCollection<string> ipList = new ObservableCollection<string>();
+
+    [ObservableProperty]
+    private ObservableCollection<string> remoteIpList = new ObservableCollection<string>();
+
+    [ObservableProperty]
+    private string selectedIP;
+
+    [ObservableProperty]
+    private string remoteSelectedIP;
+
+    [ObservableProperty]
+    private string inputPort = "2333";
+
+    private AsyncTCPClient asyncTCPClient;
+    private AsyncTCPServer asyncTCPServer;
+
+    private AsyncUDPClient asyncUDPClient;
+
+    public override void InitializeViewModel()
     {
-        [ObservableProperty]
-        private CommunProtocalType selectCommunProtocalType;
+        if (isInitialized)
+            return;
 
-        [ObservableProperty]
-        private bool isConnected = false;
+        RefreshIp();
 
-        //是否可以进行操作，例如连接或者断开,监听或者停止监听
-        [ObservableProperty]
-        private bool changeable = true;
+        asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
+        asyncTCPClient.ReceiveAction += ShowReceiveAction;
+        asyncTCPClient.SendAction += ShowSendMessage;
+        asyncTCPClient.OnConnected += ShowInfoAction;
+        asyncTCPClient.OnDisConnected += ShowInfoAction;
 
-        [ObservableProperty]
-        private bool isListening = false;
+        asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
+        asyncTCPServer.ReceiveAction += ShowServerReceiveAction;
+        asyncTCPServer.SendAction += ShowSendMessage;
+        asyncTCPServer.OnConnected += ShowInfoAction;
+        asyncTCPServer.OnDisConnected += ShowInfoAction;
+        asyncTCPServer.OnIpEndPointChanged += IpEndPointChangedEvent;
 
-        [ObservableProperty]
-        private bool hexMode = false;
+        asyncUDPClient = new AsyncUDPClient(WriteDebugLog);
+        asyncUDPClient.ReceiveAction += ShowServerReceiveAction;
+        asyncUDPClient.SendAction += ShowSendMessage;
+        asyncUDPClient.OnConnected += ShowInfoAction;
+        asyncUDPClient.OnDisConnected += ShowInfoAction;
+        asyncUDPClient.OnIpEndPointChanged += IpEndPointChangedEvent;
+        base.InitializeViewModel();
+    }
 
-        [ObservableProperty]
-        private ObservableCollection<string> ipList = new ObservableCollection<string>();
-
-        [ObservableProperty]
-        private ObservableCollection<string> remoteIpList = new ObservableCollection<string>();
-
-        [ObservableProperty]
-        private string selectedIP;
-
-        [ObservableProperty]
-        private string remoteSelectedIP;
-
-        [ObservableProperty]
-        private string inputPort = "2333";
-
-        private AsyncTCPClient asyncTCPClient;
-        private AsyncTCPServer asyncTCPServer;
-
-        private AsyncUDPClient asyncUDPClient;
-
-        public override void InitializeViewModel()
+    private void IpEndPointChangedEvent(IPListOperationEnum operation, string arg2)
+    {
+        switch (operation)
         {
-            if (isInitialized)
-                return;
+            case IPListOperationEnum.Add:
 
-            RefreshIp();
-
-            asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
-            asyncTCPClient.ReceiveAction += ShowReceiveAction;
-            asyncTCPClient.SendAction += ShowSendMessage;
-            asyncTCPClient.OnConnected += ShowInfoAction;
-            asyncTCPClient.OnDisConnected += ShowInfoAction;
-
-            asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
-            asyncTCPServer.ReceiveAction += ShowServerReceiveAction;
-            asyncTCPServer.SendAction += ShowSendMessage;
-            asyncTCPServer.OnConnected += ShowInfoAction;
-            asyncTCPServer.OnDisConnected += ShowInfoAction;
-            asyncTCPServer.OnIpEndPointChanged += IpEndPointChangedEvent;
-
-            asyncUDPClient = new AsyncUDPClient(WriteDebugLog);
-            asyncUDPClient.ReceiveAction += ShowServerReceiveAction;
-            asyncUDPClient.SendAction += ShowSendMessage;
-            asyncUDPClient.OnConnected += ShowInfoAction;
-            asyncUDPClient.OnDisConnected += ShowInfoAction;
-            asyncUDPClient.OnIpEndPointChanged += IpEndPointChangedEvent;
-            base.InitializeViewModel();
-        }
-
-        private void IpEndPointChangedEvent(IPListOperationEnum operation, string arg2)
-        {
-            switch (operation)
-            {
-                case IPListOperationEnum.Add:
-
-                    if (!RemoteIpList.Contains(arg2))
+                if (!RemoteIpList.Contains(arg2))
+                {
+                    App.Current.Dispatcher.Invoke(() =>
                     {
-                        App.Current.Dispatcher.Invoke(() =>
-                        {
-                            RemoteIpList.Add(arg2);
-                        });
-                    }
+                        RemoteIpList.Add(arg2);
+                    });
+                }
+
+                break;
+
+            case IPListOperationEnum.Subtract:
+
+                if (RemoteIpList.Contains(arg2))
+                {
+                    App.Current.Dispatcher.Invoke(() =>
+                    {
+                        RemoteIpList.Remove(arg2);
+                    });
+                }
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void ShowReceiveAction(byte[] data)
+    {
+        ShowData("", data, false);
+    }
+
+    private void ShowSendMessage(byte[] data)
+    {
+        ShowData("", data, true);
+    }
+
+    private void ShowInfoAction(byte[] data)
+    {
+        var msg = System.Text.Encoding.UTF8.GetString(data);
+
+        ShowData(msg, null, true);
+    }
+
+    private void ShowServerReceiveAction(string title, byte[] data)
+    {
+        ShowData(title, data, false);
+    }
+
+    [ObservableProperty]
+    private string dataToSend;
+
+    #region InitUI
+
+    [RelayCommand]
+    private void InitFlowDocumentControl(object obj)
+    {
+        var args = obj as System.Windows.RoutedEventArgs;
+        var control = args.OriginalSource as FlowDocumentScrollViewer;
+        flowDocumentHelper = new FlowDocumentComponent(control);
+    }
+
+    #endregion InitUI
+
+    #region Command
+
+    [RelayCommand]
+    private void ClearRemoteIPList()
+    {
+        RemoteIpList.Clear();
+    }
+
+    [RelayCommand]
+    private void Listen()
+    {
+        IPAddress ip = null;
+        try
+        {
+            ip = IPAddress.Parse(SelectedIP);
+
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP_Client:
+                    break;
+
+                case CommunProtocalType.TCP_Server:
+                    asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
 
                     break;
 
-                case IPListOperationEnum.Subtract:
+                case CommunProtocalType.UDP_Client:
 
-                    if (RemoteIpList.Contains(arg2))
-                    {
-                        App.Current.Dispatcher.Invoke(() =>
-                        {
-                            RemoteIpList.Remove(arg2);
-                        });
-                    }
+                    asyncUDPClient.InitClient(ip, int.Parse(InputPort));
+                    break;
 
+                case CommunProtocalType.Test:
                     break;
 
                 default:
                     break;
             }
         }
-
-        private void ShowReceiveAction(byte[] data)
+        catch (Exception ex)
         {
-            ShowData("", data, false);
+            MessageShowHelper.ShowErrorMessage(ex.ToString());
+            return;
         }
 
-        private void ShowSendMessage(byte[] data)
+        Changeable = false;
+        IsListening = true;
+    }
+
+    [RelayCommand]
+    private void StopListen()
+    {
+        try
         {
-            ShowData("", data, true);
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP_Client:
+                    break;
+
+                case CommunProtocalType.TCP_Server:
+
+                    asyncTCPServer.ReleaseServer();
+                    break;
+
+                case CommunProtocalType.UDP_Client:
+                    {
+                        asyncUDPClient.ReleaseClient();
+                    }
+                    break;
+
+                case CommunProtocalType.Test:
+                    break;
+
+                default:
+                    break;
+            }
+
+            IsListening = false;
+            Changeable = true;
         }
-
-        private void ShowInfoAction(byte[] data)
+        catch (Exception ex)
         {
-            var msg = System.Text.Encoding.UTF8.GetString(data);
-
-            ShowData(msg, null, true);
+            MessageShowHelper.ShowErrorMessage(ex.ToString());
         }
+    }
 
-        private void ShowServerReceiveAction(string title, byte[] data)
+    #endregion Command
+
+    #region 通用功能
+
+    /// <summary> 刷新本机ip列表 </summary>
+    [RelayCommand]
+    private void RefreshIp()
+    {
+        IpList.Clear();
+        IpList.Add("0.0.0.0");
+        IpList.Add("127.0.0.1");
+        //IpList.Add("::");
+        var temp = new List<string>();
+        try
         {
-            ShowData(title, data, false);
+            string name = Dns.GetHostName();
+            IPAddress[] ipadrlist = Dns.GetHostAddresses(name);
+            foreach (IPAddress ipa in ipadrlist)
+            {
+                if (ipa.AddressFamily == AddressFamily.InterNetwork)//ipa.AddressFamily == AddressFamily.InterNetworkV6
+                    temp.Add(ipa.ToString());
+            }
         }
+        catch { }
+        //去重
+        temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
+    }
 
-        [ObservableProperty]
-        private string dataToSend;
+    [RelayCommand]
+    private void SocketConnect()
+    {
+        if (!Changeable)
+            return;
 
-        #region InitUI
-
-        [RelayCommand]
-        private void InitFlowDocumentControl(object obj)
+        try
         {
-            var args = obj as System.Windows.RoutedEventArgs;
-            var control = args.OriginalSource as FlowDocumentScrollViewer;
-            flowDocumentHelper = new FlowDocumentComponent(control);
-        }
-
-        #endregion InitUI
-
-        #region Command
-
-        [RelayCommand]
-        private void ClearRemoteIPList()
-        {
-            RemoteIpList.Clear();
-        }
-
-        [RelayCommand]
-        private void Listen()
-        {
+            Changeable = false;
             IPAddress ip = null;
             try
             {
                 ip = IPAddress.Parse(SelectedIP);
-
-                switch (SelectCommunProtocalType)
-                {
-                    case CommunProtocalType.TCP_Client:
-                        break;
-
-                    case CommunProtocalType.TCP_Server:
-                        asyncTCPServer.InitAsServer(ip, int.Parse(InputPort));
-
-                        break;
-
-                    case CommunProtocalType.UDP_Client:
-
-                        asyncUDPClient.InitClient(ip, int.Parse(InputPort));
-                        break;
-
-                    case CommunProtocalType.Test:
-                        break;
-
-                    default:
-                        break;
-                }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageShowHelper.ShowErrorMessage(ex.ToString());
-                return;
+                var hostEntry = Dns.GetHostEntry(SelectedIP);
+                ip = hostEntry.AddressList[0];
             }
+            var ipe = new IPEndPoint(ip, int.Parse(InputPort));
 
-            Changeable = false;
-            IsListening = true;
-        }
-
-        [RelayCommand]
-        private void StopListen()
-        {
-            try
-            {
-                switch (SelectCommunProtocalType)
-                {
-                    case CommunProtocalType.TCP_Client:
-                        break;
-
-                    case CommunProtocalType.TCP_Server:
-
-                        asyncTCPServer.ReleaseServer();
-                        break;
-
-                    case CommunProtocalType.UDP_Client:
-                        {
-                            asyncUDPClient.ReleaseClient();
-                        }
-                        break;
-
-                    case CommunProtocalType.Test:
-                        break;
-
-                    default:
-                        break;
-                }
-
-                IsListening = false;
-                Changeable = true;
-            }
-            catch (Exception ex)
-            {
-                MessageShowHelper.ShowErrorMessage(ex.ToString());
-            }
-        }
-
-        #endregion Command
-
-        #region 通用功能
-
-        /// <summary> 刷新本机ip列表 </summary>
-        [RelayCommand]
-        private void RefreshIp()
-        {
-            IpList.Clear();
-            IpList.Add("0.0.0.0");
-            IpList.Add("127.0.0.1");
-            //IpList.Add("::");
-            var temp = new List<string>();
-            try
-            {
-                string name = Dns.GetHostName();
-                IPAddress[] ipadrlist = Dns.GetHostAddresses(name);
-                foreach (IPAddress ipa in ipadrlist)
-                {
-                    if (ipa.AddressFamily == AddressFamily.InterNetwork)//ipa.AddressFamily == AddressFamily.InterNetworkV6
-                        temp.Add(ipa.ToString());
-                }
-            }
-            catch { }
-            //去重
-            temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
-        }
-
-        [RelayCommand]
-        private void SocketConnect()
-        {
-            if (!Changeable)
-                return;
-
-            try
-            {
-                Changeable = false;
-                IPAddress ip = null;
-                try
-                {
-                    ip = IPAddress.Parse(SelectedIP);
-                }
-                catch
-                {
-                    var hostEntry = Dns.GetHostEntry(SelectedIP);
-                    ip = hostEntry.AddressList[0];
-                }
-                var ipe = new IPEndPoint(ip, int.Parse(InputPort));
-
-                switch (SelectCommunProtocalType)
-                {
-                    case CommunProtocalType.TCP_Client:
-
-                        //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                        asyncTCPClient.InitClient(ip, int.Parse(InputPort));
-                        break;
-
-                    case CommunProtocalType.TCP_Server:
-
-                        break;
-
-                    case CommunProtocalType.UDP_Client:
-
-                        break;
-
-                    case CommunProtocalType.Test:
-                        break;
-
-                    default:
-                        break;
-                }
-
-                IsConnected = true;
-            }
-            catch (Exception ex)
-            {
-                MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
-                Changeable = true;
-                return;
-            }
-        }
-
-        [RelayCommand]
-        private void SocketDisconnect()
-        {
             switch (SelectCommunProtocalType)
             {
                 case CommunProtocalType.TCP_Client:
-                    {
-                        asyncTCPClient.ReleaseClient();
-                    }
 
+                    //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                    asyncTCPClient.InitClient(ip, int.Parse(InputPort));
                     break;
 
                 case CommunProtocalType.TCP_Server:
+
                     break;
 
                 case CommunProtocalType.UDP_Client:
-                    {
-                    }
+
                     break;
 
                 case CommunProtocalType.Test:
@@ -344,88 +307,124 @@ namespace One.Toolbox.ViewModels
                     break;
             }
 
-            IsConnected = false;
+            IsConnected = true;
+        }
+        catch (Exception ex)
+        {
+            MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
             Changeable = true;
+            return;
         }
+    }
 
-        [RelayCommand]
-        private void SendData(object toAll)
+    [RelayCommand]
+    private void SocketDisconnect()
+    {
+        switch (SelectCommunProtocalType)
         {
-            if (DataToSend == null)
-            {
-                return;
-            }
+            case CommunProtocalType.TCP_Client:
+                {
+                    asyncTCPClient.ReleaseClient();
+                }
 
-            byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
-                          System.Text.Encoding.UTF8.GetBytes(DataToSend); ;
+                break;
 
-            switch (SelectCommunProtocalType)
-            {
-                case CommunProtocalType.TCP_Client:
-                    {
-                        asyncTCPClient.SendData(buff);
-                    }
+            case CommunProtocalType.TCP_Server:
+                break;
 
-                    break;
+            case CommunProtocalType.UDP_Client:
+                {
+                }
+                break;
 
-                case CommunProtocalType.TCP_Server:
-                    {
-                        if (toAll != null)
-                        {
-                            var param = toAll.ToString();
-                            if (param == "ToAll")
-                            {
-                                asyncTCPServer.SendDataToAll(buff);
-                            }
-                        }
-                        else
-                        {
-                            var temp = RemoteSelectedIP.Replace(" ", "");
-                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+            case CommunProtocalType.Test:
+                break;
 
-                            asyncTCPServer.SendData(buff, iPEndPoint);
-                        }
-                    }
-                    break;
-
-                case CommunProtocalType.UDP_Client:
-                    {
-                        try
-                        {
-                            //RemoteSelectedIP = "8.8.8.8:8799";
-
-                            var temp = RemoteSelectedIP.Replace(" ", "");
-                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
-                            asyncUDPClient.SendData(iPEndPoint, buff);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageShowHelper.ShowErrorMessage(ex.ToString());
-                        }
-                    }
-                    break;
-
-                case CommunProtocalType.Test:
-                    break;
-
-                default:
-                    break;
-            }
+            default:
+                break;
         }
 
-        #endregion 通用功能
+        IsConnected = false;
+        Changeable = true;
+    }
 
-        /// <summary> 获取客户端的名字 </summary>
-        /// <param name="s"> </param>
-        /// <returns> </returns>
-        private string GetClientName(Socket s)
+    [RelayCommand]
+    private void SendData(object toAll)
+    {
+        if (DataToSend == null)
         {
-            var remote = (IPEndPoint)s.RemoteEndPoint;
-            var remoteIsV6 = remote.Address.ToString().Contains(":");
-            var local = (IPEndPoint)s.LocalEndPoint;
-            var localIsV6 = local.Address.ToString().Contains(":");
-            return $"{(remoteIsV6 ? "[" : "")}{remote.Address}{(remoteIsV6 ? "]" : "")}:{remote.Port} → " +
-                $"{(localIsV6 ? "[" : "")}{local.Address}{(localIsV6 ? "]" : "")}:{local.Port}";
+            return;
         }
+
+        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
+                      System.Text.Encoding.UTF8.GetBytes(DataToSend); ;
+
+        switch (SelectCommunProtocalType)
+        {
+            case CommunProtocalType.TCP_Client:
+                {
+                    asyncTCPClient.SendData(buff);
+                }
+
+                break;
+
+            case CommunProtocalType.TCP_Server:
+                {
+                    if (toAll != null)
+                    {
+                        var param = toAll.ToString();
+                        if (param == "ToAll")
+                        {
+                            asyncTCPServer.SendDataToAll(buff);
+                        }
+                    }
+                    else
+                    {
+                        var temp = RemoteSelectedIP.Replace(" ", "");
+                        IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+
+                        asyncTCPServer.SendData(buff, iPEndPoint);
+                    }
+                }
+                break;
+
+            case CommunProtocalType.UDP_Client:
+                {
+                    try
+                    {
+                        //RemoteSelectedIP = "8.8.8.8:8799";
+
+                        var temp = RemoteSelectedIP.Replace(" ", "");
+                        IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+                        asyncUDPClient.SendData(iPEndPoint, buff);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageShowHelper.ShowErrorMessage(ex.ToString());
+                    }
+                }
+                break;
+
+            case CommunProtocalType.Test:
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    #endregion 通用功能
+
+    /// <summary> 获取客户端的名字 </summary>
+    /// <param name="s"> </param>
+    /// <returns> </returns>
+    private string GetClientName(Socket s)
+    {
+        var remote = (IPEndPoint)s.RemoteEndPoint;
+        var remoteIsV6 = remote.Address.ToString().Contains(":");
+        var local = (IPEndPoint)s.LocalEndPoint;
+        var localIsV6 = local.Address.ToString().Contains(":");
+        return $"{(remoteIsV6 ? "[" : "")}{remote.Address}{(remoteIsV6 ? "]" : "")}:{remote.Port} → " +
+            $"{(localIsV6 ? "[" : "")}{local.Address}{(localIsV6 ? "]" : "")}:{local.Port}";
     }
 }

@@ -8,7 +8,7 @@
              xmlns:oc="clr-namespace:One.Control.Controls.CirclePanel;assembly=One.Control"
              xmlns:panels="clr-namespace:One.Control.Controls.Panels;assembly=One.Control"
              xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.LotteryDraw"
-             d:DataContext="{d:DesignInstance viewmodels:LotteryDrawViewModel,
+             d:DataContext="{d:DesignInstance viewmodels:LotteryDrawVM,
                                               IsDesignTimeCreatable=False}"
              d:Height="548"
              d:Width="733"

@@ -58,7 +58,7 @@ public partial class SettingsVM : BaseVM
 
     public override void InitializeViewModel()
     {
-        AppVersion = $"v{GetAssemblyVersion()} .NET 7.0";
+        AppVersion = $"v{GetAssemblyVersion()} .NET 8.0";
 
         Task.Run(async () =>
         {

@@ -7,7 +7,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vms="clr-namespace:One.Toolbox.ViewModels.DataProcess"
-             d:DataContext="{d:DesignInstance Type=vms:StringConvertViewModel}"
+             d:DataContext="{d:DesignInstance Type=vms:StringConvertVM}"
              d:Height="548"
              d:Width="733"
              Foreground="{DynamicResource TextFillColorPrimaryBrush}"

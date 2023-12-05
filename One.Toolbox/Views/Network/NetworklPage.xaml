@@ -9,8 +9,9 @@
     xmlns:enums="clr-namespace:One.Toolbox.Enums" xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:One.Toolbox.Views.Network"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels"
-    d:DataContext="{d:DesignInstance Type=viewmodels:NetworkViewModel}"
+    xmlns:vms="clr-namespace:One.Toolbox.ViewModels" 
+    xmlns:vmN="clr-namespace:One.Toolbox.ViewModels.Network"
+    d:DataContext="{d:DesignInstance Type=vmN:NetworkVM}"
     d:Height="548" d:Width="733" mc:Ignorable="d">
     <UserControl.Resources>
         <convert:CommonProtoclShowConverter x:Key="CommonProtoclShowConverter" />

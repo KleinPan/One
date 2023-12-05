@@ -22,16 +22,33 @@
 ![Alt](https://repobeats.axiom.co/api/embed/4fb7dc32557eadd8782eafb3e3f4564a73996dd1.svg "Repobeats analytics image")
 
 # 功能介绍
-## 1. One.Core
-## 2. One.Control
-## 3. One.AutoUpdater
+## 1. One.Core （基础功能库）
+
+
+## 2. One.Control （基础控件库）
+
+## 3. One.AutoUpdater （升级小工具）
   https://kleinpan.github.io/One/api/index.html
 ## 4. One.Toolbox
 
 ### 简介
 
-	项目采用MVVM架构开发，Dotnet版本为7.0。
+    项目采用MVVM架构开发，Dotnet版本为8.0。
 
+#### 主要使用到的第三方库如下
+    * CommunityToolkit.Mvvm
+    * HandyControl
+    * NLog
+    * RestSharp
+    * WebDav.Client
+    * Newtonsoft.Json
+    * AvalonEdit
+
+#### 待办事项
+- [x] 🎉 Stick便签展示；
+- [x] 🏁 测试；
+
+### 初始页面
 ![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard.jpg?raw=true)
 
 ### 字符处理工具集

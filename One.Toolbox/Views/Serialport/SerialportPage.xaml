@@ -6,7 +6,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
-             d:DataContext="{d:DesignInstance Type=viewmodels:SerialportViewModel}"
+             d:DataContext="{d:DesignInstance Type=viewmodels:SerialportVM}"
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">

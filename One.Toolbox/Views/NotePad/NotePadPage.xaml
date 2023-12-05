@@ -10,8 +10,7 @@
              xmlns:onebehavior="clr-namespace:One.Control.Behaviors;assembly=One.Control"
              xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
              xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
-             d:DataContext="{d:DesignInstance vms:NotePadViewModel,
-                                              IsDesignTimeCreatable=False}"
+             d:DataContext="{d:DesignInstance localVMS:NotePadVM}"
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">
@@ -72,10 +71,10 @@
                         </ListBox.ItemTemplate>
 
                         <d:ListBox.ItemsSource>
-                            <x:Array Type="{x:Type localVMS:EditFileInfoViewModel}">
-                                <localVMS:EditFileInfoViewModel FileName="untitled1" ModifyTime="08-02-2023" />
-                                <localVMS:EditFileInfoViewModel FileName="untitled2" ModifyTime="08-03-2023" />
-                                <localVMS:EditFileInfoViewModel FileName="untitled3" ModifyTime="08-04-2023" />
+                            <x:Array Type="{x:Type localVMS:EditFileInfoVM}">
+                                <localVMS:EditFileInfoVM FileName="untitled1" ModifyTime="08-02-2023" />
+                                <localVMS:EditFileInfoVM FileName="untitled2" ModifyTime="08-03-2023" />
+                                <localVMS:EditFileInfoVM FileName="untitled3" ModifyTime="08-04-2023" />
                             </x:Array>
                         </d:ListBox.ItemsSource>
                         <ListBox.ContextMenu>

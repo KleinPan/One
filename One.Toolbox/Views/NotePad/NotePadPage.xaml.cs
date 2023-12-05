@@ -1,7 +1,6 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels;
+using One.Toolbox.ViewModels.NotePad;
 
 namespace One.Toolbox.Views.NotePad;
 

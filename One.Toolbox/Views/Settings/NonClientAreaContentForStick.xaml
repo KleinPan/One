@@ -5,7 +5,7 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:One.Toolbox.Views.Settings"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
+      xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
       d:DataContext="{d:DesignInstance Type=vms:StickWindowVM}"
       d:DesignHeight="30"
       d:DesignWidth="798"

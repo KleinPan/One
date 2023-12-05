@@ -82,6 +82,13 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.NotePad.NotePadPage(),
             },
+             new MainMenuItemVM()
+            {
+                Header = "Stick",
+                Icon = ResourceHelper.Dic["Note24Regular"],
+                //TargetPageType = typeof(Views.NotePad.NotePadPage),
+                Content = new Views.Stick.StickPage(),
+            },
             new MainMenuItemVM()
             {
                 Header = "EveryImage",

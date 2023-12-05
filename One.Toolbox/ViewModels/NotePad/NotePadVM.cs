@@ -13,7 +13,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 
-namespace One.Toolbox.ViewModels;
+namespace One.Toolbox.ViewModels.NotePad;
 
 public partial class NotePadVM : BaseVM
 {

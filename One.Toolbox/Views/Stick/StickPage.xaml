@@ -1,0 +1,15 @@
+<UserControl x:Class="One.Toolbox.Views.Stick.StickPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
+             xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
+             d:DataContext="{d:DesignInstance vms:StickPageVM,
+                                              IsDesignTimeCreatable=False}"
+             d:Height="548"
+             d:Width="733"
+             mc:Ignorable="d">
+    <ListBox></ListBox>
+</UserControl>

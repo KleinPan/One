@@ -10,7 +10,7 @@
     Title="{DynamicResource SettingTitle}"
     Width="450"
     Height="490"
-    d:DataContext="{d:DesignInstance Type=vm:SerialportSettingViewModel}"
+    d:DataContext="{d:DesignInstance Type=vm:SerialportSettingVM}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Style>

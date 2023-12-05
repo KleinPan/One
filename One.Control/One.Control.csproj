@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<PackageTags>C#,.Net Core,WPF</PackageTags>
 		<UseWPF>true</UseWPF>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>BranPan</Authors>
 		<Company />
-		<Version>3.9.0</Version>
+		<Version>3.10.0</Version>
 		<PackageProjectUrl>https://github.com/KleinPan/One</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/KleinPan/One</RepositoryUrl>
 		<PackageReleaseNotes>.NET 6.0 Update</PackageReleaseNotes>

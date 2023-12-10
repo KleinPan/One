@@ -11,5 +11,58 @@
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">
-    <ListBox></ListBox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <ListBox ItemsSource="{Binding OcStickWindowList}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="vms:StickItemVM">
+                    <Grid Width="200" Height="200">
+                        <Border Visibility="{Binding ShowAddContent, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding StickName}" />
+                                <Border Grid.Row="1">
+                                    <Image Margin="10" Source="{Binding Screen}" Stretch="Uniform" />
+                                </Border>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button Grid.Column="2" Command="{Binding ShowCommand}" Content="{Binding ButtonContent}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <hc:DashedBorder BorderBrush="{StaticResource PrimaryBrush}"
+                                         BorderDashArray="2,2" BorderThickness="1" CornerRadius="3"
+                                         Visibility="{Binding ShowAddContent, Converter={StaticResource Boolean2VisibilityConverter}}">
+                            <hc:DashedBorder HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             BorderBrush="{StaticResource PrimaryBrush}"
+                                             BorderDashArray="2,2" BorderThickness="1" CornerRadius="3">
+                                <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" BorderThickness="1" Command="{Binding AddNewStickCommand}" Style="{StaticResource ButtonIcon}" />
+                            </hc:DashedBorder>
+                        </hc:DashedBorder>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+
+            <Button Command="{Binding TestCommand}" Content="Test" />
+        </StackPanel>
+    </Grid>
 </UserControl>

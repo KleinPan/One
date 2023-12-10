@@ -13,7 +13,7 @@
            Title="StickWindow"
            Width="200"
            Height="250"
-           d:DataContext="{d:DesignInstance Type=vms:StickWindowVM}"
+           d:DataContext="{d:DesignInstance Type=vms:StickItemVM}"
            d:DesignHeight="450"
            d:DesignWidth="300"
            BorderThickness="0"
@@ -83,7 +83,6 @@
                                 <Button Background="{Binding ThemeList[3].HeaderBrush}" Command="{Binding SelectThemeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
                             </StackPanel>
                         </Border>
-
                     </Popup>
 
                     <Button hc:IconElement.Geometry="{StaticResource CloseGeometry}" Command="{Binding CloseWndCommand}" CommandParameter="{Binding ElementName=wnd}" />
@@ -112,7 +111,6 @@
                     </ContextMenu>
                 </RichTextBox.ContextMenu>
             </oc:RichTextboxEx>
-
         </Border>
         <Border Grid.Row="2" Background="{Binding CurrentTheme.BackBrush}">
             <Grid x:Name="bottomGrid">
@@ -137,7 +135,6 @@
                     <Button hc:IconElement.Geometry="{StaticResource FontDecrease24Regular}" Command="EditingCommands.DecreaseFontSize" CommandTarget="{Binding ElementName=rtf}" ToolTip="DecreaseFontSize" />
                 </StackPanel>
             </Grid>
-
         </Border>
     </Grid>
 </hc:Window>

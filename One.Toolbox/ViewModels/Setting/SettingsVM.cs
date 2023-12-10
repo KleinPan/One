@@ -33,9 +33,6 @@ public partial class SettingsVM : BaseVM
     [ObservableProperty]
     private bool autoUpdate = true;
 
-    [ObservableProperty]
-    private bool showStickOnStart;
-
     private SettingService SettingService { get; set; }
 
     public SettingsVM()
@@ -95,11 +92,6 @@ public partial class SettingsVM : BaseVM
         });
 
         base.InitializeViewModel();
-
-        if (ShowStickOnStart)
-        {
-            ShowStick();
-        }
     }
 
     private static async Task<GithubReleaseFilterInfo> GetLatestInfo()
@@ -153,13 +145,11 @@ public partial class SettingsVM : BaseVM
 
     private void LoadSetting()
     {
-        ShowStickOnStart = SettingService.AllConfig.Setting.ShowStickOnStart;
         AutoUpdate = SettingService.AllConfig.Setting.SutoUpdate;
     }
 
     private void SaveSetting()
     {
-        SettingService.AllConfig.Setting.ShowStickOnStart = ShowStickOnStart;
         SettingService.AllConfig.Setting.SutoUpdate = AutoUpdate;
 
         SettingService.Save();

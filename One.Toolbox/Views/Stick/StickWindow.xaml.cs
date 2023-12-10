@@ -14,7 +14,7 @@ public partial class StickWindow
     public StickWindow()
     {
         InitializeComponent();
-        DataContext = App.Current.Services.GetService<StickWindowVM>();
+        //DataContext = App.Current.Services.GetService<StickItemVM>();
         NonClientAreaContent = new NonClientAreaContentForStick();
     }
 

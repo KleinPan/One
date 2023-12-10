@@ -1,32 +1,52 @@
-﻿using One.Control.Controls.RichTextboxEx;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
 using One.Toolbox.Helpers;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.Views.Stick;
 
+using Org.BouncyCastle.Utilities.Encoders;
+
+using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
 using System.Windows.Input;
+
 using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-using ColorConverter = System.Windows.Media.ColorConverter;
+using Vanara.PInvoke;
 
 namespace One.Toolbox.ViewModels.Stick;
 
-public enum StickType
+public partial class StickItemVM : BaseVM
 {
-    Common,
-    Todo,
-    Alert,
-    Timeline,
-}
+    [ObservableProperty]
+    private ImageSource screen;
 
-public partial class StickWindowVM : BaseVM
-{
+    [ObservableProperty]
+    private string screenPath;
+
+    [ObservableProperty]
+    private bool showAddContent = true;
+
+    [ObservableProperty]
+    private string buttonContent = "显示";
+
+    public StickWindow StickWindow { get; set; }
+
+    public int Index { get; set; }
+
     #region Prop
 
     [ObservableProperty]
@@ -51,28 +71,112 @@ public partial class StickWindowVM : BaseVM
 
     private RichTextboxEx currentRtb;
     private System.Windows.Controls.Primitives.Popup popup;
-    private const string configName = "sticks.txt";
+    //private const string configName = "sticks.txt";
 
-    public StickWindowVM()
+    //string tempPath;
+    public StickItemVM(int index)
     {
+        Index = index;
         InitializeViewModel();
+    }
 
-        isInitialized = true;
+    public override void InitializeViewModel()
+    {
+        base.InitializeViewModel();
 
-        StickName = "Test";
+        ScreenPath = Helpers.PathHelper.tempPath + Index + ".png";
 
-        themeList.Clear();
-        themeList.Add(new StickTheme("#AFE958", "#C0ED7C"));//绿色
-        themeList.Add(new StickTheme("#b8f7b0", "#c8f8c2"));//绿色
+        StickName = "Temp_" + Index;
 
-        themeList.Add(new StickTheme("#FEE65C", "#FEEC85"));//深黄色
-        themeList.Add(new StickTheme("#FFEBAE", "#FFF1C6"));//浅黄色
-        CurrentTheme = themeList[0];
+        ThemeList.Clear();
+        ThemeList.Add(new StickTheme("#AFE958", "#C0ED7C"));//绿色
+        ThemeList.Add(new StickTheme("#b8f7b0", "#c8f8c2"));//绿色
+
+        ThemeList.Add(new StickTheme("#FEE65C", "#FEEC85"));//深黄色
+        ThemeList.Add(new StickTheme("#FFEBAE", "#FFF1C6"));//浅黄色
+        CurrentTheme = ThemeList[0];
 
         InitData();
     }
 
+    private void UpdateImageSource(string path)
+    {
+        BitmapImage bi = new BitmapImage();
+
+        bi.BeginInit();
+        bi.UriSource = new Uri($"{path}", UriKind.Absolute);
+
+        bi.EndInit();
+        Screen = bi.Clone(); //完成图片的更新
+        Screen.Freeze();
+    }
+
+    private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+    {
+        BitmapImage bitmapImage = new BitmapImage();
+        using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+        {
+            bitmap.Save(ms, bitmap.RawFormat);
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = ms;
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+            bitmapImage.Freeze();
+        }
+        return bitmapImage;
+    }
+
+    private void ScreenTheWindow()
+    {
+        System.Windows.Media.Imaging.RenderTargetBitmap targetBitmap = new System.Windows.Media.Imaging.RenderTargetBitmap((int)StickWindow.ActualWidth, (int)StickWindow.ActualHeight, 96d, 96d, System.Windows.Media.PixelFormats.Default);
+        targetBitmap.Render(StickWindow);
+        System.Windows.Media.Imaging.PngBitmapEncoder saveEncoder = new System.Windows.Media.Imaging.PngBitmapEncoder();
+        saveEncoder.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(targetBitmap));
+
+        using (var stream = new MemoryStream())
+        {
+            saveEncoder.Save(stream);
+            Screen = BitmapToBitmapImage(new Bitmap(stream));
+        }
+    }
+
+    private void GetScreen(int index)
+    {
+    }
+
     #region CommonCommand
+
+    [RelayCommand]
+    public void Show()
+    {
+        if (StickWindow == null)
+        {
+            StickWindow = new StickWindow();
+            StickWindow.DataContext = this;
+            StickWindow.Show();
+
+            ScreenTheWindow();
+            ButtonContent = "隐藏";
+        }
+        else
+        {
+            ScreenTheWindow();
+            StickWindow.Close();
+            StickWindow = null;
+            ButtonContent = "显示";
+        }
+    }
+
+    [RelayCommand]
+    private void AddNewStick()
+    {
+        StickName = "Temp";
+
+        ShowAddContent = false;
+
+        var service = App.Current.Services.GetService<StickPageVM>();
+        service.AddNewStick();
+    }
 
     [RelayCommand]
     private void InitRtbControl(object obj)
@@ -167,7 +271,7 @@ public partial class StickWindowVM : BaseVM
     {
         try
         {
-            var m = IOHelper.Instance.ReadContentFromLocal<StickM>(One.Toolbox.Helpers.PathHelper.dataPath + configName);
+            var m = IOHelper.Instance.ReadContentFromLocal<StickM>(One.Toolbox.Helpers.PathHelper.dataPath + Index + ".data");
 
             CurrentTheme = m.CurrentTheme;
             StickName = m.StickName;
@@ -196,7 +300,7 @@ public partial class StickWindowVM : BaseVM
 
         var m = ToModel();
 
-        IOHelper.Instance.WriteContentTolocal(m, One.Toolbox.Helpers.PathHelper.dataPath + configName);
+        IOHelper.Instance.WriteContentTolocal(m, One.Toolbox.Helpers.PathHelper.dataPath + +Index + ".data");
 
         SaveXamlPackage(StickContentPath);
     }
@@ -296,25 +400,6 @@ public partial class StickWindowVM : BaseVM
         stickM.StickContentPath = StickContentPath;
 
         return stickM;
-    }
-}
-
-public partial class StickTheme : ObservableObject
-{
-    [ObservableProperty]
-    private System.Windows.Media.Brush headerBrush;
-
-    [ObservableProperty]
-    private System.Windows.Media.Brush backBrush;
-
-    public StickTheme()
-    {
-    }
-
-    public StickTheme(string head, string back)
-    {
-        HeaderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(head));
-        BackBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(back));
     }
 }
 

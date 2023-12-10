@@ -15,8 +15,6 @@
     <ScrollViewer>
         <StackPanel Margin="10">
 
-
-
             <myuc:SettingItem Header="Auto Update" SubHeader="{DynamicResource AboutAutoUpdate}">
                 <CheckBox IsChecked="{Binding AutoUpdate}" />
             </myuc:SettingItem>

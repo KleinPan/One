@@ -79,10 +79,10 @@ namespace One.Toolbox
             //Services
             services.AddSingleton<Services.SettingService>();
 
-            services.AddTransient<StickPageVM>();
+            services.AddSingleton<StickPageVM>();
 
             //多例
-            services.AddTransient<StickWindowVM>();
+            //services.AddTransient<StickItemVM>();
 
             return services.BuildServiceProvider();
         }

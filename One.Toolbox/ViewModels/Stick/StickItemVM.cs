@@ -1,20 +1,18 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using Microsoft.Extensions.DependencyInjection;
 
 using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
 using One.Toolbox.Helpers;
-using One.Toolbox.Services;
+using One.Toolbox.Messenger;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views.Stick;
 
-using Org.BouncyCastle.Utilities.Encoders;
-
-using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -23,19 +21,14 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using Vanara.PInvoke;
 
 namespace One.Toolbox.ViewModels.Stick;
 
 public partial class StickItemVM : BaseVM
 {
+    /// <summary> 预览 </summary>
     [ObservableProperty]
     private ImageSource screen;
-
-    [ObservableProperty]
-    private string screenPath;
 
     [ObservableProperty]
     private bool showAddContent = true;
@@ -47,6 +40,14 @@ public partial class StickItemVM : BaseVM
 
     public int Index { get; set; }
 
+    [ObservableProperty]
+    private bool defaultOn;
+
+    partial void OnDefaultOnChanged(bool value)
+    {
+        SaveSetting();
+    }
+
     #region Prop
 
     [ObservableProperty]
@@ -56,7 +57,7 @@ public partial class StickItemVM : BaseVM
     private string stickName;
 
     [ObservableProperty]
-    private string stickContentPath;
+    private string stickContent;
 
     [ObservableProperty]
     private int lineHeight = 1;
@@ -84,9 +85,7 @@ public partial class StickItemVM : BaseVM
     {
         base.InitializeViewModel();
 
-        ScreenPath = Helpers.PathHelper.tempPath + Index + ".png";
-
-        StickName = "Temp_" + Index;
+        StickName = "Temp";
 
         ThemeList.Clear();
         ThemeList.Add(new StickTheme("#AFE958", "#C0ED7C"));//绿色
@@ -97,18 +96,16 @@ public partial class StickItemVM : BaseVM
         CurrentTheme = ThemeList[0];
 
         InitData();
-    }
 
-    private void UpdateImageSource(string path)
-    {
-        BitmapImage bi = new BitmapImage();
+        if (DefaultOn)
+        {
+            Show();
+        }
 
-        bi.BeginInit();
-        bi.UriSource = new Uri($"{path}", UriKind.Absolute);
-
-        bi.EndInit();
-        Screen = bi.Clone(); //完成图片的更新
-        Screen.Freeze();
+        //WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
+        //{
+        //    SaveSetting();
+        //});
     }
 
     private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
@@ -140,10 +137,6 @@ public partial class StickItemVM : BaseVM
         }
     }
 
-    private void GetScreen(int index)
-    {
-    }
-
     #region CommonCommand
 
     [RelayCommand]
@@ -170,8 +163,6 @@ public partial class StickItemVM : BaseVM
     [RelayCommand]
     private void AddNewStick()
     {
-        StickName = "Temp";
-
         ShowAddContent = false;
 
         var service = App.Current.Services.GetService<StickPageVM>();
@@ -189,7 +180,7 @@ public partial class StickItemVM : BaseVM
             Task.Delay(100);
         });
 
-        LoadXamlPackage(StickContentPath);
+        LoadXamlPackage(StickContent);
     }
 
     #endregion CommonCommand
@@ -244,7 +235,7 @@ public partial class StickItemVM : BaseVM
     {
         try
         {
-            SaveData();
+            SaveSetting();
             var wnd = (Window)obj;
             wnd.Close();
         }
@@ -258,7 +249,8 @@ public partial class StickItemVM : BaseVM
     {
         try
         {
-            SaveData();
+            Debug.WriteLine("DeactivatedWnd");
+            SaveSetting();
         }
         catch (Exception)
         {
@@ -271,44 +263,40 @@ public partial class StickItemVM : BaseVM
     {
         try
         {
-            var m = IOHelper.Instance.ReadContentFromLocal<StickM>(One.Toolbox.Helpers.PathHelper.dataPath + Index + ".data");
+            var m = IOHelper.Instance.ReadContentFromLocal<StickM>(One.Toolbox.Helpers.PathHelper.stickPath + "Stick" + Index + ".data");
 
             CurrentTheme = m.CurrentTheme;
             StickName = m.StickName;
             StickType = m.StickType;
-            StickContentPath = m.StickContentPath;
+            StickContent = m.StickContent;
+            DefaultOn = m.DefaultOn;
         }
         catch (Exception ex)
         {
         }
     }
 
-    void LoadXamlPackage(string _fileName)
+    void LoadXamlPackage(string data)
     {
-        if (!File.Exists(_fileName))
+        if (string.IsNullOrEmpty(data))
         {
             return;
         }
-        var ss = File.ReadAllBytes(_fileName);
-        var a = XamlReader.Parse(Encoding.UTF8.GetString(ss));
+
+        var a = XamlReader.Parse(data);
         currentRtb.Document = (FlowDocument)a;
     }
 
-    void SaveData()
+    void SaveSetting()
     {
-        StickContentPath = One.Toolbox.Helpers.PathHelper.dataPath + "aa";
+        if (currentRtb != null)
+        {
+            StickContent = XamlWriter.Save(currentRtb.Document);
+        }
 
         var m = ToModel();
 
-        IOHelper.Instance.WriteContentTolocal(m, One.Toolbox.Helpers.PathHelper.dataPath + +Index + ".data");
-
-        SaveXamlPackage(StickContentPath);
-    }
-
-    void SaveXamlPackage(string _fileName)
-    {
-        var ss = XamlWriter.Save(currentRtb.Document);
-        File.WriteAllBytes(_fileName, Encoding.UTF8.GetBytes(ss));
+        IOHelper.Instance.WriteContentTolocal(m, One.Toolbox.Helpers.PathHelper.stickPath + "Stick" + Index + ".data");
     }
 
     #endregion DataProcess
@@ -397,7 +385,8 @@ public partial class StickItemVM : BaseVM
         stickM.CurrentTheme = CurrentTheme;
         stickM.StickName = StickName;
         stickM.StickType = StickType;
-        stickM.StickContentPath = StickContentPath;
+        stickM.StickContent = StickContent;
+        stickM.DefaultOn = DefaultOn;
 
         return stickM;
     }
@@ -408,6 +397,7 @@ public class StickM
     public StickTheme CurrentTheme { get; set; }
     public string StickName { get; set; }
     public StickType StickType { get; set; }
+    public bool DefaultOn { get; set; }
 
-    public string StickContentPath { get; set; }
+    public string StickContent { get; set; }
 }

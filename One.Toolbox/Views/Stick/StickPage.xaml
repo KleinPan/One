@@ -24,19 +24,35 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="vms:StickItemVM">
-                    <Grid Width="200" Height="200">
+                    <Grid  Width="200" Height="200" Margin="5">
                         <Border Visibility="{Binding ShowAddContent, Converter={StaticResource Boolean2VisibilityReConverter}}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
                                     <RowDefinition />
                                     <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding StickName}" />
-                                <Border Grid.Row="1">
+                                <Border BorderThickness="1" >
+                                    <StackPanel Orientation="Horizontal"> 
+                                        <TextBlock   VerticalAlignment="Center" Text="{DynamicResource Name}" Margin="10,0"  />
+                                        <TextBlock   VerticalAlignment="Center" Text="{Binding StickName}" />
+                                        <TextBlock   VerticalAlignment="Center" Text="{DynamicResource Type}" Margin="10,0" />
+                                        <TextBlock   VerticalAlignment="Center" Text="{Binding StickType}" />
+                                    </StackPanel>
+                                </Border>
+                                <hc:Divider Grid.Row="1"  Margin="0,5"></hc:Divider>
+
+                                <Border Grid.Row="2" >
                                     <Image Margin="10" Source="{Binding Screen}" Stretch="Uniform" />
                                 </Border>
-                                <Grid Grid.Row="2">
+                                <hc:Divider Grid.Row="3"  Margin="0,5"></hc:Divider>
+                                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                    <Button Grid.Column="2" Command="{Binding ShowCommand}" Content="{Binding ButtonContent}" />
+                                    <CheckBox Margin="5" IsChecked="{Binding DefaultOn}" ToolTip="{DynamicResource ShowOnStart}"></CheckBox>
+                                </StackPanel>
+                                <!--<Grid Grid.Row="4">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition />
@@ -44,11 +60,11 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Button Grid.Column="2" Command="{Binding ShowCommand}" Content="{Binding ButtonContent}" />
-                                </Grid>
+                                </Grid>-->
                             </Grid>
                         </Border>
                         <hc:DashedBorder BorderBrush="{StaticResource PrimaryBrush}"
-                                         BorderDashArray="2,2" BorderThickness="1" CornerRadius="3"
+                                         BorderDashArray="2,2" BorderThickness="0" CornerRadius="3"
                                          Visibility="{Binding ShowAddContent, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <hc:DashedBorder HorizontalAlignment="Center" VerticalAlignment="Center"
                                              BorderBrush="{StaticResource PrimaryBrush}"
@@ -62,7 +78,7 @@
         </ListBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
 
-            <Button Command="{Binding TestCommand}" Content="Test" />
+            
         </StackPanel>
     </Grid>
 </UserControl>

@@ -224,4 +224,8 @@
     <system:String x:Key="WebDAVServer">WebDAV Server</system:String>
     <system:String x:Key="ShowLineNum">Show Line Num</system:String>
     <system:String x:Key="WordWrap">Word Wrap</system:String>
+
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="Type">Type</system:String>
+    <system:String x:Key="ShowOnStart">Show On Start</system:String>
 </ResourceDictionary>

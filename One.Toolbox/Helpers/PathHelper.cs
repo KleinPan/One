@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using One.Toolbox.Views.Stick;
+
+using System.IO;
 
 namespace One.Toolbox.Helpers
 {
@@ -28,6 +30,8 @@ namespace One.Toolbox.Helpers
 
         /// <summary> 数据路径带\ </summary>
         public static string dataPath { get; set; }
+
+        public static string stickPath { get; set; }
 
         /// <summary> BingImage路径带\ </summary>
         public static string imagePath { get; set; }
@@ -60,6 +64,9 @@ namespace One.Toolbox.Helpers
 
             dataPath = exePath + @"\Data\";
             Directory.CreateDirectory(dataPath);
+
+            stickPath = dataPath + @"Stick\";
+            Directory.CreateDirectory(stickPath);
 
             imagePath = exePath + @"\BingImages\";
             Directory.CreateDirectory(imagePath);

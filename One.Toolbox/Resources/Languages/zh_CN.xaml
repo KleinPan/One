@@ -228,4 +228,8 @@
     <system:String x:Key="WebDAVServer">WebDAV服务商</system:String>
     <system:String x:Key="ShowLineNum">显示行号</system:String>
     <system:String x:Key="WordWrap">自动换行</system:String>
+
+    <system:String x:Key="Name">名称</system:String>
+    <system:String x:Key="Type">类型</system:String>
+    <system:String x:Key="ShowOnStart">启动时显示</system:String>
 </ResourceDictionary>

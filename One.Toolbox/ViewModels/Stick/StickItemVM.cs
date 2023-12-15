@@ -9,6 +9,7 @@ using One.Toolbox.Messenger;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views.Stick;
 
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -216,12 +217,11 @@ public partial class StickItemVM : BaseVM
     [RelayCommand]
     private void SelectTheme(object obj)
     {
-        var current = obj as Button;
-        if (current != null)
+        var button = obj as Button;
+        if (button != null)
         {
-            StackPanel stackPanel = current.Parent as StackPanel;
-            int index = stackPanel.Children.IndexOf(current);
-            CurrentTheme = ThemeList.ElementAt(index);
+            var temp = button.DataContext as StickTheme;
+            CurrentTheme = temp;
         }
 
         if (popup != null)

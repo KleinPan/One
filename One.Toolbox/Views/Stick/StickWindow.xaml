@@ -9,6 +9,7 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:oc="clr-namespace:One.Control.Controls.RichTextboxEx;assembly=One.Control"
            xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
+           xmlns:ocu="clr-namespace:One.Control.Utilities;assembly=One.Control"
            x:Name="wnd"
            Title="StickWindow"
            Width="200"
@@ -25,6 +26,8 @@
         <Style x:Key="RichTextBoxStyle1" BasedOn="{StaticResource TextBoxBaseBaseStyle}" TargetType="{x:Type RichTextBox}">
             <Setter Property="MinWidth" Value="10" />
         </Style>
+
+        <ocu:BindingProxy x:Key="proxy" Data="{Binding}" />
     </hc:Window.Resources>
     <behaviors:Interaction.Triggers>
         <behaviors:EventTrigger EventName="Deactivated">
@@ -60,28 +63,18 @@
 
                     <Popup x:Name="popup" PlacementTarget="{Binding ElementName=btnSkin}" VerticalOffset="4">
                         <Border Background="White">
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel.Resources>
-                                    <Style TargetType="{x:Type Button}">
-
-                                        <Setter Property="BorderThickness" Value="0" />
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate>
-                                                    <Border Width="15" Height="15"
-                                                            Background="{TemplateBinding Background}"
-                                                            BorderBrush="Black" BorderThickness="1" />
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Setter Property="Margin" Value="5" />
-                                    </Style>
-                                </StackPanel.Resources>
-                                <Button Background="{Binding ThemeList[0].HeaderBrush}" Command="{Binding SelectThemeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
-                                <Button Background="{Binding ThemeList[1].HeaderBrush}" Command="{Binding SelectThemeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
-                                <Button Background="{Binding ThemeList[2].HeaderBrush}" Command="{Binding SelectThemeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
-                                <Button Background="{Binding ThemeList[3].HeaderBrush}" Command="{Binding SelectThemeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
-                            </StackPanel>
+                            <ListBox  ItemsSource="{Binding ThemeList}" Style="{StaticResource ListBox.Small}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="vms:StickTheme">
+                                        <Button Width="15" Height="15"  
+                                                Background="{Binding HeaderBrush}"
+                                                BorderBrush="Black" BorderThickness="1"
+                                                
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" Command="{Binding Data.SelectThemeCommand, Source={StaticResource proxy}}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            
                         </Border>
                     </Popup>
 
@@ -94,7 +87,7 @@
                               Background="{Binding CurrentTheme.BackBrush}"
                               BorderThickness="0" IsDocumentEnabled="True" ShowLineNumber="True">
                 <RichTextBox.Document>
-                    <FlowDocument Name="fd" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
+                    <FlowDocument Name="fd" FontFamily="Consolas" LineHeight="{Binding LineHeight, UpdateSourceTrigger=PropertyChanged}" />
                 </RichTextBox.Document>
                 <behaviors:Interaction.Triggers>
                     <behaviors:EventTrigger EventName="Loaded">

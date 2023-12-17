@@ -8,8 +8,8 @@
            xmlns:local="clr-namespace:One.Toolbox.Views"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:oc="clr-namespace:One.Control.Controls.RichTextboxEx;assembly=One.Control"
-           xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
            xmlns:ocu="clr-namespace:One.Control.Utilities;assembly=One.Control"
+           xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
            x:Name="wnd"
            Title="StickWindow"
            Width="200"
@@ -50,7 +50,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5" VerticalAlignment="Center" Text="{Binding StickName}" />
-                    <TextBlock Margin="5" VerticalAlignment="Center" Text="{Binding StickType}" />
+                    <!--<TextBlock Margin="5" VerticalAlignment="Center" Text="{Binding StickType}" />-->
                 </StackPanel>
                 <Border Grid.Column="1" />
                 <StackPanel Grid.Column="2" Orientation="Horizontal" Visibility="{Binding ElementName=wnd, Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=LostFocus}">
@@ -63,18 +63,18 @@
 
                     <Popup x:Name="popup" PlacementTarget="{Binding ElementName=btnSkin}" VerticalOffset="4">
                         <Border Background="White">
-                            <ListBox  ItemsSource="{Binding ThemeList}" Style="{StaticResource ListBox.Small}">
+                            <ListBox ItemsSource="{Binding ThemeList}" Style="{StaticResource ListBox.Small}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate DataType="vms:StickTheme">
-                                        <Button Width="15" Height="15"  
+                                        <Button Width="15" Height="15"
                                                 Background="{Binding HeaderBrush}"
                                                 BorderBrush="Black" BorderThickness="1"
-                                                
-                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" Command="{Binding Data.SelectThemeCommand, Source={StaticResource proxy}}" />
+                                                Command="{Binding Data.SelectThemeCommand, Source={StaticResource proxy}}"
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                            
+
                         </Border>
                     </Popup>
 

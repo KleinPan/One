@@ -16,7 +16,8 @@
             <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding OcStickWindowList}">
+        <ListBox ItemsSource="{Binding OcStickWindowList}" Style="{StaticResource ListBoxBaseStyle}">
+
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -24,7 +25,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="vms:StickItemVM">
-                    <Grid  Width="200" Height="200" Margin="5">
+                    <Grid Name="grid" Width="200" Height="200" Margin="5">
                         <Border Visibility="{Binding ShowAddContent, Converter={StaticResource Boolean2VisibilityReConverter}}">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -34,23 +35,23 @@
                                     <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
                                 </Grid.RowDefinitions>
-                                <Border BorderThickness="1" >
-                                    <StackPanel Orientation="Horizontal"> 
-                                        <TextBlock   VerticalAlignment="Center" Text="{DynamicResource Name}" Margin="10,0"  />
-                                        <TextBlock   VerticalAlignment="Center" Text="{Binding StickName}" />
-                                        <TextBlock   VerticalAlignment="Center" Text="{DynamicResource Type}" Margin="10,0" />
-                                        <TextBlock   VerticalAlignment="Center" Text="{Binding StickType}" />
+                                <Border BorderThickness="1">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="10,0" VerticalAlignment="Center" Text="{DynamicResource Name}" />
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding StickName}" />
+                                        <TextBlock Margin="10,0" VerticalAlignment="Center" Text="{DynamicResource Type}" />
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding StickType}" />
                                     </StackPanel>
                                 </Border>
-                                <hc:Divider Grid.Row="1"  Margin="0,5"></hc:Divider>
+                                <hc:Divider Grid.Row="1" Margin="0,5" />
 
-                                <Border Grid.Row="2" >
+                                <Border Grid.Row="2">
                                     <Image Margin="10" Source="{Binding Screen}" Stretch="Uniform" />
                                 </Border>
-                                <hc:Divider Grid.Row="3"  Margin="0,5"></hc:Divider>
+                                <hc:Divider Grid.Row="3" Margin="0,5" />
                                 <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                    <CheckBox Margin="5" Content="{DynamicResource ShowOnStart}" IsChecked="{Binding DefaultOn}" ToolTip="{DynamicResource ShowOnStart}" />
                                     <Button Grid.Column="2" Command="{Binding ShowCommand}" Content="{Binding ButtonContent}" />
-                                    <CheckBox Margin="5" IsChecked="{Binding DefaultOn}" ToolTip="{DynamicResource ShowOnStart}"></CheckBox>
                                 </StackPanel>
                                 <!--<Grid Grid.Row="4">
                                     <Grid.ColumnDefinitions>
@@ -72,13 +73,21 @@
                                 <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" BorderThickness="1" Command="{Binding AddNewStickCommand}" Style="{StaticResource ButtonIcon}" />
                             </hc:DashedBorder>
                         </hc:DashedBorder>
+
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+                    <Style.Triggers>
+                        <Trigger Property="Selector.IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource InfoBrush}" />
+                            <!--<Setter Property="Opacity" Value="0.5" />-->
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-
-            
-        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" />
     </Grid>
 </UserControl>

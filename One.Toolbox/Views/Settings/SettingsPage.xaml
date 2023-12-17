@@ -19,9 +19,6 @@
                 <CheckBox IsChecked="{Binding AutoUpdate}" />
             </myuc:SettingItem>
 
-            <myuc:SettingItem Header="Stick" SubHeader="启动时自动显示">
-                <CheckBox IsChecked="{Binding ShowStickOnStart}" />
-            </myuc:SettingItem>
 
             <myuc:SettingItem SubHeader="subtest" />
 

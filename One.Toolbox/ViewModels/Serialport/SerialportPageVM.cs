@@ -20,7 +20,7 @@ using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.Serialport;
 
-public partial class SerialportVM : BaseShowViewModel
+public partial class SerialportPageVM : BaseShowViewModel
 {
     #region SerialPortSetting
 

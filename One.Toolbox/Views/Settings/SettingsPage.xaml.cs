@@ -9,7 +9,7 @@ public partial class SettingsPage
 {
     public SettingsPage()
     {
-        DataContext = App.Current.Services.GetService<SettingsVM>();
+        DataContext = App.Current.Services.GetService<SettingsPageVM>();
 
         InitializeComponent();
     }

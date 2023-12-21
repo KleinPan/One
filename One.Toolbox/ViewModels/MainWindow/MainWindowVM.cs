@@ -13,7 +13,7 @@ namespace One.Toolbox.ViewModels.MainWindow;
 public partial class MainWindowVM : BaseVM
 {
     [ObservableProperty]
-    private string _applicationTitle = String.Empty;
+    private string _applicationTitle = string.Empty;
 
     [ObservableProperty]
     private ObservableCollection<MainMenuItemVM> _navigationItems = new();
@@ -31,12 +31,6 @@ public partial class MainWindowVM : BaseVM
         //ConfigHelper.Instance.LoadLocalDefaultSetting();
         isInitialized = true;
     }
-
-    //public MainWindowViewModel(INavigationService navigationService)
-    //{
-    //    if (!isInitialized)
-    //        InitializeViewModel();
-    //}
 
     private new void InitializeViewModel()
     {
@@ -82,7 +76,7 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.NotePad.NotePadPage(),
             },
-             new MainMenuItemVM()
+            new MainMenuItemVM()
             {
                 Header = "Stick",
                 Icon = ResourceHelper.Dic["Note24Regular"],
@@ -103,8 +97,15 @@ public partial class MainWindowVM : BaseVM
             //    Icon = ResourceHelper.Dic["IncompleteCircleFilled"],
             //    Content = new Views.LotteryDraw.LotteryDrawPage(),
             //});
-            //倒叙
-            new MainMenuItemVM()
+
+            //new MainMenuItemVM()
+            //{
+            //    Header = "Test",
+            //    Icon = ResourceHelper.Dic["IncompleteCircleFilled"],
+            //    Content = new Views.TestPage(),
+            //},
+        //倒叙
+        new MainMenuItemVM()
             {
                 Header = "Setting",
                 Icon = ResourceHelper.Dic["SettingsRound"],

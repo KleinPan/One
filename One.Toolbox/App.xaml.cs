@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Messenger;
+using One.Toolbox.ViewModels;
 using One.Toolbox.ViewModels.DataProcess;
 using One.Toolbox.ViewModels.Stick;
 
@@ -59,27 +60,28 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Dashboard.DashboardVM>();
 
             //services.AddTransient<Views.Pages.StringConvertPage>();
-            services.AddSingleton<StringConvertVM>();
+            services.AddSingleton<StringConvertPageVM>();
 
             //services.AddTransient<Views.Settings.SettingsPage>();
-            services.AddSingleton<ViewModels.Setting.SettingsVM>();
+            services.AddSingleton<ViewModels.Setting.SettingsPageVM>();
 
             //services.AddTransient<Views.Serialport.SerialportPage>();
-            services.AddSingleton<ViewModels.Serialport.SerialportVM>();
+            services.AddSingleton<ViewModels.Serialport.SerialportPageVM>();
 
             //services.AddTransient<Views.Pages.NetworklPage>();
-            services.AddSingleton<ViewModels.Network.NetworkVM>();
+            services.AddSingleton<ViewModels.Network.NetworkPageVM>();
 
-            services.AddSingleton<ViewModels.NotePad.NotePadVM>();
+            services.AddSingleton<ViewModels.NotePad.NotePadPageVM>();
             services.AddSingleton<ViewModels.Setting.CloudSettingsVM>();
 
             services.AddSingleton<ViewModels.BingImage.BingImageVM>();
-            services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawVM>();
+            services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawPageVM>();
 
             //Services
             services.AddSingleton<Services.SettingService>();
 
             services.AddSingleton<StickPageVM>();
+            services.AddSingleton<TestPageVM>();
 
             //多例
             //services.AddTransient<StickItemVM>();

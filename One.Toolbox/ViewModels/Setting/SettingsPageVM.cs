@@ -19,7 +19,7 @@ using System.Diagnostics;
 
 namespace One.Toolbox.ViewModels.Setting;
 
-public partial class SettingsVM : BaseVM
+public partial class SettingsPageVM : BaseVM
 {
     [ObservableProperty]
     private string _appVersion = String.Empty;
@@ -35,7 +35,7 @@ public partial class SettingsVM : BaseVM
 
     private SettingService SettingService { get; set; }
 
-    public SettingsVM()
+    public SettingsPageVM()
     {
         SettingService = App.Current.Services.GetService<Services.SettingService>();
         LoadSetting();

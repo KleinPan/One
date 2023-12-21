@@ -6,7 +6,6 @@ using One.Toolbox.Helpers;
 using One.Toolbox.Messenger;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
-using One.Toolbox.ViewModels.NotePad;
 using One.Toolbox.ViewModels.Setting;
 
 using System.Collections.ObjectModel;
@@ -15,14 +14,14 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels.NotePad;
 
-public partial class NotePadVM : BaseVM
+public partial class NotePadPageVM : BaseVM
 {
     [ObservableProperty]
     private EditFileInfoVM selectedEditFileInfo;
 
     public ObservableCollection<EditFileInfoVM> EditFileInfoViewModelOC { get; set; } = new ObservableCollection<EditFileInfoVM>();
 
-    public NotePadVM()
+    public NotePadPageVM()
     {
         // Register a message in some module
         WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>

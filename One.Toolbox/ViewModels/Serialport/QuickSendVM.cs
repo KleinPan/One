@@ -24,7 +24,7 @@ public partial class QuickSendVM : ObservableObject
     [RelayCommand]
     private void SendData(object obj)
     {
-        var vm = App.Current.Services.GetService<SerialportVM>();
+        var vm = App.Current.Services.GetService<SerialportPageVM>();
 
         var data = System.Text.Encoding.UTF8.GetBytes(Text);
 

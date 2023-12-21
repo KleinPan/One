@@ -13,7 +13,7 @@ using TextBlock = System.Windows.Controls.TextBlock;
 
 namespace One.Toolbox.ViewModels.DataProcess;
 
-public partial class StringConvertVM : BaseVM
+public partial class StringConvertPageVM : BaseVM
 {
     public ObservableCollection<string> ConverterTaskList { get; set; } = new ObservableCollection<string>();
 
@@ -34,7 +34,7 @@ public partial class StringConvertVM : BaseVM
     [ObservableProperty]
     private double lineHeight;
 
-    public StringConvertVM()
+    public StringConvertPageVM()
     {
     }
 

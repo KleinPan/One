@@ -63,6 +63,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Views\TestPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

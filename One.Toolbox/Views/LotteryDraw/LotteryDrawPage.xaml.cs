@@ -26,7 +26,7 @@ namespace One.Toolbox.Views.LotteryDraw
     {
         public LotteryDrawPage()
         {
-            DataContext = App.Current.Services.GetService<LotteryDrawVM>();
+            DataContext = App.Current.Services.GetService<LotteryDrawPageVM>();
             InitializeComponent();
         }
     }

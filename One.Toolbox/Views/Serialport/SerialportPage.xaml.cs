@@ -11,11 +11,11 @@ namespace One.Toolbox.Views.Serialport;
 /// <summary> SerialportPage.xaml 的交互逻辑 </summary>
 public partial class SerialportPage
 {
-    public ViewModels.Serialport.SerialportVM ViewModel { get; }
+    public ViewModels.Serialport.SerialportPageVM ViewModel { get; }
 
     public SerialportPage()
     {
-        DataContext = ViewModel = App.Current.Services.GetService<SerialportVM>();
+        DataContext = ViewModel = App.Current.Services.GetService<SerialportPageVM>();
 
         InitializeComponent();
     }

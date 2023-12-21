@@ -28,4 +28,9 @@ public class DataShowCommon
     {
         return CurrentTime.ToString("[yyyy/MM/dd HH:mm:ss.fff]");
     }
+
+    public string TimeToShortString()
+    {
+        return CurrentTime.ToString("[HH:mm:ss.fff]");
+    }
 }

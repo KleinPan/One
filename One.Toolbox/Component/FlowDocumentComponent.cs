@@ -30,6 +30,8 @@ public class FlowDocumentComponent
     /// <summary> 禁止自动滚动？ </summary>
     public bool LockLog { get; set; } = false;
 
+    public bool ShowShortTimeInfo { get; set; }
+
     public FlowDocumentComponent(FlowDocumentScrollViewer flowDocumentScrollViewer)
     {
         FlowDocumentScrollViewer = flowDocumentScrollViewer;
@@ -107,7 +109,7 @@ public class FlowDocumentComponent
                 //禁止选中
                 FlowDocumentScrollViewer.IsEnabled = false;
                 for (int i = 0; i < rawList.Count; i++)
-                    ShowDataToUI(rawList[i]);
+                    ShowDataToUI(rawList[i], ShowShortTimeInfo);
                 //for (int i = 0; i < uartList.Count; i++)
                 //    addUartLog(uartList[i]);
                 if (!LockLog)//如果允许拉到最下面
@@ -132,10 +134,19 @@ public class FlowDocumentComponent
         }
     }
 
-    private void ShowDataToUI(DataShowCommon dataObj)
+    private void ShowDataToUI(DataShowCommon dataObj, bool showShortTimeInfo)
     {
         Paragraph p = new Paragraph(new Run(""));
-        Span text = new Span(new Run(dataObj.TimeToString()));
+
+        Span text;
+        if (showShortTimeInfo)
+        {
+            text = new Span(new Run(dataObj.TimeToShortString()));
+        }
+        else
+        {
+            text = new Span(new Run(dataObj.TimeToString()));
+        }
 
         text.Foreground = Brushes.DarkSlateGray;
         p.Inlines.Add(text);

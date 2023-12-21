@@ -152,6 +152,7 @@ public partial class SerialportVM : BaseShowViewModel
 
         flowDocumentHelper.MaxPacksAutoClear = SerialportUISetting.MaxPacksAutoClear;
         flowDocumentHelper.LagAutoClear = SerialportUISetting.LagAutoClear;
+        flowDocumentHelper.ShowShortTimeInfo = SerialportUISetting.ShortTimeInfo;//重启生效
     }
 
     #endregion InitUI
@@ -394,7 +395,7 @@ public partial class SerialportVM : BaseShowViewModel
                     catch (Exception e)
                     {
                         //串口打开失败！
-                        MessageShowHelper.ShowErrorMessage(ResourceHelper.FindStringResource("ErrorOpenPort"));
+                        MessageShowHelper.ShowErrorMessage(ResourceHelper.FindStringResource("ErrorOpenPort") + e.Message);
                     }
                     isOpeningPort = false;
                 });

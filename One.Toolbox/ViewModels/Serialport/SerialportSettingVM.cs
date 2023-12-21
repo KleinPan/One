@@ -17,6 +17,9 @@ public partial class SerialportSettingVM : ObservableObject
     [ObservableProperty]
     private bool withExtraEnter;
 
+    [ObservableProperty]
+    private bool shortTimeInfo;
+
     /// <summary> 替换不可见字符 </summary>
     public bool EnableSymbol { get; set; }
 
@@ -49,6 +52,7 @@ public partial class SerialportSettingVM : ObservableObject
         serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
         serialportSettingModel.LagAutoClear = LagAutoClear;
         serialportSettingModel.QuickSendList = QuickSendList;
+        serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
 
         return serialportSettingModel;
     }

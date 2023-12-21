@@ -18,6 +18,8 @@ public class SerialportSettingModel
 
     public bool LagAutoClear { get; set; } = true;
 
+    public bool ShortTimeInfo { get; set; }
+
     public List<QuickSendVM> QuickSendList { get; set; } = new List<QuickSendVM>();
 
     public SerialportSettingVM ToVM()
@@ -32,6 +34,7 @@ public class SerialportSettingModel
         serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
         serialportSettingModel.LagAutoClear = LagAutoClear;
         serialportSettingModel.QuickSendList = QuickSendList;
+        serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
 
         return serialportSettingModel;
     }

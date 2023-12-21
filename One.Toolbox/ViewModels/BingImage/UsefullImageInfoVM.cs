@@ -1,4 +1,9 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.IO;
+using System.Runtime.InteropServices;
+
+using Vanara.PInvoke;
+
+using Windows.Win32;
 
 namespace One.Toolbox.ViewModels.BingImage;
 
@@ -21,6 +26,15 @@ public partial class UsefullImageInfoVM : ObservableObject
     public static void SetImageToDesktop(string filePath)
     {
         SystemParametersInfo(20, 1, filePath, 1);
+
+        /*
+        IntPtr a = Marshal.StringToHGlobalAnsi(filePath);
+        unsafe
+        {
+            //https://github.com/microsoft/CsWin32
+            PInvoke.SystemParametersInfo(Windows.Win32.UI.WindowsAndMessaging.SYSTEM_PARAMETERS_INFO_ACTION.SPI_SETDESKWALLPAPER, 1, &a, Windows.Win32.UI.WindowsAndMessaging.SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS.SPIF_UPDATEINIFILE);
+        }
+        */
     }
 
     [ObservableProperty]

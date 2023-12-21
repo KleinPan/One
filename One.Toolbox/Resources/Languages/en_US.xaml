@@ -228,4 +228,5 @@
     <system:String x:Key="Name">Name</system:String>
     <system:String x:Key="Type">Type</system:String>
     <system:String x:Key="ShowOnStart">Show On Start</system:String>
+    <system:String x:Key="ShortTimeInfo">Short Time Info</system:String>
 </ResourceDictionary>

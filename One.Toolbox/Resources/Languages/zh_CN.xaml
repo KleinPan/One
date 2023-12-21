@@ -232,4 +232,6 @@
     <system:String x:Key="Name">名称</system:String>
     <system:String x:Key="Type">类型</system:String>
     <system:String x:Key="ShowOnStart">启动时显示</system:String>
+
+    <system:String x:Key="ShortTimeInfo">显示短时间</system:String>
 </ResourceDictionary>

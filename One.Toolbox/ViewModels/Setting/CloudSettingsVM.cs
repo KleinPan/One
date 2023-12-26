@@ -119,12 +119,12 @@ public partial class CloudSettingsVM : BaseVM
                     {
                         var rsp = await client.GetRawFile(targetFile);
 
-                        using (var fileStream = File.Create(settingService.AppPath + SettingService.LocalConfig))
+                        using (var fileStream = File.Create(SettingService.LocalConfig))
                         {
                             rsp.Stream.CopyTo(fileStream);
                         }
 
-                        settingService.LoadTargetSetting(settingService.AppPath + SettingService.LocalConfig);
+                        settingService.LoadTargetSetting(SettingService.LocalConfig);
                     }
 
                     MessageShowHelper.ShowErrorMessage("Not find cloud setting!");
@@ -155,7 +155,7 @@ public partial class CloudSettingsVM : BaseVM
                 MessageShowHelper.ShowErrorMessage($"Error {resMK.Description};");
                 return;
             }
-            await client.PutFile(targetFile, File.OpenRead(settingService.AppPath + SettingService.LocalConfig)); // upload a resource
+            await client.PutFile(targetFile, File.OpenRead(SettingService.LocalConfig)); // upload a resource
         }
         catch (Exception ex)
         {

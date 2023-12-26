@@ -56,7 +56,7 @@ public partial class NotePadPageVM : BaseVM
     private void NewFile()
     {
         int index = EditFileInfoViewModelOC.Count;
-        string filePath = PathHelper.dataPath + "unfitled" + index + ".txt";
+        string filePath = PathHelper.notePath + "unfitled" + index + ".txt";
         EditFileInfoVM editFileInfoViewModel = new EditFileInfoVM(filePath);
         var res = editFileInfoViewModel.CreateNewFile();
         if (res)

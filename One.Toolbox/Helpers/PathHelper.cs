@@ -32,6 +32,7 @@ namespace One.Toolbox.Helpers
         public static string dataPath { get; set; }
 
         public static string stickPath { get; set; }
+        public static string notePath { get; set; }
 
         /// <summary> BingImage路径带\ </summary>
         public static string imagePath { get; set; }
@@ -46,9 +47,6 @@ namespace One.Toolbox.Helpers
             //Config
             ConfigPath = exePath + @"\Configs\";
             Directory.CreateDirectory(ConfigPath);
-
-            ConfigPathCommon = ConfigPath + @"Common\";
-            Directory.CreateDirectory(ConfigPathCommon);
 
             resourcePath = exePath + @"\Resources\";
             //Directory.CreateDirectory(resourcePath);
@@ -67,6 +65,9 @@ namespace One.Toolbox.Helpers
 
             stickPath = dataPath + @"Stick\";
             Directory.CreateDirectory(stickPath);
+
+            notePath = dataPath + @"Note\";
+            Directory.CreateDirectory(notePath);
 
             imagePath = exePath + @"\BingImages\";
             Directory.CreateDirectory(imagePath);

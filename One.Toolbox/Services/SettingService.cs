@@ -13,16 +13,10 @@ namespace One.Toolbox.Services
 {
     public class SettingService
     {
-        //public SkinType SkinType = SkinType.Default;
-
-        //public LanguageEnum CurrentLanguage = LanguageEnum.zh_CN;
-
         #region Config
 
-        public string AppPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
-
-        public const string LocalConfig = "Setting.json";
-        public const string CloudConfig = "CloudSetting.json";
+        public static string LocalConfig = PathHelper.ConfigPath + "Setting.json";
+        public static string CloudConfig = PathHelper.ConfigPath + "CloudSetting.json";
         public AllConfigModel AllConfig { get; set; } = new AllConfigModel();
 
         #endregion Config
@@ -46,12 +40,12 @@ namespace One.Toolbox.Services
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(AllConfig, Formatting.Indented, jsonSerializerSettings);
 
-            File.WriteAllText(AppPath + LocalConfig, json);
+            File.WriteAllText(LocalConfig, json);
         }
 
         public void LoadLocalDefaultSetting()
         {
-            LoadTargetSetting(AppPath + LocalConfig);
+            LoadTargetSetting(LocalConfig);
         }
 
         public void LoadTargetSetting(string fullPath)

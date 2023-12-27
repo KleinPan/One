@@ -7,146 +7,148 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:localVMS="clr-namespace:One.Toolbox.ViewModels.NotePad"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ocu="clr-namespace:One.Control.Utilities;assembly=One.Control"
              xmlns:onebehavior="clr-namespace:One.Control.Behaviors;assembly=One.Control"
-             xmlns:uc="clr-namespace:One.Toolbox.MyUserControl"
-             xmlns:vms="clr-namespace:One.Toolbox.ViewModels"
-             d:DataContext="{d:DesignInstance localVMS:NotePadVM}"
+             d:DataContext="{d:DesignInstance localVMS:NotePadPageVM}"
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">
-    <Border>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MinWidth="200" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-            <Border>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <ToolBarTray>
+    <Grid>
 
-                        <ToolBar>
-                            <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" Command="{Binding NewFileCommand}" Style="{StaticResource ButtonIcon}" />
-                        </ToolBar>
-                    </ToolBarTray>
+        <Grid.Resources>
+            <ocu:BindingProxy x:Key="proxy" Data="{Binding}" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="200" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ToolBarTray>
 
-                    <ListBox Grid.Row="1" ItemsSource="{Binding EditFileInfoViewModelOC}" SelectedItem="{Binding SelectedEditFileInfo}">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="SelectionChanged">
-                                <behaviors:InvokeCommandAction Command="{Binding SelectedEditFileChangedCommand}" PassEventArgsToCommand="True" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-                        <ListBox.ItemContainerStyle>
-                            <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
-                                <Setter Property="Margin" Value="0,3,0,3" />
-                                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#F4F5F7" />
-                                        <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate DataType="localVMS:EditFileInfoViewModel">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Text="{Binding FileName}" Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityReConverter}}" />
-                                    <TextBox Height="20" MinHeight="25" Margin="0" Padding="0"
-                                             Background="Transparent" BorderThickness="0"
-                                             Text="{Binding FileName}"
-                                             Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityConverter}}" />
-                                    <TextBlock Grid.Row="1" FontSize="10" Opacity="0.5" Text="{Binding ModifyTime, StringFormat={}{0:yyyy-MM-dd}}" />
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
+                    <ToolBar>
+                        <Button hc:IconElement.Geometry="{StaticResource AddGeometry}" Command="{Binding NewFileCommand}" Style="{StaticResource ButtonIcon}" />
+                    </ToolBar>
+                </ToolBarTray>
 
-                        <d:ListBox.ItemsSource>
-                            <x:Array Type="{x:Type localVMS:EditFileInfoVM}">
-                                <localVMS:EditFileInfoVM FileName="untitled1" ModifyTime="08-02-2023" />
-                                <localVMS:EditFileInfoVM FileName="untitled2" ModifyTime="08-03-2023" />
-                                <localVMS:EditFileInfoVM FileName="untitled3" ModifyTime="08-04-2023" />
-                            </x:Array>
-                        </d:ListBox.ItemsSource>
-                        <ListBox.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Command="{Binding DeleteFileCommand}" Header="Delete" />
-                                <MenuItem Command="{Binding RenameFileCommand}" Header="Rename" />
-                                <MenuItem Command="{Binding OpenFilePathCommand}" Header="Open File Path" />
-                            </ContextMenu>
-                        </ListBox.ContextMenu>
-                    </ListBox>
-                </Grid>
-            </Border>
+                <ListBox Name="listbox" Grid.Row="1" ItemsSource="{Binding EditFileInfoViewModelOC}" SelectedItem="{Binding SelectedEditFileInfo}">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="SelectionChanged">
+                            <behaviors:InvokeCommandAction Command="{Binding SelectedEditFileChangedCommand}" PassEventArgsToCommand="True" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+                    <ListBox.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="0,3,0,3" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#F4F5F7" />
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="localVMS:EditFileInfoViewModel">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Command="{Binding Data.DeleteFileCommand, Source={StaticResource proxy}}" Header="Delete" />
+                                        <MenuItem Command="{Binding RenameFileCommand}"   CommandParameter="{Binding  RelativeSource={RelativeSource Mode=Self},Path=Parent.PlacementTarget}" Header="Rename" />
+                                        <!--  {Binding ElementName=listbox} cannot find  -->
+                                        <MenuItem Command="{Binding OpenFilePathCommand}" Header="Open File Path" />
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
+                                <TextBlock Text="{Binding FileName}" Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                                <TextBox x:Name="txb1" Margin="0" Padding="0" Background="Transparent"
+                                         BorderThickness="0" Focusable="True"
+                                         Text="{Binding FileName}"
+                                         Visibility="{Binding IsEditFileName, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                                <TextBlock Grid.Row="1" FontSize="10" Opacity="0.5" Text="{Binding ModifyTime, StringFormat={}{0:yyyy-MM-dd}}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
 
-            <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
-            <Border Grid.Column="2" Padding="0" Style="{StaticResource BorderRegion}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <ToolBarTray>
-                        <ToolBar>
+                    <d:ListBox.ItemsSource>
+                        <x:Array Type="{x:Type localVMS:EditFileInfoVM}">
+                            <localVMS:EditFileInfoVM FileName="untitled1" ModifyTime="08-02-2023" />
+                            <localVMS:EditFileInfoVM FileName="untitled2" ModifyTime="08-03-2023" />
+                            <localVMS:EditFileInfoVM FileName="untitled3" ModifyTime="08-04-2023" />
+                        </x:Array>
+                    </d:ListBox.ItemsSource>
 
-                            <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource FileOpenOutlined}" Command="{Binding SelectedEditFileInfo.OpenFileCommand}" Style="{StaticResource ButtonIcon}" />
-                            <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource SaveOutlined}" Command="{Binding SelectedEditFileInfo.SaveFileCommand}" Style="{StaticResource ButtonIcon}" />
+                </ListBox>
+            </Grid>
+        </Border>
 
-                            <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
-                                          IsChecked="{Binding ElementName=textEditor, Path=WordWrap}"
-                                          Style="{StaticResource ToggleButtonCustom}"
-                                          ToolTip="{DynamicResource WordWrap}">
-                                <hc:StatusSwitchElement.CheckedElement>
-                                    <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
-                                        <Path Data="{StaticResource WrapTextOutlined}" Fill="{StaticResource PrimaryTextBrush}" />
-                                    </Border>
-                                </hc:StatusSwitchElement.CheckedElement>
-                                <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+        <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+        <Border Grid.Column="2" Padding="0" Style="{StaticResource BorderRegion}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ToolBarTray>
+                    <ToolBar>
+
+                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource FileOpenOutlined}" Command="{Binding SelectedEditFileInfo.OpenFileCommand}" Style="{StaticResource ButtonIcon}" />
+                        <Button Padding="3,0" hc:IconElement.Geometry="{StaticResource SaveOutlined}" Command="{Binding SelectedEditFileInfo.SaveFileCommand}" Style="{StaticResource ButtonIcon}" />
+
+                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
+                                      IsChecked="{Binding ElementName=textEditor, Path=WordWrap}"
+                                      Style="{StaticResource ToggleButtonCustom}"
+                                      ToolTip="{DynamicResource WordWrap}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
                                     <Path Data="{StaticResource WrapTextOutlined}" Fill="{StaticResource PrimaryTextBrush}" />
                                 </Border>
-                            </ToggleButton>
-                            <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
-                                          IsChecked="{Binding ElementName=textEditor, Path=ShowLineNumbers}"
-                                          Style="{StaticResource ToggleButtonCustom}"
-                                          ToolTip="{DynamicResource ShowLineNum}">
-                                <hc:StatusSwitchElement.CheckedElement>
-                                    <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
-                                    </Border>
-                                </hc:StatusSwitchElement.CheckedElement>
-                                <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                                <Path Data="{StaticResource WrapTextOutlined}" Fill="{StaticResource PrimaryTextBrush}" />
+                            </Border>
+                        </ToggleButton>
+                        <ToggleButton Margin="3,0" hc:StatusSwitchElement.HideUncheckedElement="True"
+                                      IsChecked="{Binding ElementName=textEditor, Path=ShowLineNumbers}"
+                                      Style="{StaticResource ToggleButtonCustom}"
+                                      ToolTip="{DynamicResource ShowLineNum}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Width="25" Height="25" BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="1">
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
                                 </Border>
-                            </ToggleButton>
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Width="25" Height="25" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="#" />
+                            </Border>
+                        </ToggleButton>
 
-                            <ComboBox Width="100"
-                                      onebehavior:SelectionChangedBehavior.SelectionChangedCommand="{Binding SelectedEditFileInfo.SelectedHighlightingChangedCommand}"
-                                      DisplayMemberPath="Name"
-                                      ItemsSource="{Binding SelectedEditFileInfo.HighlightingDefinitionOC}"
-                                      SelectedItem="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition}" />
-                        </ToolBar>
-                    </ToolBarTray>
-                    <Border Grid.Row="1" Style="{StaticResource BorderRegion}">
-                        <avalonEdit:TextEditor Name="textEditor"
-                                               Document="{Binding SelectedEditFileInfo.Document}"
-                                               Encoding="{Binding SelectedEditFileInfo.Encoding}"
-                                               FontFamily="Consola"
-                                               IsModified="{Binding Path=SelectedEditFileInfo.IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                               IsReadOnly="{Binding SelectedEditFileInfo.IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                                               ShowLineNumbers="True"
-                                               SyntaxHighlighting="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-                    </Border>
-                </Grid>
-            </Border>
-        </Grid>
-    </Border>
+                        <ComboBox Width="100"
+                                  onebehavior:SelectionChangedBehavior.SelectionChangedCommand="{Binding SelectedEditFileInfo.SelectedHighlightingChangedCommand}"
+                                  DisplayMemberPath="Name"
+                                  ItemsSource="{Binding SelectedEditFileInfo.HighlightingDefinitionOC}"
+                                  SelectedItem="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition}" />
+                    </ToolBar>
+                </ToolBarTray>
+                <Border Grid.Row="1" Style="{StaticResource BorderRegion}">
+                    <avalonEdit:TextEditor Name="textEditor"
+                                           Document="{Binding SelectedEditFileInfo.Document}"
+                                           Encoding="{Binding SelectedEditFileInfo.Encoding}"
+                                           FontFamily="Consola"
+                                           IsModified="{Binding Path=SelectedEditFileInfo.IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                           IsReadOnly="{Binding SelectedEditFileInfo.IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                           ShowLineNumbers="True"
+                                           SyntaxHighlighting="{Binding SelectedEditFileInfo.SelectedHighlightingDefinition, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>

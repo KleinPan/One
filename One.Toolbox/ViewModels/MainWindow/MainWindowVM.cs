@@ -83,7 +83,7 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.Stick.StickPage(),
             },
-            new MainMenuItemVM()
+            new()
             {
                 Header = "EveryImage",
                 Icon = ResourceHelper.Dic["ImageArea"],
@@ -105,7 +105,7 @@ public partial class MainWindowVM : BaseVM
             //    Content = new Views.TestPage(),
             //},
         //倒叙
-        new MainMenuItemVM()
+        new()
             {
                 Header = "Setting",
                 Icon = ResourceHelper.Dic["SettingsRound"],

@@ -9,7 +9,6 @@ using One.Toolbox.ViewModels.Base;
 using One.Toolbox.ViewModels.Setting;
 
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 
 namespace One.Toolbox.ViewModels.NotePad;
@@ -98,27 +97,6 @@ public partial class NotePadPageVM : BaseVM
             EditFileInfoViewModelOC.Remove(SelectedEditFileInfo);
 
             SaveSetting();
-        }
-    }
-
-    [RelayCommand]
-    private void RenameFile()
-    {
-        if (SelectedEditFileInfo != null)
-        {
-            //var newFileName = "";
-            //SelectedEditFileInfo.RenameFile(newFileName);
-
-            SelectedEditFileInfo.IsEditFileName = true;
-        }
-    }
-
-    [RelayCommand]
-    private void OpenFilePath()
-    {
-        if (SelectedEditFileInfo != null)
-        {
-            Process.Start("explorer.exe", PathHelper.dataPath);
         }
     }
 

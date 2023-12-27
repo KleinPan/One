@@ -65,7 +65,7 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
-                    <DataTemplate DataType="viewmodels:MainMenuItemViewModel">
+                    <DataTemplate DataType="viewmodels:MainMenuItemVM">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
@@ -80,15 +80,15 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <d:ListBox.ItemsSource>
-                    <x:Array Type="{x:Type vms:MainMenuItemViewModel}">
-                        <vms:MainMenuItemViewModel Header="1" Icon="{StaticResource HomeRound}" />
-                        <vms:MainMenuItemViewModel Icon="{StaticResource TextFieldsRound}" />
-                        <vms:MainMenuItemViewModel Header="2" Icon="{StaticResource SerialPort24Filled}" />
-                        <vms:MainMenuItemViewModel Icon="{StaticResource Network}" />
-                        <vms:MainMenuItemViewModel Icon="{StaticResource EditNoteFilled}" />
+                    <x:Array Type="{x:Type vms:MainMenuItemVM}">
+                        <vms:MainMenuItemVM Header="1" Icon="{StaticResource HomeRound}" />
+                        <vms:MainMenuItemVM Icon="{StaticResource TextFieldsRound}" />
+                        <vms:MainMenuItemVM Header="2" Icon="{StaticResource SerialPort24Filled}" />
+                        <vms:MainMenuItemVM Icon="{StaticResource Network}" />
+                        <vms:MainMenuItemVM Icon="{StaticResource EditNoteFilled}" />
 
-                        <vms:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource SettingsRound}" />
-                        <vms:MainMenuItemViewModel Dock="Bottom" Icon="{StaticResource CloudSyncFilled}" />
+                        <vms:MainMenuItemVM Dock="Bottom" Icon="{StaticResource SettingsRound}" />
+                        <vms:MainMenuItemVM Dock="Bottom" Icon="{StaticResource CloudSyncFilled}" />
                     </x:Array>
                 </d:ListBox.ItemsSource>
             </ListBox>

@@ -1,6 +1,4 @@
-﻿using One.Toolbox.Views.Stick;
-
-using System.IO;
+﻿using System.IO;
 
 namespace One.Toolbox.Helpers
 {

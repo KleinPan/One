@@ -7,8 +7,10 @@ using Microsoft.Win32;
 using One.Toolbox.Helpers;
 
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Windows.Controls;
 
 namespace One.Toolbox.ViewModels.NotePad;
 
@@ -80,6 +82,8 @@ public partial class EditFileInfoVM : ObservableObject
         HighlightingDefinitionOC = HighlightingManager.Instance.HighlightingDefinitions;
     }
 
+    #region RelayCommand
+
     [RelayCommand]
     private void OpenFile()
     {
@@ -88,6 +92,12 @@ public partial class EditFileInfoVM : ObservableObject
         {
             var fileViewModel = LoadDocument(dlg.FileName);
         }
+    }
+
+    [RelayCommand]
+    private void OpenFilePath()
+    {
+        Process.Start("explorer.exe", PathHelper.dataPath);
     }
 
     [RelayCommand]
@@ -111,6 +121,28 @@ public partial class EditFileInfoVM : ObservableObject
         if (param == null)
             return;
     }
+
+    [RelayCommand]
+    private void RenameFile(object obj)
+    {
+        var parent = obj as Grid;
+        var txb = parent.FindName("txb1") as TextBox;
+        if (txb != null)
+        {
+            IsEditFileName = true;
+            txb.LostFocus += Txb_LostFocus;
+            var res = txb.Focus();
+
+            //txb.SelectAll();
+        }
+    }
+
+    private void Txb_LostFocus(object sender, RoutedEventArgs e)
+    {
+        IsEditFileName = false;
+    }
+
+    #endregion RelayCommand
 
     partial void OnFileNameChanged(string? oldValue, string newValue)
     {

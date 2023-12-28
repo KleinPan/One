@@ -56,7 +56,7 @@
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="localVMS:EditFileInfoViewModel">
-                            <Grid >
+                            <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                     <RowDefinition Height="auto" />
@@ -64,7 +64,7 @@
                                 <Grid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Command="{Binding Data.DeleteFileCommand, Source={StaticResource proxy}}" Header="Delete" />
-                                        <MenuItem Command="{Binding RenameFileCommand}"   CommandParameter="{Binding  RelativeSource={RelativeSource Mode=Self},Path=Parent.PlacementTarget}" Header="Rename" />
+                                        <MenuItem Command="{Binding RenameFileCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Parent.PlacementTarget}" Header="Rename" />
                                         <!--  {Binding ElementName=listbox} cannot find  -->
                                         <MenuItem Command="{Binding OpenFilePathCommand}" Header="Open File Path" />
                                     </ContextMenu>

@@ -66,7 +66,7 @@ namespace One.Toolbox.Services
         {
             AllConfig = new AllConfigModel();
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendVM()
+            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendModel()
             {
                 Id = 0,
                 Commit = "发送",
@@ -74,7 +74,7 @@ namespace One.Toolbox.Services
                 Text = "Hello?",
             });
 
-            AllConfig.SerialportSetting.QuickSendList.Add(new QuickSendVM()
+            AllConfig.SerialportSetting.QuickSendList.Add(new()
             {
                 Id = 1,
                 Commit = "Hex发送",

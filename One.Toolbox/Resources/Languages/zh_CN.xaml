@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="AppTitle">One.Toolbox - 能跑Lua脚本的串口调试工具</system:String>
     <system:String x:Key="Open">打开</system:String>
     <system:String x:Key="OpenPort_close">关闭</system:String>
     <system:String x:Key="OpenPort_port">串口</system:String>
@@ -50,28 +49,8 @@
     <system:String x:Key="QuickSendChangeIdButton">输入你想改到哪个序号的位置（留空表示删除该项目）</system:String>
     <system:String x:Key="QuickSendChangeIdTitle">更改这个条目的序号</system:String>
     <system:String x:Key="QuickSendChangeList">切换到其他快捷发送数据列表</system:String>
-    <system:String x:Key="LuaCard">运行脚本</system:String>
-    <system:String x:Key="LuaNewScript">新建脚本</system:String>
-    <system:String x:Key="LuaRunScript">运行脚本</system:String>
-    <system:String x:Key="LuaOpenFolder">打开脚本目录</system:String>
-    <system:String x:Key="LuaRefreshList">刷新脚本列表</system:String>
-    <system:String x:Key="LuaApiReference">查看接口文档</system:String>
-    <system:String x:Key="LuaGetShare">获取社区上分享的脚本，或把脚本分享给大家</system:String>
-    <system:String x:Key="LuaFileName">文件名：</system:String>
-    <system:String x:Key="LuaConfirmCreate">确认新建文件</system:String>
-    <system:String x:Key="Cancel">取消</system:String>
-    <system:String x:Key="LuaStop">停止运行</system:String>
-    <system:String x:Key="LuaQuit">退出</system:String>
-    <system:String x:Key="LuaOverload">重新载入代码并运行</system:String>
-    <system:String x:Key="LuaPause">暂停打印,右键单击清空日志</system:String>
-    <system:String x:Key="LuaContinue">继续打印</system:String>
-    <system:String x:Key="LuaSendScript">实时执行lua语句 - [Enter]</system:String>
-    <system:String x:Key="LuaNoName">请输入文件名！</system:String>
-    <system:String x:Key="LuaExist">该文件已存在！</system:String>
-    <system:String x:Key="LuaCreateFail">新建失败，请检查！</system:String>
 
     <system:String x:Key="AboutCard">关于</system:String>
-    <system:String x:Key="AboutSubTitle">能跑Lua脚本的串口调试工具</system:String>
     <system:String x:Key="AboutDiscriptionMain">One.Toolbox是一款包含字符转换，串口调试工具，网络调试工具等工具集合的小软件。</system:String>
     <system:String x:Key="AboutAutoUpdate">开启软件后，自动检查是否需要更新</system:String>
     <system:String x:Key="AboutLoadingUpdate">更新数据加载中</system:String>

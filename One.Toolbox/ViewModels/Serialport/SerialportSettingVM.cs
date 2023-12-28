@@ -51,7 +51,7 @@ public partial class SerialportSettingVM : ObservableObject
         serialportSettingModel.MaxLength = MaxLength;
         serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
         serialportSettingModel.LagAutoClear = LagAutoClear;
-        serialportSettingModel.QuickSendList = QuickSendList;
+        serialportSettingModel.QuickSendList = QuickSendList.Select(x => x.ToM()).ToList();
         serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
 
         return serialportSettingModel;

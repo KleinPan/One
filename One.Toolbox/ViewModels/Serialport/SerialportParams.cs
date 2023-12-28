@@ -20,7 +20,7 @@ public class SerialportSettingModel
 
     public bool ShortTimeInfo { get; set; }
 
-    public List<QuickSendVM> QuickSendList { get; set; } = new List<QuickSendVM>();
+    public List<QuickSendModel> QuickSendList { get; set; } = new List<QuickSendModel>();
 
     public SerialportSettingVM ToVM()
     {
@@ -33,7 +33,7 @@ public class SerialportSettingModel
         serialportSettingModel.MaxLength = MaxLength;
         serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
         serialportSettingModel.LagAutoClear = LagAutoClear;
-        serialportSettingModel.QuickSendList = QuickSendList;
+        serialportSettingModel.QuickSendList = QuickSendList.Select(x => x.ToVM()).ToList();
         serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
 
         return serialportSettingModel;

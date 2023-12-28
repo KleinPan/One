@@ -29,12 +29,13 @@ public partial class NotePadPageVM : BaseVM
 
             SaveSetting();
         });
+
+        InitData();
     }
 
     public override void OnNavigatedEnter()
     {
         base.OnNavigatedEnter();
-        InitData();
     }
 
     void InitData()
@@ -111,7 +112,6 @@ public partial class NotePadPageVM : BaseVM
         service.AllConfig.EditFileInfoList.Clear();
         foreach (var item in EditFileInfoViewModelOC)
         {
-            item.SaveDocument();
             EditFileInfo editFileInfo = new()
             {
                 FilePath = item.FilePath,
@@ -119,6 +119,8 @@ public partial class NotePadPageVM : BaseVM
                 CreateTime = item.CreateTime,
                 ModifyTime = item.ModifyTime,
             };
+            item.SaveDocument();
+
             service.AllConfig.EditFileInfoList.Add(editFileInfo);
         }
 

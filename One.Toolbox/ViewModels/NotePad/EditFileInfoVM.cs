@@ -126,8 +126,7 @@ public partial class EditFileInfoVM : ObservableObject
     private void RenameFile(object obj)
     {
         var parent = obj as Grid;
-        var txb = parent.FindName("txb1") as TextBox;
-        if (txb != null)
+        if (parent.FindName("txb1") is TextBox txb)
         {
             IsEditFileName = true;
             txb.LostFocus += Txb_LostFocus;
@@ -245,8 +244,10 @@ public partial class EditFileInfoVM : ObservableObject
         {
             StreamWriter writer = Encoding != null ? new StreamWriter(fs, Encoding) : new StreamWriter(fs);
             if (Document != null)
+            {
                 Document.WriteTextTo(writer);
-            writer.Flush();
+                writer.Flush();
+            }
         }
     }
 }

@@ -61,4 +61,34 @@ public partial class QuickSendVM : ObservableObject
             }
         }
     }
+
+    public QuickSendModel ToM()
+    {
+        QuickSendModel quickSendVM = new QuickSendModel();
+        quickSendVM.Id = Id;
+        quickSendVM.Text = Text;
+        quickSendVM.Hex = Hex;
+        quickSendVM.Commit = Commit;
+
+        return quickSendVM;
+    }
+}
+
+public class QuickSendModel
+{
+    public int Id { get; set; }
+    public string Text { get; set; }
+    public bool Hex { get; set; }
+    public string Commit { get; set; }
+
+    public QuickSendVM ToVM()
+    {
+        QuickSendVM quickSendVM = new QuickSendVM();
+        quickSendVM.Id = Id;
+        quickSendVM.Text = Text;
+        quickSendVM.Hex = Hex;
+        quickSendVM.Commit = Commit;
+
+        return quickSendVM;
+    }
 }

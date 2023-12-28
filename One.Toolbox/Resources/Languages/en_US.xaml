@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="AppTitle">One.Toolbox - Debug serial port with Lua!</system:String>
     <system:String x:Key="Open">Open</system:String>
     <system:String x:Key="OpenPort_close">Close</system:String>
     <system:String x:Key="OpenPort_port">Port</system:String>
@@ -50,27 +49,8 @@
     <system:String x:Key="QuickSendChangeIdButton">Enter where you want to insert(empty means delete this line)</system:String>
     <system:String x:Key="QuickSendChangeIdTitle">Change index of this line</system:String>
     <system:String x:Key="QuickSendChangeList">Change to another quick send list</system:String>
-    <system:String x:Key="LuaCard">Run script</system:String>
-    <system:String x:Key="LuaNewScript">New script</system:String>
-    <system:String x:Key="LuaRunScript">Run script</system:String>
-    <system:String x:Key="LuaOpenFolder">Open script folder</system:String>
-    <system:String x:Key="LuaRefreshList">Refresh script List</system:String>
-    <system:String x:Key="LuaApiReference">See api reference</system:String>
-    <system:String x:Key="LuaGetShare">Get scripts on community</system:String>
-    <system:String x:Key="LuaFileName">File name:</system:String>
-    <system:String x:Key="LuaConfirmCreate">Confirm create file</system:String>
-    <system:String x:Key="Cancel">Cancel</system:String>
-    <system:String x:Key="LuaStop">Stop run</system:String>
-    <system:String x:Key="LuaQuit">Quit</system:String>
-    <system:String x:Key="LuaOverload">Reload and run</system:String>
-    <system:String x:Key="LuaPause">Pause Log print,Right-click Clear Log</system:String>
-    <system:String x:Key="LuaContinue">Continue print log</system:String>
-    <system:String x:Key="LuaSendScript">Run Lua command - [Enter]</system:String>
-    <system:String x:Key="LuaNoName">Please enter file name!</system:String>
-    <system:String x:Key="LuaExist">File is exist!</system:String>
-    <system:String x:Key="LuaCreateFail">Create file failed, please check.</system:String>
+
     <system:String x:Key="AboutCard">About</system:String>
-    <system:String x:Key="AboutSubTitle">Debug with your own script!</system:String>
     <system:String x:Key="AboutDiscriptionMain">One.Toolbox is a small software that contains a collection of tools such as character conversion, serial debugging, and network debugging.</system:String>
 
     <system:String x:Key="AboutAutoUpdate">Auto update</system:String>

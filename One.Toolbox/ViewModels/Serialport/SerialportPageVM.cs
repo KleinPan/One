@@ -283,6 +283,19 @@ public partial class SerialportPageVM : BaseShowViewModel
         QuickSendList.Add(new QuickSendVM() { Id = QuickSendList.Count + 1, Text = "", Hex = false, Commit = ResourceHelper.FindStringResource("QuickSendButton") });
     }
 
+    [RelayCommand]
+    private void DeleteLast()
+    {
+        try
+        {
+            QuickSendList.RemoveAt(QuickSendList.Count - 1);
+        }
+        catch (Exception ex)
+        {
+            MessageShowHelper.ShowErrorMessage(ex.ToString());
+        }
+    }
+
     private bool forcusClosePort = true;
 
     [RelayCommand]
@@ -294,7 +307,6 @@ public partial class SerialportPageVM : BaseShowViewModel
         }
         else//关闭串口逻辑
         {
-            string lastPort = null;//记录一下上次的串口号
             try
             {
                 forcusClosePort = true;//不再重新开启串口

@@ -6,7 +6,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:One.Toolbox.ViewModels.Serialport"
-             d:DataContext="{d:DesignInstance Type=viewmodels:SerialportVM}"
+             d:DataContext="{d:DesignInstance Type=viewmodels:SerialportPageVM}"
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">
@@ -178,7 +178,7 @@
             </StackPanel>
 
             <!--  中间改变分割大小的东西  -->
-            <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+            <GridSplitter Grid.RowSpan="2" Background="{DynamicResource SecondaryRegionBrush}"  Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
 
             <!--  右侧脚本、快捷发送  -->
             <ScrollViewer Grid.Column="2" Grid.IsSharedSizeScope="True" VerticalScrollBarVisibility="Auto">
@@ -205,7 +205,7 @@
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition SharedSizeGroup="D" />
                                     </Grid.ColumnDefinitions>
-                                    <Grid Margin="1" Background="{StaticResource SecondaryRegionBrush}" Cursor="Cross" Tag="{Binding}" />
+                                    <Grid Margin="1" Background="{DynamicResource SecondaryRegionBrush}" Cursor="Cross" Tag="{Binding}" />
                                     <TextBlock Grid.Column="0" Style="{StaticResource TextBlockDefault}" Text="{Binding Id}" ToolTip="{DynamicResource QuickSendIdTip}" />
                                     <TextBox Grid.Column="1" Margin="5" HorizontalAlignment="Stretch" DockPanel.Dock="Left"
                                              Text="{Binding Text}" />
@@ -227,7 +227,7 @@
                         </Grid.ColumnDefinitions>
                         <Button Margin="3" HorizontalAlignment="Center" Command="{Binding AddQuickSendItemCommand}" Content="{DynamicResource QuickSendAdd}" />
                         <Button Name="deleteSendListButton" Grid.Column="1" Margin="3" HorizontalAlignment="Center"
-                                Content="{DynamicResource QuickSendRemoveLast}" />
+                                Content="{DynamicResource QuickSendRemoveLast}" Command="{Binding DeleteLastCommand}" />
                     </Grid>
                 </StackPanel>
             </ScrollViewer>

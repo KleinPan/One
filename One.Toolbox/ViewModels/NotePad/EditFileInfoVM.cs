@@ -238,13 +238,11 @@ public partial class EditFileInfoVM : ObservableObject
         if (IsDirty)
         {
             ModifyTime = DateTime.Now;
-        }
 
-        using (FileStream fs = new FileStream(FilePath, FileMode.Create, FileAccess.Write, FileShare.None))
-        {
-            StreamWriter writer = Encoding != null ? new StreamWriter(fs, Encoding) : new StreamWriter(fs);
             if (Document != null)
             {
+                using FileStream fs = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                StreamWriter writer = Encoding != null ? new StreamWriter(fs, Encoding) : new StreamWriter(fs);
                 Document.WriteTextTo(writer);
                 writer.Flush();
             }

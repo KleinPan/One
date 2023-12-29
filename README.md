@@ -50,18 +50,28 @@
 
 ### 初始页面
 ![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard.jpg?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard_Dark.png?raw=true)
 
 ### 字符处理工具集
-![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess.jpg)
+![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess.png)
+![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess_Dark.png)
 
 ### 显示编号
-![image](https://github.com/KleinPan/One/blob/master/docs/StringHelper.png?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/ShowIndex.png?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/ShowIndex_Dark.png?raw=true)
 
 ### 串口工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Com.jpg?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/Serialport.png?raw=true)
+![image](https://github.com/KleinPan/One/blob/master/docs/Serialport_Dark.png?raw=true)
 
 ### 网络工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
+
+### 文本工具
+![image](https://github.com/KleinPan/One/blob/master/docs/Note.png?raw=true)
+
+### 便签工具
+![image](https://github.com/KleinPan/One/blob/master/docs/Stick.png?raw=true)
 
 ### Bing壁纸
 ![image](https://github.com/KleinPan/One/blob/master/docs/BingImage.jpg?raw=true)

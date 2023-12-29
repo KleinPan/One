@@ -11,7 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vms="clr-namespace:One.Toolbox.ViewModels" 
     xmlns:vmN="clr-namespace:One.Toolbox.ViewModels.Network"
-    d:DataContext="{d:DesignInstance Type=vmN:NetworkVM}"
+    d:DataContext="{d:DesignInstance Type=vmN:NetworkPageVM}"
     d:Height="548" d:Width="733" mc:Ignorable="d">
     <UserControl.Resources>
         <convert:CommonProtoclShowConverter x:Key="CommonProtoclShowConverter" />
@@ -48,7 +48,7 @@
                 </Grid>
             </Border>
             <!--  中间改变分割大小的东西  -->
-            <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+            <GridSplitter Background="{DynamicResource SecondaryRegionBrush}"   Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
             <Grid Grid.Column="2" Margin="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />

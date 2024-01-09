@@ -5,9 +5,11 @@
     <TargetFramework>net8.0-windows</TargetFramework>
 	<RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
     <Nullable>enable</Nullable>
+	<PublishSingleFile>true</PublishSingleFile>
+	<SelfContained>false</SelfContained>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	<Version>2.6.6</Version>
+	<Version>2.6.7</Version>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>

@@ -7625,19 +7625,19 @@ references:
   commentId: T:One.Core.Helpers.NetHelpers.NetHelper
   fullName: One.Core.Helpers.NetHelpers.NetHelper
   nameWithType: NetHelper
-- uid: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList
-  name: GetIPv4AdList()
-  href: api/One.Core.Helpers.NetHelpers.NetHelper.html#One_Core_Helpers_NetHelpers_NetHelper_GetIPv4AdList
-  commentId: M:One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList
-  fullName: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList()
-  nameWithType: NetHelper.GetIPv4AdList()
-- uid: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList*
-  name: GetIPv4AdList
-  href: api/One.Core.Helpers.NetHelpers.NetHelper.html#One_Core_Helpers_NetHelpers_NetHelper_GetIPv4AdList_
-  commentId: Overload:One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList
+- uid: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList
+  name: GetIPv4AddressList()
+  href: api/One.Core.Helpers.NetHelpers.NetHelper.html#One_Core_Helpers_NetHelpers_NetHelper_GetIPv4AddressList
+  commentId: M:One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList
+  fullName: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList()
+  nameWithType: NetHelper.GetIPv4AddressList()
+- uid: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList*
+  name: GetIPv4AddressList
+  href: api/One.Core.Helpers.NetHelpers.NetHelper.html#One_Core_Helpers_NetHelpers_NetHelper_GetIPv4AddressList_
+  commentId: Overload:One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList
   isSpec: "True"
-  fullName: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AdList
-  nameWithType: NetHelper.GetIPv4AdList
+  fullName: One.Core.Helpers.NetHelpers.NetHelper.GetIPv4AddressList
+  nameWithType: NetHelper.GetIPv4AddressList
 - uid: One.Core.Helpers.NetHelpers.NetHelper.GetIPv6AdList
   name: GetIPv6AdList()
   href: api/One.Core.Helpers.NetHelpers.NetHelper.html#One_Core_Helpers_NetHelpers_NetHelper_GetIPv6AdList

@@ -11,22 +11,20 @@ namespace One.Core.Helpers.NetHelpers
     public class NetHelper
     {
         /// <summary> 获取本机所有IPv4地址 </summary>
-        public static List<IPAddress> GetIPv4AdList()
+        /// <returns> </returns>
+        public static List<IPAddress> GetIPv4AddressList()
         {
-            string hostName = Dns.GetHostName();//本机名
+            string hostName = Dns.GetHostName();
             IPAddress[] addressList = Dns.GetHostAddresses(hostName);//会返回所有地址，包括IPv4和IPv6
-            List<IPAddress> address4List = new List<IPAddress>();
-            foreach (IPAddress ipa in addressList)
+            List<IPAddress> ipv4AddressList = new List<IPAddress>();
+            foreach (IPAddress ipAddress in addressList)
             {
-                if (ipa.AddressFamily == AddressFamily.InterNetwork)
+                if (ipAddress.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    //LocalIP = ipa;
-                    //return ipa.ToString();
-                    address4List.Add(ipa);
-                    //return ipa;
+                    ipv4AddressList.Add(ipAddress);
                 }
             }
-            return address4List;
+            return ipv4AddressList;
         }
 
         /// <summary> 获取本机所有IPv6地址 </summary>
@@ -48,7 +46,7 @@ namespace One.Core.Helpers.NetHelpers
             return address4List;
         }
 
-        /// <summary> 获取当前使用的IP,Ping baidu </summary>
+        /// <summary> 通过Ping baidu 获取当前使用的IP </summary>
         /// <returns> </returns>
         public static string GetLocalIP()
         {
@@ -272,6 +270,8 @@ namespace One.Core.Helpers.NetHelpers
             get { return GetBroadcastPoint(); }
         }
 
+        /// <summary> This function calculates and returns the broadcast point IP address based on the given IP address and IPv4 mask. </summary>
+        /// <returns> The broadcast point IP address as an instance of IPAddress, or null if either the IP or the IPv4 mask is null. </returns>
         private IPAddress GetBroadcastPoint()
         {
             if (IP != null && IPv4Mask != null)

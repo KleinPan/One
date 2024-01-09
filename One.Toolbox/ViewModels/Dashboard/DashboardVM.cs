@@ -29,6 +29,8 @@ public partial class DashboardVM : BaseVM
             Text = a.hitokoto;
             Author = "--" + a.from;
         });
+
+        _ = Task.Run(GetCurrentUseIP);
     }
 
     private void Register()
@@ -89,4 +91,16 @@ public partial class DashboardVM : BaseVM
 
         return timeline;
     }
+
+    #region StatusBar
+
+    [ObservableProperty]
+    private string currentUseIP;
+
+    private void GetCurrentUseIP()
+    {
+        CurrentUseIP = One.Core.Helpers.NetHelpers.NetHelper.GetLocalIP();
+    }
+
+    #endregion StatusBar
 }

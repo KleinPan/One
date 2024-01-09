@@ -11,83 +11,103 @@
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">
-    <ScrollViewer>
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+           
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource BorderRegion}">
+            <ScrollViewer>
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
 
-            <Border Grid.Row="0" Height="150" CornerRadius="8">
-                <Border.Background>
-                    <ImageBrush ImageSource="pack://application:,,,/Resources/pexels-johannes-plenio-1103970.jpg" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" />
-                </Border.Background>
-                <Border CornerRadius="8">
-                    <Border.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Offset="0" Color="#1F000000" />
-                            <GradientStop Offset="1" Color="#4F000000" />
-                        </RadialGradientBrush>
-                    </Border.Background>
-                    <Grid>
-                        <StackPanel Margin="48,0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent">
-                            <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Windows Presentation Foundation" />-->
-                            <TextBlock FontSize="28" FontWeight="Bold" Foreground="#FFFFFF" Text="One.Toolbox" />
-                            <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />-->
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock FontSize="14" Foreground="#B7FFFFFF" Text="{Binding Text}" />
-                                <!--<TextBlock VerticalAlignment="Center" FontSize="12" Text=" " />-->
+                    </Grid.RowDefinitions>
 
-                                <TextBlock VerticalAlignment="Center" FontSize="12" Foreground="#B7FFFFFF" Text="{Binding Author}" />
-                            </StackPanel>
-                        </StackPanel>
-                        <TextBlock Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
-                                   Foreground="#57FFFFFF" Text="Created by pwb" />
-                        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0"
-                                Command="{Binding TestCommand}"
-                                Visibility="Visible" />
+                    <Border Grid.Row="0" Height="150" CornerRadius="8">
+                        <Border.Background>
+                            <ImageBrush ImageSource="pack://application:,,,/Resources/pexels-johannes-plenio-1103970.jpg" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" />
+                        </Border.Background>
+                        <Border CornerRadius="8">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0" Color="#1F000000" />
+                                    <GradientStop Offset="1" Color="#4F000000" />
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <Grid>
+                                <StackPanel Margin="48,0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent">
+                                    <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Windows Presentation Foundation" />-->
+                                    <TextBlock FontSize="28" FontWeight="Bold" Foreground="#FFFFFF" Text="One.Toolbox" />
+                                    <!--<TextBlock FontSize="18" Foreground="#B7FFFFFF" Text="Build Fluent experiences on Windows using WPF UI." />-->
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock FontSize="14" Foreground="#B7FFFFFF" Text="{Binding Text}" />
+                                        <!--<TextBlock VerticalAlignment="Center" FontSize="12" Text=" " />-->
+
+                                        <TextBlock VerticalAlignment="Center" FontSize="12" Foreground="#B7FFFFFF" Text="{Binding Author}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
+                         Foreground="#57FFFFFF" Text="Created by pwb" />
+                                <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0"
+                      Command="{Binding TestCommand}"
+                      Visibility="Visible" />
+                            </Grid>
+                        </Border>
+                    </Border>
+
+                    <Grid Grid.Row="1" Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
                     </Grid>
-                </Border>
-            </Border>
 
-            <Grid Grid.Row="1" Margin="0,24,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-            </Grid>
+                    <StackPanel Grid.Row="2" Margin="0,24,0,0">
 
-            <StackPanel Grid.Row="2" Margin="0,24,0,0">
+                        <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Core" />
 
-                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Core" />
+                        <uc:Hyperlink Padding="4" Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
+                        <uc:Hyperlink Padding="4" Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
 
-                <uc:Hyperlink Padding="4" Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
-                <uc:Hyperlink Padding="4" Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
+                        <uc:Hyperlink Padding="4" Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Core/" ToolTip="https://www.nuget.org/packages/One.Core/" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Margin="0,24,0,0">
+                        <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Control" />
 
-                <uc:Hyperlink Padding="4" Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Core/" ToolTip="https://www.nuget.org/packages/One.Core/" />
-            </StackPanel>
-            <StackPanel Grid.Row="3" Margin="0,24,0,0">
-                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Control" />
+                        <uc:Hyperlink Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
 
-                <uc:Hyperlink Content="Documentation" NavigateUri="https://kleinpan.github.io/One/api/index.html" ToolTip="https://kleinpan.github.io/One/api/index.html" />
+                        <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
 
-                <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
+                        <uc:Hyperlink Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Control/" ToolTip="https://www.nuget.org/packages/One.Control/" />
+                    </StackPanel>
 
-                <uc:Hyperlink Content="NuGet" NavigateUri="https://www.nuget.org/packages/One.Control/" ToolTip="https://www.nuget.org/packages/One.Control/" />
-            </StackPanel>
+                    <StackPanel Grid.Row="4" Margin="0,24,0,0">
+                        <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Toolbox" />
+                        <uc:Hyperlink Content="Documentation" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
+                        <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
+                    </StackPanel>
 
-            <StackPanel Grid.Row="4" Margin="0,24,0,0">
-                <TextBlock FontSize="18" FontWeight="DemiBold" Text="One.Toolbox" />
-                <uc:Hyperlink Content="Documentation" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
-                <uc:Hyperlink Content="GitHub" NavigateUri="https://github.com/KleinPan/One" ToolTip="https://github.com/KleinPan/One" />
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+
+        <StatusBar Grid.Row="1">
+            <StatusBarItem>
+                <TextBlock Text="{Binding CurrentUseIP,StringFormat={}LocalIP: {0}}"></TextBlock>
+
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+   
 </UserControl>

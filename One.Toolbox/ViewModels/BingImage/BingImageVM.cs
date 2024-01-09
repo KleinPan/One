@@ -25,7 +25,7 @@ public partial class BingImageVM : BaseVM
     [ObservableProperty]
     private ObservableCollection<UsefullImageInfoVM> obImageListInfo = new ObservableCollection<UsefullImageInfoVM>();
 
-    private List<UsefullImageInfoVM> ImageList = new List<UsefullImageInfoVM>();
+    private List<UsefullImageInfoVM> ImageList = [];
     //public ObservableCollection<UsefullImageInfoViewModel> ObImageListInfo { get; set; } = new ObservableCollection<UsefullImageInfoViewModel>();
 
     async void InitData()
@@ -143,7 +143,7 @@ public partial class BingImageVM : BaseVM
         return listVM;
     }
 
-    private async Task DownloadImage(UsefullImageInfoVM usefullImageInfos)
+    private static async Task DownloadImage(UsefullImageInfoVM usefullImageInfos)
     {
         //查看图片是否已经下载，path为路径
         if (File.Exists(usefullImageInfos.LocalImagePath))
@@ -165,14 +165,12 @@ public partial class BingImageVM : BaseVM
         {
             return;
         }
-        //创造图片
-        using (FileStream fileStream = new FileStream(usefullImageInfos.LocalImagePath, FileMode.Create))
+
+        using (var fileStream = new FileStream(usefullImageInfos.LocalImagePath, FileMode.Create))
+        using (var binaryWriter = new BinaryWriter(fileStream))
         {
-            BinaryWriter binaryWriter = new BinaryWriter(fileStream);
-            //写入图片信息
             binaryWriter.Write(timeline);
         }
-
         return;
     }
 }

@@ -22,20 +22,12 @@
 ![Alt](https://repobeats.axiom.co/api/embed/4fb7dc32557eadd8782eafb3e3f4564a73996dd1.svg "Repobeats analytics image")
 
 # 功能介绍
-## 1. One.Core （基础功能库）
-
-
-## 2. One.Control （基础控件库）
-
-## 3. One.AutoUpdater （升级小工具）
-  https://kleinpan.github.io/One/api/index.html
-## 4. One.Toolbox
-
-### 简介
+## 简介
 
     项目采用MVVM架构开发，Dotnet版本为8.0。
+    Avalonia 版本探索版；
 
-#### 主要使用到的第三方库如下
+### 主要使用到的第三方库如下
     * CommunityToolkit.Mvvm
     * HandyControl
     * NLog
@@ -43,38 +35,4 @@
     * WebDav.Client
     * Newtonsoft.Json
     * AvalonEdit
-
-#### 待办事项
-- [x] 🎉 Stick便签展示；
-- [x] 🏁 测试；
-
-### 初始页面
-![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard.jpg?raw=true)
-![image](https://github.com/KleinPan/One/blob/master/docs/Dashboard_Dark.png?raw=true)
-
-### 字符处理工具集
-![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess.png)
-![image](https://github.com/KleinPan/One/blob/master/docs/StringProcess_Dark.png)
-
-### 显示编号
-![image](https://github.com/KleinPan/One/blob/master/docs/ShowIndex.png?raw=true)
-![image](https://github.com/KleinPan/One/blob/master/docs/ShowIndex_Dark.png?raw=true)
-
-### 串口工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Serialport.png?raw=true)
-![image](https://github.com/KleinPan/One/blob/master/docs/Serialport_Dark.png?raw=true)
-
-### 网络工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
-
-### 文本工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Note.png?raw=true)
-
-### 便签工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Stick.png?raw=true)
-
-### Bing壁纸
-![image](https://github.com/KleinPan/One/blob/master/docs/BingImage.jpg?raw=true)
-
-
 

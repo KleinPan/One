@@ -1,4 +1,0 @@
-SetLocalTime
-SystemParametersInfo
-CreateWindowExW
-PostMessage

@@ -10,17 +10,17 @@
            xmlns:oc="clr-namespace:One.Control.Controls.RichTextboxEx;assembly=One.Control"
            xmlns:ocu="clr-namespace:One.Control.Utilities;assembly=One.Control"
            xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Stick"
-           x:Name="wnd"
-           Title="StickWindow"
-           Width="200"
-           Height="250"
+           x:Name="rootWnd"
+           Title="StickWindow" ResizeMode="NoResize"
+           Width="200"  
+           Height="250"  
            d:DataContext="{d:DesignInstance Type=vms:StickItemVM}"
            d:DesignHeight="450"
            d:DesignWidth="300"
            BorderThickness="0"
            ShowInTaskbar="False"
            ShowNonClientArea="False"
-           mc:Ignorable="d">
+           mc:Ignorable="d" Loaded="rootWnd_Loaded" RenderTransformOrigin="0.5,0.5">
     <hc:Window.Resources>
 
         <Style x:Key="RichTextBoxStyle1" BasedOn="{StaticResource TextBoxBaseBaseStyle}" TargetType="{x:Type RichTextBox}">
@@ -28,10 +28,17 @@
         </Style>
 
         <ocu:BindingProxy x:Key="proxy" Data="{Binding}" />
+
+
+
     </hc:Window.Resources>
+   
     <behaviors:Interaction.Triggers>
         <behaviors:EventTrigger EventName="Deactivated">
             <behaviors:InvokeCommandAction Command="{Binding DeactivatedWndCommand}" />
+        </behaviors:EventTrigger>
+        <behaviors:EventTrigger EventName="Loaded">
+            <behaviors:InvokeCommandAction Command="{Binding LoadedCommand}" CommandParameter="{Binding ElementName=rootWnd}" />
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
     <Grid>
@@ -53,7 +60,7 @@
                     <!--<TextBlock Margin="5" VerticalAlignment="Center" Text="{Binding StickType}" />-->
                 </StackPanel>
                 <Border Grid.Column="1" />
-                <StackPanel Grid.Column="2" Orientation="Horizontal" Visibility="{Binding ElementName=wnd, Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=LostFocus}">
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Visibility="{Binding ElementName=rootWnd, Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=LostFocus}">
                     <StackPanel.Resources>
                         <Style BasedOn="{StaticResource ButtonIcon.Small}" TargetType="Button" />
                     </StackPanel.Resources>
@@ -78,7 +85,7 @@
                         </Border>
                     </Popup>
 
-                    <Button hc:IconElement.Geometry="{StaticResource CloseGeometry}" Command="{Binding CloseWndCommand}" CommandParameter="{Binding ElementName=wnd}" />
+                    <Button hc:IconElement.Geometry="{StaticResource CloseGeometry}" Command="{Binding CloseWndCommand}" CommandParameter="{Binding ElementName=rootWnd}" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -116,7 +123,7 @@
                       X2="{Binding ElementName=bottomGrid, Path=ActualWidth}"
                       Y1="0" Y2="0" />
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="{Binding ElementName=wnd, Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=LostFocus}">
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="{Binding ElementName=rootWnd, Path=IsActive, Converter={StaticResource BoolToVisibilityConverter}, UpdateSourceTrigger=LostFocus}">
                     <StackPanel.Resources>
                         <Style BasedOn="{StaticResource ButtonIcon.Small}" TargetType="Button" />
                     </StackPanel.Resources>

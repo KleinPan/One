@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-using One.Toolbox.Helpers;
-using One.Toolbox.ViewModels.Stick;
+﻿using One.Toolbox.Helpers;
 using One.Toolbox.Views.Settings;
 
 using System.Windows.Controls;
+
+using System.Windows.Media;
 
 namespace One.Toolbox.Views.Stick;
 
@@ -38,5 +37,18 @@ public partial class StickWindow
         {
             thisButton.SetValue(HandyControl.Controls.IconElement.GeometryProperty, ResourceHelper.Dic["PinOff20Regular"]);
         }
+    }
+
+    private HideWindowHelper _hideWindowHelper;
+
+    private void rootWnd_Loaded(object sender, RoutedEventArgs e)
+    {
+        _hideWindowHelper = HideWindowHelper
+             .CreateFor(this)
+             .AddHider<HideOnLeft>()
+             .AddHider<HideOnRight>()
+             .AddHider<HideOnTop>();
+
+        _hideWindowHelper.Start();
     }
 }

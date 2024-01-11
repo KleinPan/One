@@ -21,6 +21,7 @@ using System.Windows.Input;
 
 using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace One.Toolbox.ViewModels.Stick;
@@ -188,6 +189,14 @@ public partial class StickItemVM : BaseVM
 
     #region UpCommand
 
+    private Window MyWindow;
+
+    [RelayCommand]
+    private void Loaded(object obj)
+    {
+        MyWindow = obj as Window;
+    }
+
     [RelayCommand]
     private async Task RenameStick(object obj)
     {
@@ -236,8 +245,8 @@ public partial class StickItemVM : BaseVM
         try
         {
             SaveSetting();
-            var wnd = (Window)obj;
-            wnd.Close();
+            var rootWnd = (Window)obj;
+            rootWnd.Close();
         }
         catch (Exception)
         {

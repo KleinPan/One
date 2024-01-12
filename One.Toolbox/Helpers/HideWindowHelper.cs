@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -22,7 +23,6 @@ internal partial class HideWindowHelper
         public int X;
         public int Y;
 
-        // ReSharper disable once UnusedMember.Local
         public Point(int x, int y)
         {
             X = x;
@@ -38,6 +38,7 @@ internal partial class HideWindowHelper
     private HideWindowHelper(Window window)
     {
         _window = window;
+
         _timer = new Timer { Interval = 300 };
         _timer.Tick += _timer_Tick;
     }

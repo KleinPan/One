@@ -28,6 +28,20 @@ namespace One.Toolbox.ViewModels.Stick;
 
 public partial class StickItemVM : BaseVM
 {
+    public StickWindow StickWindow { get; set; }
+
+    public int Index { get; set; }
+
+    partial void OnDefaultOnChanged(bool value)
+    {
+        SaveSetting();
+    }
+
+    #region Prop
+
+    [ObservableProperty]
+    private bool defaultOn;
+
     /// <summary> 预览 </summary>
     [ObservableProperty]
     private ImageSource screen;
@@ -37,20 +51,6 @@ public partial class StickItemVM : BaseVM
 
     [ObservableProperty]
     private string buttonContent = "显示";
-
-    public StickWindow StickWindow { get; set; }
-
-    public int Index { get; set; }
-
-    [ObservableProperty]
-    private bool defaultOn;
-
-    partial void OnDefaultOnChanged(bool value)
-    {
-        SaveSetting();
-    }
-
-    #region Prop
 
     [ObservableProperty]
     private StickType stickType;
@@ -74,7 +74,6 @@ public partial class StickItemVM : BaseVM
 
     private RichTextboxEx currentRtb;
     private System.Windows.Controls.Primitives.Popup popup;
-    //private const string configName = "sticks.txt";
 
     //string tempPath;
     public StickItemVM(int index)
@@ -127,7 +126,8 @@ public partial class StickItemVM : BaseVM
 
     private void ScreenTheWindow()
     {
-        System.Windows.Media.Imaging.RenderTargetBitmap targetBitmap = new System.Windows.Media.Imaging.RenderTargetBitmap((int)StickWindow.ActualWidth, (int)StickWindow.ActualHeight, 96d, 96d, System.Windows.Media.PixelFormats.Default);
+        RenderTargetBitmap targetBitmap = new RenderTargetBitmap((int)StickWindow.ActualWidth, (int)StickWindow.ActualHeight, 96d, 96d, System.Windows.Media.PixelFormats.Default);
+
         targetBitmap.Render(StickWindow);
         System.Windows.Media.Imaging.PngBitmapEncoder saveEncoder = new System.Windows.Media.Imaging.PngBitmapEncoder();
         saveEncoder.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(targetBitmap));
@@ -272,7 +272,7 @@ public partial class StickItemVM : BaseVM
     {
         try
         {
-            var m = IOHelper.Instance.ReadContentFromLocal<StickM>(One.Toolbox.Helpers.PathHelper.stickPath + "Stick" + Index + ".data");
+            var m = IOHelper.Instance.ReadContentFromLocal<StickItemM>(One.Toolbox.Helpers.PathHelper.stickPath + "Stick" + Index + ".data");
 
             CurrentTheme = m.CurrentTheme;
             StickName = m.StickName;
@@ -388,9 +388,9 @@ public partial class StickItemVM : BaseVM
 
     #endregion CenterCommand
 
-    public StickM ToModel()
+    public StickItemM ToModel()
     {
-        StickM stickM = new StickM();
+        StickItemM stickM = new StickItemM();
         stickM.CurrentTheme = CurrentTheme;
         stickM.StickName = StickName;
         stickM.StickType = StickType;
@@ -401,7 +401,7 @@ public partial class StickItemVM : BaseVM
     }
 }
 
-public class StickM
+public class StickItemM
 {
     public StickTheme CurrentTheme { get; set; }
     public string StickName { get; set; }

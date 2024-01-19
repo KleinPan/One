@@ -2,6 +2,7 @@
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views.Dashboard;
 using One.Toolbox.Views.DataProcess;
+using One.Toolbox.Views.NetSpeed;
 using One.Toolbox.Views.Network;
 using One.Toolbox.Views.Serialport;
 using One.Toolbox.Views.Settings;
@@ -89,6 +90,13 @@ public partial class MainWindowVM : BaseVM
                 Icon = ResourceHelper.Dic["ImageArea"],
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.BingImage.BingImagePage(),
+            },
+             new()
+            {
+                Header = "NetSpeed",
+                Icon = ResourceHelper.Dic["TopSpeed20Regular"],
+                //TargetPageType = typeof(Views.NotePad.NotePadPage),
+                Content = new Views.NetSpeed.NetSpeedPage(),
             },
 
             //NavigationItems.Add(new MainMenuItemViewModel()

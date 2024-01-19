@@ -145,12 +145,12 @@ public partial class SettingsPageVM : BaseVM
 
     private void LoadSetting()
     {
-        AutoUpdate = SettingService.AllConfig.Setting.SutoUpdate;
+        AutoUpdate = SettingService.AllConfig.Setting.AutoUpdate;
     }
 
     private void SaveSetting()
     {
-        SettingService.AllConfig.Setting.SutoUpdate = AutoUpdate;
+        SettingService.AllConfig.Setting.AutoUpdate = AutoUpdate;
 
         SettingService.Save();
     }
@@ -171,16 +171,16 @@ public partial class SettingsPageVM : BaseVM
     }
 }
 
-public class SettingModel
+public class CommonSettingModel
 {
     public SkinType SkinType;
 
     public LanguageEnum CurrentLanguage;
 
-    public bool SutoUpdate;
+    public bool AutoUpdate;
     public bool ShowStickOnStart;
 
-    public SettingModel()
+    public CommonSettingModel()
     {
         SkinType = SkinType.Default;
         CurrentLanguage = LanguageEnum.zh_CN;

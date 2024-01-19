@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using One.Toolbox.Messenger;
 using One.Toolbox.ViewModels;
 using One.Toolbox.ViewModels.DataProcess;
+using One.Toolbox.ViewModels.NetSpeed;
 using One.Toolbox.ViewModels.Stick;
 
 using System.Globalization;
@@ -82,6 +83,7 @@ namespace One.Toolbox
 
             services.AddSingleton<StickPageVM>();
             services.AddSingleton<TestPageVM>();
+            services.AddSingleton<NetSpeedPageVM>();
 
             //多例
             //services.AddTransient<StickItemVM>();

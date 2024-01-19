@@ -1,15 +1,11 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
-
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
 using One.Toolbox.Helpers;
-using One.Toolbox.Messenger;
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views.Stick;
 
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -21,7 +17,6 @@ using System.Windows.Input;
 
 using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 namespace One.Toolbox.ViewModels.Stick;
@@ -75,7 +70,6 @@ public partial class StickItemVM : BaseVM
     private RichTextboxEx currentRtb;
     private System.Windows.Controls.Primitives.Popup popup;
 
-    //string tempPath;
     public StickItemVM(int index)
     {
         Index = index;
@@ -109,7 +103,7 @@ public partial class StickItemVM : BaseVM
         //});
     }
 
-    private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+    private static BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
     {
         BitmapImage bitmapImage = new BitmapImage();
         using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
@@ -390,7 +384,7 @@ public partial class StickItemVM : BaseVM
 
     public StickItemM ToModel()
     {
-        StickItemM stickM = new StickItemM();
+        StickItemM stickM = new();
         stickM.CurrentTheme = CurrentTheme;
         stickM.StickName = StickName;
         stickM.StickType = StickType;

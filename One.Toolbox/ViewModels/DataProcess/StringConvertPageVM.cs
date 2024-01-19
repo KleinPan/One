@@ -85,7 +85,7 @@ public partial class StringConvertPageVM : BaseVM
         OutputString = Encoding.Default.GetString(row);
     }
 
-    [CommunityToolkit.Mvvm.Input.RelayCommand]
+    [RelayCommand]
     private void AddNewTask()
     {
         if (SelectedConverterTask == null)

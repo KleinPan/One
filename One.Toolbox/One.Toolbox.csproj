@@ -33,22 +33,23 @@
 
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="HandyControl" Version="3.4.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.2" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc2" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.49-beta">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.2.4" />
+    <PackageReference Include="NLog" Version="5.2.8" />
 
     <PackageReference Include="RestSharp" Version="110.2.0" />
-    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
-    <PackageReference Include="System.Management" Version="7.0.2" />
-	<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.16" />
-    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="3.4.16" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
+	<PackageReference Include="Vanara.PInvoke.Security" Version="3.4.17" />
+    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="3.4.17" />
     <PackageReference Include="WebDav.Client" Version="2.8.0" />
   </ItemGroup>
 
@@ -62,6 +63,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NetSpeed\NetSpeedPage.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TestPage.xaml.cs">
       <SubType>Code</SubType>

@@ -1,9 +1,6 @@
 ﻿using One.Toolbox.ViewModels.Base;
 
-using System.Net.Mail;
 using System.Net.NetworkInformation;
-
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace One.Toolbox.ViewModels.NetSpeed;
 

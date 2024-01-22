@@ -65,7 +65,7 @@ public partial class NetSpeedPlotVM : BaseVM
         };
 
         XAxes = [customXAxis];
-        YAxes = new Axis[] { new Axis { SeparatorsPaint = new SolidColorPaint(SKColors.Black.WithAlpha(20)),MinLimit=0 } };
+        YAxes = new Axis[] { new Axis { SeparatorsPaint = new SolidColorPaint(SKColors.Black.WithAlpha(20)), MinLimit = 0 } };
     }
 
     private static double[] GetSeparators()

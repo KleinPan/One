@@ -2,18 +2,17 @@
 
 using One.Toolbox.ViewModels.DataProcess;
 
-namespace One.Toolbox.Views.DataProcess
+namespace One.Toolbox.Views.DataProcess;
+
+/// <summary> 编码转换工具页面 </summary>
+public partial class StringConvertPage
 {
-    /// <summary> 编码转换工具页面 </summary>
-    public partial class StringConvertPage
+    public ViewModels.DataProcess.StringConvertPageVM ViewModel { get; }
+
+    public StringConvertPage()
     {
-        public ViewModels.DataProcess.StringConvertPageVM ViewModel { get; }
+        DataContext = ViewModel = App.Current.Services.GetService<StringConvertPageVM>();
 
-        public StringConvertPage()
-        {
-            DataContext = ViewModel = App.Current.Services.GetService<StringConvertPageVM>();
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

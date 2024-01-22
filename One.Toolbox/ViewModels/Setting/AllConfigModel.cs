@@ -25,4 +25,5 @@ public class EditFileInfo
 public class NetSpeedSettingModel
 {
     public string LastAdapterName { get; set; }
+    public bool ShowSpeedWndDefault { get; set; }
 }

@@ -1,35 +1,42 @@
-﻿<hc:Window x:Class="One.Toolbox.Views.NetSpeed.NetSpeedWnd"
-           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-           xmlns:hc="https://handyorg.github.io/handycontrol"
-           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:vm="clr-namespace:One.Toolbox.ViewModels.NetSpeed"
-           ShowNonClientArea="False"
-           Width="450"
-           Height="490"
-           d:DataContext="{d:DesignInstance Type=vm:NetSpeedPageVM}"
-           WindowStartupLocation="CenterScreen"
-           mc:Ignorable="d">
+﻿<Window x:Class="One.Toolbox.Views.NetSpeed.NetSpeedWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:One.Toolbox.ViewModels.NetSpeed"
+        Width="110"  ShowInTaskbar="False"
+        Height="40"
+        d:DataContext="{d:DesignInstance Type=vm:NetSpeedItemVM}"
+        AllowsTransparency="True"
+        Opacity="0.6"
+        ResizeMode="NoResize"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d">
+    <Border x:Name="border" hc:WindowAttach.IsDragElement="True" BorderBrush="Gray" BorderThickness="1">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+        <Grid Grid.Row="1" Margin="5">
 
-        </Grid.RowDefinitions>
-        <Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="上行：" />
+                    <TextBlock Text="{Binding SpeedSentHuman}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="下行：" />
+                    <TextBlock Text="{Binding SpeedReceivedHuman}" />
+                </StackPanel>
+            </StackPanel>
 
-            <Style BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="TextBlock">
-                <Setter Property="Margin" Value="5" />
-                <Setter Property="HorizontalAlignment" Value="Right" />
-            </Style>
 
-        </Grid.Resources>
+        </Grid>
+    </Border>
 
-    </Grid>
-</hc:Window>
+
+</Window>

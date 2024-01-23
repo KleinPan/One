@@ -209,4 +209,6 @@
     <system:String x:Key="Type">Type</system:String>
     <system:String x:Key="ShowOnStart">Show On Start</system:String>
     <system:String x:Key="ShortTimeInfo">Short Time Info</system:String>
+    <system:String x:Key="OpenMainWindow">OpenMainWindow</system:String>
+    <system:String x:Key="ShutdownApp">ShutdownApp</system:String>
 </ResourceDictionary>

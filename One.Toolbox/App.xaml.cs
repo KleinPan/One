@@ -100,26 +100,6 @@ namespace One.Toolbox
                typeof(Analytics), typeof(Crashes));
         }
 
-        // App Host
-
-        // Page resolver service
-        //services.AddSingleton<IPageService, PageService>();
-
-        // Theme manipulation
-        //services.AddSingleton<IThemeService, ThemeService>();
-
-        // TaskBar manipulation
-        //services.AddSingleton<ITaskBarService, TaskBarService>();
-        //services.AddSingleton<IContentDialogService, ContentDialogService>();
-        // Service containing navigation, same as INavigationWindow... but without window
-        //services.AddSingleton<INavigationService, NavigationService>();
-
-        //services.AddSingleton<ISnackbarService, SnackbarService>();
-
-        // Main window with navigation
-
-        // Configuration
-
         #region Exception
 
         /// <summary> Occurs when an exception is thrown by an application but not handled. </summary>

@@ -7,6 +7,7 @@ using One.Toolbox.ViewModels;
 using One.Toolbox.ViewModels.MainWindow;
 using One.Toolbox.Views.Settings;
 
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -25,6 +26,14 @@ namespace One.Toolbox.Views
             NonClientAreaContent = new NonClientAreaContent();
 
             InitializeComponent();
+
+            Closing += MainWindow_Closing; // 注册Closing事件处理程序
+        }
+
+        private void MainWindow_Closing(object? sender, CancelEventArgs e)
+        {
+            e.Cancel = true; // 取消默认的关闭行为
+            this.Hide(); // 隐藏窗口而不是关闭
         }
 
         private void ResizeAndRelocate()
@@ -95,25 +104,6 @@ namespace One.Toolbox.Views
                 ColumnDefinitionLeft.Width = _columnDefinitionWidth;
                 ButtonLeft.Show();
             }
-        }
-
-        protected override void OnStateChanged(EventArgs e)
-        {
-            base.OnStateChanged(e);
-            //if (WindowState == WindowState.Minimized)
-            //{
-            //    ShowInTaskbar = false;
-            //    this.Hide();
-            //}
-        }
-
-        private void NotifyIcon_Click(object sender, RoutedEventArgs e)
-        {
-            //ShowInTaskbar = true;
-            //this.Show();
-            //WindowState = WindowState.Normal;
-
-            // this.Visibility = Visibility.Visible;
         }
     }
 }

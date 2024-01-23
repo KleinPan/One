@@ -2,12 +2,13 @@
 using One.Toolbox.ViewModels.Base;
 using One.Toolbox.Views.Dashboard;
 using One.Toolbox.Views.DataProcess;
-using One.Toolbox.Views.NetSpeed;
 using One.Toolbox.Views.Network;
 using One.Toolbox.Views.Serialport;
 using One.Toolbox.Views.Settings;
 
 using System.Collections.ObjectModel;
+
+using WindowHelper = One.Toolbox.Helpers.WindowHelper;
 
 namespace One.Toolbox.ViewModels.MainWindow;
 
@@ -131,6 +132,22 @@ public partial class MainWindowVM : BaseVM
             }
         };
         CurrentMenuItem = NavigationItems.First();
+    }
+
+    [RelayCommand]
+    private static void PushMainWindow2Top()
+    {
+        if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
+        {
+            Application.Current.MainWindow.Show();
+            WindowHelper.SetWindowToForeground(Application.Current.MainWindow);
+        }
+    }
+
+    [RelayCommand]
+    private static void ExitApp()
+    {
+        Application.Current.Shutdown();
     }
 
     #region 框架逻辑

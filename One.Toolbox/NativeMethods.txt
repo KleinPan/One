@@ -2,3 +2,7 @@ SetLocalTime
 SystemParametersInfo
 CreateWindowExW
 PostMessage
+
+GetWindowThreadProcessId
+GetForegroundWindow
+AttachThreadInput

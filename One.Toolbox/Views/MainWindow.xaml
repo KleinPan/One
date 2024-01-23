@@ -1,6 +1,7 @@
 ﻿<hc:Window x:Class="One.Toolbox.Views.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:hc="https://handyorg.github.io/handycontrol"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -110,7 +111,19 @@
             <!--  733 548  -->
         </Border>
 
-        <!--<hc:NotifyIcon Click="NotifyIcon_Click" Text="HandyControl" />-->
+        <hc:NotifyIcon Text="One.Toolbox">
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="Click">
+                    <behaviors:InvokeCommandAction Command="{Binding PushMainWindow2TopCommand}" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+            <hc:NotifyIcon.ContextMenu  >
+                <ContextMenu  Width="150" >
+                    <MenuItem Command="{Binding PushMainWindow2TopCommand}" Header="{DynamicResource OpenMainWindow}" />
+                    <MenuItem Command="{Binding ExitAppCommand}" Header="{DynamicResource ShutdownApp}" />
+                </ContextMenu>
+            </hc:NotifyIcon.ContextMenu>
+        </hc:NotifyIcon>
     </Grid>
 
 </hc:Window>

@@ -35,13 +35,17 @@ public partial class NetSpeedPlotVM : BaseVM
 
     public NetSpeedPlotVM()
     {
+        var receiveColor = SKColor.Parse("adcbff");
+        var sendColor = SKColor.Parse("ffb7c5");
         SpeedSeries = new ObservableCollection<ISeries>
         {
             new LineSeries<DateTimePoint>
             {
                 Name = "Receive",
                 Values = downSpeed,
-                Fill = new SolidColorPaint( SKColors.CornflowerBlue .WithAlpha(50)),
+                //Fill = new SolidColorPaint( SKColors.CornflowerBlue .WithAlpha(50)),
+                Fill = new SolidColorPaint(receiveColor.WithAlpha(50)),
+                Stroke =  new SolidColorPaint( receiveColor, 1),
                 Stroke =  new SolidColorPaint( SKColors.CornflowerBlue , 1),
                 GeometryFill = null,//坐标点形状
                 GeometryStroke =null,
@@ -50,7 +54,9 @@ public partial class NetSpeedPlotVM : BaseVM
             {
                 Name = "Send",
                 Values = upSpeed,
-                Fill =  new SolidColorPaint( SKColors.PaleVioletRed .WithAlpha(50)),
+                //Fill =  new SolidColorPaint( SKColors.PaleVioletRed .WithAlpha(50)),
+                Fill =  new SolidColorPaint(sendColor.WithAlpha(50)),
+                Stroke=new SolidColorPaint( sendColor , 1),
                 Stroke=new SolidColorPaint( SKColors.PaleVioletRed , 1),
                 GeometryFill = null,
                 GeometryStroke =null ,

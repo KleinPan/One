@@ -46,7 +46,6 @@ public partial class NetSpeedPlotVM : BaseVM
                 //Fill = new SolidColorPaint( SKColors.CornflowerBlue .WithAlpha(50)),
                 Fill = new SolidColorPaint(receiveColor.WithAlpha(50)),
                 Stroke =  new SolidColorPaint( receiveColor, 1),
-                Stroke =  new SolidColorPaint( SKColors.CornflowerBlue , 1),
                 GeometryFill = null,//坐标点形状
                 GeometryStroke =null,
             },
@@ -57,7 +56,6 @@ public partial class NetSpeedPlotVM : BaseVM
                 //Fill =  new SolidColorPaint( SKColors.PaleVioletRed .WithAlpha(50)),
                 Fill =  new SolidColorPaint(sendColor.WithAlpha(50)),
                 Stroke=new SolidColorPaint( sendColor , 1),
-                Stroke=new SolidColorPaint( SKColors.PaleVioletRed , 1),
                 GeometryFill = null,
                 GeometryStroke =null ,
             }

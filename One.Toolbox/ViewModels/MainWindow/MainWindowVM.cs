@@ -31,7 +31,7 @@ public partial class MainWindowVM : BaseVM
         InitializeViewModel();
 
         //ConfigHelper.Instance.LoadLocalDefaultSetting();
-        isInitialized = true;
+        
     }
 
     private new void InitializeViewModel()
@@ -132,6 +132,7 @@ public partial class MainWindowVM : BaseVM
             }
         };
         CurrentMenuItem = NavigationItems.First();
+        base.InitializeViewModel();
     }
 
     [RelayCommand]

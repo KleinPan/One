@@ -75,7 +75,7 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.NotePad.NotePadPageVM>();
             services.AddSingleton<ViewModels.Setting.CloudSettingsVM>();
 
-            services.AddSingleton<ViewModels.BingImage.BingImageVM>();
+            services.AddSingleton<ViewModels.BingImage.BingImagePageVM>();
             services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawPageVM>();
 
             //Services

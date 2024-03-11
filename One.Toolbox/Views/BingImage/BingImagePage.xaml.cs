@@ -6,11 +6,11 @@ namespace One.Toolbox.Views.BingImage;
 
 public partial class BingImagePage
 {
-    public BingImageVM ViewModel { get; }
+    public BingImagePageVM ViewModel { get; }
 
     public BingImagePage()
     {
-        DataContext = ViewModel = App.Current.Services.GetService<BingImageVM>();
+        DataContext = ViewModel = App.Current.Services.GetService<BingImagePageVM>();
 
         InitializeComponent();
     }

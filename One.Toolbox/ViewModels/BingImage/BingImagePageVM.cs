@@ -10,9 +10,9 @@ using System.IO;
 
 namespace One.Toolbox.ViewModels.BingImage;
 
-public partial class BingImageVM : BaseVM
+public partial class BingImagePageVM : BaseVM
 {
-    public BingImageVM()
+    public BingImagePageVM()
     {
     }
 

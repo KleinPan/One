@@ -8,7 +8,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:myuc="clr-namespace:One.Toolbox.MyUserControl"
              xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Setting"
-             d:DataContext="{d:DesignInstance Type=vms:SettingsVM}"
+             d:DataContext="{d:DesignInstance Type=vms:SettingsPageVM}"
              d:Height="548"
              d:Width="733"
              mc:Ignorable="d">

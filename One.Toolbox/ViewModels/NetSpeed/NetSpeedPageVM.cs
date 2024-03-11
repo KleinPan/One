@@ -54,6 +54,10 @@ public partial class NetSpeedPageVM : BaseVM
 
         LoadSetting();
         NetSpeedSelectItemVM = NetSpeedItems.FirstOrDefault(i => i.InterfaceName == LastAdapterName);
+        if (NetSpeedSelectItemVM == null)
+        {
+            NetSpeedSelectItemVM = NetSpeedItems.FirstOrDefault();
+        }
         NetSpeedSelectItemVM.SpeedAction += NetSpeedPlot.OnSpeedChange;
 
         if (ShowSmallWnd)

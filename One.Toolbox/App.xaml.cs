@@ -27,12 +27,10 @@ namespace One.Toolbox
 
         public App()
         {
+            Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
             Services = ConfigureServices();
             InitializeComponent();
-
             //AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
-            Current.DispatcherUnhandledException += DispatcherOnUnhandledException;
-
             InitDataColelection();
         }
 
@@ -120,17 +118,17 @@ namespace One.Toolbox
 
         public static void SendReport(Exception exception, string developerMessage = "", bool silent = true)
         {
-            Crashes.ShouldProcessErrorReport = (ErrorReport report) =>
-            {
-                // Check the report in here and return true or false depending on the ErrorReport.
-                return true;
-            };
+            //Crashes.ShouldProcessErrorReport = (ErrorReport report) =>
+            //{
+            //    // Check the report in here and return true or false depending on the ErrorReport.
+            //     return true;
+            //};
 
             if (exception.GetType() == typeof(System.ComponentModel.Win32Exception))
             {
-                Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");
-                return;
+                //return;
             }
+            Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");
         }
 
         #endregion Exception

@@ -128,7 +128,7 @@ namespace One.Toolbox
             {
                 //return;
             }
-            Tools.MessageBox.Show($"internal error from system!\r\n{exception.Message}\r\nexit!");
+            Tools.MessageBox.Show($"internal error from system!\r\n{exception.ToString()}\r\nexit!");
         }
 
         #endregion Exception

@@ -21,9 +21,13 @@
 
 	<ItemGroup>
 		<Compile Remove="Controls\SerialPortPack\**" />
+		<Compile Remove="Resources\**" />
 		<EmbeddedResource Remove="Controls\SerialPortPack\**" />
+		<EmbeddedResource Remove="Resources\**" />
 		<None Remove="Controls\SerialPortPack\**" />
+		<None Remove="Resources\**" />
 		<Page Remove="Controls\SerialPortPack\**" />
+		<Page Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
@@ -31,6 +35,5 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Controls\MonthView\" />
-		<Folder Include="Resources\" />
 	</ItemGroup>
 </Project>

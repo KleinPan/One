@@ -32,14 +32,14 @@ jobs:
 
         #uses 关键字指定此步骤将运行 actions/checkout 操作的 v3。 
         #这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Required for a specific dotnet version that doesn't come with ubuntu-latest / windows-latest
       # Visit bit.ly/2synnZl to see the list of SDKs that are pre-installed with ubuntu-latest / windows-latest
       - name: Setup dotnet
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.400
+          dotnet-version: 8
       
       # Publish 1
       - name: Publish One.Core

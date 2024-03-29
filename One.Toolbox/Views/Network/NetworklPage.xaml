@@ -26,6 +26,10 @@
             </Grid.ColumnDefinitions>
             <Border Margin="1,0">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
 
                     <FlowDocumentScrollViewer
                         Name="uartDataFlowDocument" BorderBrush="#FF009400" BorderThickness="0" MinZoom="50"
@@ -45,6 +49,9 @@
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
                     </FlowDocumentScrollViewer>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <CheckBox Content="{DynamicResource HexShow}" IsChecked="{Binding NetworkSettingVM.SendAndReceiveSettingVM.HexShow}"></CheckBox>
+                    </StackPanel>
                 </Grid>
             </Border>
             <!--  中间改变分割大小的东西  -->
@@ -128,7 +135,7 @@
                     <CheckBox
                         Grid.Column="1" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center"
                         Content="Hex"
-                        IsChecked="{Binding HexMode}" />
+                        IsChecked="{Binding NetworkSettingVM.SendAndReceiveSettingVM.HexSend}" />
 
                     <TextBox
                         Name="toSendDataTextBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="2"
@@ -169,12 +176,16 @@
                             SelectedIndex="0" ShowClearButton="True"
                             Text="{Binding RemoteSelectedIP}" />
                     </DockPanel>
-                    <Button
-                        Grid.Row="1" Grid.Column="1" Margin="2" HorizontalAlignment="Right"
-                        Command="{Binding SendDataCommand}"
-                        CommandParameter="ToAll"
-                        Content="{DynamicResource NetSendDataButton}"
-                        IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    <DockPanel  Grid.Row="1" Grid.ColumnSpan="2">
+                        <Button Content="{DynamicResource MoreSettings}" Command="{Binding MoreSettingCommand}" DockPanel.Dock="Left"></Button>
+                        <Button
+     Margin="2" HorizontalAlignment="Right"
+     Command="{Binding SendDataCommand}"
+     CommandParameter="ToAll"
+     Content="{DynamicResource NetSendDataButton}"
+     IsEnabled="{Binding IsConnected, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    </DockPanel>
+                   
                 </Grid>
             </Grid>
         </Grid>

@@ -45,7 +45,7 @@ public partial class QuickSendVM : ObservableObject
                     dataConvert = data;
                 }
 
-                if (vm.SerialportUISetting.WithExtraEnter)
+                if (vm.SerialportUISetting.SendAndReceiveSettingVM.WithExtraEnter)
                 {
                     var temp = dataConvert.ToList();
                     temp.Add(0x0d);

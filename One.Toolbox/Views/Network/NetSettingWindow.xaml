@@ -1,14 +1,13 @@
-﻿<Window x:Class="One.Toolbox.Views.SettingWindow"
+﻿<Window x:Class="One.Toolbox.Views.NetSettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vmb="clr-namespace:One.Toolbox.ViewModels.Base"
-        xmlns:vms="clr-namespace:One.Toolbox.ViewModels.Serialport"
+        xmlns:vmb="clr-namespace:One.Toolbox.ViewModels.Base" xmlns:vmn="clr-namespace:One.Toolbox.ViewModels.Network"
         Title="{DynamicResource SettingTitle}"
         Width="450"
         Height="490"
-        d:DataContext="{d:DesignInstance Type=vms:SerialportSettingVM}"
+        d:DataContext="{d:DesignInstance Type=vmn:NetworkSettingVM}"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <Window.Style>
@@ -46,39 +45,24 @@
                 <Setter Property="Margin" Value="5" />
             </Style>
         </Grid.Resources>
-        <TextBlock Text="{DynamicResource SettingDataBits}" />
-        <ComboBox Grid.Column="1" ItemsSource="{Binding DatabitList}" SelectedItem="{Binding SerialportParams.DataBits}" />
-
-        <TextBlock Grid.Row="1" Text="{DynamicResource SettingStopBit}" />
-        <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="{Binding SerialportParams.StopBits}">
-            <ComboBoxItem Content="1" />
-            <ComboBoxItem Content="2" />
-            <ComboBoxItem Content="1.5" />
-        </ComboBox>
-
-        <TextBlock Grid.Row="2" Text="{DynamicResource SettingParity}" />
-        <ComboBox Name="dataCheckComboBox" Grid.Row="2" Grid.Column="1" SelectedIndex="{Binding SerialportParams.Parity}">
-            <ComboBoxItem Content="{DynamicResource SettingParityNone}" />
-            <ComboBoxItem Content="{DynamicResource SettingParityOdd}" />
-            <ComboBoxItem Content="{DynamicResource SettingParityEven}" />
-            <ComboBoxItem Content="{DynamicResource SettingParityMark}" />
-            <ComboBoxItem Content="{DynamicResource SettingParitySpace}" />
-        </ComboBox>
+        
 
         <TextBlock Grid.Row="3" VerticalAlignment="Center" Text="{DynamicResource SettingUartTimeout}" />
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
 
-            <TextBox MinWidth="60" Text="{Binding  SendAndReceiveSettingVM.Timeout, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox MinWidth="60" Text="{Binding NetworkSettingVM.SendAndReceiveSettingVM.Timeout, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Margin="3,0" VerticalAlignment="Center" Text="{DynamicResource SettingMs}" />
         </StackPanel>
+
         <TextBlock Grid.Row="4" VerticalAlignment="Center" Text="{DynamicResource SettingMaxPack}" />
-        <TextBlock Grid.Row="4" VerticalAlignment="Center" Text="{DynamicResource SendAndReceiveSettingVM.SettingMaxPack}" />
         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-           
-            <TextBox MinWidth="60" Text="{Binding SendAndReceiveSettingVM.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBox MinWidth="60" Text="{Binding NetworkSettingVM.SendAndReceiveSettingVM.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingByte}" />
         </StackPanel>
+
+        
         <TextBlock Grid.Row="6" VerticalAlignment="Center" Text="{DynamicResource ShortTimeInfo}" />
-        <CheckBox Grid.Row="6" Grid.Column="1" Content="(需重新进入工具页面)" IsChecked="{Binding ShortTimeInfo}" />
+        <CheckBox Grid.Row="6" Grid.Column="1" Content="(需重新进入工具页面)" IsChecked="{Binding SendAndReceiveSettingVM.ShortTimeInfo}" />
     </Grid>
 </Window>

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace One.Core.Helpers.NetHelpers
 {
@@ -23,7 +25,7 @@ namespace One.Core.Helpers.NetHelpers
         public Action<byte[]> SendAction;
         public Action<byte[]> OnConnected;
         public Action<byte[]> OnDisConnected;
-
+        public Action<bool> OnConnectedBool;
         public CancellationToken cancellationToken = default;
 
         /// <summary> 暂时不起作用 </summary>
@@ -36,7 +38,7 @@ namespace One.Core.Helpers.NetHelpers
         /// <summary> 初始化作为客户端并连接 </summary>
         /// <param name="ip">   </param>
         /// <param name="port"> </param>
-        public bool InitClient(IPAddress ip, int port)
+        public void Connect(IPAddress ip, int port)
         {
             try
             {
@@ -47,22 +49,23 @@ namespace One.Core.Helpers.NetHelpers
                 SocketAsyncEventArgs e = new SocketAsyncEventArgs();
                 e.RemoteEndPoint = ipEndPoint;
                 e.UserToken = socket;
+
                 e.Completed += new EventHandler<SocketAsyncEventArgs>(ConnectComplete);
-                e.SetBuffer(System.Text.Encoding.UTF8.GetBytes("Hello!"));
+                //e.SetBuffer(System.Text.Encoding.UTF8.GetBytes("Hello!"));//发这个会出意外，本地打印log就行
 
-                var willRaiseEvent = socket.ConnectAsync(e);
+                var pending = socket.ConnectAsync(e);
 
-                if (!willRaiseEvent)//暂时没发现有什么用
+                var a = $"{socket.LocalEndPoint.ToString()} connecting......";
+                var info = System.Text.Encoding.UTF8.GetBytes(a);
+                OnConnected?.Invoke(info);
+                if (!pending)//同步的走这里
                 {
                     ConnectComplete(this, e);
                 }
-
-                return true;
             }
             catch (Exception ex)
             {
                 WriteLog(ex.ToString());
-                return false;
             }
         }
 
@@ -77,9 +80,15 @@ namespace One.Core.Helpers.NetHelpers
             {
                 //客户端自己的Socket,也可以直接用最开始的socket
                 var localClientSocket = e.ConnectSocket;//连接的 Socket 对象。
+
                 var addressFamily = localClientSocket.AddressFamily.ToString();
-                // var a = localClientSocket.LocalEndPoint.ToString();
+
+                OnConnectedBool?.Invoke(localClientSocket.Connected);
+                Debug.WriteLine("Status:" + localClientSocket.Connected);
+
                 var a = $"{localClientSocket.LocalEndPoint.ToString()} connected!";
+
+                Debug.WriteLine(localClientSocket.RemoteEndPoint.ToString());
 
                 var info = System.Text.Encoding.UTF8.GetBytes(a);
                 OnConnected?.Invoke(info);
@@ -91,9 +100,13 @@ namespace One.Core.Helpers.NetHelpers
             }
             catch (Exception ex)
             {
-                WriteLog($"连接失败 => {ex}");
+                OnConnectedBool?.Invoke(false);
 
-                // throw;
+                var a = $"{e.RemoteEndPoint.ToString()} connect failed!";
+
+                var info = System.Text.Encoding.UTF8.GetBytes(a);
+                OnConnected?.Invoke(info);
+                WriteLog($"连接失败 => {ex}");
             }
         }
 
@@ -104,6 +117,7 @@ namespace One.Core.Helpers.NetHelpers
             try
             {
                 socket.Shutdown(SocketShutdown.Both);
+                OnConnectedBool?.Invoke(false);
 
                 var a = $"{socket.LocalEndPoint} disconnected!";
                 var info = System.Text.Encoding.UTF8.GetBytes(a);
@@ -114,7 +128,7 @@ namespace One.Core.Helpers.NetHelpers
             catch (Exception ex)
             {
                 WriteLog(ex.ToString());
-                throw ex;
+                throw;
             }
         }
 
@@ -122,9 +136,12 @@ namespace One.Core.Helpers.NetHelpers
         {
             try
             {
-                // int count = sckClient.Send(data);
-                //Console.WriteLine("发送数据长度为：" + count);
+                if (!socket.Connected)
+                {
+                    OnConnectedBool?.Invoke(false);
 
+                    return;
+                }
                 int bytesSent = 0;
                 while (bytesSent < data.Length)
                 {
@@ -161,7 +178,9 @@ namespace One.Core.Helpers.NetHelpers
             }
             catch (Exception ex)
             {
+                //不能上抛
                 WriteLog(ex.ToString());
+                //throw ex;
             }
         }
     }

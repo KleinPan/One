@@ -1,9 +1,16 @@
-﻿using One.Core.Helpers.DataProcessHelpers;
+﻿using CommunityToolkit.Mvvm.Messaging;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using One.Core.Helpers.DataProcessHelpers;
 using One.Core.Helpers.NetHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
+using One.Toolbox.Messenger;
+using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
+using One.Toolbox.Views;
 
 using System.Collections.ObjectModel;
 using System.Net;
@@ -28,9 +35,6 @@ public partial class NetworkPageVM : BaseShowViewModel
     private bool isListening = false;
 
     [ObservableProperty]
-    private bool hexMode = false;
-
-    [ObservableProperty]
     private ObservableCollection<string> ipList = new ObservableCollection<string>();
 
     [ObservableProperty]
@@ -45,16 +49,26 @@ public partial class NetworkPageVM : BaseShowViewModel
     [ObservableProperty]
     private string inputPort = "2333";
 
+    [ObservableProperty]
+    private NetworkSettingVM networkSettingVM;
+
     private AsyncTCPClient asyncTCPClient;
     private AsyncTCPServer asyncTCPServer;
 
     private AsyncUDPClient asyncUDPClient;
+
+    [ObservableProperty]
+    private string dataToSend;
 
     public override void InitializeViewModel()
     {
         if (isInitialized)
             return;
 
+        WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
+        {
+            SaveSetting();
+        });
         RefreshIp();
 
         asyncTCPClient = new AsyncTCPClient(WriteDebugLog);
@@ -62,6 +76,7 @@ public partial class NetworkPageVM : BaseShowViewModel
         asyncTCPClient.SendAction += ShowSendMessage;
         asyncTCPClient.OnConnected += ShowInfoAction;
         asyncTCPClient.OnDisConnected += ShowInfoAction;
+        asyncTCPClient.OnConnectedBool += AsyncTCPClient_OnConnectedBool;
 
         asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
         asyncTCPServer.ReceiveAction += ShowServerReceiveAction;
@@ -78,6 +93,23 @@ public partial class NetworkPageVM : BaseShowViewModel
         asyncUDPClient.OnIpEndPointChanged += IpEndPointChangedEvent;
         base.InitializeViewModel();
     }
+
+    #region Init
+
+    public override void OnNavigatedEnter()
+    {
+        base.OnNavigatedEnter();
+        LoadSetting();
+    }
+
+    public override void OnNavigatedLeave()
+    {
+        base.OnNavigatedLeave();
+
+        SaveSetting();
+    }
+
+    #endregion Init
 
     private void IpEndPointChangedEvent(IPListOperationEnum operation, string arg2)
     {
@@ -112,14 +144,16 @@ public partial class NetworkPageVM : BaseShowViewModel
         }
     }
 
+    #region Callback
+
     private void ShowReceiveAction(byte[] data)
     {
-        ShowData("", data, false);
+        ShowData("", data, false, NetworkSettingVM.SendAndReceiveSettingVM.HexShow);
     }
 
     private void ShowSendMessage(byte[] data)
     {
-        ShowData("", data, true);
+        ShowData("", data, true, NetworkSettingVM.SendAndReceiveSettingVM.HexSend);
     }
 
     private void ShowInfoAction(byte[] data)
@@ -134,8 +168,20 @@ public partial class NetworkPageVM : BaseShowViewModel
         ShowData(title, data, false);
     }
 
-    [ObservableProperty]
-    private string dataToSend;
+    private void AsyncTCPClient_OnConnectedBool(bool obj)
+    {
+        IsConnected = obj;
+        if (IsConnected)
+        {
+            Changeable = false;
+        }
+        else
+        {
+            Changeable = true;
+        }
+    }
+
+    #endregion Callback
 
     #region InitUI
 
@@ -145,17 +191,111 @@ public partial class NetworkPageVM : BaseShowViewModel
         var args = obj as System.Windows.RoutedEventArgs;
         var control = args.OriginalSource as FlowDocumentScrollViewer;
         flowDocumentHelper = new FlowDocumentComponent(control);
+        flowDocumentHelper.MaxPacksAutoClear = NetworkSettingVM.SendAndReceiveSettingVM.MaxPacksAutoClear;
+        flowDocumentHelper.LagAutoClear = NetworkSettingVM.SendAndReceiveSettingVM.LagAutoClear;
+        flowDocumentHelper.ShowShortTimeInfo = NetworkSettingVM.SendAndReceiveSettingVM.ShortTimeInfo;//重启生效
     }
 
     #endregion InitUI
 
     #region Command
 
+    #region Client
+
     [RelayCommand]
-    private void ClearRemoteIPList()
+    private void SocketConnect()
     {
-        RemoteIpList.Clear();
+        if (!Changeable)
+            return;
+
+        try
+        {
+            Changeable = false;
+            IPAddress ip = null;
+            try
+            {
+                ip = IPAddress.Parse(SelectedIP);
+            }
+            catch
+            {
+                var hostEntry = Dns.GetHostEntry(SelectedIP);
+                ip = hostEntry.AddressList[0];
+            }
+            var ipe = new IPEndPoint(ip, int.Parse(InputPort));
+
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP_Client:
+
+                    //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                    asyncTCPClient.Connect(ip, int.Parse(InputPort));
+                    break;
+
+                case CommunProtocalType.TCP_Server:
+
+                    break;
+
+                case CommunProtocalType.UDP_Client:
+
+                    break;
+
+                case CommunProtocalType.Test:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            IsConnected = false;
+            Changeable = true;
+            MessageShowHelper.ShowErrorMessage($"{ex.ToString()}");
+        }
     }
+
+    [RelayCommand]
+    private void SocketDisconnect()
+    {
+        try
+        {
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP_Client:
+                    {
+                        asyncTCPClient.ReleaseClient();
+                    }
+
+                    break;
+
+                case CommunProtocalType.TCP_Server:
+                    break;
+
+                case CommunProtocalType.UDP_Client:
+                    {
+                    }
+                    break;
+
+                case CommunProtocalType.Test:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageShowHelper.ShowErrorMessage(ex.ToString());
+        }
+
+        IsConnected = false;
+        Changeable = true;
+    }
+
+    #endregion Client
+
+    #region Server
 
     [RelayCommand]
     private void Listen()
@@ -234,9 +374,99 @@ public partial class NetworkPageVM : BaseShowViewModel
         }
     }
 
-    #endregion Command
+    #endregion Server
 
-    #region 通用功能
+    #region SendAndReceive
+
+    [RelayCommand]
+    private void SendData(object toAll)
+    {
+        if (DataToSend == null)
+        {
+            return;
+        }
+
+        try
+        {
+            byte[] buff = NetworkSettingVM.SendAndReceiveSettingVM.HexSend ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
+                    System.Text.Encoding.UTF8.GetBytes(DataToSend); ;
+
+            switch (SelectCommunProtocalType)
+            {
+                case CommunProtocalType.TCP_Client:
+                    {
+                        asyncTCPClient.SendData(buff);
+                    }
+
+                    break;
+
+                case CommunProtocalType.TCP_Server:
+                    {
+                        if (toAll != null)
+                        {
+                            var param = toAll.ToString();
+                            if (param == "ToAll")
+                            {
+                                asyncTCPServer.SendDataToAll(buff);
+                            }
+                        }
+                        else
+                        {
+                            var temp = RemoteSelectedIP.Replace(" ", "");
+                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+
+                            asyncTCPServer.SendData(buff, iPEndPoint);
+                        }
+                    }
+                    break;
+
+                case CommunProtocalType.UDP_Client:
+                    {
+                        try
+                        {
+                            //RemoteSelectedIP = "8.8.8.8:8799";
+
+                            var temp = RemoteSelectedIP.Replace(" ", "");
+                            IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
+                            asyncUDPClient.SendData(iPEndPoint, buff);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageShowHelper.ShowErrorMessage(ex.ToString());
+                        }
+                    }
+                    break;
+
+                case CommunProtocalType.Test:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageShowHelper.ShowErrorMessage(ex.ToString());
+        }
+    }
+
+    #endregion SendAndReceive
+
+    [RelayCommand]
+    private void ClearRemoteIPList()
+    {
+        RemoteIpList.Clear();
+    }
+
+    [RelayCommand]
+    private void MoreSetting(object obj)
+    {
+        NetSettingWindow settingWindow = new NetSettingWindow();
+        settingWindow.DataContext = NetworkSettingVM;
+        settingWindow.Show();
+
+        SaveSetting();
+    }
 
     /// <summary> 刷新本机ip列表 </summary>
     [RelayCommand]
@@ -262,158 +492,29 @@ public partial class NetworkPageVM : BaseShowViewModel
         temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
     }
 
-    [RelayCommand]
-    private void SocketConnect()
+    #endregion Command
+
+    #region Setting
+
+    public void SaveSetting()
     {
-        if (!Changeable)
-            return;
+        var service = App.Current.Services.GetService<SettingService>();
 
-        try
-        {
-            Changeable = false;
-            IPAddress ip = null;
-            try
-            {
-                ip = IPAddress.Parse(SelectedIP);
-            }
-            catch
-            {
-                var hostEntry = Dns.GetHostEntry(SelectedIP);
-                ip = hostEntry.AddressList[0];
-            }
-            var ipe = new IPEndPoint(ip, int.Parse(InputPort));
+        NetworkSettingVM.LastPort = InputPort;
 
-            switch (SelectCommunProtocalType)
-            {
-                case CommunProtocalType.TCP_Client:
-
-                    //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                    asyncTCPClient.InitClient(ip, int.Parse(InputPort));
-                    break;
-
-                case CommunProtocalType.TCP_Server:
-
-                    break;
-
-                case CommunProtocalType.UDP_Client:
-
-                    break;
-
-                case CommunProtocalType.Test:
-                    break;
-
-                default:
-                    break;
-            }
-
-            IsConnected = true;
-        }
-        catch (Exception ex)
-        {
-            MessageShowHelper.ShowErrorMessage($"Server information error {ex.Message}");
-            Changeable = true;
-            return;
-        }
+        service!.AllConfig.NetworkSetting = NetworkSettingVM.ToModel();
+        service.Save();
     }
 
-    [RelayCommand]
-    private void SocketDisconnect()
+    public void LoadSetting()
     {
-        switch (SelectCommunProtocalType)
-        {
-            case CommunProtocalType.TCP_Client:
-                {
-                    asyncTCPClient.ReleaseClient();
-                }
+        var service = App.Current.Services.GetService<SettingService>();
 
-                break;
-
-            case CommunProtocalType.TCP_Server:
-                break;
-
-            case CommunProtocalType.UDP_Client:
-                {
-                }
-                break;
-
-            case CommunProtocalType.Test:
-                break;
-
-            default:
-                break;
-        }
-
-        IsConnected = false;
-        Changeable = true;
+        NetworkSettingVM = service!.AllConfig.NetworkSetting.ToVM();
+        InputPort = NetworkSettingVM.LastPort;
     }
 
-    [RelayCommand]
-    private void SendData(object toAll)
-    {
-        if (DataToSend == null)
-        {
-            return;
-        }
-
-        byte[] buff = HexMode ? StringHelper.HexStringToBytes(DataToSend) ://ByteHelper.HexToByte(DataToSend)
-                      System.Text.Encoding.UTF8.GetBytes(DataToSend); ;
-
-        switch (SelectCommunProtocalType)
-        {
-            case CommunProtocalType.TCP_Client:
-                {
-                    asyncTCPClient.SendData(buff);
-                }
-
-                break;
-
-            case CommunProtocalType.TCP_Server:
-                {
-                    if (toAll != null)
-                    {
-                        var param = toAll.ToString();
-                        if (param == "ToAll")
-                        {
-                            asyncTCPServer.SendDataToAll(buff);
-                        }
-                    }
-                    else
-                    {
-                        var temp = RemoteSelectedIP.Replace(" ", "");
-                        IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
-
-                        asyncTCPServer.SendData(buff, iPEndPoint);
-                    }
-                }
-                break;
-
-            case CommunProtocalType.UDP_Client:
-                {
-                    try
-                    {
-                        //RemoteSelectedIP = "8.8.8.8:8799";
-
-                        var temp = RemoteSelectedIP.Replace(" ", "");
-                        IPEndPoint iPEndPoint = IPEndPoint.Parse(temp);
-                        asyncUDPClient.SendData(iPEndPoint, buff);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageShowHelper.ShowErrorMessage(ex.ToString());
-                    }
-                }
-                break;
-
-            case CommunProtocalType.Test:
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    #endregion 通用功能
+    #endregion Setting
 
     /// <summary> 获取客户端的名字 </summary>
     /// <param name="s"> </param>

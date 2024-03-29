@@ -25,17 +25,15 @@ namespace One.Toolbox.Component
 
         private static readonly object objLock = new object();
 
-        private SerialportSettingVM SerialportSetting { get; set; }
+        private SerialportSettingModel SerialportSetting { get; set; }
 
         /// <summary> 初始化串口各个触发函数 </summary>
         public SerialPortComponent()
         {
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-           
-            new Thread(ReadData).Start();
 
-          
+            new Thread(ReadData).Start();
         }
 
         /// <summary> 刷新串口对象 </summary>
@@ -92,7 +90,7 @@ namespace One.Toolbox.Component
             serialPort = new SerialPort();
             //声明接收到事件
             serialPort.DataReceived += Serial_DataReceived;
-       
+
             WriteTraceLog($"[refreshSerialDevice]done");
         }
 
@@ -118,7 +116,7 @@ namespace One.Toolbox.Component
         }
 
         /// <summary> 开启串口 </summary>
-        public void Open(SerialportSettingVM serialportParams)
+        public void Open(SerialportSettingModel serialportParams)
         {
             string temp = serialPort.PortName;
             WriteTraceLog($"[UartOpen]refreshSerialDevice");
@@ -157,7 +155,7 @@ namespace One.Toolbox.Component
             if (data.Length == 0)
                 return;
             serialPort.Write(data, 0, data.Length);
-      
+
             UartDataSent(data, EventArgs.Empty);//回调
         }
 
@@ -179,9 +177,9 @@ namespace One.Toolbox.Component
             while (true)
             {
                 WaitUartReceive.WaitOne();
-               
-                if (SerialportSetting.Timeout > 0)
-                    Thread.Sleep(SerialportSetting.Timeout);//等待时间
+
+                if (SerialportSetting.SendAndReceiveSettingModel.Timeout > 0)
+                    Thread.Sleep(SerialportSetting.SendAndReceiveSettingModel.Timeout);//等待时间
                 List<byte> result = new List<byte>();
                 while (true)//循环读
                 {
@@ -200,19 +198,16 @@ namespace One.Toolbox.Component
                     }
                     catch { break; }//崩了？
 
-                    if (result.Count > SerialportSetting.MaxLength)//长度超了
+                    if (result.Count > SerialportSetting.SendAndReceiveSettingModel.MaxLength)//长度超了
                         break;
-                  
                 }
-              
+
                 if (result.Count > 0)
                 {
                     try
                     {
                         var r = result.ToArray();
                         UartDataRecived(r, EventArgs.Empty);//回调事件
-
-                      
                     }
                     catch
                     { }

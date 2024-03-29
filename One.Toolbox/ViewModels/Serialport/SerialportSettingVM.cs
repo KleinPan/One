@@ -1,4 +1,6 @@
-﻿namespace One.Toolbox.ViewModels.Serialport;
+﻿using One.Toolbox.ViewModels.Base;
+
+namespace One.Toolbox.ViewModels.Serialport;
 
 public partial class SerialportSettingVM : ObservableObject
 {
@@ -9,51 +11,42 @@ public partial class SerialportSettingVM : ObservableObject
     private List<double> stopBits = new List<double>() { 1, 2, 3 };
 
     [ObservableProperty]
-    private bool hexShow;
-
-    [ObservableProperty]
-    private bool hexSend;
-
-    [ObservableProperty]
-    private bool withExtraEnter;
-
-    [ObservableProperty]
-    private bool shortTimeInfo;
-
-    /// <summary> 替换不可见字符 </summary>
-    public bool EnableSymbol { get; set; }
-
-    public int Timeout { get; set; }
-
-    public int MaxLength { get; set; }
-
-    public int MaxPacksAutoClear { get; set; }
-
-    public bool LagAutoClear { get; set; }
+    private SendAndReceiveSettingVM sendAndReceiveSettingVM;
 
     public SerialportParams SerialportParams { get; set; } = new SerialportParams();
-
     public List<QuickSendVM> QuickSendList { get; set; } = new List<QuickSendVM>();
 
     public SerialportSettingVM()
     {
-        //SerialportParams = new SerialportParams();
     }
 
     public SerialportSettingModel ToModel()
     {
-        SerialportSettingModel serialportSettingModel = new SerialportSettingModel();
-        serialportSettingModel.HexShow = HexShow;
-        serialportSettingModel.HexSend = HexSend;
-        serialportSettingModel.WithExtraEnter = WithExtraEnter;
-        serialportSettingModel.EnableSymbol = EnableSymbol;
-        serialportSettingModel.Timeout = Timeout;
-        serialportSettingModel.MaxLength = MaxLength;
-        serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
-        serialportSettingModel.LagAutoClear = LagAutoClear;
-        serialportSettingModel.QuickSendList = QuickSendList.Select(x => x.ToM()).ToList();
-        serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
+        SerialportSettingModel model = new SerialportSettingModel();
+        model.SendAndReceiveSettingModel = SendAndReceiveSettingVM.ToModel();
+        model.QuickSendList = QuickSendList.Select(x => x.ToM()).ToList();
+        model.SerialportParams = SerialportParams;
+        return model;
+    }
+}
 
-        return serialportSettingModel;
+public partial class SerialportSettingModel
+{
+    public SendAndReceiveSettingModel SendAndReceiveSettingModel { get; set; } = new SendAndReceiveSettingModel();
+    public SerialportParams SerialportParams { get; set; } = new SerialportParams();
+    public List<QuickSendModel> QuickSendList { get; set; } = new List<QuickSendModel>();
+
+    public SerialportSettingModel()
+    {
+    }
+
+    public SerialportSettingVM ToVM()
+    {
+        SerialportSettingVM vm = new SerialportSettingVM();
+        vm.SerialportParams = SerialportParams;
+        vm.SendAndReceiveSettingVM = SendAndReceiveSettingModel.ToVM();
+        vm.QuickSendList = QuickSendList.Select(x => x.ToVM()).ToList();
+
+        return vm;
     }
 }

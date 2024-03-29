@@ -129,14 +129,14 @@ public partial class SerialportPageVM : BaseShowViewModel
         var data = sender as byte[];
         ReceivedCount += data.Length;
 
-        ShowData("", data, false, SerialportUISetting.HexShow);
+        ShowData("", data, false, SerialportUISetting.SendAndReceiveSettingVM.HexShow);
     }
 
     private void SerialPortHelper_UartDataSent(object? sender, EventArgs e)
     {
         var data1 = sender as byte[];
         SentCount += data1.Length;
-        ShowData("", data: data1, send: true, SerialportUISetting.HexSend);
+        ShowData("", data: data1, send: true, SerialportUISetting.SendAndReceiveSettingVM.HexSend);
     }
 
     private bool refreshLock = false;
@@ -150,9 +150,9 @@ public partial class SerialportPageVM : BaseShowViewModel
         var control = args.OriginalSource as FlowDocumentScrollViewer;
         flowDocumentHelper = new FlowDocumentComponent(control);
 
-        flowDocumentHelper.MaxPacksAutoClear = SerialportUISetting.MaxPacksAutoClear;
-        flowDocumentHelper.LagAutoClear = SerialportUISetting.LagAutoClear;
-        flowDocumentHelper.ShowShortTimeInfo = SerialportUISetting.ShortTimeInfo;//重启生效
+        flowDocumentHelper.MaxPacksAutoClear = SerialportUISetting.SendAndReceiveSettingVM.MaxPacksAutoClear;
+        flowDocumentHelper.LagAutoClear = SerialportUISetting.SendAndReceiveSettingVM.LagAutoClear;
+        flowDocumentHelper.ShowShortTimeInfo = SerialportUISetting.SendAndReceiveSettingVM.ShortTimeInfo;//重启生效
     }
 
     #endregion InitUI
@@ -384,10 +384,10 @@ public partial class SerialportPageVM : BaseShowViewModel
                         WriteTraceLog($"SetName");
                         serialPortHelper.SetName(port);
 
-                        serialportUISetting.SerialportParams.BaudRate = int.Parse(SelectedBaudRate);
+                        SerialportUISetting.SerialportParams.BaudRate = int.Parse(SelectedBaudRate);
                         WriteTraceLog($"Open");
 
-                        serialPortHelper.Open(serialportUISetting);
+                        serialPortHelper.Open(SerialportUISetting.ToModel());
 
                         IsOpen = true;
                         App.Current.Dispatcher.Invoke(new Action(delegate
@@ -425,7 +425,7 @@ public partial class SerialportPageVM : BaseShowViewModel
 
             try
             {
-                if (SerialportUISetting.HexSend)
+                if (SerialportUISetting.SendAndReceiveSettingVM.HexSend)
                 {
                     var temp = System.Text.Encoding.UTF8.GetString(data.ToArray());
 
@@ -437,7 +437,7 @@ public partial class SerialportPageVM : BaseShowViewModel
                     dataConvert = data;
                 }
 
-                if (SerialportUISetting.WithExtraEnter)
+                if (SerialportUISetting.SendAndReceiveSettingVM.WithExtraEnter)
                 {
                     var temp = dataConvert.ToList();
                     temp.Add(0x0d);
@@ -463,7 +463,6 @@ public partial class SerialportPageVM : BaseShowViewModel
         SerialportUISetting.QuickSendList = QuickSendList.ToList();
 
         service.AllConfig.SerialportSetting = SerialportUISetting.ToModel();
-        service.AllConfig.SerialportParams = SerialportUISetting.SerialportParams;
 
         service.Save();
     }
@@ -473,8 +472,6 @@ public partial class SerialportPageVM : BaseShowViewModel
         var service = App.Current.Services.GetService<SettingService>();
 
         SerialportUISetting = service.AllConfig.SerialportSetting.ToVM();
-
-        SerialportUISetting.SerialportParams = service.AllConfig.SerialportParams;
 
         QuickSendList.Clear();
         QuickSendList.AddRange(SerialportUISetting.QuickSendList);

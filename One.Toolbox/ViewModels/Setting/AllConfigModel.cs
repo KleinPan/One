@@ -1,11 +1,13 @@
-﻿using One.Toolbox.ViewModels.Serialport;
+﻿using One.Toolbox.ViewModels.Network;
+using One.Toolbox.ViewModels.Serialport;
 
 namespace One.Toolbox.ViewModels.Setting;
 
 public class AllConfigModel
 {
+    public NetworkSettingModel NetworkSetting { get; set; } = new NetworkSettingModel();
+
     public SerialportSettingModel SerialportSetting { get; set; } = new SerialportSettingModel();
-    public SerialportParams SerialportParams { get; set; } = new SerialportParams();
 
     public CommonSettingModel Setting { get; set; } = new CommonSettingModel();
     public List<EditFileInfo> EditFileInfoList { get; set; } = new();

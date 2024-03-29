@@ -1,45 +1,5 @@
 ﻿namespace One.Toolbox.ViewModels.Serialport;
 
-public class SerialportSettingModel
-{
-    public bool HexShow { get; set; }
-    public bool HexSend { get; set; }
-    public bool WithExtraEnter { get; set; }
-
-    /// <summary> 替换不可见字符 </summary>
-    public bool EnableSymbol { get; set; }
-
-    public int Timeout { get; set; } = 50;
-
-    public int MaxLength { get; set; } = 10240;
-
-    /// <summary> 自动清空UI，在超过此包数 </summary>
-    public int MaxPacksAutoClear { get; set; } = 200;
-
-    public bool LagAutoClear { get; set; } = true;
-
-    public bool ShortTimeInfo { get; set; }
-
-    public List<QuickSendModel> QuickSendList { get; set; } = new List<QuickSendModel>();
-
-    public SerialportSettingVM ToVM()
-    {
-        SerialportSettingVM serialportSettingModel = new SerialportSettingVM();
-        serialportSettingModel.HexShow = HexShow;
-        serialportSettingModel.HexSend = HexSend;
-        serialportSettingModel.WithExtraEnter = WithExtraEnter;
-        serialportSettingModel.EnableSymbol = EnableSymbol;
-        serialportSettingModel.Timeout = Timeout;
-        serialportSettingModel.MaxLength = MaxLength;
-        serialportSettingModel.MaxPacksAutoClear = MaxPacksAutoClear;
-        serialportSettingModel.LagAutoClear = LagAutoClear;
-        serialportSettingModel.QuickSendList = QuickSendList.Select(x => x.ToVM()).ToList();
-        serialportSettingModel.ShortTimeInfo = ShortTimeInfo;
-
-        return serialportSettingModel;
-    }
-}
-
 public class SerialportParams
 {
     public int BaudRate { get; set; } = 115200;

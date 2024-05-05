@@ -79,6 +79,6 @@
             <TextBlock VerticalAlignment="Center" Text="{DynamicResource SettingByte}" />
         </StackPanel>
         <TextBlock Grid.Row="6" VerticalAlignment="Center" Text="{DynamicResource ShortTimeInfo}" />
-        <CheckBox Grid.Row="6" Grid.Column="1" Content="(需重新进入工具页面)" IsChecked="{Binding ShortTimeInfo}" />
+        <CheckBox Grid.Row="6" Grid.Column="1" Content="(需重新进入工具页面)" IsChecked="{Binding  SendAndReceiveSettingVM.ShortTimeInfo}" />
     </Grid>
 </Window>

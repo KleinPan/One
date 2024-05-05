@@ -84,13 +84,13 @@
 
                     <CheckBox Content="RTS" IsChecked="{Binding SerialportUISetting.SerialportParams.RtsEnable}" />
                     <CheckBox Content="DTR" IsChecked="{Binding SerialportUISetting.SerialportParams.DtrEnable}" />
-                    <CheckBox Content="{DynamicResource HexShow}" IsChecked="{Binding SerialportUISetting.HexShow}" />
+                    <CheckBox Content="{DynamicResource HexShow}" IsChecked="{Binding SerialportUISetting.SendAndReceiveSettingVM.HexShow}" />
 
                     <!--<CheckBox Content="{DynamicResource ShowSymbol}" IsChecked="{Binding SerialportUISetting.EnableSymbol}" ToolTip="{DynamicResource ShowSymbolTooltip}" />-->
 
-                    <CheckBox HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.HexSend}" />
+                    <CheckBox HorizontalAlignment="Right" Content="{DynamicResource HexSendMode}" IsChecked="{Binding SerialportUISetting.SendAndReceiveSettingVM.HexSend}" />
 
-                    <CheckBox Content="{DynamicResource AddExtraEnter}" IsChecked="{Binding SerialportUISetting.WithExtraEnter}" />
+                    <CheckBox Content="{DynamicResource AddExtraEnter}" IsChecked="{Binding SerialportUISetting.SendAndReceiveSettingVM.WithExtraEnter}" />
 
                     <CheckBox Content="{DynamicResource TimedSend}" IsChecked="{Binding TimedSend}" />
                     <TextBox IsEnabled="{Binding TimedSend, Converter={StaticResource Boolean2BooleanReConverter}}" Style="{StaticResource TextBoxExtend.Small}" Text="{Binding TimedCount}" />
@@ -178,7 +178,8 @@
             </StackPanel>
 
             <!--  中间改变分割大小的东西  -->
-            <GridSplitter Grid.RowSpan="2" Background="{DynamicResource SecondaryRegionBrush}"  Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+            <GridSplitter Grid.RowSpan="2" Grid.Column="1" Width="4" HorizontalAlignment="Stretch"
+                          Background="{DynamicResource SecondaryRegionBrush}" />
 
             <!--  右侧脚本、快捷发送  -->
             <ScrollViewer Grid.Column="2" Grid.IsSharedSizeScope="True" VerticalScrollBarVisibility="Auto">
@@ -227,7 +228,8 @@
                         </Grid.ColumnDefinitions>
                         <Button Margin="3" HorizontalAlignment="Center" Command="{Binding AddQuickSendItemCommand}" Content="{DynamicResource QuickSendAdd}" />
                         <Button Name="deleteSendListButton" Grid.Column="1" Margin="3" HorizontalAlignment="Center"
-                                Content="{DynamicResource QuickSendRemoveLast}" Command="{Binding DeleteLastCommand}" />
+                                Command="{Binding DeleteLastCommand}"
+                                Content="{DynamicResource QuickSendRemoveLast}" />
                     </Grid>
                 </StackPanel>
             </ScrollViewer>

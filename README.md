@@ -70,8 +70,6 @@
 ### 网络工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
 
-### 文本工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Note.png?raw=true)
 
 ### 便签工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Stick.png?raw=true)

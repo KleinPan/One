@@ -36,7 +36,7 @@
     项目采用MVVM架构开发，Dotnet版本为8.0。
 
     欢迎使用跨平台版本 Avalonia.One
-    https://github.com/KleinPan/Avalonia.One
+  https://github.com/KleinPan/Avalonia.One
 
 #### 主要使用到的第三方库如下
     * CommunityToolkit.Mvvm

@@ -31,7 +31,6 @@ public partial class MainWindowVM : BaseVM
         InitializeViewModel();
 
         //ConfigHelper.Instance.LoadLocalDefaultSetting();
-        
     }
 
     private new void InitializeViewModel()
@@ -71,13 +70,7 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.Network.NetworklPage),
                 Content = new NetworklPage(),
             },
-            new MainMenuItemVM()
-            {
-                Header = "NotePad",
-                Icon = ResourceHelper.Dic["EditNoteFilled"],
-                //TargetPageType = typeof(Views.NotePad.NotePadPage),
-                Content = new Views.NotePad.NotePadPage(),
-            },
+
             new MainMenuItemVM()
             {
                 Header = "Stick",

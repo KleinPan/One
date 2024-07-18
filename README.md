@@ -35,6 +35,9 @@
 
     项目采用MVVM架构开发，Dotnet版本为8.0。
 
+    欢迎使用跨平台版本 Avalonia.One
+  https://github.com/KleinPan/Avalonia.One
+
 #### 主要使用到的第三方库如下
     * CommunityToolkit.Mvvm
     * HandyControl
@@ -67,8 +70,6 @@
 ### 网络工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Net.jpg?raw=true)
 
-### 文本工具
-![image](https://github.com/KleinPan/One/blob/master/docs/Note.png?raw=true)
 
 ### 便签工具
 ![image](https://github.com/KleinPan/One/blob/master/docs/Stick.png?raw=true)

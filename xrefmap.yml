@@ -557,6 +557,19 @@ references:
   fullName.vb: One.AutoUpdater.UpdateWindow.New
   nameWithType: UpdateWindow.UpdateWindow
   nameWithType.vb: UpdateWindow.New
+- uid: One.AutoUpdater.UpdateWindow.InitializeComponent
+  name: InitializeComponent()
+  href: api/One.AutoUpdater.UpdateWindow.html#One_AutoUpdater_UpdateWindow_InitializeComponent
+  commentId: M:One.AutoUpdater.UpdateWindow.InitializeComponent
+  fullName: One.AutoUpdater.UpdateWindow.InitializeComponent()
+  nameWithType: UpdateWindow.InitializeComponent()
+- uid: One.AutoUpdater.UpdateWindow.InitializeComponent*
+  name: InitializeComponent
+  href: api/One.AutoUpdater.UpdateWindow.html#One_AutoUpdater_UpdateWindow_InitializeComponent_
+  commentId: Overload:One.AutoUpdater.UpdateWindow.InitializeComponent
+  isSpec: "True"
+  fullName: One.AutoUpdater.UpdateWindow.InitializeComponent
+  nameWithType: UpdateWindow.InitializeComponent
 - uid: One.AutoUpdater.Utilities
   name: One.AutoUpdater.Utilities
   href: api/One.AutoUpdater.Utilities.html
@@ -1563,6 +1576,19 @@ references:
   commentId: T:One.Control.Controls.MessageBox.PopUpMessageBox
   fullName: One.Control.Controls.MessageBox.PopUpMessageBox
   nameWithType: PopUpMessageBox
+- uid: One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent
+  name: InitializeComponent()
+  href: api/One.Control.Controls.MessageBox.PopUpMessageBox.html#One_Control_Controls_MessageBox_PopUpMessageBox_InitializeComponent
+  commentId: M:One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent
+  fullName: One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent()
+  nameWithType: PopUpMessageBox.InitializeComponent()
+- uid: One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent*
+  name: InitializeComponent
+  href: api/One.Control.Controls.MessageBox.PopUpMessageBox.html#One_Control_Controls_MessageBox_PopUpMessageBox_InitializeComponent_
+  commentId: Overload:One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent
+  isSpec: "True"
+  fullName: One.Control.Controls.MessageBox.PopUpMessageBox.InitializeComponent
+  nameWithType: PopUpMessageBox.InitializeComponent
 - uid: One.Control.Controls.MessageBox.PopUpMessageBox.Message
   name: Message
   href: api/One.Control.Controls.MessageBox.PopUpMessageBox.html#One_Control_Controls_MessageBox_PopUpMessageBox_Message
@@ -8717,6 +8743,32 @@ references:
   commentId: T:ZipExtractor.App
   fullName: ZipExtractor.App
   nameWithType: App
+- uid: ZipExtractor.App.InitializeComponent
+  name: InitializeComponent()
+  href: api/ZipExtractor.App.html#ZipExtractor_App_InitializeComponent
+  commentId: M:ZipExtractor.App.InitializeComponent
+  fullName: ZipExtractor.App.InitializeComponent()
+  nameWithType: App.InitializeComponent()
+- uid: ZipExtractor.App.InitializeComponent*
+  name: InitializeComponent
+  href: api/ZipExtractor.App.html#ZipExtractor_App_InitializeComponent_
+  commentId: Overload:ZipExtractor.App.InitializeComponent
+  isSpec: "True"
+  fullName: ZipExtractor.App.InitializeComponent
+  nameWithType: App.InitializeComponent
+- uid: ZipExtractor.App.Main
+  name: Main()
+  href: api/ZipExtractor.App.html#ZipExtractor_App_Main
+  commentId: M:ZipExtractor.App.Main
+  fullName: ZipExtractor.App.Main()
+  nameWithType: App.Main()
+- uid: ZipExtractor.App.Main*
+  name: Main
+  href: api/ZipExtractor.App.html#ZipExtractor_App_Main_
+  commentId: Overload:ZipExtractor.App.Main
+  isSpec: "True"
+  fullName: ZipExtractor.App.Main
+  nameWithType: App.Main
 - uid: ZipExtractor.MainWindow
   name: MainWindow
   href: api/ZipExtractor.MainWindow.html
@@ -8742,3 +8794,16 @@ references:
   fullName.vb: ZipExtractor.MainWindow.New
   nameWithType: MainWindow.MainWindow
   nameWithType.vb: MainWindow.New
+- uid: ZipExtractor.MainWindow.InitializeComponent
+  name: InitializeComponent()
+  href: api/ZipExtractor.MainWindow.html#ZipExtractor_MainWindow_InitializeComponent
+  commentId: M:ZipExtractor.MainWindow.InitializeComponent
+  fullName: ZipExtractor.MainWindow.InitializeComponent()
+  nameWithType: MainWindow.InitializeComponent()
+- uid: ZipExtractor.MainWindow.InitializeComponent*
+  name: InitializeComponent
+  href: api/ZipExtractor.MainWindow.html#ZipExtractor_MainWindow_InitializeComponent_
+  commentId: Overload:ZipExtractor.MainWindow.InitializeComponent
+  isSpec: "True"
+  fullName: ZipExtractor.MainWindow.InitializeComponent
+  nameWithType: MainWindow.InitializeComponent

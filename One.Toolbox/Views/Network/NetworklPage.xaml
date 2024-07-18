@@ -173,7 +173,7 @@
                             Margin="2,2" hc:InfoElement.Necessary="True" hc:InfoElement.Title="Remote Address"
                             hc:InfoElement.TitlePlacement="Left" DockPanel.Dock="Left" IsEditable="True"
                             ItemsSource="{Binding RemoteIpList}"
-                            SelectedIndex="0" ShowClearButton="True"
+                            SelectedIndex="0" hc:InfoElement.ShowClearButton="True"
                             Text="{Binding RemoteSelectedIP}" />
                     </DockPanel>
                     <DockPanel  Grid.Row="1" Grid.ColumnSpan="2">

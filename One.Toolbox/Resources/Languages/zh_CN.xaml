@@ -215,5 +215,5 @@
     <system:String x:Key="ShortTimeInfo">显示短时间</system:String>
     <system:String x:Key="OpenMainWindow">打开面板</system:String>
     <system:String x:Key="ShutdownApp">关闭程序</system:String>
-    
+
 </ResourceDictionary>

@@ -54,7 +54,15 @@ namespace One.Toolbox.Services
             {
                 var text = File.ReadAllText(fullPath);
 
-                AllConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<AllConfigModel>(text);
+                if (string.IsNullOrEmpty(text))
+                {
+                    InitDefaultData();
+                }
+                else
+                {
+                    AllConfig = Newtonsoft.Json.JsonConvert.DeserializeObject<AllConfigModel>(text);
+                }
+              
             }
             catch (Exception)
             {

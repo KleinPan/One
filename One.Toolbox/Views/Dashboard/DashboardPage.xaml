@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-           
+
         </Grid.RowDefinitions>
         <Border Style="{StaticResource BorderRegion}">
             <ScrollViewer>
@@ -53,10 +53,10 @@
                                     </StackPanel>
                                 </StackPanel>
                                 <TextBlock Margin="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="10"
-                         Foreground="#57FFFFFF" Text="Created by pwb" />
+                                           Foreground="#57FFFFFF" Text="Created by pwb" />
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0"
-                      Command="{Binding TestCommand}"
-                      Visibility="Visible" />
+                                        Command="{Binding TestCommand}"
+                                        Visibility="Visible" />
                             </Grid>
                         </Border>
                     </Border>
@@ -104,10 +104,10 @@
 
         <StatusBar Grid.Row="1">
             <StatusBarItem>
-                <TextBlock Text="{Binding CurrentUseIP,StringFormat={}LocalIP: {0}}"></TextBlock>
+                <TextBlock Text="{Binding CurrentUseIP, StringFormat={}LocalIP: {0}}" />
 
             </StatusBarItem>
         </StatusBar>
     </Grid>
-   
+
 </UserControl>

@@ -43,13 +43,14 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.3.2" />
+    <PackageReference Include="NLog" Version="5.3.3" />
 
-    <PackageReference Include="RestSharp" Version="111.4.0" />
+    <PackageReference Include="RestSharp" Version="111.4.1" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="System.Management" Version="8.0.0" />
-	<PackageReference Include="Vanara.PInvoke.Security" Version="4.0.2" />
-    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.2" />
+    <PackageReference Include="Vanara.PInvoke.RstrtMgr" Version="4.0.3" />
+	<PackageReference Include="Vanara.PInvoke.Security" Version="4.0.3" />
+    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.3" />
     <PackageReference Include="WebDav.Client" Version="2.8.0" />
   </ItemGroup>
 
@@ -84,6 +85,10 @@
 
   <ItemGroup>
     <Resource Include="Resources\pexels-johannes-plenio-1103970.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\FileMonitor\" />
   </ItemGroup>
 
 </Project>

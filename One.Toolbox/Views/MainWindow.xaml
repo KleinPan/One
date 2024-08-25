@@ -117,8 +117,8 @@
                     <behaviors:InvokeCommandAction Command="{Binding PushMainWindow2TopCommand}" />
                 </behaviors:EventTrigger>
             </behaviors:Interaction.Triggers>
-            <hc:NotifyIcon.ContextMenu  >
-                <ContextMenu  Width="150" >
+            <hc:NotifyIcon.ContextMenu>
+                <ContextMenu Width="150">
                     <MenuItem Command="{Binding PushMainWindow2TopCommand}" Header="{DynamicResource OpenMainWindow}" />
                     <MenuItem Command="{Binding ExitAppCommand}" Header="{DynamicResource ShutdownApp}" />
                 </ContextMenu>

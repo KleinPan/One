@@ -6,3 +6,5 @@ PostMessage
 GetWindowThreadProcessId
 GetForegroundWindow
 AttachThreadInput
+
+ 

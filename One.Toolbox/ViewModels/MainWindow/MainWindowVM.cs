@@ -92,7 +92,13 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.NetSpeed.NetSpeedPage(),
             },
-
+            new()
+            {
+                Header = "FileMonitor",
+                Icon = ResourceHelper.Dic["File"],
+                //TargetPageType = typeof(Views.NotePad.NotePadPage),
+                Content = new Views.FileMonitor.FileMonitorPage(),
+            },
             //NavigationItems.Add(new MainMenuItemViewModel()
             //{
             //    Header = "LotteryDraw",

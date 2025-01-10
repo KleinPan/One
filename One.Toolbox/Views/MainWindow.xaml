@@ -74,7 +74,7 @@
                             <Path HorizontalAlignment="Center"
                                   Data="{Binding Icon}"
                                   Fill="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=Foreground}"
-                                  RenderTransformOrigin="0.5,0.5" Stroke="Gray" StrokeThickness="1"
+                                  Stroke="Gray" StrokeThickness="1"
                                   ToolTip="{Binding Header}" />
                             <!--<TextBlock Name="text1" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Header}" />-->
                         </Grid>

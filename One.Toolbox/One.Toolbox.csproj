@@ -9,7 +9,7 @@
 	<SelfContained>false</SelfContained>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	<Version>2.8.7</Version>
+	<Version>2.9.0</Version>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<SatelliteResourceLanguages>zh-Hans;en-us</SatelliteResourceLanguages>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -33,24 +33,24 @@
 
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="HandyControl" Version="3.5.1" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc2" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.5" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.106">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.3.3" />
+    <PackageReference Include="NLog" Version="5.3.4" />
 
-    <PackageReference Include="RestSharp" Version="111.4.1" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="System.Management" Version="8.0.0" />
-    <PackageReference Include="Vanara.PInvoke.RstrtMgr" Version="4.0.3" />
-	<PackageReference Include="Vanara.PInvoke.Security" Version="4.0.3" />
-    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.3" />
+    <PackageReference Include="Vanara.PInvoke.RstrtMgr" Version="4.0.4" />
+	<PackageReference Include="Vanara.PInvoke.Security" Version="4.0.4" />
+    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.4" />
     <PackageReference Include="WebDav.Client" Version="2.8.0" />
   </ItemGroup>
 
@@ -64,6 +64,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FileMonitor\FileMonitorPage.xaml.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NetSpeed\NetSpeedPage.xaml.cs">
       <SubType>Code</SubType>
@@ -85,10 +88,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\pexels-johannes-plenio-1103970.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\FileMonitor\" />
   </ItemGroup>
 
 </Project>

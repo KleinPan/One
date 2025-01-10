@@ -16,13 +16,15 @@ using System.Windows.Threading;
 
 namespace One.Toolbox
 {
-    /// <summary> App.xaml 的交互逻辑 </summary>
+    /// <summary>App.xaml 的交互逻辑</summary>
     public partial class App : Application
     {
-        /// <summary> Gets the current <see cref="App"/> instance in use </summary>
+        /// <summary>Gets the current <see cref="App"/> instance in use</summary>
         public new static App Current => (App)Application.Current;
 
-        /// <summary> Gets the <see cref="IServiceProvider"/> instance to resolve application services. </summary>
+        /// <summary>
+        /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
+        /// </summary>
         public IServiceProvider Services { get; }
 
         public App()
@@ -42,7 +44,7 @@ namespace One.Toolbox
             base.OnExit(e);
         }
 
-        /// <summary> Configures the services for the application. </summary>
+        /// <summary>Configures the services for the application.</summary>
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
@@ -74,6 +76,7 @@ namespace One.Toolbox
 
             services.AddSingleton<ViewModels.BingImage.BingImagePageVM>();
             services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawPageVM>();
+            services.AddSingleton<ViewModels.FileMonitor.FileMonitorPageVM>();
 
             //Services
             services.AddSingleton<Services.SettingService>();
@@ -99,7 +102,7 @@ namespace One.Toolbox
 
         #region Exception
 
-        /// <summary> Occurs when an exception is thrown by an application but not handled. </summary>
+        /// <summary>Occurs when an exception is thrown by an application but not handled.</summary>
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             // For more info see https://docs.microsoft.com/en-us/dotnet/api/system.windows.application.dispatcherunhandledexception?view=windowsdesktop-6.0

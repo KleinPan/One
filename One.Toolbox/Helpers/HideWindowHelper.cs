@@ -1,17 +1,18 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Timers;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-using Timer = System.Windows.Forms.Timer;
+ 
 
 namespace One.Toolbox.Helpers;
 
 internal partial class HideWindowHelper
 {
     private readonly Window _window;
-    private readonly Timer _timer;
+    private readonly System.Timers.Timer _timer;
     private readonly List<HideCore> _hideLogicList = new List<HideCore>();
 
     [LibraryImport("user32.dll")]
@@ -39,8 +40,65 @@ internal partial class HideWindowHelper
     {
         _window = window;
 
-        _timer = new Timer { Interval = 300 };
-        _timer.Tick += _timer_Tick;
+        _timer = new  System.Timers. Timer { Interval = 300 };
+        _timer.Elapsed += _timer_Elapsed;
+        _timer.AutoReset = true;
+        _timer.Enabled = true;
+    }
+
+    private void _timer_Elapsed(object? sender, ElapsedEventArgs e)
+    {
+
+        App.Current.Dispatcher.Invoke(() =>
+        {
+            if (_isInAnimation) return;
+            if (_window.IsActive) return;
+            GetCursorPos(out var point); //获取鼠标相对桌面的位置
+            var isMouseEnter = point.X >= _window.Left
+                               && point.X <= _window.Left + _window.Width + 30
+                               && point.Y >= _window.Top
+                               && point.Y <= _window.Top
+                               + _window.Height + 30;
+            //鼠标在里面
+            if (isMouseEnter)
+            {
+                //没有隐藏，直接返回
+                if (!_isHide) return;
+
+                //理论上不会出现为null的情况
+                if (_lastHiderOn != null)
+                {
+                    _lastHiderOn.Show();
+                    _isHide = false;
+                    _window.ShowInTaskbar = true;
+                    return;
+                }
+            }
+
+            foreach (var core in _hideLogicList)
+            {
+                //鼠标在里面并且没有隐藏
+                if (isMouseEnter && !_isHide) return;
+
+                //鼠标在里面并且当期是隐藏状态且当前处理器成功显示了窗体
+                if (isMouseEnter && _isHide && core.Show())
+                {
+                    _isHide = false;
+                    _window.ShowInTaskbar = true;
+                    return;
+                }
+
+                //鼠标在外面并且没有隐藏，那么调用当前处理器尝试隐藏窗体
+                if (!isMouseEnter && !_isHide && core.Hide())
+                {
+                    _lastHiderOn = core;
+                    _isHide = true;
+                    _window.ShowInTaskbar = false;
+                    return;
+                }
+            }
+        });
+       
     }
 
     public HideWindowHelper AddHider<THideCore>() where THideCore : HideCore, new()
@@ -51,57 +109,7 @@ internal partial class HideWindowHelper
         _hideLogicList.Add(logic);
         return this;
     }
-
-    private void _timer_Tick(object sender, EventArgs e)
-    {
-        if (_isInAnimation) return;
-        if (_window.IsActive) return;
-        GetCursorPos(out var point); //获取鼠标相对桌面的位置
-        var isMouseEnter = point.X >= _window.Left
-                           && point.X <= _window.Left + _window.Width + 30
-                           && point.Y >= _window.Top
-                           && point.Y <= _window.Top
-                           + _window.Height + 30;
-        //鼠标在里面
-        if (isMouseEnter)
-        {
-            //没有隐藏，直接返回
-            if (!_isHide) return;
-
-            //理论上不会出现为null的情况
-            if (_lastHiderOn != null)
-            {
-                _lastHiderOn.Show();
-                _isHide = false;
-                _window.ShowInTaskbar = true;
-                return;
-            }
-        }
-
-        foreach (var core in _hideLogicList)
-        {
-            //鼠标在里面并且没有隐藏
-            if (isMouseEnter && !_isHide) return;
-
-            //鼠标在里面并且当期是隐藏状态且当前处理器成功显示了窗体
-            if (isMouseEnter && _isHide && core.Show())
-            {
-                _isHide = false;
-                _window.ShowInTaskbar = true;
-                return;
-            }
-
-            //鼠标在外面并且没有隐藏，那么调用当前处理器尝试隐藏窗体
-            if (!isMouseEnter && !_isHide && core.Hide())
-            {
-                _lastHiderOn = core;
-                _isHide = true;
-                _window.ShowInTaskbar = false;
-                return;
-            }
-        }
-    }
-
+ 
     private void AnimationReport(bool isInAnimation)
     {
         _isInAnimation = isInAnimation;
@@ -226,14 +234,19 @@ internal class HideOnLeft : HideCore
 
 internal class HideOnRight : HideCore
 {
-    private readonly int _screenWidth;
+    private readonly double _screenWidth;
 
     public HideOnRight()
     {
-        foreach (var screen in Screen.AllScreens)
-        {
-            _screenWidth += screen.Bounds.Width;
-        }
+
+        _screenWidth = SystemParameters.PrimaryScreenWidth;
+
+        var aa= SystemParameters.WorkArea.Size.Width;
+       
+        //foreach (var screen in Screen.AllScreens)
+        //{
+        //    _screenWidth += screen.Bounds.Width;
+        //}
     }
 
     public override bool Show()

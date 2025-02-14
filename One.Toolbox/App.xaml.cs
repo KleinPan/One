@@ -1,8 +1,5 @@
 using CommunityToolkit.Mvvm.Messaging;
 
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 
 using One.Toolbox.Messenger;
@@ -73,8 +70,7 @@ namespace One.Toolbox
             services.AddSingleton<ViewModels.Network.NetworkPageVM>();
 
             services.AddSingleton<ViewModels.Setting.CloudSettingsVM>();
-
-            services.AddSingleton<ViewModels.BingImage.BingImagePageVM>();
+ 
             services.AddSingleton<ViewModels.LotteryDraw.LotteryDrawPageVM>();
             services.AddSingleton<ViewModels.FileMonitor.FileMonitorPageVM>();
 
@@ -93,11 +89,7 @@ namespace One.Toolbox
 
         private void InitDataColelection()
         {
-            var countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
-            AppCenter.SetCountryCode(countryCode);
-
-            AppCenter.Start("fc53b46a-1bc7-4f67-8382-2f96c799223f",
-               typeof(Analytics), typeof(Crashes));
+            
         }
 
         #region Exception

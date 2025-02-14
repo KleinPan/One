@@ -38,10 +38,12 @@ namespace One.Toolbox.Views
 
         private void ResizeAndRelocate()
         {
-            Screen screen = Screen.PrimaryScreen;
+            //Screen screen = Screen.PrimaryScreen;
+            
+
             // 获取屏幕的宽度和高度
-            int screenWidth = screen.Bounds.Width;
-            int screenHeight = screen.Bounds.Height;
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight; 
             Console.WriteLine("屏幕宽度：" + screenWidth);
             Console.WriteLine("屏幕高度：" + screenHeight);
 

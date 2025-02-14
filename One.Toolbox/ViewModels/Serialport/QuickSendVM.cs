@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-using One.Core.Helpers.DataProcessHelpers;
+using One.Base.Helpers.DataProcessHelpers;
 using One.Toolbox.Helpers;
 
 namespace One.Toolbox.ViewModels.Serialport;
@@ -10,14 +10,14 @@ public partial class QuickSendVM : ObservableObject
     [ObservableProperty]
     private int _id;
 
-    /// <summary> 发送内容 </summary>
+    /// <summary>发送内容</summary>
     [ObservableProperty]
     private string _text;
 
     [ObservableProperty]
     private bool _hex;
 
-    /// <summary> 按钮内容 </summary>
+    /// <summary>按钮内容</summary>
     [ObservableProperty]
     private string _commit;
 

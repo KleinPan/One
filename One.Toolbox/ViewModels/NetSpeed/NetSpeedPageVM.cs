@@ -2,7 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-using One.Core.ExtensionMethods;
+using One.Base.ExtensionMethods;
 using One.Toolbox.Messenger;
 using One.Toolbox.Services;
 using One.Toolbox.ViewModels.Base;
@@ -32,7 +32,9 @@ public partial class NetSpeedPageVM : BaseVM
     {
         WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
         {
-            // Handle the message here, with r being the recipient and m being the input message. Using the recipient passed as input makes it so that the lambda expression doesn't capture "this", improving performance.
+            // Handle the message here, with r being the recipient and m being the input message.
+            // Using the recipient passed as input makes it so that the lambda expression doesn't
+            // capture "this", improving performance.
 
             SaveSetting();
         });
@@ -41,7 +43,8 @@ public partial class NetSpeedPageVM : BaseVM
 
         foreach (var item in interfaces)
         {
-            if (!item.OperationalStatus.Equals(OperationalStatus.Up) || item.NetworkInterfaceType == NetworkInterfaceType.Loopback)
+            
+            if (!item.OperationalStatus.Equals(OperationalStatus.Up) || item.NetworkInterfaceType == NetworkInterfaceType.Loopback|| item.Speed==-1)
             {
                 WriteDebugLog($"Net interface {ToString()} is {item.OperationalStatus}");
                 continue;

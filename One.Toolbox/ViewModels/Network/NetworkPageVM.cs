@@ -2,8 +2,9 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-using One.Core.Helpers.DataProcessHelpers;
-using One.Core.Helpers.NetHelpers;
+using One.Base.Helpers.DataProcessHelpers;
+using One.Base.Helpers.NetHelpers;
+
 using One.Toolbox.Component;
 using One.Toolbox.Enums;
 using One.Toolbox.Helpers;
@@ -76,7 +77,6 @@ public partial class NetworkPageVM : BaseShowViewModel
         asyncTCPClient.SendAction += ShowSendMessage;
         asyncTCPClient.OnConnected += ShowInfoAction;
         asyncTCPClient.OnDisConnected += ShowInfoAction;
-        asyncTCPClient.OnConnectedBool += AsyncTCPClient_OnConnectedBool;
 
         asyncTCPServer = new AsyncTCPServer(WriteDebugLog);
         asyncTCPServer.ReceiveAction += ShowServerReceiveAction;
@@ -161,24 +161,13 @@ public partial class NetworkPageVM : BaseShowViewModel
         var msg = System.Text.Encoding.UTF8.GetString(data);
 
         ShowData(msg, null, true);
+
+        Changeable = false;
     }
 
     private void ShowServerReceiveAction(string title, byte[] data)
     {
         ShowData(title, data, false);
-    }
-
-    private void AsyncTCPClient_OnConnectedBool(bool obj)
-    {
-        IsConnected = obj;
-        if (IsConnected)
-        {
-            Changeable = false;
-        }
-        else
-        {
-            Changeable = true;
-        }
     }
 
     #endregion Callback
@@ -229,7 +218,7 @@ public partial class NetworkPageVM : BaseShowViewModel
 
                     //s = new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-                    asyncTCPClient.Connect(ip, int.Parse(InputPort));
+                    asyncTCPClient.InitClient(ip, int.Parse(InputPort));
                     break;
 
                 case CommunProtocalType.TCP_Server:
@@ -468,7 +457,7 @@ public partial class NetworkPageVM : BaseShowViewModel
         SaveSetting();
     }
 
-    /// <summary> 刷新本机ip列表 </summary>
+    /// <summary>刷新本机ip列表</summary>
     [RelayCommand]
     private void RefreshIp()
     {
@@ -516,9 +505,9 @@ public partial class NetworkPageVM : BaseShowViewModel
 
     #endregion Setting
 
-    /// <summary> 获取客户端的名字 </summary>
-    /// <param name="s"> </param>
-    /// <returns> </returns>
+    /// <summary>获取客户端的名字</summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     private string GetClientName(Socket s)
     {
         var remote = (IPEndPoint)s.RemoteEndPoint;

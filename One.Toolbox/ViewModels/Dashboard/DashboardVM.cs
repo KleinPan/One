@@ -1,4 +1,6 @@
-﻿using One.Toolbox.ViewModels.Base;
+﻿using One.Base.Helpers;
+using One.Base.Helpers.NetHelpers;
+using One.Toolbox.ViewModels.Base;
 
 using RestSharp;
 
@@ -37,11 +39,11 @@ public partial class DashboardVM : BaseVM
     {
         //https://blog.cool2645.com/posts/csruanjianjiaxul/
         //https://m.xp.cn/b.php/92230.html
-        var regTime = One.Core.Helpers.RegistryHelper.ReadSetting("Toolbox", "FirstRun", "");
+        var regTime = RegistryHelper.ReadSetting("Toolbox", "FirstRun", "");
         if (string.IsNullOrEmpty(regTime))
         {
             var first = DateTime.Now.ToString("u");
-            One.Core.Helpers.RegistryHelper.WriteKey("Toolbox", "FirstRun", first);
+            RegistryHelper.WriteKey("Toolbox", "FirstRun", first);
         }
         else
         {
@@ -99,7 +101,7 @@ public partial class DashboardVM : BaseVM
 
     private void GetCurrentUseIP()
     {
-        CurrentUseIP = One.Core.Helpers.NetHelpers.NetHelper.GetLocalIP();
+        CurrentUseIP = NetHelper.GetLocalIP();
     }
 
     #endregion StatusBar

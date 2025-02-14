@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
+using One.Base.Helpers;
 using One.Control.Controls.RichTextboxEx;
 using One.Core.Helpers;
 using One.Toolbox.Helpers;

@@ -78,13 +78,7 @@ public partial class MainWindowVM : BaseVM
                 //TargetPageType = typeof(Views.NotePad.NotePadPage),
                 Content = new Views.Stick.StickPage(),
             },
-            new()
-            {
-                Header = "EveryImage",
-                Icon = ResourceHelper.Dic["ImageArea"],
-                //TargetPageType = typeof(Views.NotePad.NotePadPage),
-                Content = new Views.BingImage.BingImagePage(),
-            },
+
              new()
             {
                 Header = "NetSpeed",

@@ -25,13 +25,15 @@ namespace One.Toolbox.Tools
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show(
-                    s,
-                    "Notice",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    System.Windows.Forms.MessageBoxOptions.ServiceNotification);
+                
+                MessageBox.Show(s); 
+                //System.Windows.Forms.MessageBox.Show(
+                //    s,
+                //    "Notice",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Information,
+                //    MessageBoxDefaultButton.Button1,
+                //    System.Windows.Forms.MessageBoxOptions.ServiceNotification);
             }
         }
     }

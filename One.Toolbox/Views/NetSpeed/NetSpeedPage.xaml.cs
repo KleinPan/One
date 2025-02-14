@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-using One.Toolbox.ViewModels.BingImage;
 using One.Toolbox.ViewModels.NetSpeed;
 
 using System.Windows.Controls;

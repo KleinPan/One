@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0-windows</TargetFramework>
 		<PackageTags>C#,.Net Core,WPF</PackageTags>
 		<UseWPF>true</UseWPF>
+		<TargetFramework>net9.0-windows</TargetFramework>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>BranPan</Authors>
 		<Company />
@@ -30,8 +30,8 @@
 		<Page Remove="Resources\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
-		<PackageReference Include="System.Drawing.Common" Version="8.0.7" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+		<PackageReference Include="System.Drawing.Common" Version="9.0.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Controls\MonthView\" />

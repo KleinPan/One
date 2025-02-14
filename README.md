@@ -75,6 +75,7 @@
 ![image](https://github.com/KleinPan/One/blob/master/docs/Stick.png?raw=true)
 
 ### Bing壁纸
+已移动到 Avalonia.One 项目
 ![image](https://github.com/KleinPan/One/blob/master/docs/BingImage.jpg?raw=true)
 
 

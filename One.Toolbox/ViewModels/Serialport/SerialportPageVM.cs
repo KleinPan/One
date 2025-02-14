@@ -2,8 +2,8 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-using One.Core.ExtensionMethods;
-using One.Core.Helpers.DataProcessHelpers;
+using One.Base.ExtensionMethods;
+using One.Base.Helpers.DataProcessHelpers;
 using One.Toolbox.Component;
 using One.Toolbox.Helpers;
 using One.Toolbox.Messenger;

@@ -47,7 +47,7 @@ public partial class SerialportPageVM : BaseShowViewModel
 
     internal SerialPortComponent serialPortHelper { get; set; }
 
-    /// <summary> 快捷发送列表 </summary>
+    /// <summary>快捷发送列表</summary>
     public ObservableCollection<QuickSendVM> QuickSendList { get; set; } = new ObservableCollection<QuickSendVM>();
 
     #region 界面显示
@@ -72,7 +72,7 @@ public partial class SerialportPageVM : BaseShowViewModel
 
     #region 定时发送
 
-    /// <summary> 定时发送 </summary>
+    /// <summary>定时发送</summary>
     [ObservableProperty]
     private bool timedSend;
 
@@ -103,7 +103,8 @@ public partial class SerialportPageVM : BaseShowViewModel
 
         WeakReferenceMessenger.Default.Register<CloseMessage>(this, (r, m) =>
         {
-            // Handle the message here, with r being the recipient and m being the input message. Using the recipient passed as input makes it so that the lambda expression doesn't capture "this", improving performance.
+            // Handle the message here, with r being the recipient and m being the input message. Using the recipient passed as input makes it so that the lambda expression doesn't capture "this",
+            // improving performance.
 
             SaveSetting();
         });
@@ -175,7 +176,7 @@ public partial class SerialportPageVM : BaseShowViewModel
         SaveSetting();
     }
 
-    /// <summary> 刷新设备列表 </summary>
+    /// <summary>刷新设备列表</summary>
     [RelayCommand]
     private void RefreshPortList(string lastPort = null)
     {
@@ -256,9 +257,9 @@ public partial class SerialportPageVM : BaseShowViewModel
         SendUartData(data);
     }
 
-    /// <summary> 定时发送 </summary>
-    /// <param name="value"> </param>
-    /// <exception cref="NotImplementedException"> </exception>
+    /// <summary>定时发送</summary>
+    /// <param name="value"></param>
+    /// <exception cref="NotImplementedException"></exception>
     partial void OnTimedSendChanged(bool value)
     {
         if (value)
@@ -338,7 +339,7 @@ public partial class SerialportPageVM : BaseShowViewModel
 
     #endregion Command
 
-    /// <summary> 是否正在打开端口 </summary>
+    /// <summary>是否正在打开端口</summary>
     private bool isOpeningPort = false;
 
     private void OpenPort()
@@ -415,8 +416,8 @@ public partial class SerialportPageVM : BaseShowViewModel
         }
     }
 
-    /// <summary> 发串口数据 </summary>
-    /// <param name="data"> </param>
+    /// <summary>发串口数据</summary>
+    /// <param name="data"></param>
     private void SendUartData(byte[] data)
     {
         if (serialPortHelper.IsOpen())

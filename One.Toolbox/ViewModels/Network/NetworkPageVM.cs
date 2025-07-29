@@ -122,6 +122,8 @@ public partial class NetworkPageVM : BaseShowViewModel
                     App.Current.Dispatcher.Invoke(() =>
                     {
                         RemoteIpList.Add(arg2);
+
+                        RemoteSelectedIP = arg2;
                     });
                 }
 
@@ -479,6 +481,12 @@ public partial class NetworkPageVM : BaseShowViewModel
         catch { }
         //去重
         temp.Distinct().ToList().ForEach(ip => IpList.Add(ip));
+    }
+
+    [RelayCommand]
+    private void ClearScreen()
+    {
+        flowDocumentHelper.ClearContent();
     }
 
     #endregion Command

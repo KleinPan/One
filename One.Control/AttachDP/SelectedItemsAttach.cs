@@ -2,59 +2,58 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace One.Control.AttachDP
+namespace One.Control.AttachDP;
+
+public class SelectedItemsAttach
 {
-    public class SelectedItemsAttach
+    public static IList GetSelectedItems(DependencyObject obj)
     {
-        public static IList GetSelectedItems(DependencyObject obj)
-        {
-            return (IList)obj.GetValue(SelectedItemsProperty);
-        }
+        return (IList)obj.GetValue(SelectedItemsProperty);
+    }
 
-        public static void SetSelectedItems(DependencyObject obj, IList value)
-        {
-            obj.SetValue(SelectedItemsProperty, value);
-        }
+    public static void SetSelectedItems(DependencyObject obj, IList value)
+    {
+        obj.SetValue(SelectedItemsProperty, value);
+    }
 
-        //Using a DependencyProperty as the backing store for SelectedItems.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SelectedItemsProperty =
-            DependencyProperty.RegisterAttached("SelectedItems", typeof(IList), typeof(SelectedItemsAttach), new PropertyMetadata(OnSelectedItemsChanged));
+    //Using a DependencyProperty as the backing store for SelectedItems.  This enables animation, styling, binding, etc...
+    public static readonly DependencyProperty SelectedItemsProperty =
+        DependencyProperty.RegisterAttached("SelectedItems", typeof(IList), typeof(SelectedItemsAttach), new PropertyMetadata(OnSelectedItemsChanged));
 
-        public static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    public static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var listBox = d as ListBox;
+        if ((listBox != null) && (listBox.SelectionMode == SelectionMode.Multiple))
         {
-            var listBox = d as ListBox;
-            if ((listBox != null) && (listBox.SelectionMode == SelectionMode.Multiple))
+            if (e.OldValue != null)
             {
-                if (e.OldValue != null)
+                listBox.SelectionChanged -= OnlistBoxSelectionChanged;
+            }
+            IList collection = e.NewValue as IList;
+            listBox.SelectedItems.Clear();
+            if (collection != null)
+            {
+                foreach (var item in collection)
                 {
-                    listBox.SelectionChanged -= OnlistBoxSelectionChanged;
+                    listBox.SelectedItems.Add(item);
                 }
-                IList collection = e.NewValue as IList;
-                listBox.SelectedItems.Clear();
-                if (collection != null)
-                {
-                    foreach (var item in collection)
-                    {
-                        listBox.SelectedItems.Add(item);
-                    }
-                    listBox.SelectionChanged += OnlistBoxSelectionChanged;
-                }
+                listBox.SelectionChanged += OnlistBoxSelectionChanged;
             }
         }
+    }
 
-        private static void OnlistBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private static void OnlistBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        IList dataSource = GetSelectedItems(sender as DependencyObject);
+        //添加用户选中的当前项.
+        foreach (var item in e.AddedItems)
         {
-            IList dataSource = GetSelectedItems(sender as DependencyObject);
-            //添加用户选中的当前项.
-            foreach (var item in e.AddedItems)
-            {
-                dataSource.Add(item);
-            }
-            //删除用户取消选中的当前项
-            foreach (var item in e.RemovedItems)
-            {
-                dataSource.Remove(item);
-            }
+            dataSource.Add(item);
+        }
+        //删除用户取消选中的当前项
+        foreach (var item in e.RemovedItems)
+        {
+            dataSource.Remove(item);
         }
     }
 }

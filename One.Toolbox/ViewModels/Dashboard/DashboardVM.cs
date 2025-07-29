@@ -77,6 +77,8 @@ public partial class DashboardVM : BaseVM
         //     new InputInfoVM("dd","ee"),
         //};
         //var res = await DialogHelper.Instance.ShowInputDialog("test", inputInfoVMs);
+
+        var res = HIDInterfaceHelper.GetConnectedDevices(DeviceType.USBDevice);
     }
 
     private static async Task<YiyanAPIM> GetEveryDayYiyan()

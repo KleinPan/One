@@ -35,19 +35,19 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="HandyControl" Version="3.5.1" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.183">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NLog" Version="5.4.0" />
+    <PackageReference Include="NLog" Version="6.0.2" />
 
     <PackageReference Include="RestSharp" Version="112.1.0" />
-    <PackageReference Include="System.IO.Ports" Version="9.0.2" />
-    <PackageReference Include="Vanara.PInvoke.RstrtMgr" Version="4.0.5" />
-	<PackageReference Include="Vanara.PInvoke.Security" Version="4.0.5" />
-    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.5" />
-    <PackageReference Include="WebDav.Client" Version="2.8.0" />
+    <PackageReference Include="System.IO.Ports" Version="9.0.7" />
+    <PackageReference Include="Vanara.PInvoke.RstrtMgr" Version="4.1.6" />
+	<PackageReference Include="Vanara.PInvoke.Security" Version="4.1.6" />
+    <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.1.6" />
+    <PackageReference Include="WebDav.Client" Version="2.9.0" />
   </ItemGroup>
 
   <ItemGroup>
